@@ -24,6 +24,7 @@ This site is mainly to provide a singular resource for the code and links to use
     Overview
     Apps-and-Tools
     Singularity-101
+    Protocols
 
 References:
 ------------
