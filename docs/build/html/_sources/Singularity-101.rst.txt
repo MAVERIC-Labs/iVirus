@@ -32,8 +32,7 @@ Before you begin
 Assuming you want to **develop** Singularity-based container apps...
 
 You need to install Singularity to a machine where you have root/sudo privileges (more below). There's a number of ways
- to do this: `Mac <http://singularity.lbl.gov/install-mac/>`_, `Linux <http://singularity.lbl.gov/install-linux/>`_ and
-`Windows <http://singularity.lbl.gov/install-windows/>`_
+ to do this: `Mac <http://singularity.lbl.gov/install-mac/>`_, `Linux <http://singularity.lbl.gov/install-linux/>`_ and `Windows <http://singularity.lbl.gov/install-windows/>`_
 
 I use a Mac, so installation is a bit more involved. It requires using vagrant to set up and build a VM, then
 connecting to that [linux-based] VM to install Singularity. It's not bad, but I need to keep remembering where I am:

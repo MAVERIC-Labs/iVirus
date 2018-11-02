@@ -83,11 +83,46 @@
 <li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Apps and Tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#the-basics-using-singularity">The Basics: Using Singularity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#quality-control-apps">Quality Control Apps</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#gene-calling">Gene Calling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#assemblers">Assemblers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#viral-analysis">Viral Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#annotations">Annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quality-control-apps">Quality Control Apps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#trimmomatic">Trimmomatic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#btrim">Btrim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scythe">Scythe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sickle">Sickle</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gene-calling">Gene Calling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fraggenescan">FragGeneScan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prodigal">Prodigal</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#assemblers">Assemblers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#soapdenovo">SOAPDenovo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gsassembler-aka-newbler">gsAssembler (aka Newbler)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spades">SPAdes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#idba-ud">IDBA-UD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trinity">Trinity</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#annotations">Annotations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id11">Trinity</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#viral-analysis">Viral Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pcpipe">PCPipe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#virsorter">VIRSorter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vcontact">vConTACT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vcontact-pcs">vConTACT-PCs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vcontact-gene2genome-formerly-known-as-gene2contig">vConTACT-Gene2Genome (formerly known as “Gene2Contig”)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bowtiebatch">BowtieBatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#read2refmapper">Read2RefMapper</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#in-some-stage-of-development">In some stage of development</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gaas-genome-abundance-and-average-size">GAAS (Genome Abundance and Average Size)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#circonspect">Circonspect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#phaccs-control-in-research-on-contig-spectra">PHACCS (Control In Research on CONtig SPECTra)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Singularity-101.html">Singularity 101</a></li>
@@ -157,7 +192,7 @@
             
   <div class="section" id="apps-and-tools">
 <h1>Apps and Tools<a class="headerlink" href="#apps-and-tools" title="Permalink to this headline">¶</a></h1>
-<p>At the center of <em>nearly</em> every app/tool is a singularity container. <a class="reference external" href="https://www.sylabs.io/">Singularity</a>. is a
+<p>At the center of <em>nearly</em> every app/tool is a singularity container. <a class="reference external" href="https://www.sylabs.io/">Singularity</a> is a
 container solution we leverage at iVirus to make delivering apps/tools easier. A tool needs to be built only once,
 and its image can be run on a variety of local compute and HPCs. Not only is this easier on the developer, this lets
 them focus on research as well!</p>
@@ -174,6 +209,13 @@ there’s any mistakes or omissions.</p>
 <div class="section" id="the-basics-using-singularity">
 <h2>The Basics: Using Singularity<a class="headerlink" href="#the-basics-using-singularity" title="Permalink to this headline">¶</a></h2>
 <p>Before you can use any of these apps locally, you’ll need to read <a class="reference internal" href="Singularity-101.html#singularity101"><span class="std std-ref">Singularity 101</span></a>.</p>
+<p>Example: One of the iVirus singularity containers is Prodigal. To build and run this container,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo singularity build Prodigal.simg Prodigal.def
+singularity run Prodigal.simg --help
+</pre></div>
+</div>
+<p>If everything worked out, the final command should pull up Prodigal’s help menu. If it didn’t, you’ll have to do some
+troubleshooting to identify what went wrong.</p>
 </div>
 <div class="section" id="quality-control-apps">
 <h2>Quality Control Apps<a class="headerlink" href="#quality-control-apps" title="Permalink to this headline">¶</a></h2>
@@ -181,9 +223,52 @@ there’s any mistakes or omissions.</p>
 the data going into the assembly (common next step) is of high quality. Poor read quality can result in mis- or
 incorrectly assembled sequences. Most frequently, read data QC involves trimming reads according to their quality
 scores. Although some assemblers do not require QC’d reads, we highly recommend it!</p>
+<div class="section" id="trimmomatic">
+<h3>Trimmomatic<a class="headerlink" href="#trimmomatic" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://de.iplantcollaborative.org/de/?type=apps&amp;app-id=Trimmomatic-0.35.0u1">CyVerse App</a></p>
+<p><strong>Reference</strong>: Bolger, A. M., Lohse, M., &amp; Usadel, B. (2014). Trimmomatic: A flexible trimmer for Illumina Sequence Data. Bioinformatics, btu170.</p>
+<p><strong>Short description</strong>: Identifies adapter sequences in raw sequencing reads and quality filters</p>
+<p><strong>Singularity use</strong></p>
+</div>
+<div class="section" id="btrim">
+<h3>Btrim<a class="headerlink" href="#btrim" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://de.iplantcollaborative.org/de/?type=apps&amp;app-id=18db8b81-b5f8-40b2-bb66-ac834e1180c0">CyVerse App</a></p>
+<p><strong>Reference</strong>: Kong, Y. (2011) Btrim: a fast, lightweight adapter and quality trimming program for next-generation sequencing technologies. Genomics. DOI: 10.1016/j.ygeno.2011.05.009</p>
+<p><strong>Short description</strong>: Trims adapters and low quality regions</p>
+<p><strong>Singularity use</strong></p>
+</div>
+<div class="section" id="scythe">
+<h3>Scythe<a class="headerlink" href="#scythe" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://de.iplantcollaborative.org/de/?type=apps&amp;app-id=3092256b-d9ca-4063-abe6-ac70b761b3dd">CyVerse App</a></p>
+<p><strong>Reference</strong>: Buffalo V. Scythe - A Bayesian adapter trimmer (version 0.994 BETA) [Software]. Available at <a class="reference external" href="https://github.com/vsbuffalo/scythe">https://github.com/vsbuffalo/scythe</a></p>
+<p><strong>Short description</strong>: Identifies contaminating sequences in read data based on a Bayesian approach</p>
+<p><strong>Singularity use</strong></p>
+</div>
+<div class="section" id="sickle">
+<h3>Sickle<a class="headerlink" href="#sickle" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://de.iplantcollaborative.org/de/?type=apps&amp;app-id=68b278f8-d4d6-414d-9a64-b685a7714f7c">CyVerse App</a></p>
+<p><strong>Reference</strong>: Joshi NA, Fass JN. (2011). Sickle: A sliding-window, adaptive, quality-based trimming tool for FastQ files
+(Version 1.33) [Software].  Available at <a class="reference external" href="https://github.com/najoshi/sickle">https://github.com/najoshi/sickle</a>.</p>
+<p><strong>Short description</strong>: Sliding window quality trimmer, designed to be used after Scythe</p>
+<p><strong>Singularity use</strong></p>
+</div>
 </div>
 <div class="section" id="gene-calling">
 <h2>Gene Calling<a class="headerlink" href="#gene-calling" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="fraggenescan">
+<h3>FragGeneScan<a class="headerlink" href="#fraggenescan" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://de.iplantcollaborative.org/de/?type=apps&amp;app-id=FragGeneScan-1.20.0u1">CyVerse App</a></p>
+<p><strong>Reference</strong>: Mina Rho, Haixu Tang, and Yuzhen Ye. FragGeneScan: Predicting Genes in Short and Error-prone Reads. Nucl. Acids Res., 2010 doi: 10.1093/nar/gkq747</p>
+<p><strong>Short description</strong>: FragGeneScan is an application for finding (fragmented) genes in short reads</p>
+<p><strong>Singularity use</strong></p>
+</div>
+<div class="section" id="prodigal">
+<h3>Prodigal<a class="headerlink" href="#prodigal" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://de.iplantcollaborative.org/de/?type=apps&amp;app-id=1c539f4e-66d7-11e5-83be-df5a7324610a">CyVerse App</a></p>
+<p><strong>Reference</strong>: Hyatt, D. Prodigal (2.6.3) [Software]. Available at <a class="reference external" href="https://github.com/hyattpd/Prodigal">https://github.com/hyattpd/Prodigal</a></p>
+<p><strong>Short description</strong>: Fast, reliable protein-coding gene prediction for prokaryotic genomes.</p>
+<p><strong>Singularity use</strong></p>
+</div>
 </div>
 <div class="section" id="assemblers">
 <h2>Assemblers<a class="headerlink" href="#assemblers" title="Permalink to this headline">¶</a></h2>
@@ -193,6 +278,85 @@ De Bruijn graphs (original ref). Assembler selection is dependent on the type of
 vs Illumina vs Pacbio), source material (DNA vs. RNA, eukaryotic vs prokaryotic) and/or sample-specific determinants
 that may have biased the reads (high/low coverage, repetitive sequences, amplification polymerase, etc.). There is
 no “best” assembler, though there are assemblers that perform better with viral metagenomes than others.</p>
+<div class="section" id="soapdenovo">
+<h3>SOAPDenovo<a class="headerlink" href="#soapdenovo" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://de.iplantcollaborative.org/de/?type=apps&amp;app-id=Soapdenovo-2.0.4u4">CyVerse App</a></p>
+<p><strong>Reference</strong>: Luo et al.: SOAPdenovo2: an empirically improved memory-efficient short-read de novo assembler. GigaScience 2012 1:18.</p>
+<p><strong>Short description</strong>: Single-genome assembler tuned for metagenomics.</p>
+<p><strong>Long description</strong>: SOAPdenovo is a novel short-read assembly method that can build a de novo draft assembly for the
+human-sized genomes. The program is specially designed to assemble Illumina GA short reads. It creates new
+opportunities for building reference sequences and carrying out accurate analyses of unexplored genomes in a cost
+effective way. Now the new version is available. SOAPdenovo2, which has the advantage of a new algorithm design that
+reduces memory consumption in graph construction, resolves more repeat regions in contig assembly, increases coverage
+and length in scaffold construction, improves gap closing, and optimizes for large genome. (taken from SOAPDenovo
+website)</p>
+<p><strong>Singularity use</strong></p>
+</div>
+<div class="section" id="gsassembler-aka-newbler">
+<h3>gsAssembler (aka Newbler)<a class="headerlink" href="#gsassembler-aka-newbler" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://de.iplantcollaborative.org/de/?type=apps&amp;app-id=Newbler-stampede-2.6.0u1">CyVerse App</a></p>
+<p><strong>Reference</strong>: Genivaldo, GZ; Silva, Bas E; Dutilh, David; Matthews, Keri; Elkins, Robert; Schmieder, Elizabeth A;
+Dinsdale, Robert A Edwards. “Combining de novo and reference-guided assembly with scaffold_builder”. Source Code
+Biomed Central. 8 (23). doi:10.1186/1751-0473-8-23.</p>
+<p><strong>Short description</strong>: De novo assembly based on overlap-layout-consensus</p>
+<p><strong>Notes on use</strong>: 454 Life Sciences was purchased by Roche in 2007 and shut down in 2013. There haven’t been any
+updates for the software since then, making it an increasingly aging tool.</p>
+<p><strong>Singularity use</strong></p>
+</div>
+<div class="section" id="spades">
+<h3>SPAdes<a class="headerlink" href="#spades" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://de.iplantcollaborative.org/de/?type=apps&amp;app-id=SPAdes-3.6.0u1">CyVerse App</a></p>
+<p><strong>Reference</strong>: Bankevich A., Nurk S., Antipov D., Gurevich A., Dvorkin M., Kulikov A. S., Lesin V., Nikolenko S.,
+Pham S., Prjibelski A., Pyshkin A., Sirotkin A., Vyahhi N., Tesler G., Alekseyev M. A., Pevzner P. A. SPAdes: A New
+Genome Assembly Algorithm and Its Applications to Single-Cell Sequencing. Journal of Computational Biology, 2012</p>
+<p><strong>Short description</strong>: SPAdes – St. Petersburg genome assembler – is an assembly toolkit containing various assembly
+pipelines</p>
+<p><strong>Notes on use</strong>: SPAdes, as with many de Bruijn assemblers, can consume incredibly amounts of memory. In the context
+of viral metagenomics, it’s been known to use 2-3, and upwards of 6 TB of memory (and more if you give it more data!).
+There are multiple implementations on CyVerse using different runtimes and memory allocations. However, if the job will
+take more than 48-hr to run, there’s a good chance it’ll fail on CyVerse. For this, you may want to install it on a big
+memory machine locally.</p>
+<p><strong>Singularity use</strong></p>
+</div>
+<div class="section" id="idba-ud">
+<h3>IDBA-UD<a class="headerlink" href="#idba-ud" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://de.iplantcollaborative.org/de/?type=apps&amp;app-id=idba_ud_32gb_4h-1.1.2u1">CyVerse App</a></p>
+<p><strong>Reference</strong>: Peng, Y., et al. (2010) IDBA- A Practical Iterative de Bruijn Graph De Novo Assembler. RECOMB. Lisbon.</p>
+<p>Peng, Y., et al. (2012) IDBA-UD: a de novo assembler for single-cell and metagenomic sequencing data with highly uneven
+depth, Bioinformatics, 28, 1420-1428.</p>
+<p><strong>Short description</strong>: IDBA-UD is a iterative De Bruijn Graph De Novo Assembler for Short Reads Sequencing data with
+Highly Uneven Sequencing Depth. It is an extension of IDBA algorithm.</p>
+<p><strong>Long description</strong>: IDBA-UD is a iterative De Bruijn Graph De Novo Assembler for Short Reads Sequencing data with
+Highly Uneven Sequencing Depth. It is an extension of IDBA algorithm. IDBA-UD also iterates from small k to a large k.
+In each iteration, short and low-depth contigs are removed iteratively with cutoff threshold from low to high to reduce
+the errors in low-depth and high-depth regions. Paired-end reads are aligned to contigs and assembled locally to
+generate some missing k-mers in low-depth regions. With these technologies, IDBA-UD can iterate k value of de Bruijn
+graph to a very large value with less gaps and less branches to form long contigs in both low-depth and high-depth
+regions. (taken from website)</p>
+<p><strong>Singularity use</strong></p>
+</div>
+<div class="section" id="trinity">
+<h3>Trinity<a class="headerlink" href="#trinity" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://de.cyverse.org/de/?type=apps&amp;app-id=trinity-stmpde-11.10.13u2&amp;system-id=agave">CyVerse App</a></p>
+<p><strong>Reference</strong>: Grabherr MG, Haas BJ, Yassour M, Levin JZ, Thompson DA, Amit I, Adiconis X, Fan L, Raychowdhury R, Zeng
+Q, Chen Z, Mauceli E, Hacohen N, Gnirke A, Rhind N, di Palma F, Birren BW, Nusbaum C, Lindblad-Toh K, Friedman N, Regev
+A. Full-length transcriptome assembly from RNA-seq data without a reference genome. Nat Biotechnol. 2011
+May 15;29(7):644-52. doi: 10.1038/nbt.1883. PubMed PMID: 21572440.</p>
+<p><strong>Short description</strong>: Trinity assembles transcript sequences from Illumina RNA-Seq data.</p>
+<p><strong>Singularity use</strong></p>
+</div>
+</div>
+<div class="section" id="annotations">
+<h2>Annotations<a class="headerlink" href="#annotations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id11">
+<h3>Trinity<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://de.cyverse.org/de/?type=apps&amp;app-id=Prokka-1.12.0u1&amp;system-id=agave">CyVerse App</a></p>
+<p><strong>Reference</strong>: Seemann T. Prokka: rapid prokaryotic genome annotation Bioinformatics 2014 Jul 15;30(14):2068-9.
+PMID:24642063</p>
+<p><strong>Short description</strong>: Prokka is a software tool to annotate bacterial, archaeal and viral genomes quickly and produce
+standards-compliant output files</p>
+<p><strong>Singularity use</strong></p>
+</div>
 </div>
 <div class="section" id="viral-analysis">
 <h2>Viral Analysis<a class="headerlink" href="#viral-analysis" title="Permalink to this headline">¶</a></h2>
@@ -201,9 +365,75 @@ proposed, each dependent on the source of data and the underlying biological que
 analyzing complex viral data is by organizing viral sequence space, often through the use of protein clustering
 techniques. Protein clusters can be used as a diversity metric, or as units for ecological studies when compared
 against other datasets, or functional profiling of the community.</p>
+<div class="section" id="pcpipe">
+<h3>PCPipe<a class="headerlink" href="#pcpipe" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://de.iplantcollaborative.org/de/?type=apps&amp;app-id=08df1cc6-ceb6-11e5-a661-6b85e1c23535">CyVerse App</a></p>
+<p><strong>Reference</strong>:</p>
+<p><strong>Short description</strong>: Protein clustering pipeline and annotation</p>
+<p><strong>Singularity use</strong></p>
 </div>
-<div class="section" id="annotations">
-<h2>Annotations<a class="headerlink" href="#annotations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="virsorter">
+<h3>VIRSorter<a class="headerlink" href="#virsorter" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://de.iplantcollaborative.org/de/?type=apps&amp;app-id=0b0968f8-5805-11e5-8a4d-5fb83618a439">CyVerse App</a></p>
+<p><strong>Reference</strong>: Roux S, Enault F, Hurwitz BL, Sullivan MB. (2015) VirSorter: mining viral signal from microbial genomic
+data. PeerJ 3:e985 <a class="reference external" href="https://doi.org/10.7717/peerj.985">https://doi.org/10.7717/peerj.985</a></p>
+<p><strong>Short description</strong>: Identify viral contigs in a microbial metagenomes</p>
+<p><strong>Singularity use</strong></p>
+</div>
+<div class="section" id="vcontact">
+<h3>vConTACT<a class="headerlink" href="#vcontact" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://de.iplantcollaborative.org/de/?type=apps&amp;app-id=vContact-0.1.49u2">CyVerse App</a></p>
+<p><strong>Reference</strong>: Bolduc B, Jang H Bin, Doulcier G, You Z, Roux S, Sullivan MB. (2017). vConTACT: an iVirus tool to
+classify double-stranded DNA viruses that infect Archaea and Bacteria. PeerJ 5: e3243.</p>
+<p><strong>Short description</strong>: Guilt-by-contig-association automatic classification of viral contigs</p>
+<p><strong>Singularity use</strong></p>
+</div>
+<div class="section" id="vcontact-pcs">
+<h3>vConTACT-PCs<a class="headerlink" href="#vcontact-pcs" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://de.iplantcollaborative.org/de/?type=apps&amp;app-id=vContact_pcs-0.1.49u4">CyVerse App</a></p>
+<p><strong>Reference</strong>:</p>
+<p><strong>Short description</strong>: Generate PC-profiles using vContact/MCL</p>
+<p><strong>Singularity use</strong></p>
+</div>
+<div class="section" id="vcontact-gene2genome-formerly-known-as-gene2contig">
+<h3>vConTACT-Gene2Genome (formerly known as “Gene2Contig”)<a class="headerlink" href="#vcontact-gene2genome-formerly-known-as-gene2contig" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://de.iplantcollaborative.org/de/?type=apps&amp;app-id=vContact-Gene2Contig-0.1.0u1">CyVerse App</a></p>
+<p><strong>Reference</strong>:</p>
+<p><strong>Short description</strong>: Conditions files for use in vContact</p>
+<p><strong>Singularity use</strong>:</p>
+</div>
+<div class="section" id="bowtiebatch">
+<h3>BowtieBatch<a class="headerlink" href="#bowtiebatch" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://de.cyverse.org/de/?type=apps&amp;app-id=BowtieBatch-1.0.0u1&amp;system-id=agave">CyVerse App</a></p>
+<p><strong>Reference</strong>:</p>
+<p><strong>Short description</strong>: Performs mass alignment of paired and unpaired reads against a reference dataset using Bowtie2
+and Samtools.</p>
+<p><strong>Singularity use</strong>:</p>
+</div>
+<div class="section" id="read2refmapper">
+<h3>Read2RefMapper<a class="headerlink" href="#read2refmapper" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://de.cyverse.org/de/?type=apps&amp;app-id=Read2RefMapper-1.1.0u1&amp;system-id=agave">CyVerse App</a></p>
+<p><strong>Reference</strong>:</p>
+<p><strong>Short description</strong>: Consumes input from BowtieBatch to generate coverage profiles.</p>
+<p><strong>Singularity use</strong>:</p>
+</div>
+</div>
+<div class="section" id="in-some-stage-of-development">
+<h2>In some stage of development<a class="headerlink" href="#in-some-stage-of-development" title="Permalink to this headline">¶</a></h2>
+<p>Below are a list of apps that could be at any stage of the app development process. That means they could be 99%
+implemented and moments away from going public, or they could be a note taken on a napkin.</p>
+<div class="section" id="gaas-genome-abundance-and-average-size">
+<h3>GAAS (Genome Abundance and Average Size)<a class="headerlink" href="#gaas-genome-abundance-and-average-size" title="Permalink to this headline">¶</a></h3>
+<p>Estimates relative abundance and average size of metagenomic sequences</p>
+</div>
+<div class="section" id="circonspect">
+<h3>Circonspect<a class="headerlink" href="#circonspect" title="Permalink to this headline">¶</a></h3>
+<p>Generates contig spectra for downstream modeling of community structure</p>
+</div>
+<div class="section" id="phaccs-control-in-research-on-contig-spectra">
+<h3>PHACCS (Control In Research on CONtig SPECTra)<a class="headerlink" href="#phaccs-control-in-research-on-contig-spectra" title="Permalink to this headline">¶</a></h3>
+<p>Estimates structure and diversity of viral communities</p>
+</div>
 </div>
 </div>
 
