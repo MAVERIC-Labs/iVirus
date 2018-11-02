@@ -12,8 +12,8 @@ securely build new Apps and data processing pipelines for viral ecology. Specifi
 3. Using metadata capabilities and standard ontologies in the CyVerse cyberinfrastructure to enhance data and software
 discovery and reuse
 
-This work is a product of the `Hurwitz Lab <http://hurwitzlab.org/>`_ at the The University of Arizona and the
-`Sullivan Lab <at the The Ohio State <http://u.osu.edu/viruslab/>`_ at the The Ohio State University.
+This work is a product of the `Hurwitz Lab <http://hurwitzlab.org/>`_ at the The University of Arizona and the `Sullivan Lab <http://u.osu.edu/viruslab/>`_
+at The Ohio State University.
 
 
 Full Disclosure on App Selection
@@ -40,7 +40,7 @@ iVirus is built on tools developed by the Sullivan and Hurwitz labs, and expande
 tools. Anyone using iVirus tools (and the underlying programs) are asked to cite:
 
 iVirus: Facilitating new insights in viral ecology with software and community data sets imbedded in a
-cyberinfrastructure**. (2017) Bolduc, B., Youens-Clark, K., Roux, S., Hurwitz, B.L., and Sullivan, M.B. ISME Journal
+cyberinfrastructure. (2017) Bolduc, B., Youens-Clark, K., Roux, S., Hurwitz, B.L., and Sullivan, M.B. ISME Journal
 
 Additionally, nearly all tools have some sort of reference that can be cited. These should be cited where appropriate.
 Citation information is included with every app, and here as well. If an author wishes to update their tool's citation

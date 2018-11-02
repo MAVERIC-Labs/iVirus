@@ -10,8 +10,7 @@ A few quick notes:
 * Guides are not intended to assist users in understanding the biology behind the tools nor how the tools function.
 * Where possible, Apps have links to their documentation on CyVerse as well as their citations (or original home pages).
 * In some cases, many Apps are available to solve a particular problem. Guides will choose to highlight one or two.
-* These guides assume you’ve created an CyVerse account and can access your account. Check out the
-`getting started guide <http://ivirus.us/getting-started/>`_ for assistance.
+* These guides assume you’ve created an CyVerse account and can access your account. Check out the `getting started guide <http://ivirus.us/getting-started/>`_ for assistance.
 
 Guides and Use Cases
 --------------------
