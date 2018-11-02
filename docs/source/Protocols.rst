@@ -17,7 +17,7 @@ Guides and Use Cases
 --------------------
 
 Several “use cases” are available at protocols.io. For nearly all these use cases, we’ll use (as a basis) actual reads
-from the Ocean Sampling Day (2014) and process them using Cyverse. In some cases we’ll take the user from using raw
+from the `Ocean Sampling Day (2014) <https://github.com/MicroB3-IS/osd-analysis>`_ and process them using Cyverse. In some cases we’ll take the user from using raw
 read files to assembly to identifying viral sequences and preliminary analysis. Other use cases will tackle ways of
 analyzing a viral metagenome, either reads or contigs, using traditional and non-traditional approaches. As a reminder,
 all these protocols are on protcols.io and should be considered the most up-to-date versions, though *they definitely
@@ -55,8 +55,8 @@ Mapping Metagenomic Reads to a Reference Collection
 **Description**: One of the most commonly used procedures for analyzing viral metagenomic data is to map their reads
 (or reads from another dataset) against a set of references, often those from the read assembly. For example, if one
 wanted to know how well-represented viruses in NCBI’s Viral Reference Sequences (ViralRefSeq) were in ocean viromes,
-they could map reads from lots of ocean viral metagenomes against ViralRefSeq. This is generally done using Bowtie2 or
-BWA, by selecting a reference set of sequences, and then providing paired or unpaired reads to Bowtie2/BWA. Then the
+they could map reads from lots of ocean viral metagenomes against ViralRefSeq. This is generally done using `Bowtie2 <http://bowtie-bio.sourceforge.net/bowtie2/index.shtml>`_ or
+`BWA <http://bio-bwa.sourceforge.net/>`_, by selecting a reference set of sequences, and then providing paired or unpaired reads to Bowtie2/BWA. Then the
 results must be processed/filtered to generate coverage tables. Dealing with setting up multiple reads files (10 paired
 metagenomes = 10 alignment runs) and the processing those read files can be challenging (not to mention computational
 resources).
