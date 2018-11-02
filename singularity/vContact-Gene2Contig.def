@@ -1,0 +1,37 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+# 
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: stable
+MirrorURL: http://ftp.us.debian.org/debian/
+
+
+%runscript
+    exec Gene2Contig.py "$@"
+
+%setup
+    echo $PWD
+    cp /home/vagrant/Gene2Contig.py $SINGULARITY_ROOTFS
+
+%post
+    echo "Hello from inside the container"
+    apt-get update
+    apt-get install -y  automake build-essential wget bzip2
+    
+    export BINPATH=/usr/local/bin
+    
+    wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+    bash Miniconda2-latest-Linux-x86_64.sh -b -f -p /usr/local/
+    rm Miniconda2-latest-Linux-x86_64.sh
+    
+    conda install -y biopython pyparsing
+    
+    chmod 755 /Gene2Contig.py && mv /Gene2Contig.py $BINPATH
+    
+    # Set bind points
+    mkdir /work
+    mkdir /scratch
+    mkdir /home1

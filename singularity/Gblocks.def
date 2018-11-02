@@ -1,0 +1,27 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+#
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: stable
+MirrorURL: http://ftp.us.debian.org/debian/
+
+
+%runscript
+    exec Gblocks "$@"
+
+%post
+    apt-get update
+
+    apt-get install -y wget
+
+    export BINPATH=/usr/local/bin
+
+    wget --no-verbose http://molevol.cmima.csic.es/castresana/Gblocks/Gblocks_Linux64_0.91b.tar.Z
+
+    tar xf Gblocks_Linux64_0.91b.tar.Z && mv Gblocks_0.91b/Gblocks $BINPATH
+
+    # TACC's Stampede compliant
+    mkdir /home1 && mkdir /scratch && mkdir /work

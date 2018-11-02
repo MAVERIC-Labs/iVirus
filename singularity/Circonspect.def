@@ -1,0 +1,70 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+# 
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: stable
+MirrorURL: http://ftp.us.debian.org/debian/
+
+
+%runscript
+    exec circonspect_wrapper.py "$@"
+
+
+%post
+    echo "Hello from inside the container"
+    # Building/compiling, perl dependencies & dependencies that cpan has problems with
+    apt-get update
+    apt-get install -y build-essential make cpanminus libcpanplus-perl \
+    libcpanplus-dist-build-perl libwww-perl libxml2 libxml2-dev zlib1g-dev libgd2-xpm-dev \
+    wget python bioperl python-biopython software-properties-common
+    
+    locale-gen en_US.UTF-8
+    
+    export BINPATH=/usr/bin
+    
+    # Get pip
+    wget --no-verbose https://bootstrap.pypa.io/get-pip.py
+    python get-pip.py
+    
+    # Get natsort
+    pip install natsort
+    
+    # Install Circonspect dependencies
+    # Apparently BC is used before
+    add-apt-repository -y "deb http://archive.ubuntu.com/ubuntu precise universe"
+    apt-get update && apt-get install -y bc
+    
+    # LIGR assemblers
+    wget --no-verbose http://iweb.dl.sourceforge.net/project/ligr-assembler/ligr-assembler/LIGR-Assembler-2.05.tar.gz
+    tar -xf LIGR-Assembler-2.05.tar.gz
+    cd LIGR-Assembler-2.05/src && make && make install && cd
+    
+    # Cap3 assembler
+    wget --no-verbose http://seq.cs.iastate.edu/CAP3/cap3.linux.x86_64.tar
+    tar -xf cap3.linux.x86_64.tar
+    cd CAP3 && cp cap3 $BINPATH && cp formcon $BINPATH && cd
+    
+    # Minimo assembler (part of AMOS)
+    wget --no-verbose http://freefr.dl.sourceforge.net/project/amos/amos/3.1.0/amos-3.1.0.tar.gz
+    tar -xf amos-3.1.0.tar.gz
+    # Should fix “optarg” “getopt” and “optopt” errors
+    echo "#include <getopt.h>" | cat - amos-3.1.0/src/Align/find-tandem.cc > /tmp/out && mv /tmp/out amos-3.1.0/src/Align/find-tandem.cc
+    cd amos-3.1.0 && ./configure && make CXXFLAGS='-Wno-deprecated' && make install && cd
+    cp amos-3.1.0/bin/* $BINPATH
+    
+    # Install Circonspect - contig spectra
+    wget http://tenet.dl.sourceforge.net/project/circonspect/circonspect/Circonspect-0.2.6/Circonspect-0.2.6.tar.gz
+    tar -xf Circonspect-0.2.6.tar.gz
+    cd Circonspect-0.2.6 && perl Makefile.PL && make && make install && cd
+    rm *.tar.gz
+    
+    # Clean up
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    
+    # Set up bind points
+    mkdir /work
+    mkdir /scratch
+    mkdir /home1

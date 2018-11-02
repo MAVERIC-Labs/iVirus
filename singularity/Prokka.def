@@ -1,0 +1,32 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+#
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: stable
+MirrorURL: http://ftp.us.debian.org/debian/
+
+%environment
+PATH=/prokka/bin/:$PATH
+export PATH
+
+%runscript
+    exec prokka "$@"
+
+%post
+    apt-get update
+    apt-get install -y build-essential libdatetime-perl libxml-simple-perl \
+    libdigest-md5-perl git default-jre bioperl git locales
+
+    locale-gen en_US.UTF-8
+
+    # Clean up
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+    git clone https://github.com/tseemann/prokka.git
+    cd prokka && bin/prokka --setupdb
+
+    # TACC's Stampede compliant
+    mkdir /home1 && mkdir /scratch && mkdir /work

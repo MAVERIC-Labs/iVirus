@@ -1,0 +1,27 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+#
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: stable
+MirrorURL: http://ftp.us.debian.org/debian/
+
+
+%runscript
+    exec mga "$@"
+
+%post
+    apt-get update
+
+    apt-get install -y wget
+
+    export BINPATH=/usr/local/bin
+
+    wget --no-verbose http://metagene.nig.ac.jp/metagene/mga_x86_64.tar.gz
+
+    tar xf mga_x86_64.tar.gz && mv mga_linux_ia64 $BINPATH/mga
+
+    # TACC's Stampede compliant
+    mkdir /home1 && mkdir /scratch && mkdir /work

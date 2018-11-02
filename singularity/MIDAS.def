@@ -1,0 +1,62 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+#
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: stable
+MirrorURL: http://ftp.us.debian.org/debian/
+
+%environment
+PYTHONPATH=/MIDAS/:$PYTHONPATH
+export PYTHONPATH
+
+PATH=/MIDAS/:/MIDAS/scripts:$PATH
+export PATH
+
+MIDAS_DB=/MIDAS/midas_db_v1.2
+export MIDAS_DB
+
+%runscript
+    exec run_midas.py "$@"
+
+%post
+    echo "Hello from inside the container"
+    apt-get update
+    apt-get install -y automake build-essential zlib1g-dev libncurses5-dev wget \
+    unzip git libbz2-dev gcc cpp liblzma-dev
+
+    # Clean up
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+    # We need python, and not that silly python that comes with apt
+    wget --no-verbose https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+    bash Miniconda2-latest-Linux-x86_64.sh -b -f -p /usr/local/
+    rm Miniconda2-latest-Linux-x86_64.sh
+
+    conda install -y numpy pandas biopython
+
+    # Why is conda's out of date?
+    pip install pysam>=0.9.0
+
+    export BINPATH=/usr/local/bin
+
+    wget --no-verbose https://github.com/torognes/vsearch/archive/v2.4.3.tar.gz
+    tar xf v2.4.3.tar.gz && cd vsearch-2.4.3
+    ./autogen.sh && ./configure && make && make install
+
+    wget --no-verbose http://eddylab.org/software/hmmer3/3.1b2/hmmer-3.1b2-linux-intel-x86_64.tar.gz
+    tar xf hmmer-3.1b2-linux-intel-x86_64.tar.gz
+    cp hmmer-3.1b2-linux-intel-x86_64/binaries/* $BINPATH
+
+    cd / && git clone https://github.com/snayfach/MIDAS
+    cd MIDAS && python setup.py install
+
+    # Database is huge, alternatively, do -d midas_db_v1.2
+    # wget --no-verbose http://lighthouse.ucsf.edu/MIDAS/midas_db_v1.2.tar.gz
+    # mkdir /MIDAS/midas_db_v1.2
+    # tar xf midas_db_v1.2.tar.gz -C /MIDAS/midas_db_v1.2
+
+    # TACC's Stampede compliant
+    mkdir /home1 && mkdir /scratch && mkdir /work

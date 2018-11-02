@@ -1,0 +1,27 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+#
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: stable
+MirrorURL: http://ftp.us.debian.org/debian/
+
+
+%runscript
+    exec hmmsearch "$@"
+
+%post
+    apt-get update
+
+    apt-get install -y wget autoconf automake build-essential zlib1g-dev
+
+    export BINPATH=/usr/local/bin
+
+    wget --no-verbose http://eddylab.org/software/hmmer3/3.1b2/hmmer-3.1b2-linux-intel-x86_64.tar.gz
+    tar xf hmmer-3.1b2-linux-intel-x86_64.tar.gz
+    cp hmmer-3.1b2-linux-intel-x86_64/binaries/* $BINPATH
+
+    # TACC's Stampede compliant
+    mkdir /home1 && mkdir /scratch && mkdir /work

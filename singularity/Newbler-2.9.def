@@ -1,0 +1,36 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+#
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: stable
+MirrorURL: http://ftp.us.debian.org/debian/
+
+# BootStrap: yum
+# OSVersion: 7
+# MirrorURL: http://mirror.centos.org/centos-%{OSVERSION}/%{OSVERSION}/os/$basearch/
+
+%environment
+PATH=/opt/454/apps/mapper/bin/:$PATH
+export PATH
+
+%setup
+    cp /vagrant/Newbler/DataAnalysis_2.9_All_20130530_1559.tgz $SINGULARITY_ROOTFS
+
+%runscript
+    exec runAssembly "$@"
+
+%post
+    apt-get update && apt-get install -y wget autoconf automake build-essential zlib1g-dev default-jre alien
+    
+    export BINPATH=/usr/local/bin
+    
+    # Install Newbler
+    tar zxvf DataAnalysis_2.9_All_20130530_1559.tgz
+    alien /DataAnalysis_2.9_All/packages/gsNewbler-2.9-1.x86_64.rpm
+    dpkg -i gsnewbler_2.9-2_amd64.deb
+    
+    # TACC's Stampede compliant
+    mkdir /home1 && mkdir /scratch && mkdir /work

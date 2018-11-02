@@ -1,0 +1,66 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+# 
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: stable
+MirrorURL: http://ftp.us.debian.org/debian/
+
+
+%runscript
+    exec gaas_wrapper.py "$@"
+
+
+%post
+    echo "Hello from inside the container"
+    apt-get update
+    # Build, cpan, system depends for cpan
+    apt-get install -y build-essential make cpanminus libcpanplus-perl libcpanplus-dist-build-perl \
+    libwww-perl libxml2 libxml2-dev zlib1g-dev libgd2-xpm-dev wget python
+    
+    export BINPATH=/usr/bin
+    
+    ## Install GAAS dependencies
+    
+    # NCBI BLAST v2 (blastall)
+    wget --no-verbose ftp://ftp.ncbi.nlm.nih.gov/blast/executables/legacy/2.2.26/blast-2.2.26-x64-linux.tar.gz
+    tar -xf blast-2.2.26-x64-linux.tar.gz
+    mv blast-2.2.26/bin/* $BINPATH && cd
+    rm -rf blast-2.2.26
+    
+    ## Install GAAS - estimates of average genome length
+    # GAAS has a number of optional dependencies that users may take advantage of
+    # XML::XML2JSON
+    cpanm --sudo XML::LibXML GD XML::Twig Math::Random JSON Math::CDF PDF::API2 SWF::Builder Statistics::Descriptive
+    wget --no-verbose http://tenet.dl.sourceforge.net/project/gaas/gaas/GAAS-0.17/GAAS-0.17.tar.gz
+    tar -xf GAAS-0.17.tar.gz
+    cd GAAS-0.17 && perl Makefile.PL && make install
+    cp GAAS-0.17/script/* $BINPATH
+    
+    # Set up DB directory
+    mkdir /DBs
+    export DBPATH=/DBs
+    
+    # Download GAAS data files and Copy DB files to known location
+    wget --no-verbose http://master.dl.sourceforge.net/project/gaas/gaas-data/2012/ncbi_refseq_complete_protozoa.fna.gz -P $DBPATH
+    wget --no-verbose http://master.dl.sourceforge.net/project/gaas/gaas-data/2012/ncbi_refseq_complete_viruses.fna.gz -P $DBPATH
+    wget --no-verbose http://master.dl.sourceforge.net/project/gaas/gaas-data/2012/taxids.txt -P $DBPATH
+    wget --no-verbose http://master.dl.sourceforge.net/project/gaas/gaas-data/2012/README.txt -P $DBPATH
+    
+    cpanm --sudo Statistics::Descriptive::Weighted
+    
+    # Clean stuff up
+    rm *.tar.gz
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    
+    # Copy scripts to system
+    COPY gaas_wrapper.py $BINPATH
+    COPY VPT.tre $DBPATH
+    chmod +x $BINPATH/gaas_wrapper.py
+    
+    # Set up bind paths
+    mkdir /work
+    mkdir /scratch
+    mkdir /home1

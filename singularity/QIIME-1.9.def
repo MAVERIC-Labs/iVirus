@@ -1,0 +1,30 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+# 
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: stable
+MirrorURL: http://ftp.us.debian.org/debian/
+
+%runscript
+    exec print_qiime_config.py "$@"
+
+%post
+    apt-get update && apt-get install -y automake build-essential bzip2 wget git
+    
+    export BINPATH=/usr/local/bin
+    
+    # Install miniconda to save dependency nightmares
+    wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+    bash Miniconda2-latest-Linux-x86_64.sh -b -f -p /usr/local/
+    rm Miniconda2-latest-Linux-x86_64.sh
+    
+    conda install -c bioconda matplotlib=1.4.3 mock nose qiime
+    
+    # Clean stuff up
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    
+    # TACC's Stampede compliant
+    mkdir /home1 && mkdir /scratch && mkdir /work

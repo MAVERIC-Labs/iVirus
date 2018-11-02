@@ -1,0 +1,38 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+# 
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: stable
+MirrorURL: http://ftp.us.debian.org/debian/
+
+%runscript
+	exec qiime "$@"
+
+%environment
+	export PATH=/usr/local/envs/qiime2-2017.12/bin/:$PATH
+	export LANG=C.UTF-8
+	export LC_ALL=C.UTF-8
+
+%post
+	# gtbase for qt4 matplotlib
+    apt-get update && apt-get install -y automake build-essential bzip2 wget git qtbase5-dev
+    
+    export BINPATH=/usr/local/bin
+    
+    # Install miniconda to save dependency nightmares
+    wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+    bash Miniconda3-latest-Linux-x86_64.sh -b -f -p /usr/local/
+    rm Miniconda3-latest-Linux-x86_64.sh
+    
+    wget https://data.qiime2.org/distro/core/qiime2-2017.12-py35-linux-conda.yml
+    
+    conda env create -n qiime2-2017.12 --file qiime2-2017.12-py35-linux-conda.yml
+    
+    # Clean stuff up
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && rm -rf qiime2-2017.12-py35-linux-conda.yml
+    
+    # TACC's Stampede compliant
+    mkdir /home1 && mkdir /scratch && mkdir /work

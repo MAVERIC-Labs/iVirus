@@ -1,0 +1,90 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+#
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: stable
+MirrorURL: http://ftp.us.debian.org/debian/
+
+
+%runscript
+    exec singlem "$@"
+
+
+%post
+    echo "Hello from inside the container"
+    apt-get update
+    apt-get install -y automake build-essential zlib1g-dev libncurses5-dev wget \
+    git unzip libpcre3-dev
+
+    # Clean up
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+    wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+    bash Miniconda2-latest-Linux-x86_64.sh -b -f -p /usr/local/
+    rm Miniconda2-latest-Linux-x86_64.sh
+
+    export BINPATH=/usr/local/bin
+
+    # OrfM
+    wget --no-verbose https://github.com/wwood/OrfM/releases/download/v0.7.1/orfm-0.7.1_Linux_x86_64.tar.gz
+    tar xf orfm-0.7.1_Linux_x86_64.tar.gz && mv orfm-0.7.1_Linux_x86_64/orfm-0.7.1_Linux_x86_64 $BINPATH/orfm
+    cd / && rm -rf orfm-0.7.1_?inux_x86_64*
+
+    # HMMer
+    wget --no-verbose http://eddylab.org/software/hmmer3/3.1b2/hmmer-3.1b2-linux-intel-x86_64.tar.gz
+    tar xf hmmer-3.1b2-linux-intel-x86_64.tar.gz
+    cp hmmer-3.1b2-linux-intel-x86_64/binaries/* $BINPATH
+    cd / && rm -rf hmmer-3.1b2-linux-intel-x86_64*
+
+    # fxtract
+    git clone --recursive https://github.com/ctSkennerton/fxtract.git
+    cd fxtract && make && cp fxtract $BINPATH
+    cd / && rm -rf fxtract
+
+    # MAFFT, too lazy to install from source
+    conda install -y numpy pandas scipy
+    conda install -y -c bioconda mafft
+
+    # Before Krona, need cURL
+    sed -i -e 's/us.archive.ubuntu.com/archive.ubuntu.com/g' /etc/apt/sources.list
+    apt-get update && apt-get install -y curl
+
+    # Diamond
+    wget --no-verbose http://github.com/bbuchfink/diamond/releases/download/v0.9.10/diamond-linux64.tar.gz
+    tar xf diamond-linux64.tar.gz && cp diamond $BINPATH
+    rm -rf diamond-linux64.tar.gz
+
+    # Krona
+    cd / && wget --no-verbose https://github.com/marbl/Krona/releases/download/v2.7/KronaTools-2.7.tar
+    tar xf KronaTools-2.7.tar && cd KronaTools-2.7 && ./install.pl && ./updateTaxonomy.sh
+
+    # pplacer
+    cd /
+    wget --no-verbose https://github.com/matsen/pplacer/releases/download/v1.1.alpha19/pplacer-linux-v1.1.alpha19.zip
+    # copy (below) fails, but works in shell ?
+    unzip pplacer-linux-v1.1.alpha19.zip && cd pplacer-Linux-v1.1.alpha19 && cp guppy pplacer rppr $BINPATH
+    cd / && rm -rf pplacer-?inux-v1.1.alpha19*
+    # Should the scripts be made available too?
+
+    # Install graftM
+    pip install graftm
+
+    # VSEARCH
+    wget --no-verbose https://github.com/torognes/vsearch/archive/v2.4.3.tar.gz
+    tar xf v2.4.3.tar.gz && cd vsearch-2.4.3
+    ./autogen.sh && ./configure && make && make install
+    cd / && rm -rf vsearch-2.4.3
+
+    # BLAST+
+    wget --no-verbose ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.6.0/ncbi-blast-2.6.0+-x64-linux.tar.gz
+    tar xf ncbi-blast-2.6.0+-x64-linux.tar.gz && cd ncbi-blast-2.6.0+
+    cp bin/* $BINPATH && cd / && rm -rf ncbi-blast-2.6.0+*
+
+    # Install singleM
+    pip install singlem
+
+    # TACC's Stampede compliant
+    mkdir /home1 && mkdir /scratch && mkdir /work

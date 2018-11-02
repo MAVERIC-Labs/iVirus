@@ -1,0 +1,27 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+#
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: stable
+MirrorURL: http://ftp.us.debian.org/debian/
+
+
+%runscript
+    exec vsearch "$@"
+
+%post
+    apt-get update
+
+    apt-get install -y wget autoconf automake build-essential zlib1g-dev
+
+    export BINPATH=/usr/local/bin
+
+    wget --no-verbose https://github.com/torognes/vsearch/archive/v2.4.3.tar.gz
+    tar xf v2.4.3.tar.gz && cd vsearch-2.4.3
+    ./autogen.sh && ./configure && make && make install
+
+    # TACC's Stampede compliant
+    mkdir /home1 && mkdir /scratch && mkdir /work

@@ -1,0 +1,52 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+# 
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: stable
+MirrorURL: http://ftp.us.debian.org/debian/
+
+
+%runscript
+    exec phaccs_wrapper.py "$@"
+
+
+%post
+    echo "Hello from inside the container"
+    # Building/compiling, perl dependencies & dependencies that cpan has problems with, compilers for Octave
+    apt-get update
+    apt-get install -y build-essential make wget python f2c gfortran libblas-dev liblapack-dev \
+    libpcre3-dev libreadline-dev octave gnuplot transfig epstool
+    
+    export BINPATH=/usr/bin
+    
+    # Install PHACCS
+    wget --no-verbose http://iweb.dl.sourceforge.net/project/phaccs/PHACCS/PHACCS-1.1.3/PHACCS-113.tar.gz
+    tar -xf PHACCS-113.tar.gz && mv PHACCS-113 /opt/PHACCS-113
+    
+    # Get pip, install natsort
+    wget --no-verbose https://bootstrap.pypa.io/get-pip.py
+    python get-pip.py
+    pip install natsort
+    
+    # Clean stuff up
+    rm *.tar.gz
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    
+    # Have octave remember PHACCS location
+    octave --eval "addpath(genpath('/opt/PHACCS-113')); savepath();"
+    
+    # Copy scripts to system
+    COPY phaccs_wrapper.py $BINPATH
+    chmod +x $BINPATH/phaccs_wrapper.py
+    
+    # Set up bind points
+    mkdir /work
+    mkdir /scratch
+    mkdir /home1
+
+%test
+    # Test configuration
+    octave --silent --traditional --eval "help phaccs"

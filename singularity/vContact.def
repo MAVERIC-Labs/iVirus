@@ -1,0 +1,55 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+# 
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: stable
+MirrorURL: http://ftp.us.debian.org/debian/
+
+
+%runscript
+    exec vcontact "$@"
+
+
+%post
+    echo "Hello from inside the container"
+    apt-get update && apt-get install -y automake build-essential bzip2 wget git
+    
+    # Install miniconda to save dependency nightmares
+    wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+    bash Miniconda2-latest-Linux-x86_64.sh -b -f -p /usr/local/
+    rm Miniconda2-latest-Linux-x86_64.sh
+    #export PATH="$HOME/miniconda/bin:$PATH"
+    
+    #wget https://repo.continuum.io/archive/Anaconda2-4.2.0-Linux-x86_64.sh
+    #bash Anaconda2-4.2.0-Linux-x86_64.sh -b -f -p /usr/local/
+    
+    conda install -y networkx=1.8.1 scipy=0.13.3 pandas=0.13.1 \
+    scikit-learn=0.14.1 biopython=1.63 pytables libgfortran=1.* numpy=1.8.0
+    
+    conda list
+    
+    wget http://micans.org/mcl/src/mcl-latest.tar.gz
+    tar xf mcl-latest.tar.gz && cd mcl-14-137 && ./configure --prefix /usr/local/ && make install
+    rm -rf *.tar.gz
+    
+    # Install vContact
+    git clone https://bolduc@bitbucket.org/MAVERICLab/vcontact.git
+    
+    cd vcontact && python setup.py install
+    
+    which vcontact
+    which python
+    which mcl
+    
+    # Clean stuff up
+    #rm Anaconda2-4.2.0-Linux-x86_64.sh
+    
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    
+    # Set bind points
+    mkdir /work
+    mkdir /scratch
+    mkdir /home1

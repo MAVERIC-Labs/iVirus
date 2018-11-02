@@ -1,0 +1,56 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+#
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: stable
+MirrorURL: http://ftp.us.debian.org/debian/
+
+# BootStrap: yum
+# OSVersion: 7
+# MirrorURL: http://mirror.centos.org/centos-%{OSVERSION}/%{OSVERSION}/os/$basearch/
+
+%environment
+LANGUAGE="en_US.UTF-8"
+export LANGUAGE
+
+LANG="en_US.UTF-8"
+export LANG
+
+LC_ALL="en_US.UTF-8"
+export LC_ALL
+
+PATH=/opt/454/apps/mapper/bin/:$PATH
+export PATH
+
+%setup
+    cp /vagrant/Newbler/DataAnalysis_2.9_All_20130530_1559.tgz $SINGULARITY_ROOTFS
+
+%runscript
+    exec MeGAMerge-1.1.pl "$@"
+
+%post
+    apt-get update && apt-get install -y wget autoconf automake build-essential zlib1g-dev git alien
+    
+    export BINPATH=/usr/local/bin
+
+    # Python
+    wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+    bash Miniconda2-latest-Linux-x86_64.sh -b -f -p /usr/local/
+    rm Miniconda2-latest-Linux-x86_64.sh
+    
+    # Install AMOS through anaconda... and save HUNDREDS of hours of pain and suffering
+    conda install -c bioconda amos
+
+    # Newbler!!!
+    tar zxvf DataAnalysis_2.9_All_20130530_1559.tgz
+    alien /DataAnalysis_2.9_All/packages/gsNewbler-2.9-1.x86_64.rpm
+    dpkg -i gsnewbler_2.9-2_amd64.deb
+    
+    # Finally, grab MeGAMerge
+    cd / && git clone https://github.com/LANL-Bioinformatics/MeGAMerge.git && cd MeGAMerge && cp MeGAMerge-1.1.pl $BINPATH
+
+    # TACC's Stampede compliant
+    mkdir /home1 && mkdir /scratch && mkdir /work

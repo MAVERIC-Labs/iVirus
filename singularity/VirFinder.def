@@ -1,0 +1,40 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+#
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: stable
+MirrorURL: http://ftp.us.debian.org/debian/
+
+
+%runscript
+    exec R "$@"
+
+%post
+    echo "Hello from inside the container"
+    apt-get update
+    apt-get install -y automake build-essential zlib1g-dev libncurses5-dev wget git unzip
+
+    # Clean up
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+    export BINPATH=/usr/local/bin
+
+    # Install R
+    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+    apt-get update
+
+    apt-get install -y r-base
+
+    # Do this now so won't have to in shell
+    wget https://github.com/jessieren/VirFinder/blob/master/linux/VirFinder_1.1.tar.gz?raw=true
+
+    # shell
+    # install.packages("glmnet", dependencies=TRUE)
+    # install.packages("Rcpp", dependencies=TRUE)
+    # source("https://bioconductor.org/biocLite.R")
+    # biocLite("qvalue")
+
+    # R CMD INSTALL <path_to_the_file>/VirFinder_1.1.tar.gz

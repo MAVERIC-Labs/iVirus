@@ -1,0 +1,47 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+#
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: stable
+MirrorURL: http://ftp.us.debian.org/debian/
+
+%runscript
+    exec PlasFlow.py "$@"
+
+%post
+    apt-get update
+    apt-get install -y automake build-essential zlib1g-dev libncurses5-dev wget unzip git
+
+    # Clean up
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+    # We need python, and not that silly python that comes with apt
+    # wget --no-verbose https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+    # bash Miniconda3-latest-Linux-x86_64.sh -b -f -p /usr/local/
+    #rm -rf Miniconda3-latest-Linux-x86_64.sh
+    wget --no-verbose https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh
+    bash Anaconda3-4.2.0-Linux-x86_64.sh -b -f -p /usr/local/
+
+    export BINPATH=/usr/local/bin
+    
+    # Need biostrings
+    conda config --add channels bioconda
+    conda install tensorflow=0.10
+    
+    conda install plasflow -c smaegol
+
+    # TensorFlow
+    #conda install tensorflow=0.10
+    #http://ci.tensorflow.org/view/Nightly/job/nightly-python35-linux-cpu/lastSuccessfulBuild/artifact/pip_test/whl/tensorflow-0.10.0rc0-cp35-cp35m-linux_x86_64.whl
+    
+    # PlasFlow
+    #pip install plasflow
+    
+    # Models???
+    git clone https://github.com/smaegol/PlasFlow
+
+    # TACC's Stampede compliant
+    mkdir /home1 && mkdir /scratch && mkdir /work

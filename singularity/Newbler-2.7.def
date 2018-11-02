@@ -1,0 +1,30 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+#
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: stable
+MirrorURL: http://ftp.us.debian.org/debian/
+
+# BootStrap: yum
+# OSVersion: 7
+# MirrorURL: http://mirror.centos.org/centos-%{OSVERSION}/%{OSVERSION}/os/$basearch/
+
+%environment
+PATH=/opt/454/bin/:$PATH
+export PATH
+
+%runscript
+    exec runAssembly "$@"
+
+%post
+    apt-get update && apt-get install -y wget autoconf automake build-essential zlib1g-dev default-jre
+    
+    export BINPATH=/usr/local/bin
+    
+    # Install Newbler manually...
+    
+    # TACC's Stampede compliant
+    mkdir /home1 && mkdir /scratch && mkdir /work

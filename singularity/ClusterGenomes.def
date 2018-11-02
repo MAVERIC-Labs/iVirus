@@ -1,0 +1,39 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+# 
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: stable
+MirrorURL: http://ftp.us.debian.org/debian/
+
+%setup
+    cp /vagrant/ClusterGenomes/Cluster_genomes.pl $SINGULARITY_ROOTFS/usr/local/bin/
+    cp /vagrant/ClusterGenomes/Cluster_genomes.py $SINGULARITY_ROOTFS/usr/local/bin/
+
+%runscript
+    exec Cluster_genomes.py "$@"
+
+%post
+    echo "Hello from inside the container"
+    apt-get update
+    apt-get install -y automake build-essential wget python python-dev
+    
+    export BINPATH=/usr/local/bin
+    #ldd /usr/local/bin/perl
+    
+    # Clean up
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    
+    # Install nucmer, part of MUMmer
+    wget --no-verbose http://tenet.dl.sourceforge.net/project/mummer/mummer/3.23/MUMmer3.23.tar.gz
+    tar xf MUMmer3.23.tar.gz && cd MUMmer3.23 && make CPPFLAGS="-O3 -DSIXTYFOURBITS" && cp nucmer $BINPATH
+    
+    # Enable scripts if not already
+    chmod +x $BINPATH/Cluster_genomes.p*
+    
+    # Set up bind points
+    mkdir /work
+    mkdir /scratch
+    mkdir /home1

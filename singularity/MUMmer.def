@@ -1,0 +1,30 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+#
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: stable
+MirrorURL: http://ftp.us.debian.org/debian/
+
+%environment
+PATH=$PATH:/MUMmer3.23
+export PATH
+
+%runscript
+    exec mummer "$@"
+
+%post
+    apt-get update
+
+    apt-get install -y wget autoconf automake build-essential zlib1g-dev
+
+    export BINPATH=/usr/local/bin
+
+    wget --no-verbose https://downloads.sourceforge.net/project/mummer/mummer/3.23/MUMmer3.23.tar.gz
+
+    tar xf MUMmer3.23.tar.gz && cd MUMmer3.23 && make && make install
+
+    # TACC's Stampede compliant
+    mkdir /home1 && mkdir /scratch && mkdir /work

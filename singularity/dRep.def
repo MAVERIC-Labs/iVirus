@@ -1,0 +1,80 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+#
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: stable
+MirrorURL: http://ftp.us.debian.org/debian/
+
+
+%runscript
+    exec dRep "$@"
+
+%post
+    echo "Hello from inside the container"
+    apt-get update
+    apt-get install -y automake build-essential zlib1g-dev libncurses5-dev wget \
+    git unzip libpcre3-dev autoconf python-pip python3-pip csh
+
+    # Clean up
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+    export BINPATH=/usr/local/bin
+
+    ## CheckM dependencies
+    # HMMer
+    wget --no-verbose http://eddylab.org/software/hmmer3/3.1b2/hmmer-3.1b2-linux-intel-x86_64.tar.gz
+    tar xf hmmer-3.1b2-linux-intel-x86_64.tar.gz
+    cp hmmer-3.1b2-linux-intel-x86_64/binaries/* $BINPATH
+    cd / && rm -rf hmmer-3.1b2-linux-intel-x86_64*
+
+    # pplacer
+    cd /
+    wget --no-verbose https://github.com/matsen/pplacer/releases/download/v1.1.alpha19/pplacer-linux-v1.1.alpha19.zip
+    # copying multiple files simultaneously fails, but works in shell ????
+    unzip pplacer-linux-v1.1.alpha19.zip && cd pplacer-Linux-v1.1.alpha19
+    cp guppy $BINPATH
+    cp pplacer $BINPATH
+    cp rppr $BINPATH
+    cd / && rm -rf pplacer-?inux-v1.1.alpha19*
+
+    # Prodigal
+    wget --no-verbose https://github.com/hyattpd/Prodigal/releases/download/v2.6.3/prodigal.linux
+    chmod +x prodigal.linux && mv prodigal.linux $BINPATH/prodigal
+
+    # Python dependencies for CheckM
+    pip2 install numpy scipy matplotlib pysam dendropy ScreamingBackpack
+
+    # CheckM
+    pip2 install checkm-genome
+
+    # UNABLE TO USE dRep UNTIL THIS IS RESOLVED
+    # IT REQUIRES WRITE ACCESS EVERY.SINGLE.TIME
+    # Appears that setting the data must be done so manually...
+    cd / && mkdir CheckMdata && checkm data setRoot /root/CheckMdata/ && checkm data update
+
+    ## MUMmer
+    cd / && wget --no-verbose https://downloads.sourceforge.net/project/mummer/mummer/3.23/MUMmer3.23.tar.gz
+    tar xf MUMmer3.23.tar.gz && cd MUMmer3.23 && ./configure --prefix=$BINPATH && make && make install
+    cd / && rm -rf MUMmer3.23.tar.gz
+
+    ## MASH
+    cd / && wget https://github.com/marbl/Mash/releases/download/v2.0/mash-Linux64-v2.0.tar
+    tar xf mash-Linux64-v2.0.tar && mv mash-Linux64-v2.0/mash $BINPATH
+    cd / && rm -rf mash-Linux64-v2.0.tar
+
+    ## Centrifuge
+    cd / && git clone https://github.com/infphilo/centrifuge
+    cd centrifuge && make && make install prefix=/usr/local/
+    # Databases?!
+
+    ## ANIcalculator
+    cd / && wget https://ani.jgi-psf.org/download_files/ANIcalculator_v1.tgz
+    tar xf ANIcalculator_v1.tgz && cd ANIcalculator_v1
+    mv nsimscan $BINPATH && mv ANIcalculator $BINPATH
+    cd / && rm -rf ANIcalculator_v1.tgz
+
+    # Finally, dRep
+    pip3 install drep

@@ -1,0 +1,32 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+# 
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: stable
+MirrorURL: http://ftp.us.debian.org/debian/
+
+
+%runscript
+    exec java -Xms128m -Xmx1024m -jar /usr/local/bin/trimmomatic-0.36.jar "$@"
+
+
+%post
+    echo "Hello from inside the container"
+    apt-get update
+    apt-get install -y wget zip default-jre
+    
+    export BINPATH=/usr/local/bin
+    
+    wget --no-verbose http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.36.zip
+    unzip Trimmomatic-0.36.zip && cp Trimmomatic-0.36/trimmomatic-0.36.jar $BINPATH
+    
+    # Clean stuff up
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    
+    # Set bind points
+    mkdir /work
+    mkdir /scratch
+    mkdir /home1

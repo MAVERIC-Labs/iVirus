@@ -1,0 +1,65 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+#
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: stable
+MirrorURL: http://ftp.us.debian.org/debian/
+
+
+%runscript
+    exec Read2ReferenceMapper.py "$@"
+
+
+%post
+    apt-get update
+    apt-get install -y automake build-essential zlib1g-dev libncurses5-dev \
+    wget unzip git libtool
+
+    wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+    bash Miniconda2-latest-Linux-x86_64.sh -b -f -p /usr/local/
+    rm Miniconda2-latest-Linux-x86_64.sh
+
+    conda install -y numpy pandas matplotlib seaborn
+
+    export BINPATH=/usr/local/bin
+
+    # Install bwa
+    wget --no-verbose https://github.com/lh3/bwa/releases/download/v0.7.13/bwa-0.7.13.tar.bz2
+    tar xf bwa-0.7.13.tar.bz2 && cd bwa-0.7.13 && make && cp bwa $BINPATH && cd /
+
+    # Install Bowtie2
+    wget --no-verbose http://sourceforge.net/projects/bowtie-bio/files/bowtie2/2.2.6/bowtie2-2.2.6-linux-x86_64.zip
+    unzip bowtie2-2.2.6-linux-x86_64.zip && cp bowtie2-2.2.6/bowtie2* $BINPATH && cd /
+
+    # Install Samtools
+    wget --no-verbose https://github.com/samtools/samtools/releases/download/1.3/samtools-1.3.tar.bz2
+    tar xf samtools-1.3.tar.bz2 && cd samtools-1.3 && make && make install && cd /
+
+    # Install pysam
+    pip install pysam==0.9.0 palettable
+
+    # Install BamM
+    wget --no-verbose https://github.com/Ecogenomics/BamM/archive/v1.7.0.tar.gz
+
+    tar xf v1.7.0.tar.gz && cd BamM-1.7.0 && python setup.py install && cd /
+
+    # Clean stuff up
+    rm -rf *.tar.gz
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+    export BITBUCKET=https://bitbucket.org/bolduc/docker-read2refmapper/raw/7cae5b551106ae317a4cc7458d473f0feb5ecdf0/
+
+    wget --no-verbose -P $BINPATH $BITBUCKET/scripts/Read2ReferenceMapper.py
+    wget --no-verbose -P $BINPATH $BITBUCKET/scripts/filter_bam_file_coverage.py
+    chmod +x $BINPATH/*.py
+
+    # Clean up fonts so matplotlib can find them... doesn't always work though (?)
+    rm -rf ~/.cache/matplotlib/
+
+    # Set bind points
+    mkdir /work
+    mkdir /scratch
+    mkdir /home1

@@ -1,0 +1,43 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+# 
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: stable
+MirrorURL: http://ftp.us.debian.org/debian/
+
+
+%runscript
+    exec VirSorter-to-vContact.py "$@"
+
+
+%post
+    echo "Hello from inside the container"
+    apt-get update
+    apt-get install -y automake build-essential wget bzip2
+    
+    export BINPATH=/usr/bin
+    
+    # Install miniconda to save dependency nightmares
+    wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+    bash Miniconda2-latest-Linux-x86_64.sh -b -f -p /usr/local/
+    rm Miniconda2-latest-Linux-x86_64.sh
+    
+    conda install -y biopython pandas
+    
+    # Install BLAST
+    wget --no-verbose ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.4.0/ncbi-blast-2.4.0+-x64-linux.tar.gz
+    tar zxf ncbi-blast-2.4.0+-x64-linux.tar.gz && cd ncbi-blast-2.4.0+ && chmod +x bin/* && cp bin/* $BINPATH
+    
+    # Clean stuff up
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+	
+	# Prep directory to be read
+    mkdir /DBs
+    
+    # Set bind points
+    mkdir /work
+    mkdir /scratch
+    mkdir /home1
