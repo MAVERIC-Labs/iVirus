@@ -221,7 +221,7 @@ Annotations, Sequence Analysis
 Prokka
 ^^^^^^
 
-`CyVerse App <https://de.cyverse.org/de/?type=apps&app-id=Prokka-1.12.0u1&system-id=agave>`_
+`CyVerse App <https://de.cyverse.org/de/?type=apps&app-id=Prokka-1.12.0u3&system-id=agave>`_
 
 **Reference**: Seemann T. Prokka: rapid prokaryotic genome annotation Bioinformatics 2014 Jul 15;30(14):2068-9.
 PMID:24642063
@@ -279,7 +279,7 @@ data. PeerJ 3:e985 https://doi.org/10.7717/peerj.985
 vConTACT
 ^^^^^^^^^
 
-`CyVerse App <https://de.iplantcollaborative.org/de/?type=apps&app-id=vContact-0.1.49u2>`_
+`CyVerse App <https://de.cyverse.org/de/?type=apps&app-id=vContact-0.1.60u3&system-id=agave>`_
 
 **Reference**: Bolduc B, Jang H Bin, Doulcier G, You Z, Roux S, Sullivan MB. (2017). vConTACT: an iVirus tool to
 classify double-stranded DNA viruses that infect Archaea and Bacteria. PeerJ 5: e3243.
@@ -291,7 +291,7 @@ classify double-stranded DNA viruses that infect Archaea and Bacteria. PeerJ 5: 
 vConTACT-PCs
 ^^^^^^^^^^^^
 
-`CyVerse App <https://de.iplantcollaborative.org/de/?type=apps&app-id=vContact_pcs-0.1.49u4>`_
+`CyVerse App <https://de.cyverse.org/de/?type=apps&app-id=vContact_PCs-0.1.60u3&system-id=agave>`_
 
 **Reference**:
 
@@ -302,7 +302,7 @@ vConTACT-PCs
 vConTACT-Gene2Genome (formerly known as "Gene2Contig")
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-`CyVerse App <https://de.iplantcollaborative.org/de/?type=apps&app-id=vContact-Gene2Contig-0.1.0u1>`_
+`CyVerse App <https://de.cyverse.org/de/?type=apps&app-id=vContact-Gene2Contig-1.0.0u2&system-id=agave>`_
 
 **Reference**:
 
@@ -313,7 +313,7 @@ vConTACT-Gene2Genome (formerly known as "Gene2Contig")
 BowtieBatch
 ^^^^^^^^^^^
 
-`CyVerse App <https://de.cyverse.org/de/?type=apps&app-id=BowtieBatch-1.0.0u1&system-id=agave>`_
+`CyVerse App <https://de.cyverse.org/de/?type=apps&app-id=BowtieBatch-1.0.1u2&system-id=agave>`_
 
 **Reference**:
 
@@ -325,7 +325,7 @@ and Samtools.
 Read2RefMapper
 ^^^^^^^^^^^^^^
 
-`CyVerse App <https://de.cyverse.org/de/?type=apps&app-id=Read2RefMapper-1.1.0u1&system-id=agave>`_
+`CyVerse App <https://de.cyverse.org/de/?type=apps&app-id=Read2RefMapper-1.1.0u3&system-id=agave>`_
 
 **Reference**:
 
