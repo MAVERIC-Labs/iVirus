@@ -215,11 +215,11 @@ May 15;29(7):644-52. doi: 10.1038/nbt.1883. PubMed PMID: 21572440.
 
 **Singularity use**
 
-Annotations
------------
+Annotations, Sequence Analysis
+-------------------------------
 
-Trinity
-^^^^^^^^^
+Prokka
+^^^^^^
 
 `CyVerse App <https://de.cyverse.org/de/?type=apps&app-id=Prokka-1.12.0u1&system-id=agave>`_
 
@@ -228,6 +228,19 @@ PMID:24642063
 
 **Short description**: Prokka is a software tool to annotate bacterial, archaeal and viral genomes quickly and produce
 standards-compliant output files
+
+**Singularity use**
+
+Diamond
+^^^^^^^
+
+`CyVerse App <https://de.cyverse.org/de/?type=apps&app-id=DIAMOND-0.9.10u2&system-id=agave>`_
+
+**Reference**: B. Buchfink, Xie C., D. Huson, "Fast and sensitive protein alignment using DIAMOND", Nature Methods 12,
+59-60 (2015)
+
+**Short description**: DIAMOND is a sequence aligner for protein and translated DNA searches, designed for high
+performance analysis of big sequence data.
 
 **Singularity use**
 
