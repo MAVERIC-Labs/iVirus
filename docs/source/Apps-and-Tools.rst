@@ -354,3 +354,8 @@ PHACCS (Control In Research on CONtig SPECTra)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Estimates structure and diversity of viral communities
+
+MARVEL
+^^^^^^
+
+MARVEL is a pipeline for recovery of complete phage genomes from whole community shotgun metagenomic sequencing data.
