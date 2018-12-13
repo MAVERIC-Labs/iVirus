@@ -9,13 +9,19 @@ Welcome to iVirus's documentation!
 iVirus is “a community resource that leverages the CyVerse cyberinfrastructure to provide access to viromic tools and data sets.”
 We're focused on 3 major areas:
 
-1. Provide *easy*-to-use tools/apps through CyVerse (and soon KBase!!!)
+1. Provide *easy*-to-use tools/apps through CyVerse (and *very soon* KBase!)
 2. Detailed protocols through `Protocols.io <https://protocols.io/>`_.
 3. Databases and collections of “useful” viral datasets to the broader research community on CyVerse (and KBase)
 
 We won't go into much detail on the "science" side of iVirus - for that - check the references below and the those associated with specific tools.
 
-This site is mainly to provide a singular resource for the code and links to use and/or understand the tools.
+This site is mainly to provide a singular resource for the code and links to use and/or understand the tools. If you're
+here and don't want coding stuff, then...
+
+`Go here <https://www.protocols.io/groups/ivirus/protocols>`_ for a collection of iVirus related protocols.
+
+`Go here <http://ivirus.us/>`_ for another styled version of iVirus, not code-heavy.
+
 
 .. toctree::
     :maxdepth: 2

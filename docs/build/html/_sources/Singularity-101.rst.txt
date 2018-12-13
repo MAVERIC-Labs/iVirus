@@ -31,8 +31,8 @@ Before you begin
 
 Assuming you want to **develop** Singularity-based container apps...
 
-You need to install Singularity to a machine where you have root/sudo privileges (more below). There's a number of ways
- to do this: `Mac <http://singularity.lbl.gov/install-mac/>`_, `Linux <http://singularity.lbl.gov/install-linux/>`_ and `Windows <http://singularity.lbl.gov/install-windows/>`_
+You need to install Singularity to a machine where you have root/sudo privileges (more below). There's a number of
+ways to do this: `Mac <http://singularity.lbl.gov/install-mac/>`_, `Linux <http://singularity.lbl.gov/install-linux/>`_ and `Windows <http://singularity.lbl.gov/install-windows/>`_
 
 I use a Mac, so installation is a bit more involved. It requires using vagrant to set up and build a VM, then
 connecting to that [linux-based] VM to install Singularity. It's not bad, but I need to keep remembering where I am:
@@ -42,7 +42,7 @@ Mac -> VM -> Singularity-Container
 and there's a shared space to transfer files from Mac<-->VM, so it's all about shuttling files from Mac to the shared
 space, then from the shared space to the VM.
 
-If you're using linux you're home free. Singularity is just another tool.
+If you're using linux you're home free. Singularity is just another tool you can install on the command line.
 
 Typical Workflow
 ----------------
@@ -159,4 +159,4 @@ on a local/development machine and then exiting. Stupid, I know, but it's minor 
 Links
 -----
 
-[Singularity Hub](https://singularity-hub.org/)
+`Singularity Hub <https://singularity-hub.org/>`_

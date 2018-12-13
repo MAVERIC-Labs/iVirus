@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Protocols" href="Protocols.html" />
     <link rel="prev" title="Apps and Tools" href="Apps-and-Tools.html" /> 
 
   
@@ -79,7 +80,7 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Introduction and Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Apps-and-Tools.html">Apps and Tools</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Singularity 101</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#singularity-notes">Singularity Notes</a></li>
@@ -91,6 +92,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#links">Links</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="Protocols.html">Protocols</a></li>
 </ul>
 
             
@@ -178,16 +180,14 @@ environment</strong>.</p>
 <div class="section" id="before-you-begin">
 <h2>Before you begin<a class="headerlink" href="#before-you-begin" title="Permalink to this headline">¶</a></h2>
 <p>Assuming you want to <strong>develop</strong> Singularity-based container apps…</p>
-<dl class="docutils">
-<dt>You need to install Singularity to a machine where you have root/sudo privileges (more below). There’s a number of ways</dt>
-<dd>to do this: <a class="reference external" href="http://singularity.lbl.gov/install-mac/">Mac</a>, <a class="reference external" href="http://singularity.lbl.gov/install-linux/">Linux</a> and <a class="reference external" href="http://singularity.lbl.gov/install-windows/">Windows</a></dd>
-</dl>
+<p>You need to install Singularity to a machine where you have root/sudo privileges (more below). There’s a number of
+ways to do this: <a class="reference external" href="http://singularity.lbl.gov/install-mac/">Mac</a>, <a class="reference external" href="http://singularity.lbl.gov/install-linux/">Linux</a> and <a class="reference external" href="http://singularity.lbl.gov/install-windows/">Windows</a></p>
 <p>I use a Mac, so installation is a bit more involved. It requires using vagrant to set up and build a VM, then
 connecting to that [linux-based] VM to install Singularity. It’s not bad, but I need to keep remembering where I am:</p>
 <p>Mac -&gt; VM -&gt; Singularity-Container</p>
 <p>and there’s a shared space to transfer files from Mac&lt;–&gt;VM, so it’s all about shuttling files from Mac to the shared
 space, then from the shared space to the VM.</p>
-<p>If you’re using linux you’re home free. Singularity is just another tool.</p>
+<p>If you’re using linux you’re home free. Singularity is just another tool you can install on the command line.</p>
 </div>
 <div class="section" id="typical-workflow">
 <h2>Typical Workflow<a class="headerlink" href="#typical-workflow" title="Permalink to this headline">¶</a></h2>
@@ -279,7 +279,7 @@ them, but that’s a bit beyond me.</p>
 </div>
 <div class="section" id="links">
 <h2>Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
-<p>[Singularity Hub](<a class="reference external" href="https://singularity-hub.org/">https://singularity-hub.org/</a>)</p>
+<p><a class="reference external" href="https://singularity-hub.org/">Singularity Hub</a></p>
 </div>
 </div>
 
@@ -290,6 +290,8 @@ them, but that’s a bit beyond me.</p>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Protocols.html" class="btn btn-neutral float-right" title="Protocols" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="Apps-and-Tools.html" class="btn btn-neutral" title="Apps and Tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -326,7 +328,6 @@ them, but that’s a bit beyond me.</p>
         <script type="text/javascript" src="_static/jquery.js"></script>
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
 
   

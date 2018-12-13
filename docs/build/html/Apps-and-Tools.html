@@ -29,7 +29,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Singularity 101" href="Singularity-101.html" />
-    <link rel="prev" title="Overview" href="Overview.html" /> 
+    <link rel="prev" title="Introduction and Overview" href="Overview.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -80,7 +80,7 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Introduction and Overview</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Apps and Tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#the-basics-using-singularity">The Basics: Using Singularity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#quality-control-apps">Quality Control Apps</a><ul>
@@ -103,8 +103,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#trinity">Trinity</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#annotations">Annotations</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id11">Trinity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#annotations-sequence-analysis">Annotations, Sequence Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prokka">Prokka</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#diamond">Diamond</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#viral-analysis">Viral Analysis</a><ul>
@@ -121,11 +122,13 @@
 <li class="toctree-l3"><a class="reference internal" href="#gaas-genome-abundance-and-average-size">GAAS (Genome Abundance and Average Size)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#circonspect">Circonspect</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#phaccs-control-in-research-on-contig-spectra">PHACCS (Control In Research on CONtig SPECTra)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#marvel">MARVEL</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Singularity-101.html">Singularity 101</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Protocols.html">Protocols</a></li>
 </ul>
 
             
@@ -346,15 +349,24 @@ May 15;29(7):644-52. doi: 10.1038/nbt.1883. PubMed PMID: 21572440.</p>
 <p><strong>Singularity use</strong></p>
 </div>
 </div>
-<div class="section" id="annotations">
-<h2>Annotations<a class="headerlink" href="#annotations" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id11">
-<h3>Trinity<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="https://de.cyverse.org/de/?type=apps&amp;app-id=Prokka-1.12.0u1&amp;system-id=agave">CyVerse App</a></p>
+<div class="section" id="annotations-sequence-analysis">
+<h2>Annotations, Sequence Analysis<a class="headerlink" href="#annotations-sequence-analysis" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="prokka">
+<h3>Prokka<a class="headerlink" href="#prokka" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://de.cyverse.org/de/?type=apps&amp;app-id=Prokka-1.12.0u3&amp;system-id=agave">CyVerse App</a></p>
 <p><strong>Reference</strong>: Seemann T. Prokka: rapid prokaryotic genome annotation Bioinformatics 2014 Jul 15;30(14):2068-9.
 PMID:24642063</p>
 <p><strong>Short description</strong>: Prokka is a software tool to annotate bacterial, archaeal and viral genomes quickly and produce
 standards-compliant output files</p>
+<p><strong>Singularity use</strong></p>
+</div>
+<div class="section" id="diamond">
+<h3>Diamond<a class="headerlink" href="#diamond" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://de.cyverse.org/de/?type=apps&amp;app-id=DIAMOND-0.9.10u2&amp;system-id=agave">CyVerse App</a></p>
+<p><strong>Reference</strong>: B. Buchfink, Xie C., D. Huson, “Fast and sensitive protein alignment using DIAMOND”, Nature Methods 12,
+59-60 (2015)</p>
+<p><strong>Short description</strong>: DIAMOND is a sequence aligner for protein and translated DNA searches, designed for high
+performance analysis of big sequence data.</p>
 <p><strong>Singularity use</strong></p>
 </div>
 </div>
@@ -382,7 +394,7 @@ data. PeerJ 3:e985 <a class="reference external" href="https://doi.org/10.7717/p
 </div>
 <div class="section" id="vcontact">
 <h3>vConTACT<a class="headerlink" href="#vcontact" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="https://de.iplantcollaborative.org/de/?type=apps&amp;app-id=vContact-0.1.49u2">CyVerse App</a></p>
+<p><a class="reference external" href="https://de.cyverse.org/de/?type=apps&amp;app-id=vContact-0.1.60u3&amp;system-id=agave">CyVerse App</a></p>
 <p><strong>Reference</strong>: Bolduc B, Jang H Bin, Doulcier G, You Z, Roux S, Sullivan MB. (2017). vConTACT: an iVirus tool to
 classify double-stranded DNA viruses that infect Archaea and Bacteria. PeerJ 5: e3243.</p>
 <p><strong>Short description</strong>: Guilt-by-contig-association automatic classification of viral contigs</p>
@@ -390,21 +402,21 @@ classify double-stranded DNA viruses that infect Archaea and Bacteria. PeerJ 5: 
 </div>
 <div class="section" id="vcontact-pcs">
 <h3>vConTACT-PCs<a class="headerlink" href="#vcontact-pcs" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="https://de.iplantcollaborative.org/de/?type=apps&amp;app-id=vContact_pcs-0.1.49u4">CyVerse App</a></p>
+<p><a class="reference external" href="https://de.cyverse.org/de/?type=apps&amp;app-id=vContact_PCs-0.1.60u3&amp;system-id=agave">CyVerse App</a></p>
 <p><strong>Reference</strong>:</p>
 <p><strong>Short description</strong>: Generate PC-profiles using vContact/MCL</p>
 <p><strong>Singularity use</strong></p>
 </div>
 <div class="section" id="vcontact-gene2genome-formerly-known-as-gene2contig">
 <h3>vConTACT-Gene2Genome (formerly known as “Gene2Contig”)<a class="headerlink" href="#vcontact-gene2genome-formerly-known-as-gene2contig" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="https://de.iplantcollaborative.org/de/?type=apps&amp;app-id=vContact-Gene2Contig-0.1.0u1">CyVerse App</a></p>
+<p><a class="reference external" href="https://de.cyverse.org/de/?type=apps&amp;app-id=vContact-Gene2Contig-1.0.0u2&amp;system-id=agave">CyVerse App</a></p>
 <p><strong>Reference</strong>:</p>
 <p><strong>Short description</strong>: Conditions files for use in vContact</p>
 <p><strong>Singularity use</strong>:</p>
 </div>
 <div class="section" id="bowtiebatch">
 <h3>BowtieBatch<a class="headerlink" href="#bowtiebatch" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="https://de.cyverse.org/de/?type=apps&amp;app-id=BowtieBatch-1.0.0u1&amp;system-id=agave">CyVerse App</a></p>
+<p><a class="reference external" href="https://de.cyverse.org/de/?type=apps&amp;app-id=BowtieBatch-1.0.1u2&amp;system-id=agave">CyVerse App</a></p>
 <p><strong>Reference</strong>:</p>
 <p><strong>Short description</strong>: Performs mass alignment of paired and unpaired reads against a reference dataset using Bowtie2
 and Samtools.</p>
@@ -412,7 +424,7 @@ and Samtools.</p>
 </div>
 <div class="section" id="read2refmapper">
 <h3>Read2RefMapper<a class="headerlink" href="#read2refmapper" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="https://de.cyverse.org/de/?type=apps&amp;app-id=Read2RefMapper-1.1.0u1&amp;system-id=agave">CyVerse App</a></p>
+<p><a class="reference external" href="https://de.cyverse.org/de/?type=apps&amp;app-id=Read2RefMapper-1.1.0u3&amp;system-id=agave">CyVerse App</a></p>
 <p><strong>Reference</strong>:</p>
 <p><strong>Short description</strong>: Consumes input from BowtieBatch to generate coverage profiles.</p>
 <p><strong>Singularity use</strong>:</p>
@@ -434,6 +446,10 @@ implemented and moments away from going public, or they could be a note taken on
 <h3>PHACCS (Control In Research on CONtig SPECTra)<a class="headerlink" href="#phaccs-control-in-research-on-contig-spectra" title="Permalink to this headline">¶</a></h3>
 <p>Estimates structure and diversity of viral communities</p>
 </div>
+<div class="section" id="marvel">
+<h3>MARVEL<a class="headerlink" href="#marvel" title="Permalink to this headline">¶</a></h3>
+<p>MARVEL is a pipeline for recovery of complete phage genomes from whole community shotgun metagenomic sequencing data.</p>
+</div>
 </div>
 </div>
 
@@ -448,7 +464,7 @@ implemented and moments away from going public, or they could be a note taken on
         <a href="Singularity-101.html" class="btn btn-neutral float-right" title="Singularity 101" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Overview.html" class="btn btn-neutral" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Overview.html" class="btn btn-neutral" title="Introduction and Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -482,7 +498,6 @@ implemented and moments away from going public, or they could be a note taken on
         <script type="text/javascript" src="_static/jquery.js"></script>
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
 
   

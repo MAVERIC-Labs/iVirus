@@ -159,4 +159,4 @@ on a local/development machine and then exiting. Stupid, I know, but it's minor 
 Links
 -----
 
-[Singularity Hub](https://singularity-hub.org/)
+`Singularity Hub <https://singularity-hub.org/>`_

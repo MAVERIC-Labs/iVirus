@@ -1,0 +1,273 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Protocols &mdash; iVirus  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Singularity 101" href="Singularity-101.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> iVirus
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Introduction and Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Apps-and-Tools.html">Apps and Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Singularity-101.html">Singularity 101</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Protocols</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#guides-and-use-cases">Guides and Use Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#processing-a-viral-metagenome">Processing a Viral Metagenome</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mapping-metagenomic-reads-to-a-reference-collection">Mapping Metagenomic Reads to a Reference Collection</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">iVirus</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Protocols</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Protocols.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="protocols">
+<h1>Protocols<a class="headerlink" href="#protocols" title="Permalink to this headline">¶</a></h1>
+<p>Below is a collection of protocols.io links for using iVirus-enabled apps in CyVerse. Due to the nature of this media,
+it isn’t possible to include guides with the same level of “visual” detail. This only seeks to centralize them in one
+location.</p>
+<p>A few quick notes:</p>
+<ul class="simple">
+<li>Guides are not intended to assist users in understanding the biology behind the tools nor how the tools function.</li>
+<li>Where possible, Apps have links to their documentation on CyVerse as well as their citations (or original home pages).</li>
+<li>In some cases, many Apps are available to solve a particular problem. Guides will choose to highlight one or two.</li>
+<li>These guides assume you’ve created an CyVerse account and can access your account. Check out the <a class="reference external" href="http://ivirus.us/getting-started/">getting started guide</a> for assistance.</li>
+</ul>
+<div class="section" id="guides-and-use-cases">
+<h2>Guides and Use Cases<a class="headerlink" href="#guides-and-use-cases" title="Permalink to this headline">¶</a></h2>
+<p>Several “use cases” are available at protocols.io. For nearly all these use cases, we’ll use (as a basis) actual reads
+from the <a class="reference external" href="https://github.com/MicroB3-IS/osd-analysis">Ocean Sampling Day (2014)</a> and process them using Cyverse. In some cases we’ll take the user from using raw
+read files to assembly to identifying viral sequences and preliminary analysis. Other use cases will tackle ways of
+analyzing a viral metagenome, either reads or contigs, using traditional and non-traditional approaches. As a reminder,
+all these protocols are on protcols.io and should be considered the most up-to-date versions, though <em>they definitely
+can fall behind depending on developer’s time</em>.</p>
+<p>All example files can be found within the Cyverse datastore. To find these files, login to the Discovery Environment.
+Under “Data”, go to Community Data –&gt; iVirus –&gt; ExampleData. Alternatively, you can copy-and-paste the following into
+the “Viewing” bar under the data browser: /iplant/home/shared/iVirus/ExampleData/</p>
+<p>All tools have “Input” and “Output” directories, so not only does the user have valid input data, but also the expected
+output data as well.</p>
+</div>
+<div class="section" id="processing-a-viral-metagenome">
+<h2>Processing a Viral Metagenome<a class="headerlink" href="#processing-a-viral-metagenome" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong>: A long-standing challenge in viral metagenomics is actually processing a viral metagenome (we’re not
+talking about the science side!). For many reasons enumerated elsewhere, processing these datasets requires skilled
+bioinformaticians and computational resources not available to many researchers/labs. iVirus seeks to tackle this
+head-on.</p>
+<p><strong>Protocol “collection”</strong>: <a class="reference external" href="https://www.protocols.io/view/Processing-a-Viral-Metagenome-Using-iVirus-ev3be8n">This collection</a>
+connects individual protocols and goes from raw reads to processing with vConTACT.</p>
+<p><strong>Individual steps</strong>:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.protocols.io/view/Quality-Control-of-Reads-Using-Trimmomatic-Cyverse-ewbbfan">Cleaning up sequencing reads using Trimmomatic</a></li>
+<li><a class="reference external" href="https://www.protocols.io/view/Assembling-Viral-Metagenomic-Data-with-SPAdes-Cyve-evzbe76">Assembling QC’d reads using SPAdes</a></li>
+<li><a class="reference external" href="https://www.protocols.io/view/Identifying-Viral-Sequences-Using-VirSorter-Cyvers-ev2be8e">Identifying putative viral sequences using VirSorter</a></li>
+<li><a class="reference external" href="https://www.protocols.io/view/Preparing-Data-for-vContact-from-Proteins-Cyverse-ev7be9n">Preparing data for vConTACT</a></li>
+<li><a class="reference external" href="https://www.protocols.io/view/Applying-vContact-to-Viral-Sequences-and-Visualizi-ev8be9w">Running vConTACT and visualization in Cytoscape</a></li>
+</ul>
+</div>
+<div class="section" id="mapping-metagenomic-reads-to-a-reference-collection">
+<h2>Mapping Metagenomic Reads to a Reference Collection<a class="headerlink" href="#mapping-metagenomic-reads-to-a-reference-collection" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong>: One of the most commonly used procedures for analyzing viral metagenomic data is to map their reads
+(or reads from another dataset) against a set of references, often those from the read assembly. For example, if one
+wanted to know how well-represented viruses in NCBI’s Viral Reference Sequences (ViralRefSeq) were in ocean viromes,
+they could map reads from lots of ocean viral metagenomes against ViralRefSeq. This is generally done using <a class="reference external" href="http://bowtie-bio.sourceforge.net/bowtie2/index.shtml">Bowtie2</a> or
+<a class="reference external" href="http://bio-bwa.sourceforge.net/">BWA</a>, by selecting a reference set of sequences, and then providing paired or unpaired reads to Bowtie2/BWA. Then the
+results must be processed/filtered to generate coverage tables. Dealing with setting up multiple reads files (10 paired
+metagenomes = 10 alignment runs) and the processing those read files can be challenging (not to mention computational
+resources).</p>
+<p><strong>Protocol</strong>: <a class="reference external" href="https://www.protocols.io/view/Mapping-Metagenomic-Reads-to-Reference-Sequences-C-evybe7w">Mapping reads</a></p>
+<p><strong>Individual steps</strong>:</p>
+<ul class="simple">
+<li>Mapping reads from multiple metagenomes to a set of references</li>
+<li>Filtering mapped reads and generate coverage tables</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="Singularity-101.html" class="btn btn-neutral" title="Singularity 101" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Benjamin Bolduc
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

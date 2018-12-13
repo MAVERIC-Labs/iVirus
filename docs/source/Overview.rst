@@ -12,6 +12,7 @@ securely build new Apps and data processing pipelines for viral ecology. Specifi
 3. Using metadata capabilities and standard ontologies in the CyVerse cyberinfrastructure to enhance data and software
 discovery and reuse
 
+
 This work is a product of the `Hurwitz Lab <http://hurwitzlab.org/>`_ at the The University of Arizona and the `Sullivan Lab <http://u.osu.edu/viruslab/>`_
 at The Ohio State University.
 
