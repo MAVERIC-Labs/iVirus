@@ -46,7 +46,9 @@ connects individual protocols and goes from raw reads to processing with vConTAC
 * `Assembling QC'd reads using SPAdes <https://www.protocols.io/view/Assembling-Viral-Metagenomic-Data-with-SPAdes-Cyve-evzbe76>`_
 * `Identifying putative viral sequences using VirSorter <https://www.protocols.io/view/Identifying-Viral-Sequences-Using-VirSorter-Cyvers-ev2be8e>`_
 * `Preparing data for vConTACT <https://www.protocols.io/view/Preparing-Data-for-vContact-from-Proteins-Cyverse-ev7be9n>`_
+* `(New 2018-12-19) Preparing data for vConTACT2 <https://dx.doi.org/10.17504/protocols.io.wigfcbw>`_
 * `Running vConTACT and visualization in Cytoscape <https://www.protocols.io/view/Applying-vContact-to-Viral-Sequences-and-Visualizi-ev8be9w>`_
+* `(New 2018-12-19) Running vConTACT2 and visualization in Cytoscape <https://dx.doi.org/10.17504/protocols.io.wijfccn>`_
 
 Mapping Metagenomic Reads to a Reference Collection
 ---------------------------------------------------
