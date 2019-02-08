@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
@@ -9,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; iVirus  documentation</title>
+  <title>Building-A-Pipeline &mdash; iVirus  documentation</title>
   
 
   
@@ -27,7 +26,7 @@
 
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="index" title="Index" href="#" />
+    <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 
   
@@ -83,7 +82,6 @@
 <li class="toctree-l1"><a class="reference internal" href="Apps-and-Tools.html">Apps and Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Protocols.html">Protocols</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Singularity-101.html">Singularity 101</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Building-A-Pipeline.html">Building-A-Pipeline</a></li>
 </ul>
 
             
@@ -129,12 +127,14 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Index</li>
+      <li>Building-A-Pipeline</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/Build-Pipeline.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -146,11 +146,29 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
+  <div class="section" id="building-a-pipeline">
+<h1>Building-A-Pipeline<a class="headerlink" href="#building-a-pipeline" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="from-singularity-containers-to-pipelines">
+<h2>From Singularity Containers to Pipelines<a class="headerlink" href="#from-singularity-containers-to-pipelines" title="Permalink to this headline">¶</a></h2>
+<p>This guide serves as a reference for taking Singularity-based containers and publishing them to CyVerse. This guide is
+just that, a guide. Every effort has been made to keep this <em>somewhat</em> up to date with the best practices of CyVerse.
+If something doesn’t work, let us know and we’ll do our best to update it.</p>
+</div>
+<div class="section" id="before-you-begin">
+<h2>Before you begin<a class="headerlink" href="#before-you-begin" title="Permalink to this headline">¶</a></h2>
+<p>You’ll need a few tools installed, and access to a few systems (one of which requires admin powers).</p>
+<ul class="simple">
+<li>Singularity installed on a machine w/ admin/sudo powers</li>
+<li>The <a class="reference external" href="https://cyverse.github.io/cyverse-sdk/docs/using-agave/">Agave CLI</a> installed on either your local machine or TACC</li>
+</ul>
+<p>Personally I use TACC because it has fast access to CyVerse’s servers and it’s an excellent testing environment. If it
+works on TACC’s systems (a test job, see more below), there’s a good chance it’ll publish without problem.</p>
+<p>(Documentation will one day be updated to go through all the steps to install the CLI, but it’ll be copy-and-pasted
+from the installation guide… so go there for installation help)</p>
+</div>
+<div class="section" id="step-1-on-your-local-machine">
+<h2>Step 1 - On your local machine<a class="headerlink" href="#step-1-on-your-local-machine" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
 

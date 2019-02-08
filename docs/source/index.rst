@@ -29,8 +29,9 @@ here and don't want coding stuff, then...
 
     Overview
     Apps-and-Tools
-    Singularity-101
     Protocols
+    Singularity-101
+    Building-A-Pipeline
 
 References:
 ------------
