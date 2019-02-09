@@ -84,9 +84,18 @@
 <li class="toctree-l1"><a class="reference internal" href="Protocols.html">Protocols</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Singularity-101.html">Singularity 101</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Building-A-Pipeline</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#from-singularity-containers-to-pipelines">From Singularity Containers to Pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#from-containers-to-pipelines">From Containers to Pipelines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#before-you-begin">Before you begin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#step-1-on-your-local-machine">Step 1 - On your local machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-2-in-the-docker-container">Step 2 - In the docker container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-3-on-your-local-machine">Step 3 - On your local machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-4-on-tacc">Step 4 - On TACC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#test-that-the-singularity-image-works">Test that the singularity image works</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#push-the-app-to-your-private-system">“Push” the app to your private system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test-the-cyverse-app">Test the CyVerse app</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#if-everything-works">If everything works…</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -155,11 +164,12 @@
             
   <div class="section" id="building-a-pipeline">
 <h1>Building-A-Pipeline<a class="headerlink" href="#building-a-pipeline" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="from-singularity-containers-to-pipelines">
-<h2>From Singularity Containers to Pipelines<a class="headerlink" href="#from-singularity-containers-to-pipelines" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="from-containers-to-pipelines">
+<h2>From Containers to Pipelines<a class="headerlink" href="#from-containers-to-pipelines" title="Permalink to this headline">¶</a></h2>
 <p>This guide serves as a reference for taking Singularity-based containers and publishing them to CyVerse. This guide is
 just that, a guide. Every effort has been made to keep this <em>somewhat</em> up to date with the best practices of CyVerse.
-If something doesn’t work, let us know and we’ll do our best to update it.</p>
+If something doesn’t work, let us know and we’ll do our best to update it. Also, this won’t teach you everything about
+the Agave API. There’s a lot of information about the setup and features, but we only use A FEW of those tools.</p>
 </div>
 <div class="section" id="before-you-begin">
 <h2>Before you begin<a class="headerlink" href="#before-you-begin" title="Permalink to this headline">¶</a></h2>
@@ -169,12 +179,108 @@ If something doesn’t work, let us know and we’ll do our best to update it.</
 <li>The <a class="reference external" href="https://cyverse.github.io/cyverse-sdk/docs/using-agave/">Agave CLI</a> installed on either your local machine or TACC</li>
 </ul>
 <p>Personally I use TACC because it has fast access to CyVerse’s servers and it’s an excellent testing environment. If it
-works on TACC’s systems (a test job, see more below), there’s a good chance it’ll publish without problem.</p>
+works on TACC’s systems (as a test job, see more below), there’s a good chance it’ll publish without problem.</p>
 <p>(Documentation will one day be updated to go through all the steps to install the CLI, but it’ll be copy-and-pasted
 from the installation guide… so go there for installation help)</p>
+<p>The guide below is going to use vConTACT2-0.9.3 (versions don’t matter all that much), which can be found as vConTACT2.def
+under the singularity directory.</p>
 </div>
 <div class="section" id="step-1-on-your-local-machine">
 <h2>Step 1 - On your local machine<a class="headerlink" href="#step-1-on-your-local-machine" title="Permalink to this headline">¶</a></h2>
+<p><strong>Building the container</strong></p>
+<p>Build the singularity image and ensure that it functions correctly on your local machine. Since I use a Mac, I also
+use Vagrant to manage my Docker containers that I then connect to.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> &lt;location with vagrant file&gt;
+vagrant up <span class="o">&amp;&amp;</span> vagrant ssh
+</pre></div>
+</div>
+<p>This then connects to the running docker container. (Yes, this can be a little confusing. You’re using vagrant to help
+manage Docker, connecting to that container, and then using that container to make another container)</p>
+</div>
+<div class="section" id="step-2-in-the-docker-container">
+<h2>Step 2 - In the docker container<a class="headerlink" href="#step-2-in-the-docker-container" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp /vagrant/vConTACT2-0.9.3.def .
+sudo singularity build vConTACT2-0.9.3.simg vConTACT2-0.9.3.def
+</pre></div>
+</div>
+<p>Here I copied the singularity definition file <em>into</em> the running Docker container and then built the Singularity
+container. Alternatively, you can also build directly using the definitions file w/out copying the file into the container.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp /vagrant/gene2genome_proteins.csv .
+cp /vagrant/VIRSorter_viral_prots.faa .
+singularity run vConTACT2-0.9.3.simg --raw-proteins VIRSorter_viral_prots.faa --rel-mode ‘Diamond’ --proteins-fp gene2genome_proteins.csv --db <span class="s1">&#39;ProkaryoticViralRefSeq85-Merged&#39;</span> --pcs-mode MCL --vcs-mode ClusterONE --c1-bin /usr/local/bin/cluster_one-1.0.jar --output-dir vConTACT2-Output
+</pre></div>
+</div>
+<p>Copy the test data over into the Docker container and run the singularity container using the test files. <strong>Ensure that
+all vConTACT2 output files are generated.</strong> This is essential to the testing process.</p>
+<p>Once that’s done, copy the files back to the host system (for me, it’s the Mac).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp vConTACT2-0.9.3.simg /vagrant/
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-3-on-your-local-machine">
+<h2>Step 3 - On your local machine<a class="headerlink" href="#step-3-on-your-local-machine" title="Permalink to this headline">¶</a></h2>
+<p>Now copy the Singularity image over to TACC, as well as the files required for a functional app on CyVerse.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rsync -Pavz &lt;path-to-apps&gt;/vConTACT2-0.9.3 username@stampede2.tacc.utexas.edu:&lt;path-to-work-directory&gt;/iVirus-Apps
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-4-on-tacc">
+<h2>Step 4 - On TACC<a class="headerlink" href="#step-4-on-tacc" title="Permalink to this headline">¶</a></h2>
+<p>At TACC, you should have installed the Agave CLI (above) and validated that everything was functional. (More details
+might be added later).</p>
+<div class="section" id="test-that-the-singularity-image-works">
+<h3>Test that the singularity image works<a class="headerlink" href="#test-that-the-singularity-image-works" title="Permalink to this headline">¶</a></h3>
+<p>Yes, sounds obvious. But <em>it is possible</em> that it won’t work. Often times this is because you need to make sure that
+the directories /home1 /scratch and /work are created. And there are rare occasions where interactions between the tool,
+singularity, and the host system don’t mesh (i.e. for “some” reason, the tool doesn’t recognize files outside the
+container).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbatch test.sh
+</pre></div>
+</div>
+<p>The job should get submitted, and output generated. Hopefully it’s the same output as was created on your local machine.
+If not, investigate!</p>
+</div>
+<div class="section" id="push-the-app-to-your-private-system">
+<h3>“Push” the app to your private system<a class="headerlink" href="#push-the-app-to-your-private-system" title="Permalink to this headline">¶</a></h3>
+<p>Once the Singularity container works, push it to CyVerse as a private app on your private system.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>auth-tokens-refresh -S -v
+
+files-upload -S data.iplantcollaborative.org -F &lt;app-folder-on-TACC&gt; &lt;CyVerse-home-directory&gt;/apps
+
+apps-addupdate -F &lt;app-folder-on-TACC&gt;/vConTACT2-0.9.3.json
+
+apps-list --privateonly
+</pre></div>
+</div>
+<p>A lot of things happen here. First, we’re refreshing our CyVerse token (explained extensively in the Agave CLI docs).
+Then we’re uploading the app data (<em>everything</em> that’s needed to run the app) to CyVerse. The storage system is
+iplantcollaborative, the folder is the app folder on TACC, and it’s being uploaded to your CyVerse home directory under
+the “apps” folder. Of course, this could be anywhere you have write permission to on CyVerse, but for now that’s the
+easiest place. Then, you add the app to CyVerse’s app system. The json has all the details about the app’s run
+parameters, what should be displayed to the user through the CyVerse UI, version info, and where to find the app.
+Finally, ensure that the app has been successfully published to your private system (apps-addupdate will tell you if
+something really goes wrong) by getting a list of your private apps. Whatever your app name + version is should be
+displayed.</p>
+</div>
+<div class="section" id="test-the-cyverse-app">
+<h3>Test the CyVerse app<a class="headerlink" href="#test-the-cyverse-app" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jobs-submit -v -F vConTACT2-0.9.3-TestJob.json
+</pre></div>
+</div>
+<p>Now the job should get submitted using the parameters set in the TestJob.json file to make sure that the app works on
+CyVerse. (Things <em>can</em> and <em>do</em> go wrong here. Even if everything works up to this point, variables in the app
+parameters can be wrong/incorrect, or a mispelled argument doesn’t get passed correctly to the wrapper. A whole bunch of
+stuff can go wrong. It’s <strong>here</strong> that the final test of the app is done.)</p>
+<p>And finally, if your job takes a little while but you want to get the status of the job…</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jobs-status JOB_ID
+</pre></div>
+</div>
+</div>
+<div class="section" id="if-everything-works">
+<h3>If everything works…<a class="headerlink" href="#if-everything-works" title="Permalink to this headline">¶</a></h3>
+<p>Go ahead and request that your app be made public from the CyVerse staff.</p>
+<p>Congratulations, you’ve gone from a Singularity definitions file to a published app that others can benefit!</p>
+</div>
 </div>
 </div>
 
