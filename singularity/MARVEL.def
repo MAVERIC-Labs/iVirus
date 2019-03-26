@@ -1,0 +1,60 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+#
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: stable
+MirrorURL: http://ftp.us.debian.org/debian/
+
+%environment
+PATH=/MARVEL/:$PATH
+export PATH
+
+%runscript
+    exec marvel_wrapper.py "$@"
+
+%environment
+    PATH=/miniconda3/bin:/prokka/bin:$PATH
+    export PATH
+
+%files
+	/home/vagrant/marvel_wrapper.py /usr/local/bin/
+
+%post
+    apt-get update && apt-get install -y build-essential git wget nano bioperl default-jre
+
+    export BINPATH=/usr/local/bin
+
+    # Install miniconda
+    wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+    bash Miniconda3-latest-Linux-x86_64.sh -b -f -p /miniconda3
+    rm Miniconda3-latest-Linux-x86_64.sh
+
+    # Dependencies for wrapper
+    conda install -y -c conda-forge -c bioconda numpy scipy biopython psutil scikit-learn
+
+    # Install MARVEL dependencies
+    # Prokka has a hard time finding some of its dependencies if through conda...
+    cd / && git clone https://github.com/tseemann/prokka.git
+    cd prokka && bin/prokka --setupdb
+
+    # Install MARVEL
+    cd / && git clone https://github.com/LaboratorioBioinformatica/MARVEL && cd MARVEL
+    chmod +x download_and_set_models.py && chmod +x marvel_bins.py
+
+    # Edit MARVEL to avoid creating warning file in the executable directory
+    sed -i "s/open('marvel-warnings.txt', 'w')/open(os.path.join(args.input_folder, 'marvel-warnings.txt'), 'w')/" /MARVEL/marvel_bins.py
+    # Edit MARVEL so you don't need to call python3 for everything
+    sed -i "s|#!/usr/bin/python3|#!/usr/bin/env python3|" /MARVEL/marvel_bins.py
+
+    # Setup, don't bother changing... but could to avoid "python3"
+    python3 /MARVEL/download_and_set_models.py
+
+    # Clean up
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    conda clean --yes --tarballs --packages --source-cache
+
+    # TACC's Stampede compliant
+    mkdir /home1 && mkdir /scratch && mkdir /work

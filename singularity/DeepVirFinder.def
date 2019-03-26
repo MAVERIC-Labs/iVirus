@@ -1,0 +1,42 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+#
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: stable
+MirrorURL: http://ftp.us.debian.org/debian/
+
+%runscript
+    exec dvf.py "$@"
+
+
+%environment
+    PATH=/DeepVirFinder/:$PATH
+    export PATH
+
+%post
+    apt-get update && apt-get install -y build-essential git wget nano
+
+    export BINPATH=/usr/local/bin
+
+    # Install miniconda
+    wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+    bash Miniconda3-latest-Linux-x86_64.sh -b -f -p /usr/local/
+    rm Miniconda3-latest-Linux-x86_64.sh
+
+    # Install DeepVirFinder dependencies
+    conda install -y -c conda-forge r-essentials r-base
+    conda install -y -c conda-forge numpy theano keras scikit-learn biopython mkl-service
+
+    # Install DeepVirFinder
+    cd / && git clone https://github.com/jessieren/DeepVirFinder && cd DeepVirFinder
+    chmod +x dvf.py
+
+    # Clean up
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    conda clean --yes --tarballs --packages --source-cache
+
+    # TACC's Stampede compliant
+    mkdir /home1 && mkdir /scratch && mkdir /work
