@@ -63,3 +63,4 @@ MirrorURL: http://ftp.us.debian.org/debian/
     # Clean up
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
     /miniconda2/bin/conda clean --yes --tarballs --packages --source-cache
+    /miniconda3/bin/conda clean --yes --tarballs --packages --source-cache
