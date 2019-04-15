@@ -29,6 +29,7 @@ MirrorURL: http://ftp.us.debian.org/debian/
     conda install -c bioconda cat
 
     # Databases can now be pointed to on the command line. No longer need to download
+    conda clean --yes --tarballs --packages --source-cache
 
     # TACC's Stampede compliant
     mkdir /home1 && mkdir /scratch && mkdir /work
