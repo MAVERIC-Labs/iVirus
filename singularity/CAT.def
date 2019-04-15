@@ -11,47 +11,24 @@ MirrorURL: http://ftp.us.debian.org/debian/
 %runscript
     exec CAT "$@"
 
+%environment
+    export PATH=/miniconda3/bin:$PATH
+
 %post
     apt-get update
-    apt-get install -y automake build-essential zlib1g-dev libncurses5-dev wget unzip git
+    apt-get install -y automake build-essential wget git
 
     # Clean up
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
     # We need python, and not that silly python that comes with apt
     wget --no-verbose https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-    bash Miniconda3-latest-Linux-x86_64.sh -b -f -p /usr/local/
+    bash Miniconda3-latest-Linux-x86_64.sh -b -f -p /miniconda3/
     rm Miniconda3-latest-Linux-x86_64.sh
 
-    export BINPATH=/usr/local/bin
+    conda install -c bioconda cat
 
-    # DIAMOND
-    wget --no-verbose http://github.com/bbuchfink/diamond/releases/download/v0.9.10/diamond-linux64.tar.gz
-    tar xf diamond-linux64.tar.gz && cp diamond $BINPATH
-
-    # Prodigal
-    git clone https://github.com/hyattpd/Prodigal.git
-    cd Prodigal && make && cp prodigal $BINPATH
-
-    # Databases
-    mkdir /DBs
-    export DBPATH=/DBs
-
-    wget --no-verbose ftp://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump.tar.gz
-    tar xf taxdump.tar.gz -C $DBPATH
-
-    # This file is HUGE
-    #wget --no-verbose ftp://ftp.ncbi.nlm.nih.gov/pub/taxonomy/accession2taxid/prot.accession2taxid.gz
-    #gunzip -c prot.accession2taxid.gz > $DBPATH/prot.accession2taxid
-
-    # Finally, CAT
-    git clone https://github.com/dutilh/CAT.git
-    cp CAT/CAT_tool/CAT $BINPATH
-    chmod +x $BINPATH/CAT
-
-    sed -i "s/\/absolute\/path\/to\/executables\/of\/diamond/\/usr\/local\/bin\/diamond/" $BINPATH/CAT
-    sed -i "s/\/absolute\/path\/to\/executables\/of\/prodigal/\/usr\/local\/bin\/prodigal/" $BINPATH/CAT
-    sed -i "s/\/path\/to\/files\/folder\//\/DBs\//" $BINPATH/CAT
+    # Databases can now be pointed to on the command line. No longer need to download
 
     # TACC's Stampede compliant
     mkdir /home1 && mkdir /scratch && mkdir /work
