@@ -45,7 +45,7 @@ export PATH
     chmod +x download_and_set_models.py && chmod +x marvel_bins.py
 
     # Edit MARVEL to avoid creating warning file in the executable directory
-    sed -i "s/open('marvel-warnings.txt', 'w')/open(os.path.join(args.input_folder, 'marvel-warnings.txt'), 'w')/" /MARVEL/marvel_bins.py
+    #sed -i "s/open('marvel-warnings.txt', 'w')/open(os.path.join(args.input_folder, 'marvel-warnings.txt'), 'w')/" /MARVEL/marvel_bins.py
     # Edit MARVEL so you don't need to call python3 for everything
     sed -i "s|#!/usr/bin/python3|#!/usr/bin/env python3|" /MARVEL/marvel_bins.py
 
