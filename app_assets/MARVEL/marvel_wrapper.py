@@ -94,7 +94,7 @@ def split_sequences(input_fp, input_fmt, min_len, max_len, out_dir):
     with open(input_fp, 'r') as input_fh:
         records = [record for record in SeqIO.parse(input_fh, input_fmt) if
                    min_len <= len(record.seq) <= max_len]
-        print('There were {} records'.format(len(records)))
+        print('There were {} records identified'.format(len(records)))
 
     for record in records:
         record_fn = re.sub('[^\w\-_\. ]', '_', record.id)  # Great to see so many illegal filename characters
@@ -108,28 +108,42 @@ def runner(command, cwd):
     subprocess.check_call(command, shell=True, cwd=cwd)
 
 
+def run_marvel(marvel, input_dir):
+    cpu_counts = results.cpu_counts
+    if not cpu_counts:
+        cpu_counts = psutil.cpu_count(logical=False)
+
+    marvel_cmd = '{} -i {} -t {}'.format(marvel, input_dir, cpu_counts)
+
+    runner(marvel_cmd, os.path.dirname(marvel))
+
+
 def marvel_fixer(split_sequences_dir, out_dir):
+
+    print('MARVEL Bypass...')
 
     # Figure out what sequences went into MARVEL
     fasta_sequences_fps = glob.glob(os.path.join(split_sequences_dir, '*.fasta'), recursive=False)
 
-    print('MARVEL Bypass...')
+    failed_tbls = []
+    for fasta_sequence_fp in fasta_sequences_fps:
+        expected_bn = os.path.basename(fasta_sequence_fp.rsplit('.', 1)[0])
+        expected_hmm_tbl = os.path.join(split_sequences_dir, 'results/hmmscan', '{}_hmmscan.tbl'.format(
+            expected_bn))
 
-    def expected_tbl(in_fp):
-        expected_fp = os.path.join(split_sequences_dir,
-                                   'results/hmmscan',
-                                   '{}_hmmscan.tbl'.format(os.path.basename(in_fp.rsplit('.', 1)[0])))
-        return expected_fp
+        expected_faa = os.path.join(split_sequences_dir, 'results/prokka/',
+                                    '{}/prokka_results_{}.faa'.format(expected_bn, expected_bn))
 
-    # Get list of expected sequences
-    expected_hmm_tbls = [expected_tbl(fasta_sequences_fp) for fasta_sequences_fp in fasta_sequences_fps]
+        # if os.stat(expected_faa).st_size != 0:
+        #     print('Expected FAA {} exists, and its length is not equal to zero!')
 
-    # Check if file exists
-    # https://stackoverflow.com/questions/16962528/checking-if-file-exists-performance-of-isfile-vs-openpath
-    # Double-checking performance because, potentially, 100K+ files (even a million or more!) could be checked!!!
-    failed_tbls = []  # List of fails SHOULD DRAMATICALLY trail successes, to reduce performance overhead
-    for expected_hmm_tbl in expected_hmm_tbls:
-        if not os.path.isfile(expected_hmm_tbl):
+        # There are two reasons why MARVEL fails. 1) FAA exists but not HMM hit. 2) FAA is empty and TBL not made
+        # It doesn't matter in the end, because the result of both of them is no TBL
+
+        # Check if file exists
+        # https://stackoverflow.com/questions/16962528/checking-if-file-exists-performance-of-isfile-vs-openpath
+        # Double-checking performance because, potentially, 100K+ files (even a million or more!) could be checked!!!
+        if not os.path.exists(expected_hmm_tbl):  # isfile?
             failed_tbls.append(expected_hmm_tbl)
 
     print('MARVEL wrapper identified {} files that "failed" HMM scan (i.e. had no result). Removing these sequences '
@@ -137,16 +151,17 @@ def marvel_fixer(split_sequences_dir, out_dir):
           'failed_sequences.txt'.format(len(failed_tbls)))
 
     def original_sequence(in_fp):
-        original_seq_fp = os.path.join(split_sequences_dir,
-                                       '{}.fasta'.format(os.path.basename(in_fp.rsplit('_', 1)[0])))
+        original_seq_fn = '{}.fasta'.format(os.path.basename(in_fp.rsplit('_', 1)[0]))
+        original_seq_fp = os.path.join(split_sequences_dir, original_seq_fn)
         return original_seq_fp
 
     failed_sequence_fps = [original_sequence(failed_tbl_fp) for failed_tbl_fp in failed_tbls]
 
     # Remove sequences
     with open(os.path.join(out_dir, 'failed_sequences.txt'), 'w') as failed_sequences_fh:
-        for failed_sequence_fp in failed_sequence_fps:
-            failed_sequences_fh.write(failed_sequence_fp + '\n')
+        failed_sequences_fh.write('Failed Sequence Filepath' + '\t' + 'Not present table Filepath')
+        for failed_sequence_fp, failed_tbl_fp in zip(failed_sequence_fps, failed_tbls):
+            failed_sequences_fh.write(failed_sequence_fp + '\t' + failed_tbl_fp + '\n')
             os.remove(failed_sequence_fp)
 
     print('Removed {} sequences'.format(len(failed_sequence_fps)))
@@ -154,13 +169,26 @@ def marvel_fixer(split_sequences_dir, out_dir):
     old_warnings_fp = os.path.join(split_sequences_dir, 'marvel-warnings.txt')
     if os.path.exists(old_warnings_fp):
         print('Moving previous warning file...')
-        shutil.move(old_warnings_fp,
-                    os.path.join(out_dir, 'marvel-warnings_old.txt'))
+        shutil.move(old_warnings_fp, os.path.join(out_dir, 'marvel-warnings_old.txt'))
 
     print('Removing current results...')
-    shutil.rmtree(os.path.join(out_dir, 'split_sequences/results'))
+    shutil.rmtree(os.path.join(split_sequences_dir, 'results/'))  # !!!
 
     print('Re-running MARVEL...')
+
+
+def compress_results(out_dir):
+
+    print('Compressing directories with intermediate data...')
+    prokka_dir = os.path.join(out_dir, 'split_sequences/results/prokka/')
+    with tarfile.open(os.path.join(out_dir, 'prokka.tar.gz'), "w:gz") as tar:
+        tar.add(prokka_dir, arcname=os.path.basename(prokka_dir))
+    hmmscan_dir = os.path.join(out_dir, 'split_sequences/results/hmmscan/')
+    with tarfile.open(os.path.join(out_dir, 'hmmscan.tar.gz'), "w:gz") as tar:
+        tar.add(hmmscan_dir, arcname=os.path.basename(hmmscan_dir))
+
+    shutil.rmtree(prokka_dir)
+    shutil.rmtree(hmmscan_dir)
 
 
 def marvel_cleanup(split_sequences_dir, out_dir):
@@ -172,35 +200,11 @@ def marvel_cleanup(split_sequences_dir, out_dir):
         shutil.move(warnings_fp, out_dir)
     # Move results folder outside the split directory, as we don't want people wandering into a directory
     # potentially containing 100K+ files
-    res = os.path.join(split_sequences_dir, 'results/')
+    results_dir = os.path.join(split_sequences_dir, 'results/')  # Should only contain phage_bins
     # Move results files
-    shutil.move(res, out_dir)
+    shutil.move(results_dir, out_dir)
     # Remove split files
-    shutil.rmtree(split_sequences_dir)
-
-
-def compress_results(out_dir):
-
-    print('Compressing directories with intermediate data...')
-    prokka_dir = os.path.join(out_dir, 'results', 'prokka/')
-    with tarfile.open(os.path.join(out_dir, 'prokka.tar.gz'), "w:gz") as tar:
-        tar.add(prokka_dir, arcname=os.path.basename(prokka_dir))
-    hmmscan_dir = os.path.join(out_dir, 'results', 'hmmscan/')
-    with tarfile.open(os.path.join(out_dir, 'hmmscan.tar.gz'), "w:gz") as tar:
-        tar.add(hmmscan_dir, arcname=os.path.basename(hmmscan_dir))
-
-    shutil.rmtree(prokka_dir)
-    shutil.rmtree(hmmscan_dir)
-
-
-def run_marvel(marvel, input_dir):
-    cpu_counts = results.cpu_counts
-    if not cpu_counts:
-        cpu_counts = psutil.cpu_count(logical=False)
-
-    marvel_cmd = '{} -i {} -t {}'.format(marvel, input_dir, cpu_counts)
-
-    runner(marvel_cmd, os.path.dirname(marvel))
+    shutil.rmtree(split_sequences_dir)  # Should be under the out_dir
 
 
 if __name__ == "__main__":
@@ -211,7 +215,7 @@ if __name__ == "__main__":
     # Create output directory
     output_dir = os.path.abspath(results.output_dir)
     if not os.path.isdir(output_dir):
-        print('Creating directory: {}'.format(output_dir))
+        print('Creating output directory: {}'.format(output_dir))
         os.mkdir(output_dir)
 
     # Split sequences (assuming that there's >1 sequence in the sequence file)
@@ -219,13 +223,23 @@ if __name__ == "__main__":
     if not os.path.isdir(split_dir):
         print('Creating directory: {}'.format(split_dir))
         os.mkdir(split_dir)
-    print('Do not try to ls {}'.format(split_dir))
+    print('Do not try to ls {} - it will take forever'.format(split_dir))
 
+    no_split = False
     if not results.no_split:
         split_sequences(input_sequences_fp, results.input_format, results.min_size, results.max_size, split_dir)
-    else:  # It's a directory given as input
+        no_split = True
+    else:
+        input_sequences_dir = None
+        if os.path.isfile(input_sequences_fp):  # Given a path to a file (not sure why this would happen, but...)
+            input_sequences_dir = os.path.dirname(input_sequences_fp)
+        elif os.path.isdir(input_sequences_fp):
+            input_sequences_dir = input_sequences_fp
+        else:
+            error('Could not identify whether or not the input was a sequence file or directory')
+
         for files in os.listdir(input_sequences_fp):
-            shutil.copy(os.path.join(os.path.dirname(input_sequences_fp), files), split_dir)
+            shutil.copy(os.path.join(input_sequences_dir, files), split_dir)
 
     # Run MARVEL on split directory
     try:
@@ -234,9 +248,9 @@ if __name__ == "__main__":
         marvel_fixer(split_dir, output_dir)  # Fixer will remove "old"
         run_marvel(results.marvel_bin, split_dir)
 
-    marvel_cleanup(split_dir, output_dir)
-
     compress_results(output_dir)
+
+    marvel_cleanup(split_dir, output_dir)
 
     print('Execution complete! Results should be in {}'.format(os.path.join(output_dir, 'results/')))
 
