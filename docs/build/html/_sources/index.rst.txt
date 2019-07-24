@@ -42,8 +42,7 @@ site for the most recent information, alongside protocols.io.
 
 References:
 ------------
-- **﻿iVirus: Facilitating new insights in viral ecology with software and community data sets imbedded in a
-cyberinfrastructure**. (2017) Bolduc, B., Youens-Clark, K., Roux, S., Hurwitz, B.L., and Sullivan, M.B. ISME Journal
+- **﻿iVirus: Facilitating new insights in viral ecology with software and community data sets imbedded in a cyberinfrastructure**. (2017) Bolduc, B., Youens-Clark, K., Roux, S., Hurwitz, B.L., and Sullivan, M.B. ISME Journal
 
 Funding:
 --------
