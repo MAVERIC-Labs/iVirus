@@ -23,7 +23,7 @@
 
   <!-- Fonts: Inter (body) + Source Serif 4 (headings) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
 
   <!-- Global CSS -->
@@ -36,11 +36,11 @@
   <link rel="stylesheet" href="/iVirus/assets/css/data.css">
   <link rel="stylesheet" href="/iVirus/assets/css/publications.css">
   <link rel="stylesheet" href="/iVirus/assets/css/protocols.css">
-  <script defer="" src="https://www.protocols.io/js/widgets/js/protocolsiojs.min.js"></script>
+  <script defer src="https://www.protocols.io/js/widgets/js/protocolsiojs.min.js"></script>
 
   <!-- GA tracking (only in production builds) -->
   
-  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-T56YTL1JSV"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T56YTL1JSV"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -62,30 +62,30 @@
 
   <header id="top" class="site-header">
   <div class="header-inner">
-    <a class="logo" href="/iVirus/" aria-label="iVirus home"><span class="logo-i">i</span><span class="logo-virus">Virus</span></a>
+    <a class="logo" href="/" aria-label="iVirus home"><span class="logo-i">i</span><span class="logo-virus">Virus</span></a>
 
     <!-- mobile hamburger (left) -->
-    <button class="nav-toggle" data-nav-toggle="" aria-expanded="false" aria-controls="site-nav">
+    <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
       ☰
     </button>
 
     <!-- main nav -->
-    <nav id="site-nav" class="nav" data-site-nav="">
+    <nav id="site-nav" class="nav" data-site-nav>
       <ul class="nav-list">
         
-          <li class="nav-item"><a href="/iVirus/iVirus/about/">About</a></li>
+          <li class="nav-item"><a href="/iVirus/about/">About</a></li>
         
-          <li class="nav-item"><a href="/iVirus/iVirus/tools/">Tools &amp; Apps</a></li>
+          <li class="nav-item"><a href="/iVirus/tools/">Tools &amp; Apps</a></li>
         
-          <li class="nav-item"><a href="/iVirus/iVirus/data/">Data</a></li>
+          <li class="nav-item"><a href="/iVirus/data/">Data</a></li>
         
-          <li class="nav-item"><a href="/iVirus/iVirus/workshops/">Workshops</a></li>
+          <li class="nav-item"><a href="/iVirus/workshops/">Workshops</a></li>
         
-          <li class="nav-item"><a href="/iVirus/iVirus/publications/">Publications</a></li>
+          <li class="nav-item"><a href="/iVirus/publications/">Publications</a></li>
         
-          <li class="nav-item"><a href="/iVirus/iVirus/docs/">Docs</a></li>
+          <li class="nav-item"><a href="/iVirus/docs/">Docs</a></li>
         
-          <li class="nav-item"><a href="/iVirus/iVirus/protocols/">Protocols</a></li>
+          <li class="nav-item"><a href="/iVirus/protocols/">Protocols</a></li>
         
       </ul>
     </nav>
@@ -94,7 +94,7 @@
     <div class="header-spacer" aria-hidden="true"></div>
 
     <!-- theme toggle (always visible, right end) -->
-    <button class="theme-toggle" data-theme-toggle="" aria-pressed="false" title="Toggle theme">🌓</button>
+    <button class="theme-toggle" data-theme-toggle aria-pressed="false" title="Toggle theme">🌓</button>
   </div>
 </header>
 
@@ -115,29 +115,30 @@
     
       
       <li class="wf-parent ">
-        <button class="wf-toggle" aria-label="Toggle steps" aria-expanded="false">
+        <button class="wf-toggle" aria-label="Toggle steps"
+                aria-expanded="false">
           Viral Metagenome Workflow <span class="arrow">▸</span>
         </button>
-        <ul class="wf-steps-nested" hidden="">
+        <ul class="wf-steps-nested" hidden>
           
           <li class="">
-            <a href="/iVirus/docs/workflows/sra-fetch/">SRA Fetch</a>
+            <a href="/docs/workflows/sra-fetch/">SRA Fetch</a>
           </li>
           
           <li class="">
-            <a href="/iVirus/docs/workflows/qc-and-trim/">QC &amp; Trim</a>
+            <a href="/docs/workflows/qc-and-trim/">QC &amp; Trim</a>
           </li>
           
           <li class="">
-            <a href="/iVirus/docs/workflows/assembly/">Assembly</a>
+            <a href="/docs/workflows/assembly/">Assembly</a>
           </li>
           
           <li class="">
-            <a href="/iVirus/docs/workflows/viral-identification/">Viral Identification</a>
+            <a href="/docs/workflows/viral-identification/">Viral Identification</a>
           </li>
           
           <li class="">
-            <a href="/iVirus/docs/workflows/reporting/">Reporting</a>
+            <a href="/docs/workflows/reporting/">Reporting</a>
           </li>
           
         </ul>
@@ -159,23 +160,23 @@
           <ul>
             
               <li class="">
-                <a href="/iVirus/docs/tools/bbduk/">BBDuk</a>
+                <a href="/docs/tools/bbduk/">BBDuk</a>
               </li>
             
               <li class="">
-                <a href="/iVirus/docs/tools/fastp/">fastp</a>
+                <a href="/docs/tools/fastp/">fastp</a>
               </li>
             
               <li class="">
-                <a href="/iVirus/docs/tools/fastqc/">FastQC</a>
+                <a href="/docs/tools/fastqc/">FastQC</a>
               </li>
             
               <li class="">
-                <a href="/iVirus/docs/tools/multiqc/">MultiQC</a>
+                <a href="/docs/tools/multiqc/">MultiQC</a>
               </li>
             
               <li class="">
-                <a href="/iVirus/docs/tools/trimmomatic/">Trimmomatic</a>
+                <a href="/docs/tools/trimmomatic/">Trimmomatic</a>
               </li>
             
           </ul>
@@ -189,11 +190,11 @@
           <ul>
             
               <li class="">
-                <a href="/iVirus/docs/tools/megahit/">MEGAHIT</a>
+                <a href="/docs/tools/megahit/">MEGAHIT</a>
               </li>
             
               <li class="">
-                <a href="/iVirus/docs/tools/spades/">SPAdes</a>
+                <a href="/docs/tools/spades/">SPAdes</a>
               </li>
             
           </ul>
@@ -207,19 +208,19 @@
           <ul>
             
               <li class="">
-                <a href="/iVirus/docs/tools/checkv/">CheckV</a>
+                <a href="/docs/tools/checkv/">CheckV</a>
               </li>
             
               <li class="">
-                <a href="/iVirus/docs/tools/propagate/">PropagAtE</a>
+                <a href="/docs/tools/propagate/">PropagAtE</a>
               </li>
             
               <li class="">
-                <a href="/iVirus/docs/tools/vibrant/">VIBRANT</a>
+                <a href="/docs/tools/vibrant/">VIBRANT</a>
               </li>
             
               <li class="">
-                <a href="/iVirus/docs/tools/virsorter/">VirSorter</a>
+                <a href="/docs/tools/virsorter/">VirSorter</a>
               </li>
             
           </ul>
@@ -233,7 +234,7 @@
           <ul>
             
               <li class="">
-                <a href="/iVirus/docs/tools/prodigal/">Prodigal</a>
+                <a href="/docs/tools/prodigal/">Prodigal</a>
               </li>
             
           </ul>
@@ -247,15 +248,15 @@
           <ul>
             
               <li class="">
-                <a href="/iVirus/docs/tools/dram-v/">DRAM-v</a>
+                <a href="/docs/tools/dram-v/">DRAM-v</a>
               </li>
             
               <li class="">
-                <a href="/iVirus/docs/tools/phageterm/">PhageTerm</a>
+                <a href="/docs/tools/phageterm/">PhageTerm</a>
               </li>
             
               <li class="">
-                <a href="/iVirus/docs/tools/viga/">VIGA</a>
+                <a href="/docs/tools/viga/">VIGA</a>
               </li>
             
           </ul>
@@ -272,15 +273,15 @@
           <ul>
             
               <li class="">
-                <a href="/iVirus/docs/tools/cat-bat/">CAT / BAT</a>
+                <a href="/docs/tools/cat-bat/">CAT / BAT</a>
               </li>
             
               <li class="">
-                <a href="/iVirus/docs/tools/vcontact2/">vConTACT2</a>
+                <a href="/docs/tools/vcontact2/">vConTACT2</a>
               </li>
             
               <li class="">
-                <a href="/iVirus/docs/tools/viridic/">VIRIDIC</a>
+                <a href="/docs/tools/viridic/">VIRIDIC</a>
               </li>
             
           </ul>
@@ -294,15 +295,15 @@
           <ul>
             
               <li class="">
-                <a href="/iVirus/docs/tools/hostphinder/">HostPhinder</a>
+                <a href="/docs/tools/hostphinder/">HostPhinder</a>
               </li>
             
               <li class="">
-                <a href="/iVirus/docs/tools/iphop/">iPHoP</a>
+                <a href="/docs/tools/iphop/">iPHoP</a>
               </li>
             
               <li class="">
-                <a href="/iVirus/docs/tools/wish/">WIsH</a>
+                <a href="/docs/tools/wish/">WIsH</a>
               </li>
             
           </ul>
@@ -319,11 +320,11 @@
           <ul>
             
               <li class="">
-                <a href="/iVirus/docs/tools/anvio/">Anvi&#39;o</a>
+                <a href="/docs/tools/anvio/">Anvi&#39;o</a>
               </li>
             
               <li class="">
-                <a href="/iVirus/docs/tools/cytoscape/">Cytoscape</a>
+                <a href="/docs/tools/cytoscape/">Cytoscape</a>
               </li>
             
           </ul>
@@ -339,14 +340,14 @@
     
     
 
-    <p></p><section class="hero page-hero hero--docs hero--hasbg hero--anim" style="--hero-bg: url('/assets/img/hero/docs-notebook.svg')">
+    <p><section class="hero page-hero hero--docs hero--hasbg hero--anim" style="--hero-bg: url('/assets/img/hero/docs-notebook.svg')">
 <h1>Documentation</h1>
 <p class="muted">Tool guides and workflows for viral informatics.</p>
-</section><p></p>
+</section></p>
 <h2>The iVirus Pipeline</h2>
 <p>Follow these eight steps to go from raw sequencing reads to annotated and classified viral populations. Click any tool name to jump to its full guide.</p>
 <figure class="pipeline-fig">
-  <img src="/iVirus/assets/img/pipeline-flow.svg" alt="iVirus viromics pipeline overview: Raw Reads → QC & Trim → Assembly → Viral ID → Gene Calling → Annotation → Taxonomy → Ecology & Visualization" width="920" height="180" loading="eager">
+  <img src="/assets/img/pipeline-flow.svg" alt="iVirus viromics pipeline overview: Raw Reads → QC & Trim → Assembly → Viral ID → Gene Calling → Annotation → Taxonomy → Ecology & Visualization" width="920" height="180" loading="eager">
 </figure>
 <table>
 <thead>
@@ -365,37 +366,37 @@
 <tr>
 <td><strong>2 · QC &amp; Trim</strong></td>
 <td>Assess read quality; remove adapters and low-quality bases</td>
-<td><a href="/iVirus/docs/tools/fastqc/">FastQC</a>, <a href="/iVirus/docs/tools/bbduk/">BBDuk</a>, <a href="/iVirus/docs/tools/fastp/placeholder/">fastp</a>, <a href="/iVirus/docs/tools/multiqc/">MultiQC</a>, <a href="/iVirus/docs/tools/trimmomatic/">Trimmomatic</a></td>
+<td><a href="/docs/tools/fastqc/">FastQC</a>, <a href="/docs/tools/bbduk/">BBDuk</a>, <a href="/docs/tools/fastp/placeholder/">fastp</a>, <a href="/docs/tools/multiqc/">MultiQC</a>, <a href="/docs/tools/trimmomatic/">Trimmomatic</a></td>
 </tr>
 <tr>
 <td><strong>3 · Assembly</strong></td>
 <td>Assemble short reads into contigs</td>
-<td><a href="/iVirus/docs/tools/metaspades/placeholder/">MetaSPAdes</a>, <a href="/iVirus/docs/tools/megahit/">MEGAHIT</a>, <a href="/iVirus/docs/tools/spades/">SPAdes</a></td>
+<td><a href="/docs/tools/metaspades/placeholder/">MetaSPAdes</a>, <a href="/docs/tools/megahit/">MEGAHIT</a>, <a href="/docs/tools/spades/">SPAdes</a></td>
 </tr>
 <tr>
 <td><strong>4 · Viral ID</strong></td>
 <td>Detect viral contigs; assess genome quality and completeness</td>
-<td><a href="/iVirus/docs/tools/virsorter2/placeholder/">VirSorter2</a>, <a href="/iVirus/docs/tools/vibrant/">VIBRANT</a>, <a href="/iVirus/docs/tools/virsorter/">VirSorter</a>, <a href="/iVirus/docs/tools/checkv/">CheckV</a></td>
+<td><a href="/docs/tools/virsorter2/placeholder/">VirSorter2</a>, <a href="/docs/tools/vibrant/">VIBRANT</a>, <a href="/docs/tools/virsorter/">VirSorter</a>, <a href="/docs/tools/checkv/">CheckV</a></td>
 </tr>
 <tr>
 <td><strong>5 · Gene Calling</strong></td>
 <td>Predict protein-coding genes from viral contigs</td>
-<td><a href="/iVirus/docs/tools/prodigal/">Prodigal</a>, <a href="/iVirus/docs/tools/prokka/placeholder/">Prokka</a></td>
+<td><a href="/docs/tools/prodigal/">Prodigal</a>, <a href="/docs/tools/prokka/placeholder/">Prokka</a></td>
 </tr>
 <tr>
 <td><strong>6 · Annotation</strong></td>
 <td>Annotate gene functions; identify auxiliary metabolic genes</td>
-<td><a href="/iVirus/docs/tools/dram-v/">DRAM-v</a>, <a href="/iVirus/docs/tools/viga/">VIGA</a>, <a href="/iVirus/docs/tools/cenote-taker2/placeholder/">Cenote-Taker 2</a></td>
+<td><a href="/docs/tools/dram-v/">DRAM-v</a>, <a href="/docs/tools/viga/">VIGA</a>, <a href="/docs/tools/cenote-taker2/placeholder/">Cenote-Taker 2</a></td>
 </tr>
 <tr>
 <td><strong>7 · Taxonomy</strong></td>
 <td>Classify viral genomes into genus-level groups</td>
-<td><a href="/iVirus/docs/tools/vcontact2/">vConTACT2</a>, <a href="/iVirus/docs/tools/viridic/">VIRIDIC</a>, <a href="/iVirus/docs/tools/cat-bat/">CAT/BAT</a></td>
+<td><a href="/docs/tools/vcontact2/">vConTACT2</a>, <a href="/docs/tools/viridic/">VIRIDIC</a>, <a href="/docs/tools/cat-bat/">CAT/BAT</a></td>
 </tr>
 <tr>
 <td><strong>8 · Ecology &amp; Viz</strong></td>
 <td>Predict hosts; estimate abundance; explore community structure</td>
-<td><a href="/iVirus/docs/tools/iphop/">iPHoP</a>, <a href="/iVirus/docs/tools/wish/">WIsH</a>, <a href="/iVirus/docs/tools/anvio/">Anvi'o</a>, <a href="/iVirus/docs/tools/cytoscape/">Cytoscape</a></td>
+<td><a href="/docs/tools/iphop/">iPHoP</a>, <a href="/docs/tools/wish/">WIsH</a>, <a href="/docs/tools/anvio/">Anvi'o</a>, <a href="/docs/tools/cytoscape/">Cytoscape</a></td>
 </tr>
 </tbody>
 </table>
@@ -403,54 +404,54 @@
 <h2>Workflows</h2>
 <p>Step-by-step walkthroughs that connect the tools above into complete analyses.</p>
 <div class="wf-groups">
-  <details class="wf-details">
+  <details class="wf-details" >
     <summary>
       <span class="wf-name">Viral Metagenome Workflow</span>
       <span class="wf-count">5 steps</span>
     </summary>
     <ul class="wf-steps">
-<p><li><a href="/iVirus/docs/workflows/sra-fetch/">SRA Fetch</a></li></p>
-<p><li><a href="/iVirus/docs/workflows/qc-and-trim/">QC &amp; Trim</a></li></p>
-<p><li><a href="/iVirus/docs/workflows/assembly/">Assembly</a></li></p>
-<p><li><a href="/iVirus/docs/workflows/viral-identification/">Viral Identification</a></li></p>
-<p><li><a href="/iVirus/docs/workflows/reporting/">Reporting</a></li></p>
-<p></p></ul><p></p>
+<p><li><a href="/docs/workflows/sra-fetch/">SRA Fetch</a></li></p>
+<p><li><a href="/docs/workflows/qc-and-trim/">QC &amp; Trim</a></li></p>
+<p><li><a href="/docs/workflows/assembly/">Assembly</a></li></p>
+<p><li><a href="/docs/workflows/viral-identification/">Viral Identification</a></li></p>
+<p><li><a href="/docs/workflows/reporting/">Reporting</a></li></p>
+<p></ul></p>
   </details>
 </div>
 <hr>
 <h2>Tool Guides</h2>
 <ul class="tool-guide-list">
-  <li><a href="/iVirus/docs/tools/fastp/"></a></li>
-  <li><a href="/iVirus/docs/tools/anvio/">Anvi&#39;o</a></li>
-  <li><a href="/iVirus/docs/tools/bbduk/">BBDuk</a></li>
-  <li><a href="/iVirus/docs/tools/cat-bat/">CAT / BAT</a></li>
-  <li><a href="/iVirus/docs/tools/checkv/">CheckV</a></li>
-  <li><a href="/iVirus/docs/tools/cytoscape/">Cytoscape</a></li>
-  <li><a href="/iVirus/docs/tools/sra-download/">Download FASTQ from SRA</a></li>
-  <li><a href="/iVirus/docs/tools/dram-v/">DRAM-v</a></li>
-  <li><a href="/iVirus/docs/tools/fastqc/">FastQC</a></li>
-  <li><a href="/iVirus/docs/tools/hostphinder/">HostPhinder</a></li>
-  <li><a href="/iVirus/docs/tools/iphop/">iPHoP</a></li>
-  <li><a href="/iVirus/docs/tools/megahit/">MEGAHIT</a></li>
-  <li><a href="/iVirus/docs/tools/multiqc/">MultiQC</a></li>
-  <li><a href="/iVirus/docs/tools/phageterm/">PhageTerm</a></li>
-  <li><a href="/iVirus/docs/tools/prodigal/">Prodigal</a></li>
-  <li><a href="/iVirus/docs/tools/propagate/">PropagAtE</a></li>
-  <li><a href="/iVirus/docs/tools/spades/">SPAdes</a></li>
-  <li><a href="/iVirus/docs/tools/trimmomatic/">Trimmomatic</a></li>
-  <li><a href="/iVirus/docs/tools/vcontact2/">vConTACT2</a></li>
-  <li><a href="/iVirus/docs/tools/vibrant/">VIBRANT</a></li>
-  <li><a href="/iVirus/docs/tools/viga/">VIGA</a></li>
-  <li><a href="/iVirus/docs/tools/viridic/">VIRIDIC</a></li>
-  <li><a href="/iVirus/docs/tools/virsorter/">VirSorter</a></li>
-  <li><a href="/iVirus/docs/tools/wish/">WIsH</a></li>
+  <li><a href="/docs/tools/fastp/"></a></li>
+  <li><a href="/docs/tools/anvio/">Anvi&#39;o</a></li>
+  <li><a href="/docs/tools/bbduk/">BBDuk</a></li>
+  <li><a href="/docs/tools/cat-bat/">CAT / BAT</a></li>
+  <li><a href="/docs/tools/checkv/">CheckV</a></li>
+  <li><a href="/docs/tools/cytoscape/">Cytoscape</a></li>
+  <li><a href="/docs/tools/sra-download/">Download FASTQ from SRA</a></li>
+  <li><a href="/docs/tools/dram-v/">DRAM-v</a></li>
+  <li><a href="/docs/tools/fastqc/">FastQC</a></li>
+  <li><a href="/docs/tools/hostphinder/">HostPhinder</a></li>
+  <li><a href="/docs/tools/iphop/">iPHoP</a></li>
+  <li><a href="/docs/tools/megahit/">MEGAHIT</a></li>
+  <li><a href="/docs/tools/multiqc/">MultiQC</a></li>
+  <li><a href="/docs/tools/phageterm/">PhageTerm</a></li>
+  <li><a href="/docs/tools/prodigal/">Prodigal</a></li>
+  <li><a href="/docs/tools/propagate/">PropagAtE</a></li>
+  <li><a href="/docs/tools/spades/">SPAdes</a></li>
+  <li><a href="/docs/tools/trimmomatic/">Trimmomatic</a></li>
+  <li><a href="/docs/tools/vcontact2/">vConTACT2</a></li>
+  <li><a href="/docs/tools/vibrant/">VIBRANT</a></li>
+  <li><a href="/docs/tools/viga/">VIGA</a></li>
+  <li><a href="/docs/tools/viridic/">VIRIDIC</a></li>
+  <li><a href="/docs/tools/virsorter/">VirSorter</a></li>
+  <li><a href="/docs/tools/wish/">WIsH</a></li>
 </ul>
 
   </article>
 
   
 </div>
-<script src="/iVirus/assets/js/docs-ui.js"></script>
+<script src="/assets/js/docs-ui.js"></script>
 
   </main>
 
@@ -458,7 +459,7 @@
   <p>
     &copy; iVirus | Built with <a href="https://www.11ty.dev/" target="_blank" rel="noopener">Eleventy</a> | 
     Supported by the <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1759874&amp;HistoricalAwards=false" target="_blank" rel="noopener">National Science Foundation (ABI #1759874)</a> and the iVirus project | 
-    <a href="/iVirus/about/">Contact</a> | 
+    <a href="/about/">Contact</a> | 
     <a href="#top" class="back-to-top">Go to Top ↑</a>
   </p>
 </footer>
