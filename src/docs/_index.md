@@ -20,7 +20,7 @@ noHeader: true
 Follow these eight steps to go from raw sequencing reads to annotated and classified viral populations. Click any tool name to jump to its full guide.
 
 <figure class="pipeline-fig">
-  <img src="/assets/img/pipeline-flow.svg" alt="iVirus viromics pipeline overview: Raw Reads → QC & Trim → Assembly → Viral ID → Gene Calling → Annotation → Taxonomy → Ecology & Visualization" width="920" height="180" loading="eager">
+  <img src="{{ '/assets/img/pipeline-flow.svg' | url }}" alt="iVirus viromics pipeline overview: Raw Reads → QC & Trim → Assembly → Viral ID → Gene Calling → Annotation → Taxonomy → Ecology & Visualization" width="920" height="180" loading="eager">
 </figure>
 
 | Step | Goal | Key tools |
