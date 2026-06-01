@@ -13,7 +13,7 @@ heroAnimate: true
   <ul class="tool-cat-grid directory-grid">
     {% for cat in tools.categories %}
     <li class="card tool-cat directory-card">
-      <a class="stretched" href="/tools/{{ cat.id }}/">
+      <a class="stretched" href="{{ ('/tools/' + cat.id + '/') | url }}">
         <div class="icon">{{ cat.icon }}</div>
         <h3>{{ cat.title }}</h3>
         <p>{{ cat.description }}</p>

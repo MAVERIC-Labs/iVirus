@@ -62,7 +62,7 @@
 
   <header id="top" class="site-header">
   <div class="header-inner">
-    <a class="logo" href="/" aria-label="iVirus home"><span class="logo-i">i</span><span class="logo-virus">Virus</span></a>
+    <a class="logo" href="/iVirus/" aria-label="iVirus home"><span class="logo-i">i</span><span class="logo-virus">Virus</span></a>
 
     <!-- mobile hamburger (left) -->
     <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
@@ -383,7 +383,7 @@
     </nav>
 <p>The first thing we need to do is grab the data from the SRA. You can do this a few ways, either through navigating the NCBI+SRA websites, or directly using their SRA Toolkit.</p>
 <p>We'll use <a href="https://www.ncbi.nlm.nih.gov/sra/ERX552322">ERR594369</a> as our running example throughout this workflow — a viral metagenome with 37 million paired reads and 7.2 Gbp total.</p>
-<div class="codetabs" id="tabs-tuf80ilyfv" data-codetabs>
+<div class="codetabs" id="tabs-nusex6049y9" data-codetabs>
   <div class="codetabs-nav" data-codetabs-nav role="tablist"><button type="button" data-tab="0" role="tab" aria-selected="true" class='active'>Command</button><button type="button" data-tab="1" role="tab" aria-selected="false" >SLURM Script</button></div>
   <div class="codetabs-panels" data-codetabs-panels><div class="codetabs-panel" data-panel="0" role="tabpanel"><pre class="language-bash"><code class="language-bash">fasterq-dump <span class="token parameter variable">-e</span> <span class="token number">4</span> <span class="token parameter variable">-p</span> --split-files ERR594369</code></pre>
 </div><div class="codetabs-panel" data-panel="1" role="tabpanel" hidden><pre class="language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
@@ -429,7 +429,7 @@ sys	0m45.333s
   <p>
     &copy; iVirus | Built with <a href="https://www.11ty.dev/" target="_blank" rel="noopener">Eleventy</a> | 
     Supported by the <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1759874&amp;HistoricalAwards=false" target="_blank" rel="noopener">National Science Foundation (ABI #1759874)</a> and the iVirus project | 
-    <a href="/about/">Contact</a> | 
+    <a href="/iVirus/about/">Contact</a> |
     <a href="#top" class="back-to-top">Go to Top ↑</a>
   </p>
 </footer>

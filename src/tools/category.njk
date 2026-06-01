@@ -40,18 +40,18 @@ eleventyComputed:
         <td class="links">
           {# Prefer local docs if they exist #}
           {% if hasDoc %}
-            <a href="{{ docUrl }}">Docs</a>
-            {% if t.official_url %} · <a href="{{ t.official_url }}" target="_blank" rel="noopener">Official</a>{% endif %}
+            <a href=”{{ docUrl | url }}”>Docs</a>
+            {% if t.official_url %} · <a href=”{{ t.official_url }}” target=”_blank” rel=”noopener”>Official</a>{% endif %}
           {% else %}
             {# Fallbacks: external docs, or “coming soon” #}
             {% if t.site_docs_url %}
-              <a href="{{ t.site_docs_url }}">Docs</a>
-              {% if t.official_url %} · <a href="{{ t.official_url }}" target="_blank" rel="noopener">Official</a>{% endif %}
+              <a href=”{{ t.site_docs_url | url }}”>Docs</a>
+              {% if t.official_url %} · <a href=”{{ t.official_url }}” target=”_blank” rel=”noopener”>Official</a>{% endif %}
             {% else %}
-              <a href="{{ docUrl }}">
-                Docs <span class="pill warn">coming soon</span>
+              <a href=”{{ docUrl | url }}”>
+                Docs <span class=”pill warn”>coming soon</span>
               </a>
-              {% if t.official_url %} · <a href="{{ t.official_url }}" target="_blank" rel="noopener">Official</a>{% endif %}
+              {% if t.official_url %} · <a href=”{{ t.official_url }}” target=”_blank” rel=”noopener”>Official</a>{% endif %}
             {% endif %}
           {% endif %}
         </td>
@@ -62,4 +62,4 @@ eleventyComputed:
     </tbody>
 </table>
 
-<p class="backtop"><a href="/tools/">← All categories</a></p>
+<p class="backtop"><a href="{{ '/tools/' | url }}">← All categories</a></p>
