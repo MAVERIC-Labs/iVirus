@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Compute Platforms (CyVerse &amp; KBase) – iVirus</title>
+  <meta name="description" content="Why iVirus builds on CyVerse and KBase, with links, examples, and citations.">
+  <link rel="icon" href="/iVirus/assets/img/favicon.svg" type="image/svg+xml">
+
+  <!-- Theme bootstrap: apply saved/preferred theme before paint to avoid FOUC. -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("ivirus-theme");
+        var dark = saved === "theme-dark"
+          || (!saved && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.classList.add(dark ? "theme-dark" : "theme-light");
+      } catch (e) {
+        document.documentElement.classList.add("theme-light");
+      }
+    })();
+  </script>
+
+  <!-- Fonts: Inter (body) + Source Serif 4 (headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/iVirus/assets/css/main.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/workflow.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/light-theme.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/home.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/docs-grouped.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/tools.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/data.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/publications.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/protocols.css">
+  <script defer="" src="https://www.protocols.io/js/widgets/js/protocolsiojs.min.js"></script>
+
+  <!-- GA tracking (only in production builds) -->
+  
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-T56YTL1JSV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T56YTL1JSV');
+  </script>
+  
+</head>
+<body class="-about-platforms">
+
+  <!-- Alpha preview banner -->
+  <div class="alpha-banner" id="alphaBanner" role="banner" aria-label="Preview notice">
+    <span class="alpha-banner__icon" aria-hidden="true">🚧</span>
+    <span class="alpha-banner__text">
+      <strong>Alpha preview</strong> — This site is under active development. Content may be incomplete or change without notice.
+    </span>
+    <button class="alpha-banner__close" id="alphaBannerClose" aria-label="Dismiss preview notice" title="Dismiss">✕</button>
+  </div>
+
+  <header id="top" class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="/iVirus/" aria-label="iVirus home"><span class="logo-i">i</span><span class="logo-virus">Virus</span></a>
+
+    <!-- mobile hamburger (left) -->
+    <button class="nav-toggle" data-nav-toggle="" aria-expanded="false" aria-controls="site-nav">
+      ☰
+    </button>
+
+    <!-- main nav -->
+    <nav id="site-nav" class="nav" data-site-nav="">
+      <ul class="nav-list">
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/about/">About</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/tools/">Tools &amp; Apps</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/data/">Data</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/workshops/">Workshops</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/publications/">Publications</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/docs/">Docs</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/protocols/">Protocols</a></li>
+        
+      </ul>
+    </nav>
+
+    <!-- spacer pushes the toggle to the far right -->
+    <div class="header-spacer" aria-hidden="true"></div>
+
+    <!-- theme toggle (always visible, right end) -->
+    <button class="theme-toggle" data-theme-toggle="" aria-pressed="false" title="Toggle theme">🌓</button>
+  </div>
+</header>
+
+
+  <main class="site-main">
+    
+<div class="site-shell">
+  
+    <section class="page-hero hero--support">
+  <div class="container">
+    <h1>Compute Platforms</h1>
+    <p class="muted">CyVerse and KBase power iVirus tools, datasets, and workflows.</p>
+  </div>
+</section>
+
+  
+
+  
+    
+      <div class="container site-content prose-page">
+        <h2>Overview</h2>
+<p>The iVirus project builds on <strong>two cornerstone platforms—CyVerse and KBase—</strong> which provide free access to cloud-based computational environments, data storage, and integrated tools for the life sciences community.<br>
+These resources are indispensable for enabling virus ecology research at all scales, from single-virus studies to global metagenomic analyses.<br>
+By operating within these shared cyberinfrastructures, iVirus helps researchers—regardless of institutional resources—perform analyses that would otherwise require dedicated servers or high-performance computing clusters.</p>
+<p>The applications iVirus develops <strong>live inside CyVerse and KBase</strong>, and the datasets used and shared by the community are hosted on these same platforms. This integration ensures reproducibility, scalability, and accessibility for anyone studying viral diversity and evolution.</p>
+<hr>
+<h2>CyVerse</h2>
+<p><strong>CyVerse</strong> democratizes access to advanced computing and data services for the life sciences.<br>
+Researchers can discover, launch, and share analyses using an open ecosystem of community-developed apps, large-scale storage, and collaborative tools.</p>
+<h3>What CyVerse offers</h3>
+<ul>
+<li>A web-based <strong>Discovery Environment</strong> with thousands of analysis apps, including iVirus tools.</li>
+<li><strong>Data Store</strong> access for hosting and sharing large genomic or metagenomic datasets.</li>
+<li>Community-driven app contributions and versioning.</li>
+<li>Seamless integration with external repositories and workflow systems.</li>
+</ul>
+<p>CyVerse allows users to run iVirus apps directly on shared compute resources and publish data that can be reused by others—removing the need for local computational infrastructure.</p>
+<h3>Citation</h3>
+<blockquote>
+<p>This material is based upon work supported by the National Science Foundation under Award Numbers DBI‑0735191, DBI‑1265383, and DBI‑1743442.<br>
+URL: <a href="https://www.cyverse.org">www.cyverse.org</a></p>
+</blockquote>
+<hr>
+<h2>KBase</h2>
+<p><strong>KBase</strong>—the U.S. Department of Energy Systems Biology Knowledgebase—offers a fully reproducible, shareable analysis platform designed for systems biology and metagenomics research.</p>
+<p>KBase enables iVirus users to create <strong>Narratives</strong>, which are interactive documents combining code, results, and metadata into a single, versioned workflow.<br>
+Each Narrative can be shared, copied, and re-run—ensuring transparency and reproducibility.</p>
+<h3>What KBase offers</h3>
+<ul>
+<li><strong>Narratives:</strong> Integrated “lab notebooks” capturing every analysis step and result.</li>
+<li><strong>App Catalog:</strong> Curated apps for assembly, annotation, and downstream viral ecology analyses.</li>
+<li><strong>Data Integration:</strong> Direct imports from NCBI, JGI, SRA, and community datasets.</li>
+<li><strong>Collaboration:</strong> Users can share Narratives publicly or within research teams.</li>
+</ul>
+<p>By connecting iVirus tools with KBase’s app ecosystem, researchers can perform complex analyses—from read processing to host-virus network inference—without writing code.</p>
+<h3>Citation</h3>
+<blockquote>
+<p>Arkin AP, Cottingham RW, Henry CS, Harris NL, Stevens RL, Maslov S, <em>et al.</em><br>
+<strong>KBase: The United States Department of Energy Systems Biology Knowledgebase.</strong><br>
+<em>Nature Biotechnology</em>. 2018;36: 566. doi: <a href="https://doi.org/10.1038/nbt.4163">10.1038/nbt.4163</a></p>
+</blockquote>
+<hr>
+<h2>Why it matters for iVirus</h2>
+<p>The iVirus ecosystem depends on these platforms to deliver reliable, reproducible workflows to the global community.<br>
+Together, <strong>CyVerse and KBase</strong> lower the barriers to entry for viral genomics, enabling any researcher—regardless of access to local HPCs—to:</p>
+<ul>
+<li>Store, share, and analyze massive datasets.</li>
+<li>Use standardized workflows through friendly web interfaces.</li>
+<li>Publish reusable and transparent computational analyses.</li>
+</ul>
+<blockquote>
+<p><strong>In short:</strong> CyVerse and KBase make large-scale viral research accessible, collaborative, and reproducible—key principles behind iVirus.</p>
+</blockquote>
+
+      </div>
+    
+  
+</div>
+
+  </main>
+
+  <footer class="site-footer">
+  <p>
+    &copy; iVirus | Built with <a href="https://www.11ty.dev/" target="_blank" rel="noopener">Eleventy</a> | 
+    Supported by the <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1759874&amp;HistoricalAwards=false" target="_blank" rel="noopener">National Science Foundation (ABI #1759874)</a> and the iVirus project | 
+    <a href="/iVirus/about/">Contact</a> | 
+    <a href="#top" class="back-to-top">Go to Top ↑</a>
+  </p>
+</footer>
+
+  <!-- Global JS -->
+  <script src="/iVirus/assets/js/site-nav.js"></script>
+  <script src="/iVirus/assets/js/code-extras.js"></script>
+  <script src="/iVirus/assets/js/directory-filters.js"></script>
+  <script src="/iVirus/assets/js/home.js"></script>
+  <script src="/iVirus/assets/js/theme-toggle.js"></script>
+
+  <!-- Alpha banner dismiss -->
+  <script>
+    (function () {
+      var banner = document.getElementById('alphaBanner');
+      var btn    = document.getElementById('alphaBannerClose');
+      if (!banner || !btn) return;
+      // Hide immediately if previously dismissed
+      try { if (localStorage.getItem('ivirus-alpha-dismissed') === '1') banner.classList.add('is-hidden'); } catch(e) {}
+      btn.addEventListener('click', function () {
+        banner.classList.add('is-hidden');
+        try { localStorage.setItem('ivirus-alpha-dismissed', '1'); } catch(e) {}
+      });
+    })();
+  </script>
+</body>
+</html>

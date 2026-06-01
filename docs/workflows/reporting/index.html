@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Reporting – iVirus</title>
+  <meta name="description" content="Workshops, tools, data, and documentation for viral research.">
+  <link rel="icon" href="/iVirus/assets/img/favicon.svg" type="image/svg+xml">
+
+  <!-- Theme bootstrap: apply saved/preferred theme before paint to avoid FOUC. -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("ivirus-theme");
+        var dark = saved === "theme-dark"
+          || (!saved && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.classList.add(dark ? "theme-dark" : "theme-light");
+      } catch (e) {
+        document.documentElement.classList.add("theme-light");
+      }
+    })();
+  </script>
+
+  <!-- Fonts: Inter (body) + Source Serif 4 (headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/iVirus/assets/css/main.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/workflow.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/light-theme.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/home.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/docs-grouped.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/tools.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/data.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/publications.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/protocols.css">
+  <script defer="" src="https://www.protocols.io/js/widgets/js/protocolsiojs.min.js"></script>
+
+  <!-- GA tracking (only in production builds) -->
+  
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-T56YTL1JSV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T56YTL1JSV');
+  </script>
+  
+</head>
+<body class="-docs-workflows-reporting">
+
+  <!-- Alpha preview banner -->
+  <div class="alpha-banner" id="alphaBanner" role="banner" aria-label="Preview notice">
+    <span class="alpha-banner__icon" aria-hidden="true">🚧</span>
+    <span class="alpha-banner__text">
+      <strong>Alpha preview</strong> — This site is under active development. Content may be incomplete or change without notice.
+    </span>
+    <button class="alpha-banner__close" id="alphaBannerClose" aria-label="Dismiss preview notice" title="Dismiss">✕</button>
+  </div>
+
+  <header id="top" class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="/iVirus/" aria-label="iVirus home"><span class="logo-i">i</span><span class="logo-virus">Virus</span></a>
+
+    <!-- mobile hamburger (left) -->
+    <button class="nav-toggle" data-nav-toggle="" aria-expanded="false" aria-controls="site-nav">
+      ☰
+    </button>
+
+    <!-- main nav -->
+    <nav id="site-nav" class="nav" data-site-nav="">
+      <ul class="nav-list">
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/about/">About</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/tools/">Tools &amp; Apps</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/data/">Data</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/workshops/">Workshops</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/publications/">Publications</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/docs/">Docs</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/protocols/">Protocols</a></li>
+        
+      </ul>
+    </nav>
+
+    <!-- spacer pushes the toggle to the far right -->
+    <div class="header-spacer" aria-hidden="true"></div>
+
+    <!-- theme toggle (always visible, right end) -->
+    <button class="theme-toggle" data-theme-toggle="" aria-pressed="false" title="Toggle theme">🌓</button>
+  </div>
+</header>
+
+
+  <main class="site-main">
+    
+<div class="docs-wrap guide">
+  <aside class="docs-sidebar">
+
+<nav class="side">
+  <h3>Docs</h3>
+
+  
+  
+  <div class="group">
+    <h4>Workflows</h4>
+    <ul class="wf-list">
+    
+      
+      <li class="wf-parent ">
+        <button class="wf-toggle" aria-label="Toggle steps" aria-expanded="false">
+          Viral Metagenome Workflow <span class="arrow">▸</span>
+        </button>
+        <ul class="wf-steps-nested" hidden="">
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/sra-fetch/">SRA Fetch</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/qc-and-trim/">QC &amp; Trim</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/assembly/">Assembly</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/viral-identification/">Viral Identification</a>
+          </li>
+          
+          <li class="active">
+            <a href="/iVirus/docs/workflows/reporting/">Reporting</a>
+          </li>
+          
+        </ul>
+      </li>
+    
+    </ul>
+  </div>
+  
+
+  
+  
+  <div class="group">
+    <h4>Tool Guides</h4>
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🧪 Quality Control</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/bbduk/">BBDuk</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/fastp/">fastp</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/fastqc/">FastQC</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/multiqc/">MultiQC</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/trimmomatic/">Trimmomatic</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🧬 Assembly</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/megahit/">MEGAHIT</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/spades/">SPAdes</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🦠 Viral Identification</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/checkv/">CheckV</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/propagate/">PropagAtE</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/vibrant/">VIBRANT</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/virsorter/">VirSorter</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🔬 Gene Calling</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/prodigal/">Prodigal</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">📝 Annotation</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/dram-v/">DRAM-v</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/phageterm/">PhageTerm</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/viga/">VIGA</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🌳 Taxonomy</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/cat-bat/">CAT / BAT</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/vcontact2/">vConTACT2</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/viridic/">VIRIDIC</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🔗 Host Prediction</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/hostphinder/">HostPhinder</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/iphop/">iPHoP</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/wish/">WIsH</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">📊 Visualization</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/anvio/">Anvi&#39;o</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/cytoscape/">Cytoscape</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+  </div>
+  
+</nav>
+</aside>
+
+  <article class="docs-content">
+    
+    
+      <h1>Reporting</h1>
+      
+
+      
+      
+      
+    
+
+    <nav class="wf" aria-label="Viral Metagenome Workflow">
+      <h4 class="wf-title">Viral Metagenome Workflow</h4>
+      <ol class="wf-steps">
+        <li class="wf-step ">
+        <a href="/iVirus/docs/workflows/sra-fetch/">
+          <span class="icon" aria-hidden="true">📥</span><span class="label">SRA Fetch</span>
+        </a>
+      </li>
+<li class="wf-chevron" aria-hidden="true">»»</li>
+<li class="wf-step ">
+        <a href="/iVirus/docs/workflows/qc-and-trim/">
+          <span class="icon" aria-hidden="true">🧪</span><span class="label">QC & Trim</span>
+        </a>
+      </li>
+<li class="wf-chevron" aria-hidden="true">»»</li>
+<li class="wf-step ">
+        <a href="/iVirus/docs/workflows/assembly/">
+          <span class="icon" aria-hidden="true">🧩</span><span class="label">Assembly</span>
+        </a>
+      </li>
+<li class="wf-chevron" aria-hidden="true">»»</li>
+<li class="wf-step ">
+        <a href="/iVirus/docs/workflows/viral-identification/">
+          <span class="icon" aria-hidden="true">🦠</span><span class="label">Viral Identification</span>
+        </a>
+      </li>
+<li class="wf-chevron" aria-hidden="true">»»</li>
+<li class="wf-step active">
+        <a href="/iVirus/docs/workflows/reporting/">
+          <span class="icon" aria-hidden="true">📊</span><span class="label">Reporting</span>
+        </a>
+      </li>
+      </ol>
+    </nav>
+<p>vConTACT2 is a tool to classify viral genomes. But first, we need to get the input files set up. We'll run Prodigal first — to generate proteins — and then use an accessory function to prepare vConTACT2 files.</p>
+<div class="codetabs" id="tabs-ccw7t4d1cim" data-codetabs="">
+  <div class="codetabs-nav" data-codetabs-nav="" role="tablist"><button type="button" data-tab="0" role="tab" aria-selected="true" class="active">Command</button><button type="button" data-tab="1" role="tab" aria-selected="false">SLURM Script</button></div>
+  <div class="codetabs-panels" data-codetabs-panels=""><div class="codetabs-panel" data-panel="0" role="tabpanel"><pre class="language-bash"><code class="language-bash"><span class="token comment"># Step 1: predict proteins with Prodigal</span>
+prodigal <span class="token parameter variable">-i</span> VS2-SOP/final-viral-scored.fa <span class="token punctuation">\</span>
+  <span class="token parameter variable">-p</span> anon <span class="token punctuation">\</span>
+  <span class="token parameter variable">-a</span> Prodigal_output/VirSorter2_genomes.faa <span class="token punctuation">\</span>
+  <span class="token parameter variable">-o</span> Prodigal_output/VirSorter2_genomes.prodigal
+<p><span class="token comment"># Step 2: generate gene-to-genome mapping</span>
+vcontact2_gene2genome <span class="token punctuation">&lt;/span&gt;
+<span class="token parameter variable">-p</span> Prodigal_output/VirSorter2_genomes.faa <span class="token punctuation">&lt;/span&gt;
+<span class="token parameter variable">-o</span> Prodigal_output/VirSorter2_proteins.csv <span class="token punctuation">&lt;/span&gt;
+<span class="token parameter variable">-s</span> Prodigal-FAA</span></span></span></p>
+<p><span class="token comment"># Step 3: run vConTACT2</span>
+vcontact2 <span class="token punctuation">&lt;/span&gt;
+--pcs-mode MCL <span class="token punctuation">&lt;/span&gt;
+--vcs-mode ClusterONE <span class="token punctuation">&lt;/span&gt;
+<span class="token parameter variable">--threads</span> <span class="token number">48</span> <span class="token punctuation">&lt;/span&gt;
+--raw-proteins Prodigal_output/VirSorter2_genomes.faa <span class="token punctuation">&lt;/span&gt;
+--rel-mode Diamond <span class="token punctuation">&lt;/span&gt;
+--proteins-fp Prodigal_output/VirSorter2_proteins.csv <span class="token punctuation">&lt;/span&gt;
+<span class="token parameter variable">--db</span> <span class="token string">'ProkaryoticViralRefSeq201-Merged'</span> <span class="token punctuation">&lt;/span&gt;
+--output-dir vConTACT2_output</span></span></span></span></span></span></span></span></p></code></pre><p></p>
+</div><div class="codetabs-panel" data-panel="1" role="tabpanel" hidden=""><pre class="language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment">#SBATCH -N 1</span>
+<span class="token comment">#SBATCH -t 4:00:00</span>
+<span class="token comment">#SBATCH -n 48</span>
+<span class="token comment">#SBATCH -J vConTACT2</span>
+<span class="token comment">#SBATCH --partition=hugemem  # or your cluster's high-memory partition</span>
+<p><span class="token comment"># activate your conda environment here</span></p>
+<p><span class="token comment"># Directories</span>
+<span class="token assign-left variable">workDir</span><span class="token operator">=</span><span class="token string">&quot;&lt;your_project_dir&gt;&quot;</span></p>
+<p><span class="token comment"># Generate files suitable for vConTACT2</span>
+<span class="token assign-left variable">input_fna</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${workDir}</span>/analyses/VS2-SOP/final-viral-scored.fa&quot;</span>
+<span class="token assign-left variable">prodigal_outputDir</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${workDir}</span>/analyses/Prodigal_output&quot;</span></p>
+<p><span class="token function">mkdir</span> <span class="token variable">$prodigal_outputDir</span></p>
+<p>prodigal <span class="token parameter variable">-i</span> <span class="token variable">$input_fna</span> <span class="token parameter variable">-p</span> anon <span class="token punctuation">&lt;/span&gt;
+<span class="token parameter variable">-a</span> <span class="token variable">$prodigal_outputDir</span>/VirSorter2_genomes.faa <span class="token punctuation">&lt;/span&gt;
+<span class="token parameter variable">-o</span> <span class="token variable">$prodigal_outputDir</span>/VirSorter2_genomes.prodigal</span></span></p>
+<p><span class="token comment"># Run vConTACT2</span>
+<span class="token assign-left variable">outputDir</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${workDir}</span>/analyses/vConTACT2_output&quot;</span></p>
+<p>vcontact2_gene2genome <span class="token punctuation">&lt;/span&gt;
+<span class="token parameter variable">-p</span> <span class="token variable">$prodigal_outputDir</span>/VirSorter2_genomes.faa <span class="token punctuation">&lt;/span&gt;
+<span class="token parameter variable">-o</span> <span class="token variable">$prodigal_outputDir</span>/VirSorter2_proteins.csv <span class="token punctuation">&lt;/span&gt;
+<span class="token parameter variable">-s</span> Prodigal-FAA</span></span></span></p>
+<p>vcontact2 <span class="token punctuation">&lt;/span&gt;
+--pcs-mode MCL <span class="token punctuation">&lt;/span&gt;
+--vcs-mode ClusterONE <span class="token punctuation">&lt;/span&gt;
+<span class="token parameter variable">--threads</span> <span class="token number">48</span> <span class="token punctuation">&lt;/span&gt;
+--raw-proteins <span class="token variable">$prodigal_outputDir</span>/VirSorter2_genomes.faa <span class="token punctuation">&lt;/span&gt;
+--rel-mode Diamond <span class="token punctuation">&lt;/span&gt;
+--proteins-fp <span class="token variable">$prodigal_outputDir</span>/VirSorter2_proteins.csv <span class="token punctuation">&lt;/span&gt;
+<span class="token parameter variable">--db</span> <span class="token string">'ProkaryoticViralRefSeq201-Merged'</span> <span class="token punctuation">&lt;/span&gt;
+--output-dir <span class="token variable">$outputDir</span></span></span></span></span></span></span></span></span></p>
+<p><span class="token function">wait</span></p></code></pre><p></p>
+</div></div>
+</div>
+<pre class="language-bash"><code class="language-bash">$ sacct <span class="token parameter variable">-j</span> <span class="token operator">&lt;</span>jobid<span class="token operator">></span> <span class="token parameter variable">--format</span> <span class="token string">"CPUTime,MaxRSS,Elapsed"</span>
+   CPUTime     MaxRSS    Elapsed
+---------- ---------- ----------
+<span class="token number">3</span>-05:38:24   9884748K   01:37:03</code></pre>
+<p>The job only took 1 hr 37 min, provided 48 cores and 1.5 TB of memory. Based on the results, <em>we would not re-run this job with these parameters</em>! Next time, a 'standard' 28, 40 or 48-core node would suffice.</p>
+<pre class="language-bash"><code class="language-bash">$ <span class="token function">ls</span> vConTACT2_output
+c1.clusters                             modules_mcl_5.0_modules.pandas
+c1.ntw                                  modules_mcl_5.0_pcs.pandas
+genome_by_genome_overview.csv           modules.ntwk
+merged_df.csv                           sig1.0_mcl2.0_clusters.csv
+merged.dmnd                             sig1.0_mcl2.0_contigs.csv
+merged.faa                              vConTACT_contigs.csv
+merged.self-diamond.tab                 vConTACT_pcs.csv
+<span class="token punctuation">..</span>.                                     viral_cluster_overview.csv</code></pre>
+<p>The two most important files are 'genome_by_genome_overview.csv', which provides an overview of all the genomes that were processed by vConTACT2, and 'c1.ntw', which contains the network.</p>
+<h2>Visualizing in Cytoscape</h2>
+<p><strong>On a computer with Cytoscape installed</strong>, import the network using File → Import → Network from File. Upon import, select Advanced options, Delimiter is space, deselect 'Use first line as column names.' → OK. Now, click on Column 1, set it as Source Node, click on Column 2, set it as Target Node → OK.</p>
+<p>Next, we want to add annotations to our network. Go to File → Import → Table from File. Upon import, on 'Where to Import Table Data', select 'To A Network Collection', then import Data as 'Node Table Columns'. Finally, in the Preview, click on the 'Genome' column and then click on the 'key' symbol, then OK.</p>
+<p>Now you have all the annotations added to the network. You can style and adjust the network to whatever is appropriate for your research goals.</p>
+<p>And with that, we've gone from raw, environmental viral metagenome data (downloaded from the SRA). We've QC'd, assembled, identified viral genomes, checked their quality, and then got a bit of classification. Just like with the Microbial Ecology pipeline, we're only a few steps away from a published manuscript!</p>
+<h2>See also</h2>
+<ul>
+<li><a href="/iVirus/docs/tools/prodigal/">Prodigal tool guide</a></li>
+<li><a href="/iVirus/docs/tools/vcontact2/">vConTACT2 tool guide</a></li>
+<li><a href="/iVirus/docs/tools/cytoscape/">Cytoscape tool guide</a></li>
+</ul>
+
+  </article>
+
+  
+</div>
+<script src="/iVirus/assets/js/docs-ui.js"></script>
+
+  </main>
+
+  <footer class="site-footer">
+  <p>
+    &copy; iVirus | Built with <a href="https://www.11ty.dev/" target="_blank" rel="noopener">Eleventy</a> | 
+    Supported by the <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1759874&amp;HistoricalAwards=false" target="_blank" rel="noopener">National Science Foundation (ABI #1759874)</a> and the iVirus project | 
+    <a href="/iVirus/about/">Contact</a> | 
+    <a href="#top" class="back-to-top">Go to Top ↑</a>
+  </p>
+</footer>
+
+  <!-- Global JS -->
+  <script src="/iVirus/assets/js/site-nav.js"></script>
+  <script src="/iVirus/assets/js/code-extras.js"></script>
+  <script src="/iVirus/assets/js/directory-filters.js"></script>
+  <script src="/iVirus/assets/js/home.js"></script>
+  <script src="/iVirus/assets/js/theme-toggle.js"></script>
+
+  <!-- Alpha banner dismiss -->
+  <script>
+    (function () {
+      var banner = document.getElementById('alphaBanner');
+      var btn    = document.getElementById('alphaBannerClose');
+      if (!banner || !btn) return;
+      // Hide immediately if previously dismissed
+      try { if (localStorage.getItem('ivirus-alpha-dismissed') === '1') banner.classList.add('is-hidden'); } catch(e) {}
+      btn.addEventListener('click', function () {
+        banner.classList.add('is-hidden');
+        try { localStorage.setItem('ivirus-alpha-dismissed', '1'); } catch(e) {}
+      });
+    })();
+  </script>
+</body>
+</html>

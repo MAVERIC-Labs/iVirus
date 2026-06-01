@@ -1,0 +1,97 @@
+
+/* Sidebar grouped workflows */
+.wf-list{ list-style:none; margin:0; padding:0; }
+.wf-parent{ position:relative; padding-left:0; }
+.wf-parent .wf-title{ font-weight:600; display:inline-block; padding:.25rem 0; }
+/* .wf-toggle{
+  background:none; border:none; cursor:pointer;
+  font-size:.9rem; line-height:1; padding:.1rem .25rem; margin-left:.25rem;
+  color:var(--muted);
+} */
+.wf-steps-nested{ list-style:none; margin:.25rem 0 .5rem 1rem; padding:0; }
+.wf-steps-nested li{ margin:.1rem 0; }
+.wf-steps-nested li.active > a{ font-weight:600; color:var(--text); }
+
+/* Docs index details */
+.wf-groups{ display:grid; gap:.75rem; }
+.wf-details summary{
+  display:flex; align-items:center; justify-content:space-between;
+  background:var(--panel); border:1px solid var(--border); border-radius:10px;
+  padding:.5rem .75rem; cursor:pointer; box-shadow:var(--shadow);
+}
+.wf-details[open] summary{ border-bottom-left-radius:0; border-bottom-right-radius:0; }
+.wf-steps{ list-style:disc; margin:.25rem 0 .75rem 1.25rem; }
+.wf-count{ color:var(--muted); font-size:.9rem; }
+
+
+.wf-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: none;
+  border: none;
+  font: inherit;
+  padding: .25rem 0;
+  cursor: pointer;
+  text-align: left;
+}
+.wf-toggle .arrow {
+  margin-left: .5rem;
+  color: var(--muted);
+}
+
+/* Pipeline diagram */
+.pipeline-fig {
+  margin: 1.25rem 0 1.75rem;
+  padding: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.pipeline-fig img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 14px;
+}
+
+/* Tool guide screenshot placeholder */
+.screenshot-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  margin: 1rem 0;
+  padding: 1.5rem;
+  border: 1.5px dashed var(--border);
+  border-radius: 10px;
+  color: var(--muted);
+  font-size: .9rem;
+  background: var(--panel);
+}
+
+/* Tool guide screenshot img */
+.tool-screenshot {
+  display: block;
+  max-width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  margin: 1rem 0;
+}
+
+/* Tool guide list on docs index */
+.tool-guide-list {
+  columns: 2;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: .5rem 0 1.5rem;
+}
+.tool-guide-list li {
+  margin: .3rem 0;
+  break-inside: avoid;
+}
+@media (max-width: 500px) {
+  .tool-guide-list { columns: 1; }
+}

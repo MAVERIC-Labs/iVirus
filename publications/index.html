@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Publications – iVirus</title>
+  <meta name="description" content="Workshops, tools, data, and documentation for viral research.">
+  <link rel="icon" href="/iVirus/assets/img/favicon.svg" type="image/svg+xml">
+
+  <!-- Theme bootstrap: apply saved/preferred theme before paint to avoid FOUC. -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("ivirus-theme");
+        var dark = saved === "theme-dark"
+          || (!saved && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.classList.add(dark ? "theme-dark" : "theme-light");
+      } catch (e) {
+        document.documentElement.classList.add("theme-light");
+      }
+    })();
+  </script>
+
+  <!-- Fonts: Inter (body) + Source Serif 4 (headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/iVirus/assets/css/main.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/workflow.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/light-theme.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/home.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/docs-grouped.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/tools.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/data.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/publications.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/protocols.css">
+  <script defer="" src="https://www.protocols.io/js/widgets/js/protocolsiojs.min.js"></script>
+
+  <!-- GA tracking (only in production builds) -->
+  
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-T56YTL1JSV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T56YTL1JSV');
+  </script>
+  
+</head>
+<body class="-publications-index">
+
+  <!-- Alpha preview banner -->
+  <div class="alpha-banner" id="alphaBanner" role="banner" aria-label="Preview notice">
+    <span class="alpha-banner__icon" aria-hidden="true">🚧</span>
+    <span class="alpha-banner__text">
+      <strong>Alpha preview</strong> — This site is under active development. Content may be incomplete or change without notice.
+    </span>
+    <button class="alpha-banner__close" id="alphaBannerClose" aria-label="Dismiss preview notice" title="Dismiss">✕</button>
+  </div>
+
+  <header id="top" class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="/iVirus/" aria-label="iVirus home"><span class="logo-i">i</span><span class="logo-virus">Virus</span></a>
+
+    <!-- mobile hamburger (left) -->
+    <button class="nav-toggle" data-nav-toggle="" aria-expanded="false" aria-controls="site-nav">
+      ☰
+    </button>
+
+    <!-- main nav -->
+    <nav id="site-nav" class="nav" data-site-nav="">
+      <ul class="nav-list">
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/about/">About</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/tools/">Tools &amp; Apps</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/data/">Data</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/workshops/">Workshops</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/publications/">Publications</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/docs/">Docs</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/protocols/">Protocols</a></li>
+        
+      </ul>
+    </nav>
+
+    <!-- spacer pushes the toggle to the far right -->
+    <div class="header-spacer" aria-hidden="true"></div>
+
+    <!-- theme toggle (always visible, right end) -->
+    <button class="theme-toggle" data-theme-toggle="" aria-pressed="false" title="Toggle theme">🌓</button>
+  </div>
+</header>
+
+
+  <main class="site-main">
+    
+<div class="site-shell">
+  
+    <section class="page-hero hero--pubs">
+  <div class="container">
+    <h1>Publications</h1>
+    <p class="muted">iVirus publications and research that uses iVirus tools, data, or workflows.</p>
+  </div>
+</section>
+
+  
+
+  
+    
+      <div class="container site-content page-flow">
+        <section class="directory-controls pubs-controls" data-filter-kind="publications">
+  <input type="search" id="pubQ" placeholder="Search by title, author, publication, or DOI…" aria-label="Search publications">
+  <label class="inline"><input type="checkbox" id="onlyIvirus"> Show only those using iVirus</label>
+  <label class="inline"><input type="checkbox" id="onlyOA"> Open access only</label>
+</section>
+
+
+
+
+<section class="pubs-list">
+
+  
+    <h2>iVirus Citations</h2>
+    <p class="muted">The main publications describing iVirus. Please cite these if you decide to use these resources!</p>
+
+    
+      <h3 class="pubs-year">2021</h3>
+      <ol class="pubs">
+        
+          <li class="pub" data-title="ivirus 2.0: cyberinfrastructure-supported tools and data to power dna virus ecology" data-authors="bolduc, b. et al." data-venue="isme communications" data-doi="10.1038/s43705-021-00083-3" data-tags="ivirus-core">
+            <div class="pub-layout">
+              
+                <div class="pub-logo-wrap">
+                  <a href="https://doi.org/10.1038/s43705-021-00083-3" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                    <img class="pub-logo" src="/iVirus/assets/img/journals/isme-comms.svg" alt="ISME Communications" loading="lazy">
+                  </a>
+                </div>
+              
+              <div class="pub-body">
+                <div class="pub-main">
+                  <span class="pub-title">iVirus 2.0: Cyberinfrastructure-supported tools and data to power DNA virus ecology</span>
+                  <span class="pub-authors"> — Bolduc, B., et al.</span>
+                </div>
+                <div class="pub-meta">
+                  <span class="pub-venue"><em>ISME Communications</em> (2021)</span>
+                  <a class="badge doi" href="https://doi.org/10.1038/s43705-021-00083-3" target="_blank" rel="noopener">DOI: 10.1038/s43705-021-00083-3</a>
+                  
+                  
+                  <span class="badge ivirus">iVirus</span>
+                </div>
+                
+                
+                  <div class="pub-context">An update to the original iVirus work. iVirus expands to KBase, adding new tools, datasets, and workflows alongside continued CyVerse support.</div>
+                
+              </div>
+            </div>
+          </li>
+        
+      </ol>
+    
+      <h3 class="pubs-year">2017</h3>
+      <ol class="pubs">
+        
+          <li class="pub" data-title="ivirus: facilitating new insights in viral ecology with software and community data sets imbedded in a cyberinfrastructure" data-authors="bolduc, b. youens-clark, k. roux, s. hurwitz, b. l. sullivan, m. b." data-venue="isme j" data-doi="10.1038/ismej.2016.89" data-tags="ivirus-core">
+            <div class="pub-layout">
+              
+                <div class="pub-logo-wrap">
+                  <a href="https://doi.org/10.1038/ismej.2016.89" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                    <img class="pub-logo" src="/iVirus/assets/img/journals/isme-j.svg" alt="ISME J" loading="lazy">
+                  </a>
+                </div>
+              
+              <div class="pub-body">
+                <div class="pub-main">
+                  <span class="pub-title">iVirus: facilitating new insights in viral ecology with software and community data sets imbedded in a cyberinfrastructure</span>
+                  <span class="pub-authors"> — Bolduc, B., Youens-Clark, K., Roux, S., Hurwitz, B. L., Sullivan, M. B.</span>
+                </div>
+                <div class="pub-meta">
+                  <span class="pub-venue"><em>ISME J</em> (2017)</span>
+                  <a class="badge doi" href="https://doi.org/10.1038/ismej.2016.89" target="_blank" rel="noopener">DOI: 10.1038/ismej.2016.89</a>
+                  
+                  
+                  <span class="badge ivirus">iVirus</span>
+                </div>
+                
+                
+                  <div class="pub-context">The original iVirus paper, introducing the project and its community data and software resources within CyVerse.</div>
+                
+              </div>
+            </div>
+          </li>
+        
+      </ol>
+    
+  
+
+  <hr>
+  <h2>Publications using iVirus</h2>
+  <p class="muted">Research that <em>used</em> iVirus tools, datasets, or workflows. Authors: please add your work by contacting us.</p>
+
+  
+    
+      <h3 class="pubs-year">2020</h3>
+      <ol class="pubs">
+        
+          <li class="pub" data-title="viral ecogenomics of arctic cryopeg brine and sea ice" data-authors="zhong, z.-p. rapp, j. z. wainaina, j. m. solonenko, n. e. maughan, h. carpenter, s. d. sullivan, m. b." data-venue="msystems" data-doi="10.1128/msystems.00246-20" data-tags="uses-ivirus">
+            <div class="pub-layout">
+              
+                <div class="pub-logo-wrap">
+                  <a href="https://doi.org/10.1128/mSystems.00246-20" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                    <img class="pub-logo" src="/iVirus/assets/img/journals/msystems.svg" alt="mSystems" loading="lazy">
+                  </a>
+                </div>
+              
+              <div class="pub-body">
+                <div class="pub-main">
+                  <span class="pub-title">Viral Ecogenomics of Arctic Cryopeg Brine and Sea Ice</span>
+                  <span class="pub-authors"> — Zhong, Z.-P., Rapp, J. Z., Wainaina, J. M., Solonenko, N. E., Maughan, H., Carpenter, S. D., Sullivan, M. B.</span>
+                </div>
+                <div class="pub-meta">
+                  <span class="pub-venue"><em>mSystems</em> (2020)</span>
+                  <a class="badge doi" href="https://doi.org/10.1128/mSystems.00246-20" target="_blank" rel="noopener">DOI: 10.1128/mSystems.00246-20</a>
+                  
+                  
+                  <span class="badge ivirus">uses iVirus</span>
+                </div>
+                
+                
+                  <div class="pub-context">Viral ecogenomics of extreme Arctic environments using iVirus-based analytical workflows.</div>
+                
+              </div>
+            </div>
+          </li>
+        
+      </ol>
+    
+      <h3 class="pubs-year">2019</h3>
+      <ol class="pubs">
+        
+          <li class="pub" data-title="marine dna viral macro- and microdiversity from pole to pole" data-authors="gregory, a. c. zayed, a. a. conceição-neto, n. temperton, b. bolduc, b. alberti, a. wincker, p. et al." data-venue="cell" data-doi="10.1016/j.cell.2019.03.040" data-tags="uses-ivirus">
+            <div class="pub-layout">
+              
+                <div class="pub-logo-wrap">
+                  <a href="https://doi.org/10.1016/j.cell.2019.03.040" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                    <img class="pub-logo" src="/iVirus/assets/img/journals/cell.svg" alt="Cell" loading="lazy">
+                  </a>
+                </div>
+              
+              <div class="pub-body">
+                <div class="pub-main">
+                  <span class="pub-title">Marine DNA Viral Macro- and Microdiversity from Pole to Pole</span>
+                  <span class="pub-authors"> — Gregory, A. C., Zayed, A. A., Conceição-Neto, N., Temperton, B., Bolduc, B., Alberti, A., Wincker, P., et al.</span>
+                </div>
+                <div class="pub-meta">
+                  <span class="pub-venue"><em>Cell</em> (2019)</span>
+                  <a class="badge doi" href="https://doi.org/10.1016/j.cell.2019.03.040" target="_blank" rel="noopener">DOI: 10.1016/j.cell.2019.03.040</a>
+                  
+                  
+                  <span class="badge ivirus">uses iVirus</span>
+                </div>
+                
+                
+                  <div class="pub-context">Global-scale characterization of marine DNA viral diversity from pole to pole, leveraging iVirus tools for single-amplified virus analysis.</div>
+                
+              </div>
+            </div>
+          </li>
+        
+          <li class="pub" data-title="long-read viral metagenomics captures abundant and microdiverse viral populations and their niche-defining genomic islands" data-authors="warwick-dugdale, j. solonenko, n. moore, k. chittick, l. gregory, a. c. allen, m. j. temperton, b. et al." data-venue="peerj" data-doi="10.7717/peerj.6800" data-tags="uses-ivirus">
+            <div class="pub-layout">
+              
+                <div class="pub-logo-wrap">
+                  <a href="https://doi.org/10.7717/peerj.6800" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                    <img class="pub-logo" src="/iVirus/assets/img/journals/peerj.svg" alt="PeerJ" loading="lazy">
+                  </a>
+                </div>
+              
+              <div class="pub-body">
+                <div class="pub-main">
+                  <span class="pub-title">Long-read viral metagenomics captures abundant and microdiverse viral populations and their niche-defining genomic islands</span>
+                  <span class="pub-authors"> — Warwick-Dugdale, J., Solonenko, N., Moore, K., Chittick, L., Gregory, A. C., Allen, M. J., Temperton, B., et al.</span>
+                </div>
+                <div class="pub-meta">
+                  <span class="pub-venue"><em>PeerJ</em> (2019)</span>
+                  <a class="badge doi" href="https://doi.org/10.7717/peerj.6800" target="_blank" rel="noopener">DOI: 10.7717/peerj.6800</a>
+                  
+                  
+                  <span class="badge ivirus">uses iVirus</span>
+                </div>
+                
+                
+                  <div class="pub-context">Demonstrates iVirus tools applied to long-read viromics, revealing abundant and microdiverse viral populations and their genomic islands.</div>
+                
+              </div>
+            </div>
+          </li>
+        
+          <li class="pub" data-title="taxonomic assignment of uncultivated prokaryotic virus genomes is enabled by gene-sharing networks" data-authors="bin jang, h. bolduc, b. zablocki, o. kuhn, j. h. roux, s. adriaenssens, e. m. sullivan, m. b." data-venue="nature biotechnology" data-doi="10.1038/s41587-019-0100-8" data-tags="uses-ivirus">
+            <div class="pub-layout">
+              
+                <div class="pub-logo-wrap">
+                  <a href="https://doi.org/10.1038/s41587-019-0100-8" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                    <img class="pub-logo" src="/iVirus/assets/img/journals/nature-biotech.svg" alt="Nature Biotechnology" loading="lazy">
+                  </a>
+                </div>
+              
+              <div class="pub-body">
+                <div class="pub-main">
+                  <span class="pub-title">Taxonomic assignment of uncultivated prokaryotic virus genomes is enabled by gene-sharing networks</span>
+                  <span class="pub-authors"> — Bin Jang, H., Bolduc, B., Zablocki, O., Kuhn, J. H., Roux, S., Adriaenssens, E. M., Sullivan, M. B.</span>
+                </div>
+                <div class="pub-meta">
+                  <span class="pub-venue"><em>Nature Biotechnology</em> (2019)</span>
+                  <a class="badge doi" href="https://doi.org/10.1038/s41587-019-0100-8" target="_blank" rel="noopener">DOI: 10.1038/s41587-019-0100-8</a>
+                  
+                  
+                  <span class="badge ivirus">uses iVirus</span>
+                </div>
+                
+                
+                  <div class="pub-context">Introduces the vConTACT2 framework — the updated gene-sharing network approach for assigning virus taxonomy.</div>
+                
+              </div>
+            </div>
+          </li>
+        
+      </ol>
+    
+      <h3 class="pubs-year">2018</h3>
+      <ol class="pubs">
+        
+          <li class="pub" data-title="soil viruses are underexplored players in ecosystem carbon processing" data-authors="trubl, g. jang, h. b. roux, s. emerson, j. b. solonenko, n. vik, d. r. rich, v. i." data-venue="msystems" data-doi="10.1128/msystems.00076-18" data-tags="uses-ivirus">
+            <div class="pub-layout">
+              
+                <div class="pub-logo-wrap">
+                  <a href="https://doi.org/10.1128/mSystems.00076-18" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                    <img class="pub-logo" src="/iVirus/assets/img/journals/msystems.svg" alt="mSystems" loading="lazy">
+                  </a>
+                </div>
+              
+              <div class="pub-body">
+                <div class="pub-main">
+                  <span class="pub-title">Soil Viruses Are Underexplored Players in Ecosystem Carbon Processing</span>
+                  <span class="pub-authors"> — Trubl, G., Jang, H. B., Roux, S., Emerson, J. B., Solonenko, N., Vik, D. R., Rich, V. I.</span>
+                </div>
+                <div class="pub-meta">
+                  <span class="pub-venue"><em>mSystems</em> (2018)</span>
+                  <a class="badge doi" href="https://doi.org/10.1128/mSystems.00076-18" target="_blank" rel="noopener">DOI: 10.1128/mSystems.00076-18</a>
+                  
+                  
+                  <span class="badge ivirus">uses iVirus</span>
+                </div>
+                
+                
+                  <div class="pub-context">Applied iVirus tools to explore viruses in soil ecosystems and their underappreciated roles in carbon cycling.</div>
+                
+              </div>
+            </div>
+          </li>
+        
+      </ol>
+    
+      <h3 class="pubs-year">2017</h3>
+      <ol class="pubs">
+        
+          <li class="pub" data-title="single-virus genomics reveals hidden cosmopolitan and abundant viruses" data-authors="martinez-hernandez, f. fornas, o. lluesma gomez, m. bolduc, b. de la cruz peña, m. j. martínez, j. m. martinez-garcia, m." data-venue="nature communications" data-doi="10.1038/ncomms15892" data-tags="uses-ivirus">
+            <div class="pub-layout">
+              
+                <div class="pub-logo-wrap">
+                  <a href="https://doi.org/10.1038/ncomms15892" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                    <img class="pub-logo" src="/iVirus/assets/img/journals/nature-comms.svg" alt="Nature Communications" loading="lazy">
+                  </a>
+                </div>
+              
+              <div class="pub-body">
+                <div class="pub-main">
+                  <span class="pub-title">Single-virus genomics reveals hidden cosmopolitan and abundant viruses</span>
+                  <span class="pub-authors"> — Martinez-Hernandez, F., Fornas, O., Lluesma Gomez, M., Bolduc, B., de la Cruz Peña, M. J., Martínez, J. M., Martinez-Garcia, M.</span>
+                </div>
+                <div class="pub-meta">
+                  <span class="pub-venue"><em>Nature Communications</em> (2017)</span>
+                  <a class="badge doi" href="https://doi.org/10.1038/ncomms15892" target="_blank" rel="noopener">DOI: 10.1038/ncomms15892</a>
+                  
+                  
+                  <span class="badge ivirus">uses iVirus</span>
+                </div>
+                
+                
+                  <div class="pub-context">Single-virus genomics approach uncovering hidden, cosmopolitan viral populations using iVirus tools.</div>
+                
+              </div>
+            </div>
+          </li>
+        
+          <li class="pub" data-title="putative archaeal viruses from the mesopelagic ocean" data-authors="vik, d. r. roux, s. brum, j. r. bolduc, b. emerson, j. b. padilla, c. c. sullivan, m. b." data-venue="peerj" data-doi="10.7717/peerj.3428" data-tags="uses-ivirus">
+            <div class="pub-layout">
+              
+                <div class="pub-logo-wrap">
+                  <a href="https://doi.org/10.7717/peerj.3428" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                    <img class="pub-logo" src="/iVirus/assets/img/journals/peerj.svg" alt="PeerJ" loading="lazy">
+                  </a>
+                </div>
+              
+              <div class="pub-body">
+                <div class="pub-main">
+                  <span class="pub-title">Putative archaeal viruses from the mesopelagic ocean</span>
+                  <span class="pub-authors"> — Vik, D. R., Roux, S., Brum, J. R., Bolduc, B., Emerson, J. B., Padilla, C. C., Sullivan, M. B.</span>
+                </div>
+                <div class="pub-meta">
+                  <span class="pub-venue"><em>PeerJ</em> (2017)</span>
+                  <a class="badge doi" href="https://doi.org/10.7717/peerj.3428" target="_blank" rel="noopener">DOI: 10.7717/peerj.3428</a>
+                  
+                  
+                  <span class="badge ivirus">uses iVirus</span>
+                </div>
+                
+                
+                  <div class="pub-context">Discovery of putative archaeal viruses from the mesopelagic ocean, identified using iVirus tools integrated into CyVerse.</div>
+                
+              </div>
+            </div>
+          </li>
+        
+          <li class="pub" data-title="vcontact: an ivirus tool to classify double-stranded dna viruses that infect archaea and bacteria" data-authors="bolduc, b. jang, h. b. doulcier, g. you, z.-q. roux, s. sullivan, m. b." data-venue="peerj" data-doi="10.7717/peerj.3243" data-tags="uses-ivirus">
+            <div class="pub-layout">
+              
+                <div class="pub-logo-wrap">
+                  <a href="https://doi.org/10.7717/peerj.3243" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                    <img class="pub-logo" src="/iVirus/assets/img/journals/peerj.svg" alt="PeerJ" loading="lazy">
+                  </a>
+                </div>
+              
+              <div class="pub-body">
+                <div class="pub-main">
+                  <span class="pub-title">vConTACT: an iVirus tool to classify double-stranded DNA viruses that infect Archaea and Bacteria</span>
+                  <span class="pub-authors"> — Bolduc, B., Jang, H. B., Doulcier, G., You, Z.-Q., Roux, S., Sullivan, M. B.</span>
+                </div>
+                <div class="pub-meta">
+                  <span class="pub-venue"><em>PeerJ</em> (2017)</span>
+                  <a class="badge doi" href="https://doi.org/10.7717/peerj.3243" target="_blank" rel="noopener">DOI: 10.7717/peerj.3243</a>
+                  
+                  
+                  <span class="badge ivirus">uses iVirus</span>
+                </div>
+                
+                
+                  <div class="pub-context">Introduces the original vConTACT tool — a foundational iVirus pipeline for classifying dsDNA viruses via gene-sharing networks.</div>
+                
+              </div>
+            </div>
+          </li>
+        
+      </ol>
+    
+  
+
+</section>
+
+      </div>
+    
+  
+</div>
+
+  </main>
+
+  <footer class="site-footer">
+  <p>
+    &copy; iVirus | Built with <a href="https://www.11ty.dev/" target="_blank" rel="noopener">Eleventy</a> | 
+    Supported by the <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1759874&amp;HistoricalAwards=false" target="_blank" rel="noopener">National Science Foundation (ABI #1759874)</a> and the iVirus project | 
+    <a href="/iVirus/about/">Contact</a> | 
+    <a href="#top" class="back-to-top">Go to Top ↑</a>
+  </p>
+</footer>
+
+  <!-- Global JS -->
+  <script src="/iVirus/assets/js/site-nav.js"></script>
+  <script src="/iVirus/assets/js/code-extras.js"></script>
+  <script src="/iVirus/assets/js/directory-filters.js"></script>
+  <script src="/iVirus/assets/js/home.js"></script>
+  <script src="/iVirus/assets/js/theme-toggle.js"></script>
+
+  <!-- Alpha banner dismiss -->
+  <script>
+    (function () {
+      var banner = document.getElementById('alphaBanner');
+      var btn    = document.getElementById('alphaBannerClose');
+      if (!banner || !btn) return;
+      // Hide immediately if previously dismissed
+      try { if (localStorage.getItem('ivirus-alpha-dismissed') === '1') banner.classList.add('is-hidden'); } catch(e) {}
+      btn.addEventListener('click', function () {
+        banner.classList.add('is-hidden');
+        try { localStorage.setItem('ivirus-alpha-dismissed', '1'); } catch(e) {}
+      });
+    })();
+  </script>
+</body>
+</html>

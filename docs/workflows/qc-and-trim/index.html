@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>QC &amp; Trim – iVirus</title>
+  <meta name="description" content="Workshops, tools, data, and documentation for viral research.">
+  <link rel="icon" href="/iVirus/assets/img/favicon.svg" type="image/svg+xml">
+
+  <!-- Theme bootstrap: apply saved/preferred theme before paint to avoid FOUC. -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("ivirus-theme");
+        var dark = saved === "theme-dark"
+          || (!saved && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.classList.add(dark ? "theme-dark" : "theme-light");
+      } catch (e) {
+        document.documentElement.classList.add("theme-light");
+      }
+    })();
+  </script>
+
+  <!-- Fonts: Inter (body) + Source Serif 4 (headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/iVirus/assets/css/main.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/workflow.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/light-theme.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/home.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/docs-grouped.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/tools.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/data.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/publications.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/protocols.css">
+  <script defer="" src="https://www.protocols.io/js/widgets/js/protocolsiojs.min.js"></script>
+
+  <!-- GA tracking (only in production builds) -->
+  
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-T56YTL1JSV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T56YTL1JSV');
+  </script>
+  
+</head>
+<body class="-docs-workflows-qc-and-trim">
+
+  <!-- Alpha preview banner -->
+  <div class="alpha-banner" id="alphaBanner" role="banner" aria-label="Preview notice">
+    <span class="alpha-banner__icon" aria-hidden="true">🚧</span>
+    <span class="alpha-banner__text">
+      <strong>Alpha preview</strong> — This site is under active development. Content may be incomplete or change without notice.
+    </span>
+    <button class="alpha-banner__close" id="alphaBannerClose" aria-label="Dismiss preview notice" title="Dismiss">✕</button>
+  </div>
+
+  <header id="top" class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="/iVirus/" aria-label="iVirus home"><span class="logo-i">i</span><span class="logo-virus">Virus</span></a>
+
+    <!-- mobile hamburger (left) -->
+    <button class="nav-toggle" data-nav-toggle="" aria-expanded="false" aria-controls="site-nav">
+      ☰
+    </button>
+
+    <!-- main nav -->
+    <nav id="site-nav" class="nav" data-site-nav="">
+      <ul class="nav-list">
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/about/">About</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/tools/">Tools &amp; Apps</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/data/">Data</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/workshops/">Workshops</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/publications/">Publications</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/docs/">Docs</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/protocols/">Protocols</a></li>
+        
+      </ul>
+    </nav>
+
+    <!-- spacer pushes the toggle to the far right -->
+    <div class="header-spacer" aria-hidden="true"></div>
+
+    <!-- theme toggle (always visible, right end) -->
+    <button class="theme-toggle" data-theme-toggle="" aria-pressed="false" title="Toggle theme">🌓</button>
+  </div>
+</header>
+
+
+  <main class="site-main">
+    
+<div class="docs-wrap guide">
+  <aside class="docs-sidebar">
+
+<nav class="side">
+  <h3>Docs</h3>
+
+  
+  
+  <div class="group">
+    <h4>Workflows</h4>
+    <ul class="wf-list">
+    
+      
+      <li class="wf-parent ">
+        <button class="wf-toggle" aria-label="Toggle steps" aria-expanded="false">
+          Viral Metagenome Workflow <span class="arrow">▸</span>
+        </button>
+        <ul class="wf-steps-nested" hidden="">
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/sra-fetch/">SRA Fetch</a>
+          </li>
+          
+          <li class="active">
+            <a href="/iVirus/docs/workflows/qc-and-trim/">QC &amp; Trim</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/assembly/">Assembly</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/viral-identification/">Viral Identification</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/reporting/">Reporting</a>
+          </li>
+          
+        </ul>
+      </li>
+    
+    </ul>
+  </div>
+  
+
+  
+  
+  <div class="group">
+    <h4>Tool Guides</h4>
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🧪 Quality Control</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/bbduk/">BBDuk</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/fastp/">fastp</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/fastqc/">FastQC</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/multiqc/">MultiQC</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/trimmomatic/">Trimmomatic</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🧬 Assembly</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/megahit/">MEGAHIT</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/spades/">SPAdes</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🦠 Viral Identification</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/checkv/">CheckV</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/propagate/">PropagAtE</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/vibrant/">VIBRANT</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/virsorter/">VirSorter</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🔬 Gene Calling</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/prodigal/">Prodigal</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">📝 Annotation</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/dram-v/">DRAM-v</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/phageterm/">PhageTerm</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/viga/">VIGA</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🌳 Taxonomy</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/cat-bat/">CAT / BAT</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/vcontact2/">vConTACT2</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/viridic/">VIRIDIC</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🔗 Host Prediction</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/hostphinder/">HostPhinder</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/iphop/">iPHoP</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/wish/">WIsH</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">📊 Visualization</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/anvio/">Anvi&#39;o</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/cytoscape/">Cytoscape</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+  </div>
+  
+</nav>
+</aside>
+
+  <article class="docs-content">
+    
+    
+      <h1>QC &amp; Trim</h1>
+      
+
+      
+      
+      
+    
+
+    <nav class="wf" aria-label="Viral Metagenome Workflow">
+      <h4 class="wf-title">Viral Metagenome Workflow</h4>
+      <ol class="wf-steps">
+        <li class="wf-step ">
+        <a href="/iVirus/docs/workflows/sra-fetch/">
+          <span class="icon" aria-hidden="true">📥</span><span class="label">SRA Fetch</span>
+        </a>
+      </li>
+<li class="wf-chevron" aria-hidden="true">»»</li>
+<li class="wf-step active">
+        <a href="/iVirus/docs/workflows/qc-and-trim/">
+          <span class="icon" aria-hidden="true">🧪</span><span class="label">QC & Trim</span>
+        </a>
+      </li>
+<li class="wf-chevron" aria-hidden="true">»»</li>
+<li class="wf-step ">
+        <a href="/iVirus/docs/workflows/assembly/">
+          <span class="icon" aria-hidden="true">🧩</span><span class="label">Assembly</span>
+        </a>
+      </li>
+<li class="wf-chevron" aria-hidden="true">»»</li>
+<li class="wf-step ">
+        <a href="/iVirus/docs/workflows/viral-identification/">
+          <span class="icon" aria-hidden="true">🦠</span><span class="label">Viral Identification</span>
+        </a>
+      </li>
+<li class="wf-chevron" aria-hidden="true">»»</li>
+<li class="wf-step ">
+        <a href="/iVirus/docs/workflows/reporting/">
+          <span class="icon" aria-hidden="true">📊</span><span class="label">Reporting</span>
+        </a>
+      </li>
+      </ol>
+    </nav>
+<p>We will be using either <a href="https://jgi.doe.gov/data-and-tools/bbtools/bb-tools-user-guide/bbduk-guide/">BBDuk</a> or <a href="http://www.usadellab.org/cms/?page=trimmomatic">Trimmomatic</a> to process our input reads. <em>You only need to select one</em>. We'll be using both for examples, but typically stick with one and use it.</p>
+<h2>Trimmomatic</h2>
+<div class="codetabs" id="tabs-qzj2b09hq4" data-codetabs="">
+  <div class="codetabs-nav" data-codetabs-nav="" role="tablist"><button type="button" data-tab="0" role="tab" aria-selected="true" class="active">Command</button><button type="button" data-tab="1" role="tab" aria-selected="false">SLURM Script</button></div>
+  <div class="codetabs-panels" data-codetabs-panels=""><div class="codetabs-panel" data-panel="0" role="tabpanel"><pre class="language-bash"><code class="language-bash">trimmomatic PE ERR594369_1.fastq.gz ERR594369_2.fastq.gz ERR594369_1_t_paired.fastq.gz ERR594369_1_t_unpaired.fastq.gz ERR594369_2_t_paired.fastq.gz ERR594369_2_t_unpaired.fastq.gz ILLUMINACLIP:TruSeq3-PE.fa:2:30:10:2 LEADING:3 TRAILING:3 MINLEN:36</code></pre>
+</div><div class="codetabs-panel" data-panel="1" role="tabpanel" hidden=""><pre class="language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment">#SBATCH -N 1</span>
+<span class="token comment">#SBATCH -t 1:00:00</span>
+<span class="token comment">#SBATCH -n 1</span>
+<span class="token comment">#SBATCH -J trimmomatic</span>
+<p><span class="token comment"># activate your conda environment here</span></p>
+<p><span class="token assign-left variable">workDir</span><span class="token operator">=</span><span class="token string">&quot;&lt;your_project_dir&gt;&quot;</span>
+<span class="token builtin class-name">cd</span> <span class="token variable">$workDir</span></p>
+<p>trimmomatic PE ERR594369_1.fastq.gz ERR594369_2.fastq.gz <span class="token punctuation">&lt;/span&gt;
+ERR594369_1_t_paired.fastq.gz ERR594369_1_t_unpaired.fastq.gz <span class="token punctuation">&lt;/span&gt;
+ERR594369_2_t_paired.fastq.gz ERR594369_2_t_unpaired.fastq.gz <span class="token punctuation">&lt;/span&gt;
+ILLUMINACLIP:TruSeq3-PE.fa:2:30:10:2 LEADING:3 TRAILING:3 MINLEN:36</span></span></span></p></code></pre><p></p>
+</div></div>
+</div>
+<p>Expected output:</p>
+<pre><code>Input Read Pairs: 37151587 Both Surviving: 36444033 (98.10%) Forward Only Surviving: 632370 (1.70%) Reverse Only Surviving: 67275 (0.18%) Dropped: 7909 (0.02%)
+TrimmomaticPE: Completed successfully
+
+real	30m23.395s
+</code></pre>
+<p>For Trimmomatic, the defaults work pretty well. Note the location of the IlluminaClip — it's already 'in' the conda package. If you have your own custom primers/adapters, you'll need to add your sequences or create your own primer and adapter file.</p>
+<h2>BBDuk</h2>
+<p>Next, BBDuk. BBDuk is usually done in 2-3 steps, with 1st being an adapter trimming step, and 2nd with the removal of low quality sequences. You can do both steps in a single command, but doing so in two steps allows us to see what was removed during each.</p>
+<div class="codetabs" id="tabs-mfjf4afehj" data-codetabs="">
+  <div class="codetabs-nav" data-codetabs-nav="" role="tablist"><button type="button" data-tab="0" role="tab" aria-selected="true" class="active">Command</button><button type="button" data-tab="1" role="tab" aria-selected="false">SLURM Script</button></div>
+  <div class="codetabs-panels" data-codetabs-panels=""><div class="codetabs-panel" data-panel="0" role="tabpanel"><pre class="language-bash"><code class="language-bash"><span class="token comment"># Step 1: adapter trimming</span>
+bbduk.sh <span class="token assign-left variable">in1</span><span class="token operator">=</span>ERR594369_1.fastq.gz <span class="token assign-left variable">in2</span><span class="token operator">=</span>ERR594369_2.fastq.gz <span class="token punctuation">\</span>
+  <span class="token assign-left variable">out1</span><span class="token operator">=</span>ERR594369_1_t.fastq.gz <span class="token assign-left variable">out2</span><span class="token operator">=</span>ERR594369_2_t.fastq.gz <span class="token punctuation">\</span>
+  <span class="token assign-left variable">ref</span><span class="token operator">=</span>/bbmap/resources/adapters.fa <span class="token assign-left variable">ktrim</span><span class="token operator">=</span>r <span class="token assign-left variable">k</span><span class="token operator">=</span><span class="token number">23</span> <span class="token assign-left variable">mink</span><span class="token operator">=</span><span class="token number">11</span> <span class="token assign-left variable">hdist</span><span class="token operator">=</span><span class="token number">1</span> tpe tbo
+<p><span class="token comment"># Step 2: quality filtering</span>
+bbduk.sh <span class="token assign-left variable">in1</span><span class="token operator">=</span>ERR594369_1_t.fastq.gz <span class="token assign-left variable">in2</span><span class="token operator">=</span>ERR594369_2_t.fastq.gz <span class="token punctuation">&lt;/span&gt;
+<span class="token assign-left variable">qtrim</span><span class="token operator">=</span>rl <span class="token assign-left variable">trimq</span><span class="token operator">=</span><span class="token number">10</span> <span class="token assign-left variable">out1</span><span class="token operator">=</span>ERR594369_1_t_qc.fastq.gz <span class="token assign-left variable">out2</span><span class="token operator">=</span>ERR594369_2_t_qc.fastq.gz</span></p></code></pre><p></p>
+</div><div class="codetabs-panel" data-panel="1" role="tabpanel" hidden=""><pre class="language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment">#SBATCH -N 1</span>
+<span class="token comment">#SBATCH -t 1:00:00</span>
+<span class="token comment">#SBATCH -n 8</span>
+<span class="token comment">#SBATCH -J bbduk</span>
+<p><span class="token comment"># activate your conda environment here</span></p>
+<p><span class="token assign-left variable">workDir</span><span class="token operator">=</span><span class="token string">&quot;&lt;your_project_dir&gt;&quot;</span>
+<span class="token builtin class-name">cd</span> <span class="token variable">$workDir</span></p>
+<p><span class="token comment"># Step 1: adapter trimming</span>
+bbduk.sh <span class="token assign-left variable">in1</span><span class="token operator">=</span>ERR594369_1.fastq.gz <span class="token assign-left variable">in2</span><span class="token operator">=</span>ERR594369_2.fastq.gz <span class="token punctuation">&lt;/span&gt;
+<span class="token assign-left variable">out1</span><span class="token operator">=</span>ERR594369_1_t.fastq.gz <span class="token assign-left variable">out2</span><span class="token operator">=</span>ERR594369_2_t.fastq.gz <span class="token punctuation">&lt;/span&gt;
+<span class="token assign-left variable">ref</span><span class="token operator">=</span>/bbmap/resources/adapters.fa <span class="token assign-left variable">ktrim</span><span class="token operator">=</span>r <span class="token assign-left variable">k</span><span class="token operator">=</span><span class="token number">23</span> <span class="token assign-left variable">mink</span><span class="token operator">=</span><span class="token number">11</span> <span class="token assign-left variable">hdist</span><span class="token operator">=</span><span class="token number">1</span> tpe tbo</span></span></p>
+<p><span class="token comment"># Step 2: quality filtering</span>
+bbduk.sh <span class="token assign-left variable">in1</span><span class="token operator">=</span>ERR594369_1_t.fastq.gz <span class="token assign-left variable">in2</span><span class="token operator">=</span>ERR594369_2_t.fastq.gz <span class="token punctuation">&lt;/span&gt;
+<span class="token assign-left variable">qtrim</span><span class="token operator">=</span>rl <span class="token assign-left variable">trimq</span><span class="token operator">=</span><span class="token number">10</span> <span class="token assign-left variable">out1</span><span class="token operator">=</span>ERR594369_1_t_qc.fastq.gz <span class="token assign-left variable">out2</span><span class="token operator">=</span>ERR594369_2_t_qc.fastq.gz</span></p></code></pre><p></p>
+</div></div>
+</div>
+<p>Expected output for Step 1:</p>
+<pre><code>Input:    74303174 reads  7164049847 bases.
+KTrimmed: 480321 reads (0.65%)  11406582 bases (0.16%)
+Result:   74299876 reads (100.00%)  7151259854 bases (99.82%)
+
+real	17m35.086s
+</code></pre>
+<p>Expected output for Step 2:</p>
+<pre><code>Input:    74299876 reads  7151259854 bases.
+QTrimmed: 238190 reads (0.32%)  2587818 bases (0.04%)
+Result:   74296524 reads (100.00%)  7148672036 bases (99.96%)
+
+real	8m55.146s
+</code></pre>
+<p>Now, let's do the same two commands in one:</p>
+<pre class="language-bash"><code class="language-bash">bbduk.sh <span class="token assign-left variable">in1</span><span class="token operator">=</span>ERR594369_1.fastq.gz <span class="token assign-left variable">in2</span><span class="token operator">=</span>ERR594369_2.fastq.gz <span class="token punctuation">\</span>
+  <span class="token assign-left variable">out1</span><span class="token operator">=</span>ERR594369_1_t_qc.fastq.gz <span class="token assign-left variable">out2</span><span class="token operator">=</span>ERR594369_2_t_qc.fastq.gz <span class="token punctuation">\</span>
+  <span class="token assign-left variable">ref</span><span class="token operator">=</span>/bbmap/resources/adapters.fa <span class="token assign-left variable">qtrim</span><span class="token operator">=</span>rl <span class="token assign-left variable">trimq</span><span class="token operator">=</span><span class="token number">10</span> <span class="token assign-left variable">ktrim</span><span class="token operator">=</span>r <span class="token assign-left variable">k</span><span class="token operator">=</span><span class="token number">23</span> <span class="token assign-left variable">mink</span><span class="token operator">=</span><span class="token number">11</span> <span class="token assign-left variable">hdist</span><span class="token operator">=</span><span class="token number">1</span> tpe tbo</code></pre>
+<h2>How does the quality check out?</h2>
+<p>Here, I'm going to run FastQC on all of the input files (2), the results from Trimmomatic (4) and the adapter trimmed (2) and quality filtered (2) read <em>pairs</em> of BBDuk.</p>
+<pre class="language-bash"><code class="language-bash">fastqc ERR594369_1.fastq.gz ERR594369_2.fastq.gz <span class="token punctuation">\</span>
+  ERR594369_1_t.fastq.gz ERR594369_2_t.fastq.gz <span class="token punctuation">\</span>
+  ERR594369_1_t_qc.fastq.gz ERR594369_2_t_qc.fastq.gz <span class="token punctuation">\</span>
+  ERR594369_1_t_paired.fastq.gz ERR594369_1_t_unpaired.fastq.gz <span class="token punctuation">\</span>
+  ERR594369_2_t_paired.fastq.gz ERR594369_2_t_unpaired.fastq.gz</code></pre>
+<p>FastQC will process each file individually and deposit the results in <code>&lt;filename&gt;_fastqc.zip</code> and <code>&lt;filename&gt;_fastqc.html</code>. On 10 files, this took ~33 minutes.</p>
+<p>Next, we'll want to visually summarize these results using MultiQC. I'm running MultiQC in the directory with all the FastQC results, so I'm using '.' to specify 'the current directory'.</p>
+<pre class="language-bash"><code class="language-bash">multiqc <span class="token builtin class-name">.</span></code></pre>
+<p>Expected output:</p>
+<pre><code>[INFO   ]         multiqc : Searching '.'
+[INFO   ]          fastqc : Found 10 reports
+[INFO   ]         multiqc : Report      : multiqc_report.html
+[INFO   ]         multiqc : Data        : multiqc_data
+[INFO   ]         multiqc : MultiQC complete
+
+real	0m7.186s
+</code></pre>
+<pre class="language-bash"><code class="language-bash">$ <span class="token function">ls</span> <span class="token parameter variable">-lh</span>
+<span class="token comment"># Original input data</span>
+ERR594369_1_fastqc.zip
+ERR594369_2_fastqc.zip
+<span class="token comment"># Trimmomatic results. Paired reads surviving (2) + unpaired reads (mate pair didn't make it) surviving (2)</span>
+ERR594369_1_t_paired_fastqc.zip
+ERR594369_1_t_unpaired_fastqc.zip
+ERR594369_2_t_paired_fastqc.zip
+ERR594369_2_t_unpaired_fastqc.zip
+<span class="token comment"># BBDuk adapter trimming results. BBDuk will only return paired reads with the parameters we specified</span>
+ERR594369_1_t_fastqc.zip
+ERR594369_2_t_fastqc.zip
+<span class="token comment"># BBDuk quality trimming results, using the trimming results (above) as input</span>
+ERR594369_1_t_qc_fastqc.zip
+ERR594369_2_t_qc_fastqc.zip
+<span class="token comment"># MultiQC report and data</span>
+multiqc_report.html
+multiqc_data</code></pre>
+<p>I've added comments to the command (above). <em>Normally</em>, this would NOT be in the output, but I'm commenting here to break down what files came from where.</p>
+<h2>See also</h2>
+<ul>
+<li><a href="/iVirus/docs/tools/fastqc/">FastQC tool guide</a></li>
+<li><a href="/iVirus/docs/tools/multiqc/">MultiQC tool guide</a></li>
+<li><a href="/iVirus/docs/tools/bbduk/">BBDuk tool guide</a></li>
+<li><a href="/iVirus/docs/tools/trimmomatic/placeholder/">Trimmomatic tool guide</a></li>
+</ul>
+
+  </article>
+
+  
+</div>
+<script src="/iVirus/assets/js/docs-ui.js"></script>
+
+  </main>
+
+  <footer class="site-footer">
+  <p>
+    &copy; iVirus | Built with <a href="https://www.11ty.dev/" target="_blank" rel="noopener">Eleventy</a> | 
+    Supported by the <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1759874&amp;HistoricalAwards=false" target="_blank" rel="noopener">National Science Foundation (ABI #1759874)</a> and the iVirus project | 
+    <a href="/iVirus/about/">Contact</a> | 
+    <a href="#top" class="back-to-top">Go to Top ↑</a>
+  </p>
+</footer>
+
+  <!-- Global JS -->
+  <script src="/iVirus/assets/js/site-nav.js"></script>
+  <script src="/iVirus/assets/js/code-extras.js"></script>
+  <script src="/iVirus/assets/js/directory-filters.js"></script>
+  <script src="/iVirus/assets/js/home.js"></script>
+  <script src="/iVirus/assets/js/theme-toggle.js"></script>
+
+  <!-- Alpha banner dismiss -->
+  <script>
+    (function () {
+      var banner = document.getElementById('alphaBanner');
+      var btn    = document.getElementById('alphaBannerClose');
+      if (!banner || !btn) return;
+      // Hide immediately if previously dismissed
+      try { if (localStorage.getItem('ivirus-alpha-dismissed') === '1') banner.classList.add('is-hidden'); } catch(e) {}
+      btn.addEventListener('click', function () {
+        banner.classList.add('is-hidden');
+        try { localStorage.setItem('ivirus-alpha-dismissed', '1'); } catch(e) {}
+      });
+    })();
+  </script>
+</body>
+</html>

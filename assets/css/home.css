@@ -1,0 +1,112 @@
+
+/* ---------- Home (hero + cards) ---------- */
+
+/* Hero: soft abstract background, SVG pattern overlay */
+.hero-home{
+  position: relative;
+  overflow: clip;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(43,111,242,.25), transparent 60%),
+    radial-gradient(1000px 500px at 120% 10%, rgba(56,189,248,.15), transparent 60%),
+    var(--panel-alt);
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-home::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image:url("/assets/img/virus-motif.svg");
+  background-size: 700px 350px;   /* denser: decrease to 600x300 for more */
+  background-repeat: repeat;
+  opacity:.22;                    /* tweak 0.18–0.28 to taste */
+  pointer-events:none;
+}
+
+.hero-home .hero-inner{
+  padding: 4rem 1rem 3rem;
+}
+
+.hero-copy{
+  max-width: 60ch;
+}
+
+.hero-copy h1{
+  margin: 0 0 .5rem 0;
+  font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+}
+
+.hero-copy p{
+  font-size: 1.05rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.hero-ctas{ display:flex; gap:.75rem; }
+.btn{
+  display:inline-block;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: .6rem .9rem;
+  box-shadow: var(--shadow);
+  transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+  text-decoration: none;
+}
+.btn:hover{
+  background: var(--accent-hover);
+  box-shadow: 0 6px 18px rgba(43,111,242,.28);
+  transform: translateY(-1px);
+  text-decoration: none;
+  color: #fff;
+}
+.btn-ghost{
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  transition: background 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+}
+.btn-ghost:hover{
+  background: rgba(43,111,242,.08);
+  text-decoration: none;
+  color: var(--accent);
+}
+
+/* Cards */
+.card-grid{
+  list-style:none; margin:0; padding:0;
+  display:grid; gap:1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+}
+
+.home-card{
+  position: relative;
+  padding: 1rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.home-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(10,35,80,.12);
+  border-color: rgba(43,111,242,.3);
+}
+
+.home-card h3{ margin: .25rem 0 .5rem; }
+.home-card p{ margin: .25rem 0; color: var(--muted); }
+
+/* Make whole card clickable via 'stretched' link */
+.home-card .stretched{
+  position: relative;
+  z-index: 1;
+}
+.home-card .stretched::after{
+  content: "";
+  position: absolute; inset: -1rem;
+}
+
+/* Space below sections */
+.home-cards{ padding: 2rem 1rem 3rem; }

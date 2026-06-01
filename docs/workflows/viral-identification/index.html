@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Viral Identification – iVirus</title>
+  <meta name="description" content="Workshops, tools, data, and documentation for viral research.">
+  <link rel="icon" href="/iVirus/assets/img/favicon.svg" type="image/svg+xml">
+
+  <!-- Theme bootstrap: apply saved/preferred theme before paint to avoid FOUC. -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("ivirus-theme");
+        var dark = saved === "theme-dark"
+          || (!saved && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.classList.add(dark ? "theme-dark" : "theme-light");
+      } catch (e) {
+        document.documentElement.classList.add("theme-light");
+      }
+    })();
+  </script>
+
+  <!-- Fonts: Inter (body) + Source Serif 4 (headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/iVirus/assets/css/main.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/workflow.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/light-theme.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/home.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/docs-grouped.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/tools.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/data.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/publications.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/protocols.css">
+  <script defer="" src="https://www.protocols.io/js/widgets/js/protocolsiojs.min.js"></script>
+
+  <!-- GA tracking (only in production builds) -->
+  
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-T56YTL1JSV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T56YTL1JSV');
+  </script>
+  
+</head>
+<body class="-docs-workflows-viral-identification">
+
+  <!-- Alpha preview banner -->
+  <div class="alpha-banner" id="alphaBanner" role="banner" aria-label="Preview notice">
+    <span class="alpha-banner__icon" aria-hidden="true">🚧</span>
+    <span class="alpha-banner__text">
+      <strong>Alpha preview</strong> — This site is under active development. Content may be incomplete or change without notice.
+    </span>
+    <button class="alpha-banner__close" id="alphaBannerClose" aria-label="Dismiss preview notice" title="Dismiss">✕</button>
+  </div>
+
+  <header id="top" class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="/iVirus/" aria-label="iVirus home"><span class="logo-i">i</span><span class="logo-virus">Virus</span></a>
+
+    <!-- mobile hamburger (left) -->
+    <button class="nav-toggle" data-nav-toggle="" aria-expanded="false" aria-controls="site-nav">
+      ☰
+    </button>
+
+    <!-- main nav -->
+    <nav id="site-nav" class="nav" data-site-nav="">
+      <ul class="nav-list">
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/about/">About</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/tools/">Tools &amp; Apps</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/data/">Data</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/workshops/">Workshops</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/publications/">Publications</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/docs/">Docs</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/protocols/">Protocols</a></li>
+        
+      </ul>
+    </nav>
+
+    <!-- spacer pushes the toggle to the far right -->
+    <div class="header-spacer" aria-hidden="true"></div>
+
+    <!-- theme toggle (always visible, right end) -->
+    <button class="theme-toggle" data-theme-toggle="" aria-pressed="false" title="Toggle theme">🌓</button>
+  </div>
+</header>
+
+
+  <main class="site-main">
+    
+<div class="docs-wrap guide">
+  <aside class="docs-sidebar">
+
+<nav class="side">
+  <h3>Docs</h3>
+
+  
+  
+  <div class="group">
+    <h4>Workflows</h4>
+    <ul class="wf-list">
+    
+      
+      <li class="wf-parent ">
+        <button class="wf-toggle" aria-label="Toggle steps" aria-expanded="false">
+          Viral Metagenome Workflow <span class="arrow">▸</span>
+        </button>
+        <ul class="wf-steps-nested" hidden="">
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/sra-fetch/">SRA Fetch</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/qc-and-trim/">QC &amp; Trim</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/assembly/">Assembly</a>
+          </li>
+          
+          <li class="active">
+            <a href="/iVirus/docs/workflows/viral-identification/">Viral Identification</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/reporting/">Reporting</a>
+          </li>
+          
+        </ul>
+      </li>
+    
+    </ul>
+  </div>
+  
+
+  
+  
+  <div class="group">
+    <h4>Tool Guides</h4>
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🧪 Quality Control</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/bbduk/">BBDuk</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/fastp/">fastp</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/fastqc/">FastQC</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/multiqc/">MultiQC</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/trimmomatic/">Trimmomatic</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🧬 Assembly</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/megahit/">MEGAHIT</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/spades/">SPAdes</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🦠 Viral Identification</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/checkv/">CheckV</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/propagate/">PropagAtE</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/vibrant/">VIBRANT</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/virsorter/">VirSorter</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🔬 Gene Calling</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/prodigal/">Prodigal</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">📝 Annotation</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/dram-v/">DRAM-v</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/phageterm/">PhageTerm</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/viga/">VIGA</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🌳 Taxonomy</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/cat-bat/">CAT / BAT</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/vcontact2/">vConTACT2</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/viridic/">VIRIDIC</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🔗 Host Prediction</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/hostphinder/">HostPhinder</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/iphop/">iPHoP</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/wish/">WIsH</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">📊 Visualization</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/anvio/">Anvi&#39;o</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/cytoscape/">Cytoscape</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+  </div>
+  
+</nav>
+</aside>
+
+  <article class="docs-content">
+    
+    
+      <h1>Viral Identification</h1>
+      
+
+      
+      
+      
+    
+
+    <nav class="wf" aria-label="Viral Metagenome Workflow">
+      <h4 class="wf-title">Viral Metagenome Workflow</h4>
+      <ol class="wf-steps">
+        <li class="wf-step ">
+        <a href="/iVirus/docs/workflows/sra-fetch/">
+          <span class="icon" aria-hidden="true">📥</span><span class="label">SRA Fetch</span>
+        </a>
+      </li>
+<li class="wf-chevron" aria-hidden="true">»»</li>
+<li class="wf-step ">
+        <a href="/iVirus/docs/workflows/qc-and-trim/">
+          <span class="icon" aria-hidden="true">🧪</span><span class="label">QC & Trim</span>
+        </a>
+      </li>
+<li class="wf-chevron" aria-hidden="true">»»</li>
+<li class="wf-step ">
+        <a href="/iVirus/docs/workflows/assembly/">
+          <span class="icon" aria-hidden="true">🧩</span><span class="label">Assembly</span>
+        </a>
+      </li>
+<li class="wf-chevron" aria-hidden="true">»»</li>
+<li class="wf-step active">
+        <a href="/iVirus/docs/workflows/viral-identification/">
+          <span class="icon" aria-hidden="true">🦠</span><span class="label">Viral Identification</span>
+        </a>
+      </li>
+<li class="wf-chevron" aria-hidden="true">»»</li>
+<li class="wf-step ">
+        <a href="/iVirus/docs/workflows/reporting/">
+          <span class="icon" aria-hidden="true">📊</span><span class="label">Reporting</span>
+        </a>
+      </li>
+      </ol>
+    </nav>
+<p>Identify viral contigs from the assembled metagenome using the <a href="https://www.protocols.io/view/viral-sequence-identification-sop-with-virsorter2-5qpvoyqebg4x/v3">VirSorter2 SOP</a> (Guo, Vik, Pratama, Roux, Sullivan et al.). This two-pass approach — VirSorter2 → CheckV → VirSorter2 → DRAM-v — maximizes sensitivity while using CheckV quality tiers to guide curation.</p>
+<p><strong>Overview:</strong></p>
+<ol>
+<li><strong>Pass 1</strong> — broad viral identification with VirSorter2</li>
+<li><strong>CheckV</strong> — quality assessment and provirus trimming</li>
+<li><strong>Pass 2</strong> — re-run VirSorter2 on CheckV output, prep for DRAM-v</li>
+<li><strong>DRAM-v</strong> — functional annotation and AMG identification</li>
+<li><strong>Filter/curate</strong> — combine scores into Keep1/Keep2/Manual/Discard tiers</li>
+</ol>
+<h2>Pass 1</h2>
+<div class="codetabs" id="tabs-bpvczoqvdp" data-codetabs="">
+  <div class="codetabs-nav" data-codetabs-nav="" role="tablist"><button type="button" data-tab="0" role="tab" aria-selected="true" class="active">Command</button><button type="button" data-tab="1" role="tab" aria-selected="false">SLURM Script</button></div>
+  <div class="codetabs-panels" data-codetabs-panels=""><div class="codetabs-panel" data-panel="0" role="tabpanel"><pre class="language-bash"><code class="language-bash">virsorter run <span class="token punctuation">\</span>
+  <span class="token parameter variable">-i</span> contigs.fasta <span class="token punctuation">\</span>
+  <span class="token parameter variable">-w</span> vs2_pass1/ <span class="token punctuation">\</span>
+  --include-groups dsDNAphage,ssDNA <span class="token punctuation">\</span>
+  --min-length <span class="token number">5000</span> <span class="token punctuation">\</span>
+  --min-score <span class="token number">0.5</span> <span class="token punctuation">\</span>
+  --keep-original-seq <span class="token punctuation">\</span>
+  <span class="token parameter variable">-j</span> <span class="token number">16</span> all</code></pre>
+</div><div class="codetabs-panel" data-panel="1" role="tabpanel" hidden=""><pre class="language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment">#SBATCH -N 1</span>
+<span class="token comment">#SBATCH -n 40</span>
+<span class="token comment">#SBATCH -t 4:00:00</span>
+<span class="token comment">#SBATCH -J vs2-pass1</span>
+<span class="token comment">#SBATCH --mem=32G</span>
+<p><span class="token assign-left variable">WORKDIR</span><span class="token operator">=</span><span class="token string">&quot;<span class="token environment constant">$PWD</span>&quot;</span>
+<span class="token assign-left variable">INPUT</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${WORKDIR}</span>/spades_out/contigs.fasta&quot;</span>
+<span class="token assign-left variable">OUTDIR</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${WORKDIR}</span>/vs2_pass1&quot;</span></p>
+<p>virsorter run <span class="token punctuation">&lt;/span&gt;
+<span class="token parameter variable">-i</span> <span class="token variable">$INPUT</span> <span class="token punctuation">&lt;/span&gt;
+<span class="token parameter variable">-w</span> <span class="token variable">$OUTDIR</span> <span class="token punctuation">&lt;/span&gt;
+--include-groups dsDNAphage,ssDNA <span class="token punctuation">&lt;/span&gt;
+--min-length <span class="token number">5000</span> <span class="token punctuation">&lt;/span&gt;
+--min-score <span class="token number">0.5</span> <span class="token punctuation">&lt;/span&gt;
+--keep-original-seq <span class="token punctuation">&lt;/span&gt;
+<span class="token parameter variable">-j</span> <span class="token variable">$SLURM_NTASKS</span> all</span></span></span></span></span></span></span></p></code></pre><p></p>
+</div></div>
+</div>
+<p>On the example assembly (322k contigs), Pass 1 took approximately <strong>2 hours 48 minutes</strong> with 40 cores.</p>
+<h2>CheckV</h2>
+<div class="codetabs" id="tabs-554tzdwqcnf" data-codetabs="">
+  <div class="codetabs-nav" data-codetabs-nav="" role="tablist"><button type="button" data-tab="0" role="tab" aria-selected="true" class="active">Command</button><button type="button" data-tab="1" role="tab" aria-selected="false">SLURM Script</button></div>
+  <div class="codetabs-panels" data-codetabs-panels=""><div class="codetabs-panel" data-panel="0" role="tabpanel"><pre class="language-bash"><code class="language-bash">checkv end_to_end vs2_pass1/final-viral-combined.fa checkv_out/ <span class="token parameter variable">-t</span> <span class="token number">16</span></code></pre>
+</div><div class="codetabs-panel" data-panel="1" role="tabpanel" hidden=""><pre class="language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment">#SBATCH -N 1</span>
+<span class="token comment">#SBATCH -n 40</span>
+<span class="token comment">#SBATCH -t 1:00:00</span>
+<span class="token comment">#SBATCH -J checkv</span>
+<span class="token comment">#SBATCH --mem=16G</span>
+<p><span class="token assign-left variable">WORKDIR</span><span class="token operator">=</span><span class="token string">&quot;<span class="token environment constant">$PWD</span>&quot;</span>
+<span class="token assign-left variable">INPUT</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${WORKDIR}</span>/vs2_pass1/final-viral-combined.fa&quot;</span>
+<span class="token assign-left variable">OUTDIR</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${WORKDIR}</span>/checkv_out&quot;</span></p>
+<p>checkv end_to_end <span class="token variable">$INPUT</span> <span class="token variable">$OUTDIR</span> <span class="token parameter variable">-t</span> <span class="token variable">$SLURM_NTASKS</span></p></code></pre><p></p>
+</div></div>
+</div>
+<p>Inspect quality tiers before proceeding to Pass 2:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">grep</span> <span class="token parameter variable">-c</span> <span class="token string">"Low-quality"</span>    checkv_out/quality_summary.tsv
+<span class="token function">grep</span> <span class="token parameter variable">-c</span> <span class="token string">"Medium-quality"</span> checkv_out/quality_summary.tsv
+<span class="token function">grep</span> <span class="token parameter variable">-c</span> <span class="token string">"High-quality"</span>   checkv_out/quality_summary.tsv
+<span class="token function">grep</span> <span class="token parameter variable">-c</span> <span class="token string">"Not-determined"</span> checkv_out/quality_summary.tsv</code></pre>
+<p>On the worked dataset: 2825 Low-quality, 25 Medium-quality, 1 High-quality, 528 Not-determined.</p>
+<blockquote>
+<p><strong>Note:</strong> CheckV is conservative — most first-pass contigs being Low-quality or Not-determined is normal and does not mean they are not viral.</p>
+</blockquote>
+<h2>Merge + Pass 2</h2>
+<div class="codetabs" id="tabs-azbj3gi2e5a" data-codetabs="">
+  <div class="codetabs-nav" data-codetabs-nav="" role="tablist"><button type="button" data-tab="0" role="tab" aria-selected="true" class="active">Command</button><button type="button" data-tab="1" role="tab" aria-selected="false">SLURM Script</button></div>
+  <div class="codetabs-panels" data-codetabs-panels=""><div class="codetabs-panel" data-panel="0" role="tabpanel"><pre class="language-bash"><code class="language-bash"><span class="token function">cat</span> checkv_out/proviruses.fna checkv_out/viruses.fna <span class="token operator">></span> checkv_out/combined.fna
+<p>virsorter run <span class="token punctuation">&lt;/span&gt;
+<span class="token parameter variable">-i</span> checkv_out/combined.fna <span class="token punctuation">&lt;/span&gt;
+<span class="token parameter variable">-w</span> vs2_pass2/ <span class="token punctuation">&lt;/span&gt;
+--seqname-suffix-off <span class="token punctuation">&lt;/span&gt;
+--viral-gene-enrich-off <span class="token punctuation">&lt;/span&gt;
+--provirus-off <span class="token punctuation">&lt;/span&gt;
+--prep-for-dramv <span class="token punctuation">&lt;/span&gt;
+--include-groups dsDNAphage,ssDNA <span class="token punctuation">&lt;/span&gt;
+--min-length <span class="token number">5000</span> <span class="token punctuation">&lt;/span&gt;
+--min-score <span class="token number">0.5</span> <span class="token punctuation">&lt;/span&gt;
+<span class="token parameter variable">-j</span> <span class="token number">16</span> all</span></span></span></span></span></span></span></span></span></span></p></code></pre><p></p>
+</div><div class="codetabs-panel" data-panel="1" role="tabpanel" hidden=""><pre class="language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment">#SBATCH -N 1</span>
+<span class="token comment">#SBATCH -n 40</span>
+<span class="token comment">#SBATCH -t 4:00:00</span>
+<span class="token comment">#SBATCH -J vs2-pass2</span>
+<span class="token comment">#SBATCH --mem=32G</span>
+<p><span class="token assign-left variable">WORKDIR</span><span class="token operator">=</span><span class="token string">&quot;<span class="token environment constant">$PWD</span>&quot;</span></p>
+<p><span class="token comment"># Merge CheckV outputs</span>
+<span class="token function">cat</span> <span class="token variable">${WORKDIR}</span>/checkv_out/proviruses.fna <span class="token punctuation">&lt;/span&gt;
+<span class="token variable">${WORKDIR}</span>/checkv_out/viruses.fna <span class="token punctuation">&lt;/span&gt;
+<span class="token operator">&gt;</span> <span class="token variable">${WORKDIR}</span>/checkv_out/combined.fna</span></span></p>
+<p>virsorter run <span class="token punctuation">&lt;/span&gt;
+<span class="token parameter variable">-i</span> <span class="token variable">${WORKDIR}</span>/checkv_out/combined.fna <span class="token punctuation">&lt;/span&gt;
+<span class="token parameter variable">-w</span> <span class="token variable">${WORKDIR}</span>/vs2_pass2 <span class="token punctuation">&lt;/span&gt;
+--seqname-suffix-off <span class="token punctuation">&lt;/span&gt;
+--viral-gene-enrich-off <span class="token punctuation">&lt;/span&gt;
+--provirus-off <span class="token punctuation">&lt;/span&gt;
+--prep-for-dramv <span class="token punctuation">&lt;/span&gt;
+--include-groups dsDNAphage,ssDNA <span class="token punctuation">&lt;/span&gt;
+--min-length <span class="token number">5000</span> <span class="token punctuation">&lt;/span&gt;
+--min-score <span class="token number">0.5</span> <span class="token punctuation">&lt;/span&gt;
+<span class="token parameter variable">-j</span> <span class="token variable">$SLURM_NTASKS</span> all</span></span></span></span></span></span></span></span></span></span></p></code></pre><p></p>
+</div></div>
+</div>
+<p>Pass 2 took approximately <strong>3 hours 3 minutes</strong> with 40 cores on the example dataset.</p>
+<h2>DRAM-v</h2>
+<div class="codetabs" id="tabs-koijvgypppk" data-codetabs="">
+  <div class="codetabs-nav" data-codetabs-nav="" role="tablist"><button type="button" data-tab="0" role="tab" aria-selected="true" class="active">Command</button><button type="button" data-tab="1" role="tab" aria-selected="false">SLURM Script</button></div>
+  <div class="codetabs-panels" data-codetabs-panels=""><div class="codetabs-panel" data-panel="0" role="tabpanel"><pre class="language-bash"><code class="language-bash">DRAM-v.py annotate <span class="token punctuation">\</span>
+  <span class="token parameter variable">-i</span> vs2_pass2/for-dramv/final-viral-combined-for-dramv.fa <span class="token punctuation">\</span>
+  <span class="token parameter variable">-v</span> vs2_pass2/for-dramv/viral-affi-contigs-for-dramv.tab <span class="token punctuation">\</span>
+  <span class="token parameter variable">-o</span> dramv_annotate/ <span class="token punctuation">\</span>
+  <span class="token parameter variable">--skip_trnascan</span> <span class="token parameter variable">--threads</span> <span class="token number">16</span> <span class="token parameter variable">--min_contig_size</span> <span class="token number">1000</span>
+<p>DRAM-v.py distill <span class="token parameter variable">-i</span> dramv_annotate/annotations.tsv <span class="token parameter variable">-o</span> dramv_distill/</p></code></pre><p></p>
+</div><div class="codetabs-panel" data-panel="1" role="tabpanel" hidden=""><pre class="language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment">#SBATCH -N 1</span>
+<span class="token comment">#SBATCH -n 40</span>
+<span class="token comment">#SBATCH -t 120:00:00</span>
+<span class="token comment">#SBATCH -J dramv</span>
+<span class="token comment">#SBATCH --mem=64G</span>
+<p><span class="token assign-left variable">WORKDIR</span><span class="token operator">=</span><span class="token string">&quot;<span class="token environment constant">$PWD</span>&quot;</span>
+<span class="token assign-left variable">FA</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${WORKDIR}</span>/vs2_pass2/for-dramv/final-viral-combined-for-dramv.fa&quot;</span>
+<span class="token assign-left variable">AFFI</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${WORKDIR}</span>/vs2_pass2/for-dramv/viral-affi-contigs-for-dramv.tab&quot;</span></p>
+<p>DRAM-v.py annotate <span class="token punctuation">&lt;/span&gt;
+<span class="token parameter variable">-i</span> <span class="token variable">$FA</span> <span class="token punctuation">&lt;/span&gt;
+<span class="token parameter variable">-v</span> <span class="token variable">$AFFI</span> <span class="token punctuation">&lt;/span&gt;
+<span class="token parameter variable">-o</span> <span class="token variable">${WORKDIR}</span>/dramv_annotate <span class="token punctuation">&lt;/span&gt;
+<span class="token parameter variable">--skip_trnascan</span> <span class="token punctuation">&lt;/span&gt;
+<span class="token parameter variable">--threads</span> <span class="token variable">$SLURM_NTASKS</span> <span class="token punctuation">&lt;/span&gt;
+<span class="token parameter variable">--min_contig_size</span> <span class="token number">1000</span></span></span></span></span></span></span></p>
+<p>DRAM-v.py distill <span class="token punctuation">&lt;/span&gt;
+<span class="token parameter variable">-i</span> <span class="token variable">${WORKDIR}</span>/dramv_annotate/annotations.tsv <span class="token punctuation">&lt;/span&gt;
+<span class="token parameter variable">-o</span> <span class="token variable">${WORKDIR}</span>/dramv_distill</span></span></p></code></pre><p></p>
+</div></div>
+</div>
+<blockquote>
+<p><strong>Warning:</strong> DRAM-v is slow. The worked example (3,313 contigs) took <strong>3 days 9 hours</strong> on 40 cores. Request wall time accordingly.</p>
+</blockquote>
+<h2>Filtering and curation</h2>
+<p>After DRAM-v, filter contigs by combining VirSorter2 scores, CheckV contamination estimates, and DRAM-v AMG results into Keep1/Keep2/Manual check/Discard tiers per <a href="https://www.protocols.io/view/viral-sequence-identification-sop-with-virsorter2-5qpvoyqebg4x/v3">Step 5 of the VirSorter2 SOP</a>. The worked example yielded <strong>3,243 high-confidence genomes</strong> from 322k initial contigs.</p>
+<blockquote>
+<p><strong>Note:</strong> Manual curation cannot be fully automated. Review &quot;Manual check&quot; category contigs individually.</p>
+</blockquote>
+<p>VIBRANT is an alternative to VirSorter2 for viral identification; see the <a href="/iVirus/docs/tools/vibrant/">VIBRANT guide</a>.</p>
+<h2>See also</h2>
+<ul>
+<li><a href="/iVirus/docs/tools/virsorter2/">VirSorter2 tool guide</a></li>
+<li><a href="/iVirus/docs/tools/checkv/">CheckV tool guide</a></li>
+<li><a href="/iVirus/docs/tools/dramv/">DRAM-v tool guide</a></li>
+<li><a href="/iVirus/docs/tools/vibrant/">VIBRANT tool guide</a></li>
+</ul>
+
+  </article>
+
+  
+</div>
+<script src="/iVirus/assets/js/docs-ui.js"></script>
+
+  </main>
+
+  <footer class="site-footer">
+  <p>
+    &copy; iVirus | Built with <a href="https://www.11ty.dev/" target="_blank" rel="noopener">Eleventy</a> | 
+    Supported by the <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1759874&amp;HistoricalAwards=false" target="_blank" rel="noopener">National Science Foundation (ABI #1759874)</a> and the iVirus project | 
+    <a href="/iVirus/about/">Contact</a> | 
+    <a href="#top" class="back-to-top">Go to Top ↑</a>
+  </p>
+</footer>
+
+  <!-- Global JS -->
+  <script src="/iVirus/assets/js/site-nav.js"></script>
+  <script src="/iVirus/assets/js/code-extras.js"></script>
+  <script src="/iVirus/assets/js/directory-filters.js"></script>
+  <script src="/iVirus/assets/js/home.js"></script>
+  <script src="/iVirus/assets/js/theme-toggle.js"></script>
+
+  <!-- Alpha banner dismiss -->
+  <script>
+    (function () {
+      var banner = document.getElementById('alphaBanner');
+      var btn    = document.getElementById('alphaBannerClose');
+      if (!banner || !btn) return;
+      // Hide immediately if previously dismissed
+      try { if (localStorage.getItem('ivirus-alpha-dismissed') === '1') banner.classList.add('is-hidden'); } catch(e) {}
+      btn.addEventListener('click', function () {
+        banner.classList.add('is-hidden');
+        try { localStorage.setItem('ivirus-alpha-dismissed', '1'); } catch(e) {}
+      });
+    })();
+  </script>
+</body>
+</html>
