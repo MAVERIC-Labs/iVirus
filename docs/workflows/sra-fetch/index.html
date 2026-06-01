@@ -383,7 +383,7 @@
     </nav>
 <p>The first thing we need to do is grab the data from the SRA. You can do this a few ways, either through navigating the NCBI+SRA websites, or directly using their SRA Toolkit.</p>
 <p>We'll use <a href="https://www.ncbi.nlm.nih.gov/sra/ERX552322">ERR594369</a> as our running example throughout this workflow — a viral metagenome with 37 million paired reads and 7.2 Gbp total.</p>
-<div class="codetabs" id="tabs-ybfibqfyzsq" data-codetabs>
+<div class="codetabs" id="tabs-ln5stnbr1t" data-codetabs>
   <div class="codetabs-nav" data-codetabs-nav role="tablist"><button type="button" data-tab="0" role="tab" aria-selected="true" class='active'>Command</button><button type="button" data-tab="1" role="tab" aria-selected="false" >SLURM Script</button></div>
   <div class="codetabs-panels" data-codetabs-panels><div class="codetabs-panel" data-panel="0" role="tabpanel"><pre class="language-bash"><code class="language-bash">fasterq-dump <span class="token parameter variable">-e</span> <span class="token number">4</span> <span class="token parameter variable">-p</span> --split-files ERR594369</code></pre>
 </div><div class="codetabs-panel" data-panel="1" role="tabpanel" hidden><pre class="language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
