@@ -313,7 +313,7 @@ module.exports = function(eleventyConfig) {
   });
 
   return {
-    pathPrefix: "/iVirus/",   //  uncommentfor GittHub; removefor iVirusn
+    pathPrefix: process.env.IVIRUS_DEPLOY ? "/iVirus/" : "/",
     dir: { input: "src", includes: "_includes", data: "_data", output: "_site" },
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk"

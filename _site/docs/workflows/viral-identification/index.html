@@ -391,7 +391,7 @@
 <li><strong>Filter/curate</strong> — combine scores into Keep1/Keep2/Manual/Discard tiers</li>
 </ol>
 <h2>Pass 1</h2>
-<div class="codetabs" id="tabs-65zvo6ljn1e" data-codetabs>
+<div class="codetabs" id="tabs-9aockw5cpy" data-codetabs>
   <div class="codetabs-nav" data-codetabs-nav role="tablist"><button type="button" data-tab="0" role="tab" aria-selected="true" class='active'>Command</button><button type="button" data-tab="1" role="tab" aria-selected="false" >SLURM Script</button></div>
   <div class="codetabs-panels" data-codetabs-panels><div class="codetabs-panel" data-panel="0" role="tabpanel"><pre class="language-bash"><code class="language-bash">virsorter run <span class="token punctuation">\</span>
   <span class="token parameter variable">-i</span> contigs.fasta <span class="token punctuation">\</span>
@@ -422,7 +422,7 @@
 </div>
 <p>On the example assembly (322k contigs), Pass 1 took approximately <strong>2 hours 48 minutes</strong> with 40 cores.</p>
 <h2>CheckV</h2>
-<div class="codetabs" id="tabs-zyp5q1k4jnq" data-codetabs>
+<div class="codetabs" id="tabs-o1vxqfcuihk" data-codetabs>
   <div class="codetabs-nav" data-codetabs-nav role="tablist"><button type="button" data-tab="0" role="tab" aria-selected="true" class='active'>Command</button><button type="button" data-tab="1" role="tab" aria-selected="false" >SLURM Script</button></div>
   <div class="codetabs-panels" data-codetabs-panels><div class="codetabs-panel" data-panel="0" role="tabpanel"><pre class="language-bash"><code class="language-bash">checkv end_to_end vs2_pass1/final-viral-combined.fa checkv_out/ <span class="token parameter variable">-t</span> <span class="token number">16</span></code></pre>
 </div><div class="codetabs-panel" data-panel="1" role="tabpanel" hidden><pre class="language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
@@ -447,7 +447,7 @@
 <p><strong>Note:</strong> CheckV is conservative — most first-pass contigs being Low-quality or Not-determined is normal and does not mean they are not viral.</p>
 </blockquote>
 <h2>Merge + Pass 2</h2>
-<div class="codetabs" id="tabs-o11dy7pvt1" data-codetabs>
+<div class="codetabs" id="tabs-o9es55wq3n" data-codetabs>
   <div class="codetabs-nav" data-codetabs-nav role="tablist"><button type="button" data-tab="0" role="tab" aria-selected="true" class='active'>Command</button><button type="button" data-tab="1" role="tab" aria-selected="false" >SLURM Script</button></div>
   <div class="codetabs-panels" data-codetabs-panels><div class="codetabs-panel" data-panel="0" role="tabpanel"><pre class="language-bash"><code class="language-bash"><span class="token function">cat</span> checkv_out/proviruses.fna checkv_out/viruses.fna <span class="token operator">></span> checkv_out/combined.fna
 <p>virsorter run <span class="token punctuation">&lt;/span&gt;
@@ -487,7 +487,7 @@
 </div>
 <p>Pass 2 took approximately <strong>3 hours 3 minutes</strong> with 40 cores on the example dataset.</p>
 <h2>DRAM-v</h2>
-<div class="codetabs" id="tabs-m880gt8rgso" data-codetabs>
+<div class="codetabs" id="tabs-pscmc1nbnd" data-codetabs>
   <div class="codetabs-nav" data-codetabs-nav role="tablist"><button type="button" data-tab="0" role="tab" aria-selected="true" class='active'>Command</button><button type="button" data-tab="1" role="tab" aria-selected="false" >SLURM Script</button></div>
   <div class="codetabs-panels" data-codetabs-panels><div class="codetabs-panel" data-panel="0" role="tabpanel"><pre class="language-bash"><code class="language-bash">DRAM-v.py annotate <span class="token punctuation">\</span>
   <span class="token parameter variable">-i</span> vs2_pass2/for-dramv/final-viral-combined-for-dramv.fa <span class="token punctuation">\</span>
