@@ -62,7 +62,7 @@
 
   <header id="top" class="site-header">
   <div class="header-inner">
-    <a class="logo" href="/" aria-label="iVirus home"><span class="logo-i">i</span><span class="logo-virus">Virus</span></a>
+    <a class="logo" href="/iVirus/" aria-label="iVirus home"><span class="logo-i">i</span><span class="logo-virus">Virus</span></a>
 
     <!-- mobile hamburger (left) -->
     <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
@@ -383,7 +383,7 @@
     </nav>
 <p>We will be using either <a href="https://jgi.doe.gov/data-and-tools/bbtools/bb-tools-user-guide/bbduk-guide/">BBDuk</a> or <a href="http://www.usadellab.org/cms/?page=trimmomatic">Trimmomatic</a> to process our input reads. <em>You only need to select one</em>. We'll be using both for examples, but typically stick with one and use it.</p>
 <h2>Trimmomatic</h2>
-<div class="codetabs" id="tabs-g3parw0456p" data-codetabs>
+<div class="codetabs" id="tabs-yr00rm0bhh" data-codetabs>
   <div class="codetabs-nav" data-codetabs-nav role="tablist"><button type="button" data-tab="0" role="tab" aria-selected="true" class='active'>Command</button><button type="button" data-tab="1" role="tab" aria-selected="false" >SLURM Script</button></div>
   <div class="codetabs-panels" data-codetabs-panels><div class="codetabs-panel" data-panel="0" role="tabpanel"><pre class="language-bash"><code class="language-bash">trimmomatic PE ERR594369_1.fastq.gz ERR594369_2.fastq.gz ERR594369_1_t_paired.fastq.gz ERR594369_1_t_unpaired.fastq.gz ERR594369_2_t_paired.fastq.gz ERR594369_2_t_unpaired.fastq.gz ILLUMINACLIP:TruSeq3-PE.fa:2:30:10:2 LEADING:3 TRAILING:3 MINLEN:36</code></pre>
 </div><div class="codetabs-panel" data-panel="1" role="tabpanel" hidden><pre class="language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
@@ -409,7 +409,7 @@ real	30m23.395s
 <p>For Trimmomatic, the defaults work pretty well. Note the location of the IlluminaClip — it's already 'in' the conda package. If you have your own custom primers/adapters, you'll need to add your sequences or create your own primer and adapter file.</p>
 <h2>BBDuk</h2>
 <p>Next, BBDuk. BBDuk is usually done in 2-3 steps, with 1st being an adapter trimming step, and 2nd with the removal of low quality sequences. You can do both steps in a single command, but doing so in two steps allows us to see what was removed during each.</p>
-<div class="codetabs" id="tabs-7c9viso1asq" data-codetabs>
+<div class="codetabs" id="tabs-wv9qojg50b9" data-codetabs>
   <div class="codetabs-nav" data-codetabs-nav role="tablist"><button type="button" data-tab="0" role="tab" aria-selected="true" class='active'>Command</button><button type="button" data-tab="1" role="tab" aria-selected="false" >SLURM Script</button></div>
   <div class="codetabs-panels" data-codetabs-panels><div class="codetabs-panel" data-panel="0" role="tabpanel"><pre class="language-bash"><code class="language-bash"><span class="token comment"># Step 1: adapter trimming</span>
 bbduk.sh <span class="token assign-left variable">in1</span><span class="token operator">=</span>ERR594369_1.fastq.gz <span class="token assign-left variable">in2</span><span class="token operator">=</span>ERR594369_2.fastq.gz <span class="token punctuation">\</span>
@@ -511,7 +511,7 @@ multiqc_data</code></pre>
   <p>
     &copy; iVirus | Built with <a href="https://www.11ty.dev/" target="_blank" rel="noopener">Eleventy</a> | 
     Supported by the <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1759874&amp;HistoricalAwards=false" target="_blank" rel="noopener">National Science Foundation (ABI #1759874)</a> and the iVirus project | 
-    <a href="/about/">Contact</a> | 
+    <a href="/iVirus/about/">Contact</a> |
     <a href="#top" class="back-to-top">Go to Top ↑</a>
   </p>
 </footer>
