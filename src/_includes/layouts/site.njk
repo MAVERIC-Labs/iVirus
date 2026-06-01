@@ -1,0 +1,18 @@
+{% extends "layouts/base.njk" %}
+{% block content %}
+<div class="site-shell">
+  {% if heroTitle %}
+    {% include "components/page-hero.njk" %}
+  {% endif %}
+
+  {% block siteContent %}
+    {% if contentContainer != false %}
+      <div class="container site-content{% if contentClass %} {{ contentClass }}{% endif %}">
+        {{ content | safe }}
+      </div>
+    {% else %}
+      {{ content | safe }}
+    {% endif %}
+  {% endblock %}
+</div>
+{% endblock %}

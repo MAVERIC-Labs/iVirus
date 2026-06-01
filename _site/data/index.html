@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Data – iVirus</title>
+  <meta name="description" content="Workshops, tools, data, and documentation for viral research.">
+  <link rel="icon" href="/iVirus/assets/img/favicon.svg" type="image/svg+xml">
+
+  <!-- Theme bootstrap: apply saved/preferred theme before paint to avoid FOUC. -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("ivirus-theme");
+        var dark = saved === "theme-dark"
+          || (!saved && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.classList.add(dark ? "theme-dark" : "theme-light");
+      } catch (e) {
+        document.documentElement.classList.add("theme-light");
+      }
+    })();
+  </script>
+
+  <!-- Fonts: Inter (body) + Source Serif 4 (headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/iVirus/assets/css/main.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/workflow.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/light-theme.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/home.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/docs-grouped.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/tools.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/data.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/publications.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/protocols.css">
+  <script defer="" src="https://www.protocols.io/js/widgets/js/protocolsiojs.min.js"></script>
+
+  <!-- GA tracking (only in production builds) -->
+  
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-T56YTL1JSV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T56YTL1JSV');
+  </script>
+  
+</head>
+<body class="-data-index">
+
+  <!-- Alpha preview banner -->
+  <div class="alpha-banner" id="alphaBanner" role="banner" aria-label="Preview notice">
+    <span class="alpha-banner__icon" aria-hidden="true">🚧</span>
+    <span class="alpha-banner__text">
+      <strong>Alpha preview</strong> — This site is under active development. Content may be incomplete or change without notice.
+    </span>
+    <button class="alpha-banner__close" id="alphaBannerClose" aria-label="Dismiss preview notice" title="Dismiss">✕</button>
+  </div>
+
+  <header id="top" class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="/iVirus/" aria-label="iVirus home"><span class="logo-i">i</span><span class="logo-virus">Virus</span></a>
+
+    <!-- mobile hamburger (left) -->
+    <button class="nav-toggle" data-nav-toggle="" aria-expanded="false" aria-controls="site-nav">
+      ☰
+    </button>
+
+    <!-- main nav -->
+    <nav id="site-nav" class="nav" data-site-nav="">
+      <ul class="nav-list">
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/about/">About</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/tools/">Tools &amp; Apps</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/data/">Data</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/workshops/">Workshops</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/publications/">Publications</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/docs/">Docs</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/protocols/">Protocols</a></li>
+        
+      </ul>
+    </nav>
+
+    <!-- spacer pushes the toggle to the far right -->
+    <div class="header-spacer" aria-hidden="true"></div>
+
+    <!-- theme toggle (always visible, right end) -->
+    <button class="theme-toggle" data-theme-toggle="" aria-pressed="false" title="Toggle theme">🌓</button>
+  </div>
+</header>
+
+
+  <main class="site-main">
+    
+<div class="site-shell">
+  
+    <section class="page-hero hero--data hero--hasbg hero--anim" style="--hero-bg: url('/assets/img/hero-dots.svg')">
+  <div class="container">
+    <h1>Data</h1>
+    <p class="muted">Curated datasets for viral research with links to hosting platforms, DOIs, and quick filters.</p>
+  </div>
+</section>
+
+  
+
+  
+    
+      <div class="container site-content">
+        <section class="directory-controls data-filters" id="dataFilters" data-filter-kind="datasets">
+  <input type="search" id="q" placeholder="Search datasets…" aria-label="Search datasets">
+  <select id="platform">
+    <option value="">All platforms</option>
+    <option value="CyVerse">CyVerse</option><option value="KBase">KBase</option><option value="Zenodo">Zenodo</option><option value="Figshare">Figshare</option>
+  </select>
+  <select id="type">
+    <option value="">All types</option>
+    <option value="reads">reads</option><option value="assemblies">assemblies</option><option value="metagenomes">metagenomes</option><option value="reference">reference</option><option value="curated">curated</option><option value="benchmarking">benchmarking</option><option value="omics">omics</option><option value="marine">marine</option><option value="arctic">arctic</option><option value="soil">soil</option><option value="freshwater">freshwater</option><option value="glacier">glacier</option><option value="sea-ice">sea-ice</option><option value="human">human</option><option value="gut">gut</option><option value="archaea">archaea</option><option value="mock-community">mock-community</option><option value="host-virus">host-virus</option><option value="transcriptomics">transcriptomics</option><option value="proteomics">proteomics</option><option value="virophage">virophage</option><option value="phage">phage</option><option value="genomes">genomes</option><option value="clinical">clinical</option><option value="cryosphere">cryosphere</option>
+  </select>
+</section>
+
+<section>
+    <ul class="data-grid directory-grid" id="dataGrid">
+    
+    
+    
+    <li class="card dataset directory-card" data-title="virsorter dataset from public microbes" data-platform="cyverse" data-type="curated,reference">
+
+        <div class="dataset-card-row">
+        
+        <div class="dataset-thumb">
+            
+            <img src="/iVirus/assets/img/journals/placeholder.svg" alt="" loading="lazy" decoding="async">
+            
+        </div>
+
+        <div class="dataset-content">
+            <h3 class="title">VirSorter Dataset from Public Microbes</h3>
+            <p class="summary">Sequences, cluster annotations, virus–host matrices, and predictions for the curated VirSorter dataset.</p>
+
+            <p class="meta">
+            <span class="pill">curated</span><span class="pill">reference</span>
+            <span class="pill alt">CyVerse</span>
+            
+            
+            
+                <a class="badge doi" href="https://doi.org/10.7554/eLife.08490" target="_blank" rel="noopener">
+                DOI: 10.7554/eLife.08490
+                </a>
+            
+            </p>
+
+            <p class="links">
+            <a href="https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/VirSorter_curated_dataset" target="_blank" rel="noopener">Open on platform</a>
+             · <a href="https://doi.org/10.7554/eLife.08490" target="_blank" rel="noopener">Publication</a>
+            </p>
+        </div>
+        </div>
+    </li>
+    
+    
+    
+    <li class="card dataset directory-card" data-title="viromics benchmarking" data-platform="cyverse" data-type="benchmarking,mock-community">
+
+        <div class="dataset-card-row">
+        
+        <div class="dataset-thumb">
+            
+            <img src="/iVirus/assets/img/journals/placeholder.svg" alt="" loading="lazy" decoding="async">
+            
+        </div>
+
+        <div class="dataset-content">
+            <h3 class="title">Viromics Benchmarking</h3>
+            <p class="summary">Composition tables, simulated viromes, coverages, and abundance matrices for viromics benchmarking.</p>
+
+            <p class="meta">
+            <span class="pill">benchmarking</span><span class="pill">mock-community</span>
+            <span class="pill alt">CyVerse</span>
+            
+            
+            
+                <a class="badge doi" href="https://doi.org/10.7717/peerj.3817" target="_blank" rel="noopener">
+                DOI: 10.7717/peerj.3817
+                </a>
+            
+            </p>
+
+            <p class="links">
+            <a href="http://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/Virome_pipeline_benchmark" target="_blank" rel="noopener">Open on platform</a>
+             · <a href="https://doi.org/10.7717/peerj.3817" target="_blank" rel="noopener">Publication</a>
+            </p>
+        </div>
+        </div>
+    </li>
+    
+    
+    
+    <li class="card dataset directory-card" data-title="pacific ocean virome (pov)" data-platform="cyverse" data-type="metagenomes,marine">
+
+        <div class="dataset-card-row">
+        
+        <div class="dataset-thumb">
+            
+            <img src="/iVirus/assets/img/journals/placeholder.svg" alt="" loading="lazy" decoding="async">
+            
+        </div>
+
+        <div class="dataset-content">
+            <h3 class="title">Pacific Ocean Virome (POV)</h3>
+            <p class="summary">Reads, ORFs, assembly, clusters, metadata, and supporting code for the Pacific Ocean Virome.</p>
+
+            <p class="meta">
+            <span class="pill">metagenomes</span><span class="pill">marine</span>
+            <span class="pill alt">CyVerse</span>
+            
+            
+            
+                <a class="badge doi" href="https://doi.org/10.1371/journal.pone.0057355" target="_blank" rel="noopener">
+                DOI: 10.1371/journal.pone.0057355
+                </a>
+            
+            </p>
+
+            <p class="links">
+            <a href="https://datacommons.cyverse.org/browse/iplant/home/shared/imicrobe/pov" target="_blank" rel="noopener">Open on platform</a>
+             · <a href="https://doi.org/10.1371/journal.pone.0057355" target="_blank" rel="noopener">Publication</a>
+            </p>
+        </div>
+        </div>
+    </li>
+    
+    
+    
+    <li class="card dataset directory-card" data-title="global ocean virome (gov)" data-platform="cyverse" data-type="metagenomes,marine,reference">
+
+        <div class="dataset-card-row">
+        
+        <div class="dataset-thumb">
+            
+            <img src="/iVirus/assets/img/journals/placeholder.svg" alt="" loading="lazy" decoding="async">
+            
+        </div>
+
+        <div class="dataset-content">
+            <h3 class="title">Global Ocean Virome (GOV)</h3>
+            <p class="summary">AMGs, contigs, viral populations and clusters, and putative hosts for the Global Ocean Virome (GOV).</p>
+
+            <p class="meta">
+            <span class="pill">metagenomes</span><span class="pill">marine</span><span class="pill">reference</span>
+            <span class="pill alt">CyVerse</span>
+            
+            
+            
+                <a class="badge doi" href="https://doi.org/10.1038/nature19366" target="_blank" rel="noopener">
+                DOI: 10.1038/nature19366
+                </a>
+            
+            </p>
+
+            <p class="links">
+            <a href="https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/GOV" target="_blank" rel="noopener">Open on platform</a>
+             · <a href="https://doi.org/10.1038/nature19366" target="_blank" rel="noopener">Publication</a>
+            </p>
+        </div>
+        </div>
+    </li>
+    
+    
+    
+    <li class="card dataset directory-card" data-title="mesopelagic archaeal viruses (vik 2017)" data-platform="cyverse" data-type="metagenomes,marine,archaea">
+
+        <div class="dataset-card-row">
+        
+        <div class="dataset-thumb">
+            
+            <img src="/iVirus/assets/img/journals/placeholder.svg" alt="" loading="lazy" decoding="async">
+            
+        </div>
+
+        <div class="dataset-content">
+            <h3 class="title">Mesopelagic Archaeal Viruses (Vik 2017)</h3>
+            <p class="summary">Reads, contigs, genes, abundances, and supplemental data for mesopelagic ocean archaeal viruses.</p>
+
+            <p class="meta">
+            <span class="pill">metagenomes</span><span class="pill">marine</span><span class="pill">archaea</span>
+            <span class="pill alt">CyVerse</span>
+            
+            
+            
+                <a class="badge doi" href="https://doi.org/10.7717/peerj.3428" target="_blank" rel="noopener">
+                DOI: 10.7717/peerj.3428
+                </a>
+            
+            </p>
+
+            <p class="links">
+            <a href="https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/Vik_et_al_2017_data" target="_blank" rel="noopener">Open on platform</a>
+             · <a href="https://doi.org/10.7717/peerj.3428" target="_blank" rel="noopener">Publication</a>
+            </p>
+        </div>
+        </div>
+    </li>
+    
+    
+    
+    <li class="card dataset directory-card" data-title="trubl soil viromes" data-platform="cyverse" data-type="reads,soil">
+
+        <div class="dataset-card-row">
+        
+        <div class="dataset-thumb">
+            
+            <img src="/iVirus/assets/img/journals/placeholder.svg" alt="" loading="lazy" decoding="async">
+            
+        </div>
+
+        <div class="dataset-content">
+            <h3 class="title">Trubl Soil Viromes</h3>
+            <p class="summary">Raw reads used to optimize the generation of viromes from soils.</p>
+
+            <p class="meta">
+            <span class="pill">reads</span><span class="pill">soil</span>
+            <span class="pill alt">CyVerse</span>
+            
+            
+            
+                <a class="badge doi" href="https://doi.org/10.7717/peerj.7265" target="_blank" rel="noopener">
+                DOI: 10.7717/peerj.7265
+                </a>
+            
+            </p>
+
+            <p class="links">
+            <a href="https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/Trubl_Soil_Viromes" target="_blank" rel="noopener">Open on platform</a>
+             · <a href="https://doi.org/10.7717/peerj.7265" target="_blank" rel="noopener">Publication</a>
+            </p>
+        </div>
+        </div>
+    </li>
+    
+    
+    
+    <li class="card dataset directory-card" data-title="tibet glacier viromes (2017)" data-platform="cyverse" data-type="reads,glacier,cryosphere">
+
+        <div class="dataset-card-row">
+        
+        <div class="dataset-thumb">
+            
+            <img src="/iVirus/assets/img/journals/placeholder.svg" alt="" loading="lazy" decoding="async">
+            
+        </div>
+
+        <div class="dataset-content">
+            <h3 class="title">Tibet Glacier Viromes (2017)</h3>
+            <p class="summary">Raw reads, QC reads, and putative viruses for glacier viromes.</p>
+
+            <p class="meta">
+            <span class="pill">reads</span><span class="pill">glacier</span><span class="pill">cryosphere</span>
+            <span class="pill alt">CyVerse</span>
+            
+            
+            
+            </p>
+
+            <p class="links">
+            <a href="https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/Tibet_Glacier_viromes_2017" target="_blank" rel="noopener">Open on platform</a>
+             · <a href="#" target="_blank" rel="noopener">Publication</a>
+            </p>
+        </div>
+        </div>
+    </li>
+    
+    
+    
+    <li class="card dataset directory-card" data-title="tara ocean viromes (tov 4)" data-platform="cyverse" data-type="omics,marine,proteomics">
+
+        <div class="dataset-card-row">
+        
+        <div class="dataset-thumb">
+            
+            <img src="/iVirus/assets/img/journals/placeholder.svg" alt="" loading="lazy" decoding="async">
+            
+        </div>
+
+        <div class="dataset-content">
+            <h3 class="title">Tara Ocean Viromes (TOV 4)</h3>
+            <p class="summary">Supporting information for metaproteomics of marine viruses (TOV 4).</p>
+
+            <p class="meta">
+            <span class="pill">omics</span><span class="pill">marine</span><span class="pill">proteomics</span>
+            <span class="pill alt">CyVerse</span>
+            
+            
+            
+                <a class="badge doi" href="https://doi.org/10.1073/pnas.1525139113" target="_blank" rel="noopener">
+                DOI: 10.1073/pnas.1525139113
+                </a>
+            
+            </p>
+
+            <p class="links">
+            <a href="https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/TOV_4_metaproteomes" target="_blank" rel="noopener">Open on platform</a>
+             · <a href="https://doi.org/10.1073/pnas.1525139113" target="_blank" rel="noopener">Publication</a>
+            </p>
+        </div>
+        </div>
+    </li>
+    
+    
+    
+    <li class="card dataset directory-card" data-title="tara oceans viromes (tov 43)" data-platform="cyverse" data-type="metagenomes,marine">
+
+        <div class="dataset-card-row">
+        
+        <div class="dataset-thumb">
+            
+            <img src="/iVirus/assets/img/journals/placeholder.svg" alt="" loading="lazy" decoding="async">
+            
+        </div>
+
+        <div class="dataset-content">
+            <h3 class="title">Tara Oceans Viromes (TOV 43)</h3>
+            <p class="summary">Contigs, proteins, protein clusters, and relative abundances for Tara Oceans (TOV 43).</p>
+
+            <p class="meta">
+            <span class="pill">metagenomes</span><span class="pill">marine</span>
+            <span class="pill alt">CyVerse</span>
+            
+            
+            
+                <a class="badge doi" href="https://doi.org/10.1126/science.1261498" target="_blank" rel="noopener">
+                DOI: 10.1126/science.1261498
+                </a>
+            
+            </p>
+
+            <p class="links">
+            <a href="https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/TOV_43_viromes" target="_blank" rel="noopener">Open on platform</a>
+             · <a href="https://doi.org/10.1126/science.1261498" target="_blank" rel="noopener">Publication</a>
+            </p>
+        </div>
+        </div>
+    </li>
+    
+    
+    
+    <li class="card dataset directory-card" data-title="pseudoalteromonas omics" data-platform="cyverse" data-type="omics,host-virus,transcriptomics,proteomics">
+
+        <div class="dataset-card-row">
+        
+        <div class="dataset-thumb">
+            
+            <img src="/iVirus/assets/img/journals/placeholder.svg" alt="" loading="lazy" decoding="async">
+            
+        </div>
+
+        <div class="dataset-content">
+            <h3 class="title">Pseudoalteromonas Omics</h3>
+            <p class="summary">Examining the virocell of Pseudoalteromonas with siphovirus PSA‑HS2 and podovirus PSA‑HP1.</p>
+
+            <p class="meta">
+            <span class="pill">omics</span><span class="pill">host-virus</span><span class="pill">transcriptomics</span><span class="pill">proteomics</span>
+            <span class="pill alt">CyVerse</span>
+            
+            
+            
+                <a class="badge doi" href="https://doi.org/10.1038/s41396-019-0580-z" target="_blank" rel="noopener">
+                DOI: 10.1038/s41396-019-0580-z
+                </a>
+            
+            </p>
+
+            <p class="links">
+            <a href="https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/Pseudoalteromonas_Omics" target="_blank" rel="noopener">Open on platform</a>
+             · <a href="https://doi.org/10.1038/s41396-019-0580-z" target="_blank" rel="noopener">Publication</a>
+            </p>
+        </div>
+        </div>
+    </li>
+    
+    
+    
+    <li class="card dataset directory-card" data-title="smoking and the human lung virome" data-platform="cyverse" data-type="reads,human,clinical">
+
+        <div class="dataset-card-row">
+        
+        <div class="dataset-thumb">
+            
+            <img src="/iVirus/assets/img/journals/placeholder.svg" alt="" loading="lazy" decoding="async">
+            
+        </div>
+
+        <div class="dataset-content">
+            <h3 class="title">Smoking and the Human Lung Virome</h3>
+            <p class="summary">Raw reads and bioinformatics code to explore viruses in the human lung of smokers and nonsmokers.</p>
+
+            <p class="meta">
+            <span class="pill">reads</span><span class="pill">human</span><span class="pill">clinical</span>
+            <span class="pill alt">CyVerse</span>
+            
+            
+            
+                <a class="badge doi" href="https://doi.org/10.1186/s12931-018-0878-9" target="_blank" rel="noopener">
+                DOI: 10.1186/s12931-018-0878-9
+                </a>
+            
+            </p>
+
+            <p class="links">
+            <a href="https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/Lung_Virome" target="_blank" rel="noopener">Open on platform</a>
+             · <a href="https://doi.org/10.1186/s12931-018-0878-9" target="_blank" rel="noopener">Publication</a>
+            </p>
+        </div>
+        </div>
+    </li>
+    
+    
+    
+    <li class="card dataset directory-card" data-title="phages p000v and p000y" data-platform="cyverse" data-type="assemblies,phage,genomes">
+
+        <div class="dataset-card-row">
+        
+        <div class="dataset-thumb">
+            
+            <img src="/iVirus/assets/img/journals/placeholder.svg" alt="" loading="lazy" decoding="async">
+            
+        </div>
+
+        <div class="dataset-content">
+            <h3 class="title">Phages p000v and p000y</h3>
+            <p class="summary">Raw reads, assemblies, GenBank annotations, and TEM images for phages p000v and p000y.</p>
+
+            <p class="meta">
+            <span class="pill">assemblies</span><span class="pill">phage</span><span class="pill">genomes</span>
+            <span class="pill alt">CyVerse</span>
+            
+            
+            
+                <a class="badge doi" href="https://doi.org/10.1128/MRA.01400-18" target="_blank" rel="noopener">
+                DOI: 10.1128/MRA.01400-18
+                </a>
+            
+            </p>
+
+            <p class="links">
+            <a href="https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/Howard-Varona_and_Vik_et_al_Phage_Therapy_2018" target="_blank" rel="noopener">Open on platform</a>
+             · <a href="https://doi.org/10.1128/MRA.01400-18" target="_blank" rel="noopener">Publication</a>
+            </p>
+        </div>
+        </div>
+    </li>
+    
+    
+    
+    <li class="card dataset directory-card" data-title="global ocean virome 2 (gov2)" data-platform="cyverse" data-type="metagenomes,marine,arctic">
+
+        <div class="dataset-card-row">
+        
+        <div class="dataset-thumb">
+            
+            <img src="/iVirus/assets/img/journals/placeholder.svg" alt="" loading="lazy" decoding="async">
+            
+        </div>
+
+        <div class="dataset-content">
+            <h3 class="title">Global Ocean Virome 2 (GOV2)</h3>
+            <p class="summary">Assemblies, viral populations (5‑kb and 10‑kb cutoffs) and normalized abundances of ~200K viral populations, including Arctic regions.</p>
+
+            <p class="meta">
+            <span class="pill">metagenomes</span><span class="pill">marine</span><span class="pill">arctic</span>
+            <span class="pill alt">CyVerse</span>
+            
+            
+            
+                <a class="badge doi" href="https://doi.org/10.1016/j.cell.2019.03.040" target="_blank" rel="noopener">
+                DOI: 10.1016/j.cell.2019.03.040
+                </a>
+            
+            </p>
+
+            <p class="links">
+            <a href="https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/GOV2.0" target="_blank" rel="noopener">Open on platform</a>
+             · <a href="https://doi.org/10.1016/j.cell.2019.03.040" target="_blank" rel="noopener">Publication</a>
+            </p>
+        </div>
+        </div>
+    </li>
+    
+    
+    
+    <li class="card dataset directory-card" data-title="freshwater virophage" data-platform="cyverse" data-type="reference,freshwater,virophage">
+
+        <div class="dataset-card-row">
+        
+        <div class="dataset-thumb">
+            
+            <img src="/iVirus/assets/img/journals/placeholder.svg" alt="" loading="lazy" decoding="async">
+            
+        </div>
+
+        <div class="dataset-content">
+            <h3 class="title">Freshwater Virophage</h3>
+            <p class="summary">Virophage contigs, protein clusters, and coverages across a freshwater time series.</p>
+
+            <p class="meta">
+            <span class="pill">reference</span><span class="pill">freshwater</span><span class="pill">virophage</span>
+            <span class="pill alt">CyVerse</span>
+            
+            
+            
+                <a class="badge doi" href="https://doi.org/10.1038/s41467-017-01086-2" target="_blank" rel="noopener">
+                DOI: 10.1038/s41467-017-01086-2
+                </a>
+            
+            </p>
+
+            <p class="links">
+            <a href="https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/Freshwater_virophages" target="_blank" rel="noopener">Open on platform</a>
+             · <a href="https://doi.org/10.1038/s41467-017-01086-2" target="_blank" rel="noopener">Publication</a>
+            </p>
+        </div>
+        </div>
+    </li>
+    
+    
+    
+    <li class="card dataset directory-card" data-title="towards quantitative viromics" data-platform="cyverse" data-type="benchmarking,mock-community">
+
+        <div class="dataset-card-row">
+        
+        <div class="dataset-thumb">
+            
+            <img src="/iVirus/assets/img/journals/placeholder.svg" alt="" loading="lazy" decoding="async">
+            
+        </div>
+
+        <div class="dataset-content">
+            <h3 class="title">Towards Quantitative Viromics</h3>
+            <p class="summary">Contigs, reads, and mapping of mock communities to study quantitative viromics of ssDNA and dsDNA viruses.</p>
+
+            <p class="meta">
+            <span class="pill">benchmarking</span><span class="pill">mock-community</span>
+            <span class="pill alt">CyVerse</span>
+            
+            
+            
+                <a class="badge doi" href="https://doi.org/10.7717/peerj.2777" target="_blank" rel="noopener">
+                DOI: 10.7717/peerj.2777
+                </a>
+            
+            </p>
+
+            <p class="links">
+            <a href="https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/DNA_Viromes_library_comparison" target="_blank" rel="noopener">Open on platform</a>
+             · <a href="https://doi.org/10.7717/peerj.2777" target="_blank" rel="noopener">Publication</a>
+            </p>
+        </div>
+        </div>
+    </li>
+    
+    
+    
+    <li class="card dataset directory-card" data-title="spinal cord injury (du et al., 2021)" data-platform="cyverse" data-type="metagenomes,human,gut">
+
+        <div class="dataset-card-row">
+        
+        <div class="dataset-thumb">
+            
+            <img src="/iVirus/assets/img/journals/placeholder.svg" alt="" loading="lazy" decoding="async">
+            
+        </div>
+
+        <div class="dataset-content">
+            <h3 class="title">Spinal Cord Injury (Du et al., 2021)</h3>
+            <p class="summary">Genome‑resolved metagenomics and viromics of spinal cord injury gut dysbiosis: raw reads, assemblies, viral contigs, and MAGs.</p>
+
+            <p class="meta">
+            <span class="pill">metagenomes</span><span class="pill">human</span><span class="pill">gut</span>
+            <span class="pill alt">CyVerse</span>
+            
+            
+            
+            </p>
+
+            <p class="links">
+            <a href="https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/Du_SCI_2021" target="_blank" rel="noopener">Open on platform</a>
+             · <a href="#" target="_blank" rel="noopener">Publication</a>
+            </p>
+        </div>
+        </div>
+    </li>
+    
+    
+    
+    <li class="card dataset directory-card" data-title="phage infection efficiency (ismej 2018)" data-platform="cyverse" data-type="omics,host-virus,transcriptomics,proteomics">
+
+        <div class="dataset-card-row">
+        
+        <div class="dataset-thumb">
+            
+            <img src="/iVirus/assets/img/journals/placeholder.svg" alt="" loading="lazy" decoding="async">
+            
+        </div>
+
+        <div class="dataset-content">
+            <h3 class="title">Phage Infection Efficiency (ISMEJ 2018)</h3>
+            <p class="summary">Supplemental data for phage efficiencies in nearly identical hosts (transcriptomics + proteomics).</p>
+
+            <p class="meta">
+            <span class="pill">omics</span><span class="pill">host-virus</span><span class="pill">transcriptomics</span><span class="pill">proteomics</span>
+            <span class="pill alt">CyVerse</span>
+            
+            
+            
+                <a class="badge doi" href="https://doi.org/10.1038/s41396-018-0099-8" target="_blank" rel="noopener">
+                DOI: 10.1038/s41396-018-0099-8
+                </a>
+            
+            </p>
+
+            <p class="links">
+            <a href="https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/Cellulophaga_Omics/Howard-Varona_2018_ISMEJ_transcriptomics_and_proteomics" target="_blank" rel="noopener">Open on platform</a>
+             · <a href="https://doi.org/10.1038/s41396-018-0099-8" target="_blank" rel="noopener">Publication</a>
+            </p>
+        </div>
+        </div>
+    </li>
+    
+    
+    
+    <li class="card dataset directory-card" data-title="infection efficiency (ismej 2016)" data-platform="cyverse" data-type="omics,host-virus,transcriptomics">
+
+        <div class="dataset-card-row">
+        
+        <div class="dataset-thumb">
+            
+            <img src="/iVirus/assets/img/journals/placeholder.svg" alt="" loading="lazy" decoding="async">
+            
+        </div>
+
+        <div class="dataset-content">
+            <h3 class="title">Infection Efficiency (ISMEJ 2016)</h3>
+            <p class="summary">Supplemental data for Howard‑Varona et al. (2016) transcriptomics of infection efficiency.</p>
+
+            <p class="meta">
+            <span class="pill">omics</span><span class="pill">host-virus</span><span class="pill">transcriptomics</span>
+            <span class="pill alt">CyVerse</span>
+            
+            
+            
+                <a class="badge doi" href="https://doi.org/10.1038/ismej.2016.81" target="_blank" rel="noopener">
+                DOI: 10.1038/ismej.2016.81
+                </a>
+            
+            </p>
+
+            <p class="links">
+            <a href="https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/Cellulophaga_Omics/Howard-Varona_2016_ISMEJ_transcriptomics" target="_blank" rel="noopener">Open on platform</a>
+             · <a href="https://doi.org/10.1038/ismej.2016.81" target="_blank" rel="noopener">Publication</a>
+            </p>
+        </div>
+        </div>
+    </li>
+    
+    
+    
+    <li class="card dataset directory-card" data-title="barrow viromes 2019" data-platform="cyverse" data-type="reads,arctic,sea-ice">
+
+        <div class="dataset-card-row">
+        
+        <div class="dataset-thumb">
+            
+            <img src="/iVirus/assets/img/journals/placeholder.svg" alt="" loading="lazy" decoding="async">
+            
+        </div>
+
+        <div class="dataset-content">
+            <h3 class="title">Barrow Viromes 2019</h3>
+            <p class="summary">Raw reads, QC&#39;d reads, and putative viral populations from Arctic Cryopeg Brine and Sea Ice (update to 2018).</p>
+
+            <p class="meta">
+            <span class="pill">reads</span><span class="pill">arctic</span><span class="pill">sea-ice</span>
+            <span class="pill alt">CyVerse</span>
+            
+            
+            
+                <a class="badge doi" href="https://doi.org/10.1128/mSystems.00246-20" target="_blank" rel="noopener">
+                DOI: 10.1128/mSystems.00246-20
+                </a>
+            
+            </p>
+
+            <p class="links">
+            <a href="https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/Barrow_viromes2019" target="_blank" rel="noopener">Open on platform</a>
+             · <a href="https://doi.org/10.1128/mSystems.00246-20" target="_blank" rel="noopener">Publication</a>
+            </p>
+        </div>
+        </div>
+    </li>
+    
+    
+    
+    <li class="card dataset directory-card" data-title="barrow viromes 2018" data-platform="cyverse" data-type="metagenomes,arctic,sea-ice">
+
+        <div class="dataset-card-row">
+        
+        <div class="dataset-thumb">
+            
+            <img src="/iVirus/assets/img/journals/placeholder.svg" alt="" loading="lazy" decoding="async">
+            
+        </div>
+
+        <div class="dataset-content">
+            <h3 class="title">Barrow Viromes 2018</h3>
+            <p class="summary">Raw reads, QC&#39;d reads, assemblies, putative viral populations and hosts, and taxonomic information from Arctic Cryopeg Brine and Sea Ice.</p>
+
+            <p class="meta">
+            <span class="pill">metagenomes</span><span class="pill">arctic</span><span class="pill">sea-ice</span>
+            <span class="pill alt">CyVerse</span>
+            
+            
+            
+                <a class="badge doi" href="https://doi.org/10.1128/mSystems.00246-20" target="_blank" rel="noopener">
+                DOI: 10.1128/mSystems.00246-20
+                </a>
+            
+            </p>
+
+            <p class="links">
+            <a href="https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/Barrow_viromes2018" target="_blank" rel="noopener">Open on platform</a>
+             · <a href="https://doi.org/10.1128/mSystems.00246-20" target="_blank" rel="noopener">Publication</a>
+            </p>
+        </div>
+        </div>
+    </li>
+    
+    
+    
+    <li class="card dataset directory-card" data-title="gut virome database (gvd)" data-platform="cyverse" data-type="reference,human,gut">
+
+        <div class="dataset-card-row">
+        
+        <div class="dataset-thumb">
+            
+            <img src="/iVirus/assets/img/datasets/placeholder.svg" alt="" loading="lazy" decoding="async">
+            
+        </div>
+
+        <div class="dataset-content">
+            <h3 class="title">Gut Virome Database (GVD)</h3>
+            <p class="summary">Gut Virome Database files, including viral populations and individual virome database files.</p>
+
+            <p class="meta">
+            <span class="pill">reference</span><span class="pill">human</span><span class="pill">gut</span>
+            <span class="pill alt">CyVerse</span>
+            
+            
+            
+                <a class="badge doi" href="https://doi.org/10.1101/655910" target="_blank" rel="noopener">
+                DOI: 10.1101/655910
+                </a>
+            
+            </p>
+
+            <p class="links">
+            <a href="https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/Gregory_and_Zablocki_GVD_Jul2020" target="_blank" rel="noopener">Open on platform</a>
+             · <a href="https://www.biorxiv.org/content/10.1101/655910v2" target="_blank" rel="noopener">Publication</a>
+            </p>
+        </div>
+        </div>
+    </li>
+    
+    </ul>
+</section>
+
+      </div>
+    
+  
+</div>
+
+  </main>
+
+  <footer class="site-footer">
+  <p>
+    &copy; iVirus | Built with <a href="https://www.11ty.dev/" target="_blank" rel="noopener">Eleventy</a> | 
+    Supported by the <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1759874&amp;HistoricalAwards=false" target="_blank" rel="noopener">National Science Foundation (ABI #1759874)</a> and the iVirus project | 
+    <a href="/iVirus/about/">Contact</a> | 
+    <a href="#top" class="back-to-top">Go to Top ↑</a>
+  </p>
+</footer>
+
+  <!-- Global JS -->
+  <script src="/iVirus/assets/js/site-nav.js"></script>
+  <script src="/iVirus/assets/js/code-extras.js"></script>
+  <script src="/iVirus/assets/js/directory-filters.js"></script>
+  <script src="/iVirus/assets/js/home.js"></script>
+  <script src="/iVirus/assets/js/theme-toggle.js"></script>
+
+  <!-- Alpha banner dismiss -->
+  <script>
+    (function () {
+      var banner = document.getElementById('alphaBanner');
+      var btn    = document.getElementById('alphaBannerClose');
+      if (!banner || !btn) return;
+      // Hide immediately if previously dismissed
+      try { if (localStorage.getItem('ivirus-alpha-dismissed') === '1') banner.classList.add('is-hidden'); } catch(e) {}
+      btn.addEventListener('click', function () {
+        banner.classList.add('is-hidden');
+        try { localStorage.setItem('ivirus-alpha-dismissed', '1'); } catch(e) {}
+      });
+    })();
+  </script>
+</body>
+</html>

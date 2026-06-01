@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 84" role="img" aria-label="PeerJ journal logo">
+  <rect width="64" height="84" rx="5" fill="#1a7a4a"/>
+  <rect width="64" height="7" rx="5" fill="#69f0ae" opacity="0.85"/>
+  <rect y="2" width="64" height="3" fill="#69f0ae" opacity="0.85"/>
+  <text x="32" y="48" font-family="Georgia,'Times New Roman',serif" font-size="14" fill="white" text-anchor="middle" font-weight="400">PeerJ</text>
+</svg>

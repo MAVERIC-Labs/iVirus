@@ -1,0 +1,114 @@
+{
+  "items": [
+    {
+      "title": "iVirus 2.0: Cyberinfrastructure-supported tools and data to power DNA virus ecology",
+      "authors": ["Bolduc, B.", "et al."],
+      "year": 2021,
+      "journal": "ISME Communications",
+      "doi": "10.1038/s43705-021-00083-3",
+      "url": "https://doi.org/10.1038/s43705-021-00083-3",
+      "journal_img": "/assets/img/journals/isme-comms.svg",
+      "tags": ["ivirus-core"],
+      "context": "An update to the original iVirus work. iVirus expands to KBase, adding new tools, datasets, and workflows alongside continued CyVerse support."
+    },
+    {
+      "title": "iVirus: facilitating new insights in viral ecology with software and community data sets imbedded in a cyberinfrastructure",
+      "authors": ["Bolduc, B.", "Youens-Clark, K.", "Roux, S.", "Hurwitz, B. L.", "Sullivan, M. B."],
+      "year": 2017,
+      "journal": "ISME J",
+      "doi": "10.1038/ismej.2016.89",
+      "url": "https://doi.org/10.1038/ismej.2016.89",
+      "journal_img": "/assets/img/journals/isme-j.svg",
+      "tags": ["ivirus-core"],
+      "context": "The original iVirus paper, introducing the project and its community data and software resources within CyVerse."
+    },
+    {
+      "title": "Marine DNA Viral Macro- and Microdiversity from Pole to Pole",
+      "authors": ["Gregory, A. C.", "Zayed, A. A.", "Conceição-Neto, N.", "Temperton, B.", "Bolduc, B.", "Alberti, A.", "Wincker, P.", "et al."],
+      "year": 2019,
+      "journal": "Cell",
+      "doi": "10.1016/j.cell.2019.03.040",
+      "url": "https://doi.org/10.1016/j.cell.2019.03.040",
+      "journal_img": "/assets/img/journals/cell.svg",
+      "tags": ["uses-ivirus"],
+      "context": "Global-scale characterization of marine DNA viral diversity from pole to pole, leveraging iVirus tools for single-amplified virus analysis."
+    },
+    {
+      "title": "Long-read viral metagenomics captures abundant and microdiverse viral populations and their niche-defining genomic islands",
+      "authors": ["Warwick-Dugdale, J.", "Solonenko, N.", "Moore, K.", "Chittick, L.", "Gregory, A. C.", "Allen, M. J.", "Temperton, B.", "et al."],
+      "year": 2019,
+      "journal": "PeerJ",
+      "doi": "10.7717/peerj.6800",
+      "url": "https://doi.org/10.7717/peerj.6800",
+      "journal_img": "/assets/img/journals/peerj.svg",
+      "tags": ["uses-ivirus"],
+      "context": "Demonstrates iVirus tools applied to long-read viromics, revealing abundant and microdiverse viral populations and their genomic islands."
+    },
+    {
+      "title": "Single-virus genomics reveals hidden cosmopolitan and abundant viruses",
+      "authors": ["Martinez-Hernandez, F.", "Fornas, O.", "Lluesma Gomez, M.", "Bolduc, B.", "de la Cruz Peña, M. J.", "Martínez, J. M.", "Martinez-Garcia, M."],
+      "year": 2017,
+      "journal": "Nature Communications",
+      "doi": "10.1038/ncomms15892",
+      "url": "https://doi.org/10.1038/ncomms15892",
+      "journal_img": "/assets/img/journals/nature-comms.svg",
+      "tags": ["uses-ivirus"],
+      "context": "Single-virus genomics approach uncovering hidden, cosmopolitan viral populations using iVirus tools."
+    },
+    {
+      "title": "Soil Viruses Are Underexplored Players in Ecosystem Carbon Processing",
+      "authors": ["Trubl, G.", "Jang, H. B.", "Roux, S.", "Emerson, J. B.", "Solonenko, N.", "Vik, D. R.", "Rich, V. I."],
+      "year": 2018,
+      "journal": "mSystems",
+      "doi": "10.1128/mSystems.00076-18",
+      "url": "https://doi.org/10.1128/mSystems.00076-18",
+      "journal_img": "/assets/img/journals/msystems.svg",
+      "tags": ["uses-ivirus"],
+      "context": "Applied iVirus tools to explore viruses in soil ecosystems and their underappreciated roles in carbon cycling."
+    },
+    {
+      "title": "Viral Ecogenomics of Arctic Cryopeg Brine and Sea Ice",
+      "authors": ["Zhong, Z.-P.", "Rapp, J. Z.", "Wainaina, J. M.", "Solonenko, N. E.", "Maughan, H.", "Carpenter, S. D.", "Sullivan, M. B."],
+      "year": 2020,
+      "journal": "mSystems",
+      "doi": "10.1128/mSystems.00246-20",
+      "url": "https://doi.org/10.1128/mSystems.00246-20",
+      "journal_img": "/assets/img/journals/msystems.svg",
+      "tags": ["uses-ivirus"],
+      "context": "Viral ecogenomics of extreme Arctic environments using iVirus-based analytical workflows."
+    },
+    {
+      "title": "Taxonomic assignment of uncultivated prokaryotic virus genomes is enabled by gene-sharing networks",
+      "authors": ["Bin Jang, H.", "Bolduc, B.", "Zablocki, O.", "Kuhn, J. H.", "Roux, S.", "Adriaenssens, E. M.", "Sullivan, M. B."],
+      "year": 2019,
+      "journal": "Nature Biotechnology",
+      "doi": "10.1038/s41587-019-0100-8",
+      "url": "https://doi.org/10.1038/s41587-019-0100-8",
+      "journal_img": "/assets/img/journals/nature-biotech.svg",
+      "tags": ["uses-ivirus"],
+      "context": "Introduces the vConTACT2 framework — the updated gene-sharing network approach for assigning virus taxonomy."
+    },
+    {
+      "title": "Putative archaeal viruses from the mesopelagic ocean",
+      "authors": ["Vik, D. R.", "Roux, S.", "Brum, J. R.", "Bolduc, B.", "Emerson, J. B.", "Padilla, C. C.", "Sullivan, M. B."],
+      "year": 2017,
+      "journal": "PeerJ",
+      "doi": "10.7717/peerj.3428",
+      "url": "https://doi.org/10.7717/peerj.3428",
+      "journal_img": "/assets/img/journals/peerj.svg",
+      "tags": ["uses-ivirus"],
+      "context": "Discovery of putative archaeal viruses from the mesopelagic ocean, identified using iVirus tools integrated into CyVerse."
+    },
+    {
+      "title": "vConTACT: an iVirus tool to classify double-stranded DNA viruses that infect Archaea and Bacteria",
+      "authors": ["Bolduc, B.", "Jang, H. B.", "Doulcier, G.", "You, Z.-Q.", "Roux, S.", "Sullivan, M. B."],
+      "year": 2017,
+      "journal": "PeerJ",
+      "doi": "10.7717/peerj.3243",
+      "url": "https://doi.org/10.7717/peerj.3243",
+      "journal_img": "/assets/img/journals/peerj.svg",
+      "tags": ["uses-ivirus"],
+      "context": "Introduces the original vConTACT tool — a foundational iVirus pipeline for classifying dsDNA viruses via gene-sharing networks."
+    }
+  ]
+}

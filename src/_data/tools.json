@@ -1,0 +1,393 @@
+{
+  "categories": [
+    {
+      "id": "quality-control",
+      "title": "Quality Control",
+      "icon": "🧪",
+      "description": "Assess read quality, trim adapters, and filter low-quality sequences before assembly."
+    },
+    {
+      "id": "assembly",
+      "title": "Assembly",
+      "icon": "🧬",
+      "description": "Assemble short reads into contigs for downstream viral identification and analysis."
+    },
+    {
+      "id": "identification",
+      "title": "Viral Identification",
+      "icon": "🦠",
+      "description": "Detect viral sequences from metagenomic assemblies using diverse detection strategies."
+    },
+    {
+      "id": "gene-calling",
+      "title": "Gene Calling",
+      "icon": "🔬",
+      "description": "Predict protein-coding genes from viral contigs prior to annotation and database search."
+    },
+    {
+      "id": "annotation",
+      "title": "Annotation",
+      "icon": "📝",
+      "description": "Annotate viral genomes, characterize functions, and curate sequences for downstream ecology."
+    },
+    {
+      "id": "sequence-search",
+      "title": "Sequence Search",
+      "icon": "🔍",
+      "description": "Search nucleotide or protein sequences against reference databases at scale."
+    },
+    {
+      "id": "taxonomy",
+      "title": "Taxonomy",
+      "icon": "🌳",
+      "description": "Assign taxonomic labels to viral sequences using gene-sharing networks or k-mer similarity."
+    },
+    {
+      "id": "host-prediction",
+      "title": "Host Prediction",
+      "icon": "🔗",
+      "description": "Predict the prokaryotic hosts of viral sequences using sequence- or signal-based methods."
+    },
+    {
+      "id": "abundance",
+      "title": "Abundance & Ecology",
+      "icon": "📈",
+      "description": "Map reads back to viral references to estimate genome abundance and population dynamics."
+    },
+    {
+      "id": "visualization",
+      "title": "Visualization",
+      "icon": "📊",
+      "description": "Explore and visualize viral networks, community structure, and genomic context."
+    }
+  ],
+  "items": [
+    {
+      "name": "fastp",
+      "slug": "fastp",
+      "category": "quality-control",
+      "summary": "All-in-one FASTQ preprocessor for quality control and adapter trimming. Faster and more feature-rich than older tools like Trimmomatic.",
+      "platforms": ["HPC", "CyVerse"],
+      "official_url": "https://github.com/OpenGene/fastp",
+      "reference": "Chen et al., Bioinformatics (2018)"
+    },
+    {
+      "name": "FastQC",
+      "slug": "fastqc",
+      "category": "quality-control",
+      "summary": "Generates per-sample quality reports for raw sequencing reads. Commonly paired with MultiQC for batch summaries.",
+      "platforms": ["HPC", "CyVerse"],
+      "official_url": "https://www.bioinformatics.babraham.ac.uk/projects/fastqc/",
+      "site_docs_url": "/docs/tools/fastqc/",
+      "reference": "Andrews S. (2010)"
+    },
+    {
+      "name": "Trimmomatic",
+      "slug": "trimmomatic",
+      "category": "quality-control",
+      "summary": "Flexible trimmer for Illumina reads; removes adapters and low-quality bases using a sliding-window approach.",
+      "platforms": ["HPC", "CyVerse", "KBase"],
+      "official_url": "http://www.usadellab.org/cms/?page=trimmomatic",
+      "reference": "Bolger et al., Bioinformatics (2014)"
+    },
+    {
+      "name": "MetaSPAdes",
+      "slug": "metaspades",
+      "category": "assembly",
+      "summary": "Extension of SPAdes designed specifically for metagenomic datasets with uneven coverage — the recommended assembler for most viral metagenomes.",
+      "platforms": ["HPC", "CyVerse", "KBase"],
+      "official_url": "https://cab.spbu.ru/software/spades/",
+      "reference": "Nurk et al., Genome Res (2017)"
+    },
+    {
+      "name": "SPAdes",
+      "slug": "spades",
+      "category": "assembly",
+      "summary": "Trusted assembler for short-read microbial and viral datasets with even coverage.",
+      "platforms": ["HPC", "CyVerse", "KBase"],
+      "official_url": "https://cab.spbu.ru/software/spades/",
+      "site_docs_url": "/docs/tools/spades/",
+      "reference": "Bankevich et al., J Comput Biol (2012)"
+    },
+    {
+      "name": "MEGAHIT",
+      "slug": "megahit",
+      "category": "assembly",
+      "summary": "Ultra-fast, memory-efficient assembler suited for large and highly complex metagenomes.",
+      "platforms": ["HPC"],
+      "official_url": "https://github.com/voutcn/megahit",
+      "site_docs_url": "/docs/tools/megahit/",
+      "reference": "Li et al., Bioinformatics (2015)"
+    },
+    {
+      "name": "IDBA-UD",
+      "slug": "idba-ud",
+      "category": "assembly",
+      "summary": "De novo assembler handling uneven sequencing depth — useful for single-cell and metagenomic data.",
+      "platforms": ["HPC", "CyVerse", "KBase"],
+      "official_url": "https://i.cs.hku.hk/~alse/hkubrg/projects/idba_ud/",
+      "reference": "Peng et al., Bioinformatics (2012)"
+    },
+    {
+      "name": "VirSorter2",
+      "slug": "virsorter2",
+      "category": "identification",
+      "summary": "Multi-classifier, expert-guided approach for detecting diverse DNA and RNA viruses — the current recommended successor to VirSorter.",
+      "platforms": ["HPC", "CyVerse"],
+      "official_url": "https://github.com/jiarong/VirSorter2",
+      "reference": "Guo et al., Microbiome (2021)"
+    },
+    {
+      "name": "VIBRANT",
+      "slug": "vibrant",
+      "category": "identification",
+      "summary": "Automated recovery, annotation, and curation of viral genomes from metagenomes using protein profiles and machine learning.",
+      "platforms": ["HPC", "CyVerse"],
+      "official_url": "https://github.com/AnantharamanLab/VIBRANT",
+      "site_docs_url": "/docs/tools/vibrant/",
+      "reference": "Kieft et al., Microbiome (2020)"
+    },
+    {
+      "name": "DeepVirFinder",
+      "slug": "deepvirfinder",
+      "category": "identification",
+      "summary": "Identifies viral sequences in metagenomes using a deep learning model trained on sequence composition — works without requiring gene predictions.",
+      "platforms": ["HPC", "CyVerse"],
+      "official_url": "https://github.com/jessieren/DeepVirFinder",
+      "reference": "Ren et al., Quantitative Biology (2020)"
+    },
+    {
+      "name": "MARVEL",
+      "slug": "marvel",
+      "category": "identification",
+      "summary": "Predicts bacteriophage sequences within metagenomic bins using random forest classification on genomic features.",
+      "platforms": ["HPC", "CyVerse", "KBase"],
+      "official_url": "https://github.com/LaboratorioBioinformatica/MARVEL",
+      "reference": "Amgarten et al., Front Genet (2018)"
+    },
+    {
+      "name": "VirSorter",
+      "slug": "virsorter",
+      "category": "identification",
+      "summary": "Original signal-based tool for mining viral signatures from microbial genomic data. Superseded by VirSorter2 for most use cases.",
+      "platforms": ["HPC", "CyVerse"],
+      "official_url": "https://github.com/simroux/VirSorter",
+      "site_docs_url": "/docs/tools/virsorter/",
+      "reference": "Roux et al., PeerJ (2015)"
+    },
+    {
+      "name": "Prodigal",
+      "slug": "prodigal",
+      "category": "gene-calling",
+      "summary": "Fast, accurate prokaryotic gene prediction — the standard gene caller used upstream of most viral annotation and search pipelines.",
+      "platforms": ["HPC", "CyVerse", "KBase"],
+      "official_url": "https://github.com/hyattpd/Prodigal",
+      "site_docs_url": "/docs/tools/prodigal/",
+      "reference": "Hyatt et al., BMC Bioinformatics (2010)"
+    },
+    {
+      "name": "Prokka",
+      "slug": "prokka",
+      "category": "gene-calling",
+      "summary": "Rapid whole-genome annotation pipeline for prokaryotic genomes, including phage and viral sequences, producing GenBank-ready output.",
+      "platforms": ["HPC", "CyVerse", "KBase"],
+      "official_url": "https://github.com/tseemann/prokka",
+      "reference": "Seemann, Bioinformatics (2014)"
+    },
+    {
+      "name": "DRAM-v",
+      "slug": "dram-v",
+      "category": "annotation",
+      "summary": "Distills viral genome annotation into structured metabolic profiles, identifying auxiliary metabolic genes (AMGs) and their ecological relevance.",
+      "platforms": ["HPC", "CyVerse"],
+      "official_url": "https://github.com/WrightonLabCSU/DRAM",
+      "site_docs_url": "/docs/tools/dram-v/",
+      "reference": "Shaffer et al., Nucleic Acids Res (2020)"
+    },
+    {
+      "name": "Cenote-Taker 2",
+      "slug": "cenote-taker2",
+      "category": "annotation",
+      "summary": "Automates virus discovery and sequence annotation by detecting hallmark genes, curating genomes, and preparing sequences for GenBank submission.",
+      "platforms": ["HPC", "CyVerse"],
+      "official_url": "https://github.com/mtisza1/Cenote-Taker2",
+      "reference": "Tisza et al., Virus Evol (2021)"
+    },
+    {
+      "name": "VIGA",
+      "slug": "viga",
+      "category": "annotation",
+      "summary": "Viral genome annotation pipeline for prokaryotic viruses; produces GenBank-compatible output from assembled contigs.",
+      "platforms": ["HPC"],
+      "official_url": "https://github.com/EGTortuero/VIGA",
+      "site_docs_url": "/docs/tools/viga/",
+      "reference": "Tortuero et al., PeerJ (2018)"
+    },
+    {
+      "name": "DIAMOND",
+      "slug": "diamond",
+      "category": "sequence-search",
+      "summary": "Ultra-fast protein and translated DNA alignment against large reference databases — up to 100× faster than BLAST with comparable sensitivity.",
+      "platforms": ["HPC", "CyVerse", "KBase"],
+      "official_url": "https://github.com/bbuchfink/diamond",
+      "reference": "Buchfink et al., Nature Methods (2015)"
+    },
+    {
+      "name": "vConTACT2",
+      "slug": "vcontact2",
+      "category": "taxonomy",
+      "summary": "Assigns taxonomy to uncultivated prokaryotic viruses using gene-sharing networks benchmarked against the ICTV classification — the community standard for phage taxonomy.",
+      "platforms": ["HPC", "CyVerse"],
+      "official_url": "https://bitbucket.org/MAVERICLab/vcontact2",
+      "site_docs_url": "/docs/tools/vcontact2/",
+      "reference": "Bin Jang et al., Nat Biotechnol (2019)"
+    },
+    {
+      "name": "vConTACT2-Gene2Genome",
+      "slug": "vcontact2-gene2genome",
+      "category": "taxonomy",
+      "summary": "Preprocessing step for vConTACT2 — converts protein FASTA sequences into the gene-to-genome mapping file required by the classifier.",
+      "platforms": ["HPC", "CyVerse", "KBase"],
+      "official_url": "https://bitbucket.org/MAVERICLab/vcontact2",
+      "reference": "Bin Jang et al., Nat Biotechnol (2019)"
+    },
+    {
+      "name": "CAT/BAT",
+      "slug": "cat-bat",
+      "category": "taxonomy",
+      "summary": "Taxonomic classification of assembled contigs (CAT) and metagenome-assembled bins (BAT) using diamond-based alignment and a last common ancestor approach.",
+      "platforms": ["HPC"],
+      "official_url": "https://github.com/dutilh/CAT",
+      "site_docs_url": "/docs/tools/cat-bat/",
+      "reference": "von Meijenfeldt et al., Genome Biol (2019)"
+    },
+    {
+      "name": "WIsH",
+      "slug": "wish",
+      "category": "host-prediction",
+      "summary": "Predicts prokaryotic hosts of viruses from metagenomic data using a homogeneous Markov chain model trained on genome composition.",
+      "platforms": ["HPC"],
+      "official_url": "https://github.com/soedinglab/wish",
+      "site_docs_url": "/docs/tools/wish/",
+      "reference": "Galiez et al., Bioinformatics (2017)"
+    },
+    {
+      "name": "HostPhinder",
+      "slug": "hostphinder",
+      "category": "host-prediction",
+      "summary": "Predicts phage host range based on k-mer similarity between phage and host genomes.",
+      "platforms": ["CyVerse"],
+      "official_url": "https://cpt.tamu.edu/hostphinder/",
+      "site_docs_url": "/docs/tools/hostphinder/",
+      "reference": "Villarroel et al., Viruses (2016)"
+    },
+    {
+      "name": "Read2RefMapper",
+      "slug": "read2refmapper",
+      "category": "abundance",
+      "summary": "Maps short reads to a reference set of viral genomes to estimate relative genome abundance across samples.",
+      "platforms": ["CyVerse", "KBase"],
+      "official_url": "https://github.com/sullivanmb/iVirus",
+      "reference": "Bolduc et al., ISME J (2017)"
+    },
+    {
+      "name": "BowtieBatch",
+      "slug": "bowtiebatch",
+      "category": "abundance",
+      "summary": "Batch wrapper around Bowtie2 for mapping multiple read datasets to a shared viral reference in parallel.",
+      "platforms": ["CyVerse", "KBase"],
+      "official_url": "https://github.com/sullivanmb/iVirus",
+      "reference": "Bolduc et al., ISME J (2017)"
+    },
+    {
+      "name": "Cytoscape",
+      "slug": "cytoscape",
+      "category": "visualization",
+      "summary": "Network visualization and analysis platform widely used to explore and render gene-sharing networks generated by vConTACT2.",
+      "platforms": ["CyVerse", "Desktop"],
+      "official_url": "https://cytoscape.org/",
+      "site_docs_url": "/docs/tools/cytoscape/",
+      "reference": "Shannon et al., Genome Res (2003)"
+    },
+    {
+      "name": "Anvi'o",
+      "slug": "anvio",
+      "category": "visualization",
+      "summary": "Advanced multi-omics analysis and visualization platform — used for pangenomics, metagenome-assembled genome inspection, and viral community profiling.",
+      "platforms": ["HPC"],
+      "official_url": "https://anvio.org/",
+      "site_docs_url": "/docs/tools/anvio/",
+      "reference": "Eren et al., PeerJ (2015)"
+    },
+    {
+      "name": "MultiQC",
+      "slug": "multiqc",
+      "category": "quality-control",
+      "summary": "Aggregates QC results from FastQC, Trimmomatic, fastp, and dozens of other tools into a single interactive HTML report — essential for batch sample assessment.",
+      "platforms": ["HPC", "CyVerse"],
+      "official_url": "https://multiqc.info/",
+      "site_docs_url": "/docs/tools/multiqc/",
+      "reference": "Ewels et al., Bioinformatics (2016)"
+    },
+    {
+      "name": "BBDuk / BBTools",
+      "slug": "bbduk",
+      "category": "quality-control",
+      "summary": "Versatile read trimming and filtering toolkit from the JGI. BBDuk handles adapter removal, quality trimming, contaminant filtering, and length filtering in one or two fast passes.",
+      "platforms": ["HPC", "CyVerse"],
+      "official_url": "https://jgi.doe.gov/data-and-tools/bbtools/bb-tools-user-guide/bbduk-guide/",
+      "site_docs_url": "/docs/tools/bbduk/",
+      "reference": "Bushnell B. (2014)"
+    },
+    {
+      "name": "CheckV",
+      "slug": "checkv",
+      "category": "identification",
+      "summary": "Assesses quality and completeness of metagenome-assembled viral genomes, removes host contamination from integrated proviruses, and classifies sequences as complete, high-, medium-, or low-quality draft.",
+      "platforms": ["HPC"],
+      "official_url": "https://bitbucket.org/berkeleylab/checkv",
+      "site_docs_url": "/docs/tools/checkv/",
+      "reference": "Nayfach et al., Nature Biotechnology (2021)"
+    },
+    {
+      "name": "PropagAtE",
+      "slug": "propagate",
+      "category": "identification",
+      "summary": "Estimates whether an integrated prophage is in lytic (actively replicating) or lysogenic (dormant) state by comparing read coverage of the prophage region to that of the host chromosome.",
+      "platforms": ["HPC"],
+      "official_url": "https://github.com/AnantharamanLab/PropagAtE",
+      "site_docs_url": "/docs/tools/propagate/",
+      "reference": "Kieft & Anantharaman, bioRxiv (2021)"
+    },
+    {
+      "name": "VIRIDIC",
+      "slug": "viridic",
+      "category": "taxonomy",
+      "summary": "Calculates intergenomic similarity between phage genomes using BLAST-based nucleotide comparisons, enabling genus- and species-level demarcation following ICTV criteria.",
+      "platforms": ["HPC"],
+      "official_url": "https://rhea.icbm.uni-oldenburg.de/VIRIDIC/",
+      "site_docs_url": "/docs/tools/viridic/",
+      "reference": "Moraru et al., Viruses (2020)"
+    },
+    {
+      "name": "iPHoP",
+      "slug": "iphop",
+      "category": "host-prediction",
+      "summary": "Integrated machine learning framework that combines multiple host-prediction signals (CRISPR spacers, k-mer similarity, gene-sharing) for high-accuracy host genus prediction of archaeal and bacterial viruses.",
+      "platforms": ["HPC"],
+      "official_url": "https://bitbucket.org/srouxjgi/iphop",
+      "site_docs_url": "/docs/tools/iphop/",
+      "reference": "Roux et al., PLOS Biology (2023)"
+    },
+    {
+      "name": "PhageTerm",
+      "slug": "phageterm",
+      "category": "annotation",
+      "summary": "Determines phage genome termini and packaging mechanisms (cos sites, pac sites, DTR/ITR) from sequencing read depth at genome ends — useful for correctly circularizing and orienting phage assemblies.",
+      "platforms": ["HPC"],
+      "official_url": "https://sourceforge.net/projects/phageterm/",
+      "site_docs_url": "/docs/tools/phageterm/",
+      "reference": "Garneau et al., Scientific Reports (2017)"
+    }
+  ]
+}

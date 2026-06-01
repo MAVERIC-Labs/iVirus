@@ -1,0 +1,9 @@
+[
+  { "title": "About", "url": "/about/" },
+  { "title": "Tools & Apps", "url": "/tools/" },
+  { "title": "Data", "url": "/data/" },
+  { "title": "Workshops", "url": "/workshops/" },
+  { "title": "Publications", "url": "/publications/" },
+  { "title": "Docs", "url": "/docs/" },
+  { "title": "Protocols", "url": "/protocols/"}
+]

@@ -1,0 +1,11 @@
+{% extends "layouts/site.njk" %}
+{% block siteContent %}
+<div class="container site-content{% if contentClass %} {{ contentClass }}{% endif %}">
+  <article class="page">
+    {% if title and not noHeader %}
+      <h1>{{ title }}</h1>
+    {% endif %}
+    {{ content | safe }}
+  </article>
+</div>
+{% endblock %}

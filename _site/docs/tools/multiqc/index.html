@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MultiQC – iVirus</title>
+  <meta name="description" content="Workshops, tools, data, and documentation for viral research.">
+  <link rel="icon" href="/iVirus/assets/img/favicon.svg" type="image/svg+xml">
+
+  <!-- Theme bootstrap: apply saved/preferred theme before paint to avoid FOUC. -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("ivirus-theme");
+        var dark = saved === "theme-dark"
+          || (!saved && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.classList.add(dark ? "theme-dark" : "theme-light");
+      } catch (e) {
+        document.documentElement.classList.add("theme-light");
+      }
+    })();
+  </script>
+
+  <!-- Fonts: Inter (body) + Source Serif 4 (headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/iVirus/assets/css/main.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/workflow.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/light-theme.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/home.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/docs-grouped.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/tools.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/data.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/publications.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/protocols.css">
+  <script defer="" src="https://www.protocols.io/js/widgets/js/protocolsiojs.min.js"></script>
+
+  <!-- GA tracking (only in production builds) -->
+  
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-T56YTL1JSV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T56YTL1JSV');
+  </script>
+  
+</head>
+<body class="-docs-tools-multiqc">
+
+  <!-- Alpha preview banner -->
+  <div class="alpha-banner" id="alphaBanner" role="banner" aria-label="Preview notice">
+    <span class="alpha-banner__icon" aria-hidden="true">🚧</span>
+    <span class="alpha-banner__text">
+      <strong>Alpha preview</strong> — This site is under active development. Content may be incomplete or change without notice.
+    </span>
+    <button class="alpha-banner__close" id="alphaBannerClose" aria-label="Dismiss preview notice" title="Dismiss">✕</button>
+  </div>
+
+  <header id="top" class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="/iVirus/" aria-label="iVirus home"><span class="logo-i">i</span><span class="logo-virus">Virus</span></a>
+
+    <!-- mobile hamburger (left) -->
+    <button class="nav-toggle" data-nav-toggle="" aria-expanded="false" aria-controls="site-nav">
+      ☰
+    </button>
+
+    <!-- main nav -->
+    <nav id="site-nav" class="nav" data-site-nav="">
+      <ul class="nav-list">
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/about/">About</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/tools/">Tools &amp; Apps</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/data/">Data</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/workshops/">Workshops</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/publications/">Publications</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/docs/">Docs</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/protocols/">Protocols</a></li>
+        
+      </ul>
+    </nav>
+
+    <!-- spacer pushes the toggle to the far right -->
+    <div class="header-spacer" aria-hidden="true"></div>
+
+    <!-- theme toggle (always visible, right end) -->
+    <button class="theme-toggle" data-theme-toggle="" aria-pressed="false" title="Toggle theme">🌓</button>
+  </div>
+</header>
+
+
+  <main class="site-main">
+    
+<div class="docs-wrap guide">
+  <aside class="docs-sidebar">
+
+<nav class="side">
+  <h3>Docs</h3>
+
+  
+  
+  <div class="group">
+    <h4>Workflows</h4>
+    <ul class="wf-list">
+    
+      
+      <li class="wf-parent ">
+        <button class="wf-toggle" aria-label="Toggle steps" aria-expanded="false">
+          Viral Metagenome Workflow <span class="arrow">▸</span>
+        </button>
+        <ul class="wf-steps-nested" hidden="">
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/sra-fetch/">SRA Fetch</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/qc-and-trim/">QC &amp; Trim</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/assembly/">Assembly</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/viral-identification/">Viral Identification</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/reporting/">Reporting</a>
+          </li>
+          
+        </ul>
+      </li>
+    
+    </ul>
+  </div>
+  
+
+  
+  
+  <div class="group">
+    <h4>Tool Guides</h4>
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🧪 Quality Control</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/bbduk/">BBDuk</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/fastp/">fastp</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/fastqc/">FastQC</a>
+              </li>
+            
+              <li class="active">
+                <a href="/iVirus/docs/tools/multiqc/">MultiQC</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/trimmomatic/">Trimmomatic</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🧬 Assembly</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/megahit/">MEGAHIT</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/spades/">SPAdes</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🦠 Viral Identification</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/checkv/">CheckV</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/propagate/">PropagAtE</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/vibrant/">VIBRANT</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/virsorter/">VirSorter</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🔬 Gene Calling</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/prodigal/">Prodigal</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">📝 Annotation</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/dram-v/">DRAM-v</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/phageterm/">PhageTerm</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/viga/">VIGA</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🌳 Taxonomy</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/cat-bat/">CAT / BAT</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/vcontact2/">vConTACT2</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/viridic/">VIRIDIC</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🔗 Host Prediction</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/hostphinder/">HostPhinder</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/iphop/">iPHoP</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/wish/">WIsH</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">📊 Visualization</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/anvio/">Anvi&#39;o</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/cytoscape/">Cytoscape</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+  </div>
+  
+</nav>
+</aside>
+
+  <article class="docs-content">
+    
+    
+      <h1>MultiQC</h1>
+      
+
+      
+      
+      
+        <div class="tool-meta-bar">
+          
+          
+            
+          
+            
+          
+
+          
+            <span class="badge badge--ivirus" title="Accessible through iVirus on KBase or CyVerse">
+              ✓ Available on iVirus
+            </span>
+          
+
+          
+            
+              <span class="badge badge--platform badge--hpc">HPC</span>
+            
+          
+            
+              <span class="badge badge--platform badge--cyverse">CyVerse</span>
+            
+          
+
+          
+            <span class="tool-meta-sep">·</span>
+            <span class="tool-meta-cat">Quality Control</span>
+          
+
+          
+            <span class="tool-meta-sep">·</span>
+            <span class="tool-meta-ref">Ewels et al., Bioinformatics (2016)</span>
+          
+        </div>
+      
+    
+
+    <p>MultiQC scans a directory of QC output files from tools such as FastQC, fastp, Trimmomatic, and aligners, then aggregates them into a single interactive HTML report — making it straightforward to compare quality metrics across dozens or hundreds of samples at once.</p>
+<h2>Install</h2>
+<pre class="language-bash"><code class="language-bash">conda <span class="token function">install</span> <span class="token parameter variable">-c</span> bioconda <span class="token parameter variable">-c</span> conda-forge multiqc <span class="token parameter variable">-y</span></code></pre>
+<h2>Basic usage</h2>
+<pre class="language-bash"><code class="language-bash">multiqc <span class="token builtin class-name">.</span></code></pre>
+<blockquote>
+<p><strong>Note:</strong> MultiQC searches the current directory (<code>.</code>) for any supported log files. Running it in your FastQC results directory will automatically pick up all reports. On 10 FastQC reports, MultiQC completes in under 10 seconds.</p>
+</blockquote>
+<h2>Key flags</h2>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-o</code></td>
+<td>Output directory for the report and data folder</td>
+</tr>
+<tr>
+<td><code>-n</code></td>
+<td>Custom report filename (default: <code>multiqc_report.html</code>)</td>
+</tr>
+<tr>
+<td><code>-f</code></td>
+<td>Force overwrite of an existing report in the output directory</td>
+</tr>
+<tr>
+<td><code>--ignore</code></td>
+<td>Glob pattern of files/directories to exclude from the search</td>
+</tr>
+<tr>
+<td><code>-d</code></td>
+<td>Prepend directory name to sample names — useful in multi-project runs where sample names would otherwise collide</td>
+</tr>
+</tbody>
+</table>
+<h2>Output</h2>
+<ul>
+<li><strong><code>multiqc_report.html</code></strong> — interactive HTML report with per-tool and per-sample panels; open in any browser.</li>
+<li><strong><code>multiqc_data/</code></strong> — directory of parsed JSON and TSV files for each tool, suitable for downstream programmatic use.</li>
+</ul>
+<!-- screenshot: /assets/img/tools/screenshots/multiqc.png -->
+<h2>In the iVirus workflow</h2>
+<p>MultiQC is run at the end of the QC &amp; Trim step to consolidate <a href="/iVirus/docs/tools/fastqc/">FastQC</a>, <a href="/iVirus/docs/tools/fastp/">fastp</a>, or <a href="/iVirus/docs/tools/trimmomatic/">Trimmomatic</a> reports from all samples before proceeding to assembly — it provides a fast sanity check that trimming thresholds are consistent across the batch and flags any outlier libraries.</p>
+<p>See also:</p>
+<ul>
+<li><strong>Workflow step:</strong> <a href="/iVirus/docs/workflows/qc-trim/">QC &amp; Trim</a></li>
+<li><a href="/iVirus/docs/tools/fastqc/">FastQC</a></li>
+<li><a href="/iVirus/docs/tools/fastp/">fastp</a></li>
+</ul>
+
+  </article>
+
+  
+</div>
+<script src="/iVirus/assets/js/docs-ui.js"></script>
+
+  </main>
+
+  <footer class="site-footer">
+  <p>
+    &copy; iVirus | Built with <a href="https://www.11ty.dev/" target="_blank" rel="noopener">Eleventy</a> | 
+    Supported by the <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1759874&amp;HistoricalAwards=false" target="_blank" rel="noopener">National Science Foundation (ABI #1759874)</a> and the iVirus project | 
+    <a href="/iVirus/about/">Contact</a> | 
+    <a href="#top" class="back-to-top">Go to Top ↑</a>
+  </p>
+</footer>
+
+  <!-- Global JS -->
+  <script src="/iVirus/assets/js/site-nav.js"></script>
+  <script src="/iVirus/assets/js/code-extras.js"></script>
+  <script src="/iVirus/assets/js/directory-filters.js"></script>
+  <script src="/iVirus/assets/js/home.js"></script>
+  <script src="/iVirus/assets/js/theme-toggle.js"></script>
+
+  <!-- Alpha banner dismiss -->
+  <script>
+    (function () {
+      var banner = document.getElementById('alphaBanner');
+      var btn    = document.getElementById('alphaBannerClose');
+      if (!banner || !btn) return;
+      // Hide immediately if previously dismissed
+      try { if (localStorage.getItem('ivirus-alpha-dismissed') === '1') banner.classList.add('is-hidden'); } catch(e) {}
+      btn.addEventListener('click', function () {
+        banner.classList.add('is-hidden');
+        try { localStorage.setItem('ivirus-alpha-dismissed', '1'); } catch(e) {}
+      });
+    })();
+  </script>
+</body>
+</html>

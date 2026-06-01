@@ -1,0 +1,135 @@
+{
+  "items": [
+    {
+      "title": "5th Annual OSU Viromics Workshop",
+      "date": "2022-05-11",
+      "location": "The Ohio State University, Columbus, OH",
+      "image": "/assets/img/workshops/metagenomics.jpg",
+      "url": "https://u.osu.edu/viruslab/viromics-workshop/",
+      "type": "past",
+      "tags": ["training"]
+    },
+    {
+      "title": "Microbiome Informatics Webinar Series",
+      "date": "2021-03-01",
+      "location": "Virtual (10-week series)",
+      "image": "/assets/img/workshops/assembly.jpg",
+      "url": "https://u.osu.edu/viruslab/viromics-workshop/",
+      "type": "past",
+      "tags": ["training"],
+      "description": "A 10-week virtual webinar series on microbiome informatics, with recordings and resources available online."
+    },
+    {
+      "title": "4th Annual OSU Viromics Workshop",
+      "date": "2019-05-08",
+      "location": "Mathematical Biosciences Institute, The Ohio State University, Columbus, OH",
+      "image": "/assets/img/workshops/assembly.jpg",
+      "url": "https://u.osu.edu/viruslab/viromics-workshop/",
+      "type": "past",
+      "tags": ["training"],
+      "description": "54 application-based trainees from 11 countries, 7 instructors, and 5 invited mini-symposium speakers."
+    },
+    {
+      "title": "3rd Annual OSU Viromics Workshop",
+      "date": "2017-10-18",
+      "location": "The Ohio State University, Columbus, OH",
+      "image": "/assets/img/workshops/upcoming.jpg",
+      "url": "https://u.osu.edu/viruslab/viromics-workshop/",
+      "type": "past",
+      "tags": ["training"],
+      "description": "50 application-based trainees from 9 countries, 5 instructors, and 5 invited mini-symposium speakers."
+    },
+    {
+      "title": "Virocell Virus-Host Interactions Mini-Symposium",
+      "date": "2017-10-01",
+      "location": "The Ohio State University, Columbus, OH",
+      "image": "/assets/img/workshops/upcoming.jpg",
+      "type": "past",
+      "tags": ["talk"],
+      "description": "Synthesis workshop across 5 phage-host model systems studied using multi-omics approaches."
+    },
+    {
+      "title": "2nd Annual OSU Viromics Workshop",
+      "date": "2016-05-01",
+      "location": "The Ohio State University, Columbus, OH",
+      "image": "/assets/img/workshops/upcoming.jpg",
+      "url": "https://u.osu.edu/viruslab/viromics-workshop/",
+      "type": "past",
+      "tags": ["training"],
+      "description": "13 non-OSU external invited trainees participated in beta-testing of iVirus tools and databases."
+    },
+    {
+      "title": "1st Annual OSU Viromics Workshop",
+      "date": "2016-03-01",
+      "location": "The Ohio State University, Columbus, OH",
+      "image": "/assets/img/workshops/upcoming.jpg",
+      "url": "https://u.osu.edu/viruslab/viromics-workshop/",
+      "type": "past",
+      "tags": ["training"],
+      "description": "9 internal invited trainees participated in the inaugural beta-test of iVirus tools and databases."
+    },
+    {
+      "title": "ECODIM: Ecology and Diversity of Marine Microorganisms",
+      "date": "2016-01-01",
+      "location": "Concepción, Chile",
+      "image": "/assets/img/workshops/upcoming.jpg",
+      "type": "past",
+      "tags": ["training"],
+      "description": "Environmental viromics module as part of the ECODIM field course, with 25 trainees."
+    },
+    {
+      "title": "ASM Viromics Workshop",
+      "date": "2014-05-01",
+      "location": "Denver, CO",
+      "image": "/assets/img/workshops/upcoming.jpg",
+      "type": "past",
+      "tags": ["training"],
+      "description": "50 participants from 11 countries at this American Society for Microbiology viromics training event."
+    },
+    {
+      "title": "ECODIM: Ecology and Diversity of Marine Microorganisms",
+      "date": "2014-01-01",
+      "location": "Concepción, Chile",
+      "image": "/assets/img/workshops/upcoming.jpg",
+      "type": "past",
+      "tags": ["training"],
+      "description": "Environmental viromics module as part of the ECODIM field course, with 25 trainees."
+    },
+    {
+      "title": "ASM Microbiology Metagenomics Workshop",
+      "date": "2013-05-01",
+      "location": "Denver, CO",
+      "image": "/assets/img/workshops/upcoming.jpg",
+      "type": "past",
+      "tags": ["training"],
+      "description": "50 participants from 13 countries at this American Society for Microbiology metagenomics training workshop."
+    },
+    {
+      "title": "Environmental Virology Workshop",
+      "date": "2013-01-01",
+      "location": "Biosphere 2, Tucson, AZ",
+      "image": "/assets/img/workshops/upcoming.jpg",
+      "type": "past",
+      "tags": ["training"],
+      "description": "60 participants from 8 countries at this intensive environmental virology training event."
+    },
+    {
+      "title": "Genomic Sciences Program Annual PI Meeting",
+      "date": "2020-02-26",
+      "location": "Washington, D.C.",
+      "image": "/assets/img/workshops/upcoming.jpg",
+      "type": "past",
+      "tags": ["talk"],
+      "description": "iVirus featured as an invited talk at the DOE Genomic Sciences Program Annual Principal Investigator Meeting."
+    },
+    {
+      "title": "Plant and Animal Genome XXVI Conference",
+      "date": "2018-01-15",
+      "location": "San Diego, CA",
+      "image": "/assets/img/workshops/upcoming.jpg",
+      "type": "past",
+      "tags": ["talk"],
+      "description": "iVirus featured as an invited talk at the PAG XXVI conference."
+    }
+  ]
+}

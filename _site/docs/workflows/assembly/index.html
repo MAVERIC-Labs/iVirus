@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Assembly – iVirus</title>
+  <meta name="description" content="Workshops, tools, data, and documentation for viral research.">
+  <link rel="icon" href="/iVirus/assets/img/favicon.svg" type="image/svg+xml">
+
+  <!-- Theme bootstrap: apply saved/preferred theme before paint to avoid FOUC. -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("ivirus-theme");
+        var dark = saved === "theme-dark"
+          || (!saved && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.classList.add(dark ? "theme-dark" : "theme-light");
+      } catch (e) {
+        document.documentElement.classList.add("theme-light");
+      }
+    })();
+  </script>
+
+  <!-- Fonts: Inter (body) + Source Serif 4 (headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/iVirus/assets/css/main.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/workflow.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/light-theme.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/home.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/docs-grouped.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/tools.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/data.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/publications.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/protocols.css">
+  <script defer="" src="https://www.protocols.io/js/widgets/js/protocolsiojs.min.js"></script>
+
+  <!-- GA tracking (only in production builds) -->
+  
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-T56YTL1JSV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T56YTL1JSV');
+  </script>
+  
+</head>
+<body class="-docs-workflows-assembly">
+
+  <!-- Alpha preview banner -->
+  <div class="alpha-banner" id="alphaBanner" role="banner" aria-label="Preview notice">
+    <span class="alpha-banner__icon" aria-hidden="true">🚧</span>
+    <span class="alpha-banner__text">
+      <strong>Alpha preview</strong> — This site is under active development. Content may be incomplete or change without notice.
+    </span>
+    <button class="alpha-banner__close" id="alphaBannerClose" aria-label="Dismiss preview notice" title="Dismiss">✕</button>
+  </div>
+
+  <header id="top" class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="/iVirus/" aria-label="iVirus home"><span class="logo-i">i</span><span class="logo-virus">Virus</span></a>
+
+    <!-- mobile hamburger (left) -->
+    <button class="nav-toggle" data-nav-toggle="" aria-expanded="false" aria-controls="site-nav">
+      ☰
+    </button>
+
+    <!-- main nav -->
+    <nav id="site-nav" class="nav" data-site-nav="">
+      <ul class="nav-list">
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/about/">About</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/tools/">Tools &amp; Apps</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/data/">Data</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/workshops/">Workshops</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/publications/">Publications</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/docs/">Docs</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/protocols/">Protocols</a></li>
+        
+      </ul>
+    </nav>
+
+    <!-- spacer pushes the toggle to the far right -->
+    <div class="header-spacer" aria-hidden="true"></div>
+
+    <!-- theme toggle (always visible, right end) -->
+    <button class="theme-toggle" data-theme-toggle="" aria-pressed="false" title="Toggle theme">🌓</button>
+  </div>
+</header>
+
+
+  <main class="site-main">
+    
+<div class="docs-wrap guide">
+  <aside class="docs-sidebar">
+
+<nav class="side">
+  <h3>Docs</h3>
+
+  
+  
+  <div class="group">
+    <h4>Workflows</h4>
+    <ul class="wf-list">
+    
+      
+      <li class="wf-parent ">
+        <button class="wf-toggle" aria-label="Toggle steps" aria-expanded="false">
+          Viral Metagenome Workflow <span class="arrow">▸</span>
+        </button>
+        <ul class="wf-steps-nested" hidden="">
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/sra-fetch/">SRA Fetch</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/qc-and-trim/">QC &amp; Trim</a>
+          </li>
+          
+          <li class="active">
+            <a href="/iVirus/docs/workflows/assembly/">Assembly</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/viral-identification/">Viral Identification</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/reporting/">Reporting</a>
+          </li>
+          
+        </ul>
+      </li>
+    
+    </ul>
+  </div>
+  
+
+  
+  
+  <div class="group">
+    <h4>Tool Guides</h4>
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🧪 Quality Control</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/bbduk/">BBDuk</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/fastp/">fastp</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/fastqc/">FastQC</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/multiqc/">MultiQC</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/trimmomatic/">Trimmomatic</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🧬 Assembly</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/megahit/">MEGAHIT</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/spades/">SPAdes</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🦠 Viral Identification</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/checkv/">CheckV</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/propagate/">PropagAtE</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/vibrant/">VIBRANT</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/virsorter/">VirSorter</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🔬 Gene Calling</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/prodigal/">Prodigal</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">📝 Annotation</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/dram-v/">DRAM-v</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/phageterm/">PhageTerm</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/viga/">VIGA</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🌳 Taxonomy</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/cat-bat/">CAT / BAT</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/vcontact2/">vConTACT2</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/viridic/">VIRIDIC</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🔗 Host Prediction</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/hostphinder/">HostPhinder</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/iphop/">iPHoP</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/wish/">WIsH</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">📊 Visualization</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/anvio/">Anvi&#39;o</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/cytoscape/">Cytoscape</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+  </div>
+  
+</nav>
+</aside>
+
+  <article class="docs-content">
+    
+    
+      <h1>Assembly</h1>
+      
+
+      
+      
+      
+    
+
+    <nav class="wf" aria-label="Viral Metagenome Workflow">
+      <h4 class="wf-title">Viral Metagenome Workflow</h4>
+      <ol class="wf-steps">
+        <li class="wf-step ">
+        <a href="/iVirus/docs/workflows/sra-fetch/">
+          <span class="icon" aria-hidden="true">📥</span><span class="label">SRA Fetch</span>
+        </a>
+      </li>
+<li class="wf-chevron" aria-hidden="true">»»</li>
+<li class="wf-step ">
+        <a href="/iVirus/docs/workflows/qc-and-trim/">
+          <span class="icon" aria-hidden="true">🧪</span><span class="label">QC & Trim</span>
+        </a>
+      </li>
+<li class="wf-chevron" aria-hidden="true">»»</li>
+<li class="wf-step active">
+        <a href="/iVirus/docs/workflows/assembly/">
+          <span class="icon" aria-hidden="true">🧩</span><span class="label">Assembly</span>
+        </a>
+      </li>
+<li class="wf-chevron" aria-hidden="true">»»</li>
+<li class="wf-step ">
+        <a href="/iVirus/docs/workflows/viral-identification/">
+          <span class="icon" aria-hidden="true">🦠</span><span class="label">Viral Identification</span>
+        </a>
+      </li>
+<li class="wf-chevron" aria-hidden="true">»»</li>
+<li class="wf-step ">
+        <a href="/iVirus/docs/workflows/reporting/">
+          <span class="icon" aria-hidden="true">📊</span><span class="label">Reporting</span>
+        </a>
+      </li>
+      </ol>
+    </nav>
+<p>Assembly isn't for the faint of heart. It can be frustrating and it can fail for a lot of reasons, often due to insufficient memory or due to the dataset complexity. There's only so much you can do.</p>
+<p>However, our example dataset will finish on most HPC systems within a few hours. <em>This will run SPAdes on the Trimmomatic-cleaned reads; alternatives are below.</em></p>
+<h2>SPAdes</h2>
+<div class="codetabs" id="tabs-zhcewtzazoe" data-codetabs="">
+  <div class="codetabs-nav" data-codetabs-nav="" role="tablist"><button type="button" data-tab="0" role="tab" aria-selected="true" class="active">Command</button><button type="button" data-tab="1" role="tab" aria-selected="false">SLURM Script</button></div>
+  <div class="codetabs-panels" data-codetabs-panels=""><div class="codetabs-panel" data-panel="0" role="tabpanel"><pre class="language-bash"><code class="language-bash">spades.py <span class="token parameter variable">--meta</span> <span class="token parameter variable">-k</span> <span class="token number">21,33</span>,55,77,99,121 <span class="token punctuation">\</span>
+  --pe1-1 ERR594369_1_t_paired.fastq.gz <span class="token punctuation">\</span>
+  --pe1-2 ERR594369_2_t_paired.fastq.gz <span class="token punctuation">\</span>
+  <span class="token parameter variable">-t</span> <span class="token number">48</span> <span class="token parameter variable">-m</span> <span class="token number">124</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">-o</span> MetaSPAdes_Trimmomatic</code></pre>
+</div><div class="codetabs-panel" data-panel="1" role="tabpanel" hidden=""><pre class="language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment">#SBATCH -N 1</span>
+<span class="token comment">#SBATCH -t 24:00:00</span>
+<span class="token comment">#SBATCH -n 48</span>
+<span class="token comment">#SBATCH -J SPAdes</span>
+<span class="token comment">#SBATCH --partition=hugemem  # or your cluster's high-memory partition</span>
+<p><span class="token comment"># activate your conda environment here</span></p>
+<p><span class="token comment"># General Options, can't use --careful with --meta</span>
+<span class="token assign-left variable">genOpts</span><span class="token operator">=</span><span class="token string">&quot;--meta -k 21,33,55,77,99,121&quot;</span>  <span class="token comment"># Paired end, 1 pair only</span></p>
+<p><span class="token assign-left variable">runOpts</span><span class="token operator">=</span><span class="token string">&quot;-t 48 -m 124&quot;</span>  <span class="token comment"># Match to job request. This is 48 cores and 124 GB memory</span></p>
+<p><span class="token assign-left variable">workDir</span><span class="token operator">=</span><span class="token string">&quot;&lt;your_project_dir&gt;&quot;</span></p>
+<p><span class="token assign-left variable">pe1f</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${workDir}</span>/processed_reads/ERR594369_1_t_paired.fastq.gz&quot;</span>
+<span class="token assign-left variable">pe1r</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${workDir}</span>/processed_reads/ERR594369_2_t_paired.fastq.gz&quot;</span></p>
+<p><span class="token comment"># I always like to know what command was actually sent to SPAdes</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;spades.py <span class="token variable">${genOpts}</span> <span class="token variable">${runOpts}</span> --pe1-1 <span class="token variable">${pe1f}</span> --pe1-2 <span class="token variable">${pe1r}</span> -o <span class="token variable">${workDir}</span>/MetaSPAdes_Trimmomatic&quot;</span></p>
+<p>spades.py <span class="token variable">${genOpts}</span> <span class="token variable">${runOpts}</span> <span class="token punctuation">&lt;/span&gt;
+--pe1-1 <span class="token variable">${pe1f}</span> <span class="token punctuation">&lt;/span&gt;
+--pe1-2 <span class="token variable">${pe1r}</span> <span class="token punctuation">&lt;/span&gt;
+<span class="token parameter variable">-o</span> <span class="token string">&quot;<span class="token variable">${workDir}</span>/MetaSPAdes_Trimmomatic&quot;</span></span></span></span></p></code></pre><p></p>
+</div></div>
+</div>
+<p>Submit with <code>sbatch SPAdes.sh</code>.</p>
+<pre class="language-bash"><code class="language-bash">$ sacct <span class="token parameter variable">-j</span> <span class="token operator">&lt;</span>jobid<span class="token operator">></span> <span class="token parameter variable">--format</span> <span class="token string">"CPUTime,MaxRSS,Elapsed"</span>
+   CPUTime     MaxRSS    Elapsed
+---------- ---------- ----------
+<span class="token number">9</span>-10:48:00  64883592K   04:43:30</code></pre>
+<p>Oops! The job required ~65 GB and took 4 hr 43 minutes. Considerably less than I had anticipated.</p>
+<pre class="language-bash"><code class="language-bash">$ <span class="token function">ls</span> MetaSPAdes_Trimmomatic
+assembly_graph.fastg               contigs.fasta  dataset.info            K21  K77   params.txt       spades.log
+assembly_graph_with_scaffolds.gfa  contigs.paths  first_pe_contigs.fasta  K33  K99   scaffolds.fasta  tmp
+before_rr.fasta                    corrected      input_dataset.yaml      K55  misc  scaffolds.paths</code></pre>
+<pre class="language-bash"><code class="language-bash">$ <span class="token function">grep</span> <span class="token parameter variable">-c</span> <span class="token string">">"</span> contigs.fasta
+<span class="token number">322596</span></code></pre>
+<h2>MEGAHIT</h2>
+<p>And now, what if we wanted to use a different assembler, let's say MEGAHIT?</p>
+<div class="codetabs" id="tabs-pc3rnlx1ceg" data-codetabs="">
+  <div class="codetabs-nav" data-codetabs-nav="" role="tablist"><button type="button" data-tab="0" role="tab" aria-selected="true" class="active">Command</button><button type="button" data-tab="1" role="tab" aria-selected="false">SLURM Script</button></div>
+  <div class="codetabs-panels" data-codetabs-panels=""><div class="codetabs-panel" data-panel="0" role="tabpanel"><pre class="language-bash"><code class="language-bash">megahit --k-list <span class="token number">21,41</span>,61,81,99 <span class="token punctuation">\</span>
+  <span class="token parameter variable">-1</span> ERR594369_1_t_paired.fastq.gz <span class="token punctuation">\</span>
+  <span class="token parameter variable">-2</span> ERR594369_2_t_paired.fastq.gz <span class="token punctuation">\</span>
+  <span class="token parameter variable">-t</span> <span class="token number">48</span> <span class="token parameter variable">-m</span> <span class="token number">0.9</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">-o</span> MEGAHIT_with_Trimmomatic</code></pre>
+</div><div class="codetabs-panel" data-panel="1" role="tabpanel" hidden=""><pre class="language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment">#SBATCH -N 1</span>
+<span class="token comment">#SBATCH -t 4:00:00</span>
+<span class="token comment">#SBATCH -n 48</span>
+<span class="token comment">#SBATCH -J MEGAHIT</span>
+<span class="token comment">#SBATCH --partition=hugemem  # or your cluster's high-memory partition</span>
+<p><span class="token comment"># activate your conda environment here</span></p>
+<p><span class="token comment"># Directories</span>
+<span class="token assign-left variable">projectDir</span><span class="token operator">=</span><span class="token string">&quot;&lt;your_project_dir&gt;&quot;</span>
+<span class="token assign-left variable">outputDir</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${projectDir}</span>/assemblies/MEGAHIT_with_Trimmomatic&quot;</span></p>
+<p><span class="token comment"># Assembling with MEGAHIT, so setting up parameters</span>
+<span class="token assign-left variable">genOpts</span><span class="token operator">=</span><span class="token string">&quot;--k-list 21,41,61,81,99&quot;</span>  <span class="token comment"># K-mer selection is a PhD itself...</span>
+<span class="token assign-left variable">runOpts</span><span class="token operator">=</span><span class="token string">&quot;-t 48 -m 0.9&quot;</span>  <span class="token comment"># Match to job request, 48 cores and 90% of memory</span></p>
+<p><span class="token comment"># What are the reads we'll need?</span>
+<span class="token assign-left variable">forReads</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${projectDir}</span>/processed_reads/ERR594369_1_t_paired.fastq.gz&quot;</span>
+<span class="token assign-left variable">revReads</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${projectDir}</span>/processed_reads/ERR594369_2_t_paired.fastq.gz&quot;</span></p>
+<p><span class="token comment"># Now that we have our parameters and input files, we can put everything together</span>
+<span class="token assign-left variable">megahitCmd</span><span class="token operator">=</span><span class="token string">&quot;megahit <span class="token variable">${genOpts}</span> <span class="token variable">${runOpts}</span>&quot;</span>
+<span class="token assign-left variable">megahitCmd</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${megahitCmd}</span> -1 <span class="token variable">${forReads}</span> -2 <span class="token variable">${revReads}</span>&quot;</span></p>
+<p><span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">${megahitCmd}</span> -o <span class="token variable">${outputDir}</span>&quot;</span></p>
+<p><span class="token function">time</span> <span class="token variable">${megahitCmd}</span> <span class="token parameter variable">-o</span> <span class="token variable">${outputDir}</span></p></code></pre><p></p>
+</div></div>
+</div>
+<pre class="language-bash"><code class="language-bash">$ sacct <span class="token parameter variable">-j</span> <span class="token operator">&lt;</span>jobid<span class="token operator">></span> <span class="token parameter variable">--format</span> <span class="token string">"CPUTime,MaxRSS,Elapsed"</span>
+   CPUTime     MaxRSS    Elapsed
+---------- ---------- ----------
+<span class="token number">1</span>-12:56:00   5717660K   00:46:10</code></pre>
+<p>That took 46 minutes and used ~5.7 GB. That's... quite a bit faster and significantly less memory.</p>
+<pre class="language-bash"><code class="language-bash">$ <span class="token function">ls</span> MEGAHIT_with_Trimmomatic
+checkpoints.txt  <span class="token keyword">done</span>  final.contigs.fa  intermediate_contigs  log  options.json</code></pre>
+<pre class="language-bash"><code class="language-bash">$ <span class="token function">grep</span> <span class="token parameter variable">-c</span> <span class="token string">">"</span> MEGAHIT_with_Trimmomatic/final.contigs.fa
+<span class="token number">297969</span></code></pre>
+<h2>Post-Assembly</h2>
+<p>After assembly, we're left with a few decisions. Which read QC and which assembly method do we want to use? Even though we only use MEGAHIT or SPAdes + Trimmomatic, we could have easily used BBDuk. Depending on your sample background and the types of viruses you expect to see, SPAdes or MEGAHIT could be 'better' or 'worse' contigs. <em>In reality</em>, the differences are minor, so you can move forward with either of them.</p>
+<h2>See also</h2>
+<ul>
+<li><a href="/iVirus/docs/tools/spades/">SPAdes tool guide</a></li>
+<li><a href="/iVirus/docs/tools/megahit/">MEGAHIT tool guide</a></li>
+</ul>
+
+  </article>
+
+  
+</div>
+<script src="/iVirus/assets/js/docs-ui.js"></script>
+
+  </main>
+
+  <footer class="site-footer">
+  <p>
+    &copy; iVirus | Built with <a href="https://www.11ty.dev/" target="_blank" rel="noopener">Eleventy</a> | 
+    Supported by the <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1759874&amp;HistoricalAwards=false" target="_blank" rel="noopener">National Science Foundation (ABI #1759874)</a> and the iVirus project | 
+    <a href="/iVirus/about/">Contact</a> | 
+    <a href="#top" class="back-to-top">Go to Top ↑</a>
+  </p>
+</footer>
+
+  <!-- Global JS -->
+  <script src="/iVirus/assets/js/site-nav.js"></script>
+  <script src="/iVirus/assets/js/code-extras.js"></script>
+  <script src="/iVirus/assets/js/directory-filters.js"></script>
+  <script src="/iVirus/assets/js/home.js"></script>
+  <script src="/iVirus/assets/js/theme-toggle.js"></script>
+
+  <!-- Alpha banner dismiss -->
+  <script>
+    (function () {
+      var banner = document.getElementById('alphaBanner');
+      var btn    = document.getElementById('alphaBannerClose');
+      if (!banner || !btn) return;
+      // Hide immediately if previously dismissed
+      try { if (localStorage.getItem('ivirus-alpha-dismissed') === '1') banner.classList.add('is-hidden'); } catch(e) {}
+      btn.addEventListener('click', function () {
+        banner.classList.add('is-hidden');
+        try { localStorage.setItem('ivirus-alpha-dismissed', '1'); } catch(e) {}
+      });
+    })();
+  </script>
+</body>
+</html>

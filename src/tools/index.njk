@@ -1,0 +1,25 @@
+---
+layout: layouts/site.njk
+title: Tools & Apps
+permalink: /tools/
+heroArt: "/assets/img/hero/tools-tiles.svg"
+heroTitle: "Tools & Apps"
+heroSubtitle: "Browse by category or jump straight to documentation. Each tool links to its official site, supported platforms, and references."
+heroVariant: "hero--tools"
+heroBg: "linear-gradient(180deg, rgba(17,24,39,.55), rgba(2,6,23,.6)), url('/assets/img/hero/tools-tiles.svg')"
+heroAnimate: true
+---
+<section class="tools-landing">
+  <ul class="tool-cat-grid directory-grid">
+    {% for cat in tools.categories %}
+    <li class="card tool-cat directory-card">
+      <a class="stretched" href="/tools/{{ cat.id }}/">
+        <div class="icon">{{ cat.icon }}</div>
+        <h3>{{ cat.title }}</h3>
+        <p>{{ cat.description }}</p>
+        <p class="more">Browse {{ cat.title | lower }} →</p>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>

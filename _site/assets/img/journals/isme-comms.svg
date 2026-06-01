@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 84" role="img" aria-label="ISME Comm. journal logo">
+  <rect width="64" height="84" rx="5" fill="#006b67"/>
+  <rect width="64" height="7" rx="5" fill="#80cbc4" opacity="0.85"/>
+  <rect y="2" width="64" height="3" fill="#80cbc4" opacity="0.85"/>
+  <text x="32" y="40" font-family="Georgia,'Times New Roman',serif" font-size="13" fill="white" text-anchor="middle" font-weight="400">ISME</text>
+  <text x="32" y="57" font-family="Georgia,'Times New Roman',serif" font-size="12" fill="rgba(255,255,255,0.80)" text-anchor="middle">Comm.</text>
+</svg>

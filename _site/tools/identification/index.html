@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Viral Identification – iVirus</title>
+  <meta name="description" content="Workshops, tools, data, and documentation for viral research.">
+  <link rel="icon" href="/iVirus/assets/img/favicon.svg" type="image/svg+xml">
+
+  <!-- Theme bootstrap: apply saved/preferred theme before paint to avoid FOUC. -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("ivirus-theme");
+        var dark = saved === "theme-dark"
+          || (!saved && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.classList.add(dark ? "theme-dark" : "theme-light");
+      } catch (e) {
+        document.documentElement.classList.add("theme-light");
+      }
+    })();
+  </script>
+
+  <!-- Fonts: Inter (body) + Source Serif 4 (headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/iVirus/assets/css/main.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/workflow.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/light-theme.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/home.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/docs-grouped.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/tools.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/data.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/publications.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/protocols.css">
+  <script defer="" src="https://www.protocols.io/js/widgets/js/protocolsiojs.min.js"></script>
+
+  <!-- GA tracking (only in production builds) -->
+  
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-T56YTL1JSV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T56YTL1JSV');
+  </script>
+  
+</head>
+<body class="-tools-category">
+
+  <!-- Alpha preview banner -->
+  <div class="alpha-banner" id="alphaBanner" role="banner" aria-label="Preview notice">
+    <span class="alpha-banner__icon" aria-hidden="true">🚧</span>
+    <span class="alpha-banner__text">
+      <strong>Alpha preview</strong> — This site is under active development. Content may be incomplete or change without notice.
+    </span>
+    <button class="alpha-banner__close" id="alphaBannerClose" aria-label="Dismiss preview notice" title="Dismiss">✕</button>
+  </div>
+
+  <header id="top" class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="/iVirus/" aria-label="iVirus home"><span class="logo-i">i</span><span class="logo-virus">Virus</span></a>
+
+    <!-- mobile hamburger (left) -->
+    <button class="nav-toggle" data-nav-toggle="" aria-expanded="false" aria-controls="site-nav">
+      ☰
+    </button>
+
+    <!-- main nav -->
+    <nav id="site-nav" class="nav" data-site-nav="">
+      <ul class="nav-list">
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/about/">About</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/tools/">Tools &amp; Apps</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/data/">Data</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/workshops/">Workshops</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/publications/">Publications</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/docs/">Docs</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/iVirus/protocols/">Protocols</a></li>
+        
+      </ul>
+    </nav>
+
+    <!-- spacer pushes the toggle to the far right -->
+    <div class="header-spacer" aria-hidden="true"></div>
+
+    <!-- theme toggle (always visible, right end) -->
+    <button class="theme-toggle" data-theme-toggle="" aria-pressed="false" title="Toggle theme">🌓</button>
+  </div>
+</header>
+
+
+  <main class="site-main">
+    
+<div class="site-shell">
+  
+    <section class="page-hero hero--tools hero--hasbg" style="--hero-bg: linear-gradient(180deg, rgba(17,24,39,.55), rgba(2,6,23,.6)), url(&#39;/assets/img/hero/tools-tiles.svg&#39;)">
+  <div class="container">
+    <h1>Viral Identification</h1>
+    <p class="muted">Detect viral sequences from metagenomic assemblies using diverse detection strategies.</p>
+  </div>
+</section>
+
+  
+
+  
+    
+      <div class="container site-content">
+        <table class="tool-table">
+  <thead>
+    <tr>
+      <th>Tool</th>
+      <th>Description</th>
+      <th>Platforms</th>
+      <th>Links</th>
+      <th>Reference</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <tr>
+        <td><strong>VirSorter2</strong></td>
+        <td>Multi-classifier, expert-guided approach for detecting diverse DNA and RNA viruses — the current recommended successor to VirSorter.</td>
+        <td>
+          
+            <span class="pill">HPC</span>
+          
+            <span class="pill">CyVerse</span>
+          
+        </td>
+        
+        
+        
+
+        <td class="links">
+          
+          
+            
+            
+              <a href="/iVirus/docs/tools/virsorter2/">
+                Docs <span class="pill warn">coming soon</span>
+              </a>
+               · <a href="https://github.com/jiarong/VirSorter2" target="_blank" rel="noopener">Official</a>
+            
+          
+        </td>
+        <td class="muted">Guo et al., Microbiome (2021)</td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td><strong>VIBRANT</strong></td>
+        <td>Automated recovery, annotation, and curation of viral genomes from metagenomes using protein profiles and machine learning.</td>
+        <td>
+          
+            <span class="pill">HPC</span>
+          
+            <span class="pill">CyVerse</span>
+          
+        </td>
+        
+        
+        
+
+        <td class="links">
+          
+          
+            <a href="/iVirus/docs/tools/vibrant/">Docs</a>
+             · <a href="https://github.com/AnantharamanLab/VIBRANT" target="_blank" rel="noopener">Official</a>
+          
+        </td>
+        <td class="muted">Kieft et al., Microbiome (2020)</td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td><strong>DeepVirFinder</strong></td>
+        <td>Identifies viral sequences in metagenomes using a deep learning model trained on sequence composition — works without requiring gene predictions.</td>
+        <td>
+          
+            <span class="pill">HPC</span>
+          
+            <span class="pill">CyVerse</span>
+          
+        </td>
+        
+        
+        
+
+        <td class="links">
+          
+          
+            
+            
+              <a href="/iVirus/docs/tools/deepvirfinder/">
+                Docs <span class="pill warn">coming soon</span>
+              </a>
+               · <a href="https://github.com/jessieren/DeepVirFinder" target="_blank" rel="noopener">Official</a>
+            
+          
+        </td>
+        <td class="muted">Ren et al., Quantitative Biology (2020)</td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td><strong>MARVEL</strong></td>
+        <td>Predicts bacteriophage sequences within metagenomic bins using random forest classification on genomic features.</td>
+        <td>
+          
+            <span class="pill">HPC</span>
+          
+            <span class="pill">CyVerse</span>
+          
+            <span class="pill">KBase</span>
+          
+        </td>
+        
+        
+        
+
+        <td class="links">
+          
+          
+            
+            
+              <a href="/iVirus/docs/tools/marvel/">
+                Docs <span class="pill warn">coming soon</span>
+              </a>
+               · <a href="https://github.com/LaboratorioBioinformatica/MARVEL" target="_blank" rel="noopener">Official</a>
+            
+          
+        </td>
+        <td class="muted">Amgarten et al., Front Genet (2018)</td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td><strong>VirSorter</strong></td>
+        <td>Original signal-based tool for mining viral signatures from microbial genomic data. Superseded by VirSorter2 for most use cases.</td>
+        <td>
+          
+            <span class="pill">HPC</span>
+          
+            <span class="pill">CyVerse</span>
+          
+        </td>
+        
+        
+        
+
+        <td class="links">
+          
+          
+            <a href="/iVirus/docs/tools/virsorter/">Docs</a>
+             · <a href="https://github.com/simroux/VirSorter" target="_blank" rel="noopener">Official</a>
+          
+        </td>
+        <td class="muted">Roux et al., PeerJ (2015)</td>
+      </tr>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <tr>
+        <td><strong>CheckV</strong></td>
+        <td>Assesses quality and completeness of metagenome-assembled viral genomes, removes host contamination from integrated proviruses, and classifies sequences as complete, high-, medium-, or low-quality draft.</td>
+        <td>
+          
+            <span class="pill">HPC</span>
+          
+        </td>
+        
+        
+        
+
+        <td class="links">
+          
+          
+            <a href="/iVirus/docs/tools/checkv/">Docs</a>
+             · <a href="https://bitbucket.org/berkeleylab/checkv" target="_blank" rel="noopener">Official</a>
+          
+        </td>
+        <td class="muted">Nayfach et al., Nature Biotechnology (2021)</td>
+      </tr>
+      
+    
+      
+      <tr>
+        <td><strong>PropagAtE</strong></td>
+        <td>Estimates whether an integrated prophage is in lytic (actively replicating) or lysogenic (dormant) state by comparing read coverage of the prophage region to that of the host chromosome.</td>
+        <td>
+          
+            <span class="pill">HPC</span>
+          
+        </td>
+        
+        
+        
+
+        <td class="links">
+          
+          
+            <a href="/iVirus/docs/tools/propagate/">Docs</a>
+             · <a href="https://github.com/AnantharamanLab/PropagAtE" target="_blank" rel="noopener">Official</a>
+          
+        </td>
+        <td class="muted">Kieft &amp; Anantharaman, bioRxiv (2021)</td>
+      </tr>
+      
+    
+      
+    
+      
+    
+      
+    
+    </tbody>
+</table>
+
+<p class="backtop"><a href="/iVirus/tools/">← All categories</a></p>
+
+      </div>
+    
+  
+</div>
+
+  </main>
+
+  <footer class="site-footer">
+  <p>
+    &copy; iVirus | Built with <a href="https://www.11ty.dev/" target="_blank" rel="noopener">Eleventy</a> | 
+    Supported by the <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1759874&amp;HistoricalAwards=false" target="_blank" rel="noopener">National Science Foundation (ABI #1759874)</a> and the iVirus project | 
+    <a href="/iVirus/about/">Contact</a> | 
+    <a href="#top" class="back-to-top">Go to Top ↑</a>
+  </p>
+</footer>
+
+  <!-- Global JS -->
+  <script src="/iVirus/assets/js/site-nav.js"></script>
+  <script src="/iVirus/assets/js/code-extras.js"></script>
+  <script src="/iVirus/assets/js/directory-filters.js"></script>
+  <script src="/iVirus/assets/js/home.js"></script>
+  <script src="/iVirus/assets/js/theme-toggle.js"></script>
+
+  <!-- Alpha banner dismiss -->
+  <script>
+    (function () {
+      var banner = document.getElementById('alphaBanner');
+      var btn    = document.getElementById('alphaBannerClose');
+      if (!banner || !btn) return;
+      // Hide immediately if previously dismissed
+      try { if (localStorage.getItem('ivirus-alpha-dismissed') === '1') banner.classList.add('is-hidden'); } catch(e) {}
+      btn.addEventListener('click', function () {
+        banner.classList.add('is-hidden');
+        try { localStorage.setItem('ivirus-alpha-dismissed', '1'); } catch(e) {}
+      });
+    })();
+  </script>
+</body>
+</html>

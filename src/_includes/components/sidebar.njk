@@ -1,0 +1,52 @@
+{% set wfdata = workflows %}
+{% set tg = collections.toolGuidesGrouped %}
+<nav class="side">
+  <h3>Docs</h3>
+
+  {# --- Workflows (always at the top) --- #}
+  {% if wfdata %}
+  <div class="group">
+    <h4>Workflows</h4>
+    <ul class="wf-list">
+    {% for wfkey, wf in wfdata %}
+      {% set isActiveFlow = (page.data.workflow and page.data.workflow == wfkey) %}
+      <li class="wf-parent {% if isActiveFlow %}open{% endif %}">
+        <button class="wf-toggle" aria-label="Toggle steps"
+                aria-expanded="{{ isActiveFlow | default(false) }}">
+          {{ wf.title }} <span class="arrow">{% if isActiveFlow %}▾{% else %}▸{% endif %}</span>
+        </button>
+        <ul class="wf-steps-nested" {% if not isActiveFlow %}hidden{% endif %}>
+          {% for s in wf.steps %}
+          <li class="{% if page.url == s.url or (page.data.step and page.data.step == s.id) %}active{% endif %}">
+            <a href="{{ s.url }}">{{ s.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  {# --- Tool Guides, grouped by tools.json category --- #}
+  {% if tg and tg.items and tg.items.length %}
+  <div class="group">
+    <h4>Tool Guides</h4>
+    {% for cat in tg.categories %}
+      {% set list = tg.groups[cat.id] %}
+      {% if list and list.length %}
+        <div class="subgroup">
+          <div class="subgroup-title">{{ cat.icon }} {{ cat.title }}</div>
+          <ul>
+            {% for p in list %}
+              <li class="{% if page.url == p.url %}active{% endif %}">
+                <a href="{{ p.url }}">{{ p.data.navTitle or p.data.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  {% endif %}
+</nav>

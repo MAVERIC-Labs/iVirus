@@ -1,0 +1,62 @@
+{% extends "layouts/base.njk" %}
+{% block content %}
+<div class="docs-wrap {{ doctype or 'guide' }}">
+  <aside class="docs-sidebar">{% include "components/sidebar.njk" %}</aside>
+
+  <article class="docs-content">
+    {# Only render the default header when not using a hero #}
+    {% if not noHeader %}
+      <h1>{{ title }}</h1>
+      {% if description %}<p class="muted">{{ description }}</p>{% endif %}
+
+      {# Platform badge bar — look up this page's tool in tools.json by fileSlug #}
+      {% set toolMeta = tools.items | findBySlug(page.fileSlug) %}
+      {% if toolMeta and toolMeta.platforms %}
+        <div class="tool-meta-bar">
+          {% set onIvirus = false %}
+          {% for p in toolMeta.platforms %}
+            {% if p == "KBase" or p == "CyVerse" %}{% set onIvirus = true %}{% endif %}
+          {% endfor %}
+
+          {% if onIvirus %}
+            <span class="badge badge--ivirus" title="Accessible through iVirus on KBase or CyVerse">
+              ✓ Available on iVirus
+            </span>
+          {% endif %}
+
+          {% for p in toolMeta.platforms %}
+            {% if p == "KBase" %}
+              <span class="badge badge--platform badge--kbase">KBase</span>
+            {% elif p == "CyVerse" %}
+              <span class="badge badge--platform badge--cyverse">CyVerse</span>
+            {% elif p == "HPC" %}
+              <span class="badge badge--platform badge--hpc">HPC</span>
+            {% elif p == "Desktop" %}
+              <span class="badge badge--platform badge--desktop">Desktop app</span>
+            {% else %}
+              <span class="badge badge--platform badge--hpc">{{ p }}</span>
+            {% endif %}
+          {% endfor %}
+
+          {% if toolMeta.category %}
+            <span class="tool-meta-sep">·</span>
+            <span class="tool-meta-cat">{{ toolMeta.category | replace("-", " ") | title }}</span>
+          {% endif %}
+
+          {% if toolMeta.reference %}
+            <span class="tool-meta-sep">·</span>
+            <span class="tool-meta-ref">{{ toolMeta.reference }}</span>
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endif %}
+
+    {{ content | safe }}
+  </article>
+
+  {% if toc %}
+    <nav class="docs-toc">{% include "components/toc.njk" %}</nav>
+  {% endif %}
+</div>
+<script src="/assets/js/docs-ui.js"></script>
+{% endblock %}

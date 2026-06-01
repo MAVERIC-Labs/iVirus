@@ -1,0 +1,79 @@
+---
+layout: layouts/site.njk
+title: Protocols
+permalink: /protocols/
+heroTitle: "Protocols"
+heroSubtitle: "Curated, citable procedures hosted on protocols.io and KBase."
+heroVariant: "hero--docs"
+---
+<section class="page-protocols" data-filter-kind="protocols">
+  {# Build unique lists of platforms and hosts (Nunjucks-friendly) #}
+  {% set platforms = [] %}
+  {% set hosts = [] %}
+  {% for p in collections.protocols %}
+    {% if p.data.platform and not (p.data.platform in platforms) %}
+      {% set platforms = platforms | concat([p.data.platform]) %}
+    {% endif %}
+    {% if p.data.external and p.data.external.kind and not (p.data.external.kind in hosts) %}
+      {% set hosts = hosts | concat([p.data.external.kind]) %}
+    {% endif %}
+  {% endfor %}
+  {% set platforms = platforms | sort %}
+  {% set hosts = hosts | sort %}
+
+  <div class="directory-controls filters">
+    <label for="f-platform">Platform</label>
+    <select id="f-platform">
+      <option value="">All</option>
+      {% for k in platforms %}<option value="{{ k | lower }}">{{ k }}</option>{% endfor %}
+    </select>
+
+    <label for="f-host">Host</label>
+    <select id="f-host">
+      <option value="">All</option>
+      {% for k in hosts %}<option value="{{ k | lower }}">{{ k }}</option>{% endfor %}
+    </select>
+
+    <label class="sr-only" for="f-search">Search</label>
+    <input id="f-search" type="search" placeholder="Search titles…" aria-label="Search titles">
+  </div>
+  <p id="result-count" class="muted" aria-live="polite"></p>
+
+  <ul class="card-grid directory-grid">
+    {% if collections.protocols and collections.protocols | length %}
+      {% for p in collections.protocols %}
+        <li class="card protocol directory-card"
+            data-title="{{ p.data.title | lower }}"
+            data-platform="{{ (p.data.platform or '') | lower }}"
+            data-host="{% if p.data.external and p.data.external.kind %}{{ p.data.external.kind | lower }}{% else %}{% endif %}">
+            <h3>{{ p.data.title }}</h3>
+            <p class="muted">
+            {% if p.data.platform %}<span class="pill">{{ p.data.platform }}</span>{% endif %}
+            {% if p.data.external and p.data.external.kind %}<span class="pill">{{ p.data.external.kind }}</span>{% endif %}
+            </p>
+            {% if p.data.summary %}<p>{{ p.data.summary }}</p>{% endif %}
+
+            <div class="actions">
+            {% if p.data.external and p.data.external.url %}
+                <a class="btn" href="{{ p.data.external.url }}" target="_blank" rel="noopener">Open protocol</a>
+            {% endif %}
+
+            {% if p.data.external and p.data.external.kind == "protocols.io" and p.data.external.url %}
+                {% set doi = (p.data.external.url | replace("https://dx.doi.org/","")) %}
+                <button class="btn ghost js-show-widget"
+                        type="button"
+                        data-doi="{{ doi | urlencode }}">Show metrics</button>
+            {% endif %}
+
+            {# Optional: keep a small local page link for future notes/SEO #}
+            <a class="btn tiny" href="{{ p.url }}">Details</a>
+            </div>
+
+            <div class="proto-embed mini js-widget-slot" hidden></div>
+        </li>
+      {% endfor %}
+    {% else %}
+      <li class="card empty"><p class="muted">No protocols found yet. Add Markdown files under <code>src/protocols/</code>.</p></li>
+    {% endif %}
+  </ul>
+</section>

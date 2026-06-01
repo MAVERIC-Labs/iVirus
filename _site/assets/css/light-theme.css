@@ -1,0 +1,55 @@
+/* iVirus theme system: explicit classes win */
+/* 1) Base palette (fallback) */
+:root{
+  --bg:#f6f8fb; --panel:#ffffff; --panel-alt:#f0f4fa;
+  --text:#0e1b2b; --muted:#51607a; --border:#d7e0ea;
+  --accent:#2b6ff2; --accent-hover:#1c5be0; --accent-visited:#7a3df0;
+  --code-bg:#f3f6fb; --code-border:#d8e2f0;
+  --shadow:0 8px 20px rgba(10,35,80,.08);
+}
+
+/* 2) Respect OS preference when NO explicit class is set */
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0b1020; --panel:#11172c; --panel-alt:#0f1427;
+    --text:#e9eefb; --muted:#9db0d6; --border:#1e2744;
+    --accent:#6aa6ff; --accent-hover:#8dc0ff; --accent-visited:#b095ff;
+    --code-bg:#0f1427; --code-border:#1e2744;
+    --shadow:0 8px 20px rgba(0,0,0,.25);
+  }
+}
+
+/* 3) Manual override classes (placed AFTER the media query so they WIN).
+      Selectors match either <html class="theme-..."> (set pre-paint to avoid FOUC)
+      or <body class="theme-..."> (set by the toggle JS). */
+.theme-light, body.theme-light{
+  --bg:#f6f8fb; --panel:#ffffff; --panel-alt:#f0f4fa;
+  --text:#0e1b2b; --muted:#51607a; --border:#d7e0ea;
+  --accent:#2b6ff2; --accent-hover:#1c5be0; --accent-visited:#7a3df0;
+  --code-bg:#f3f6fb; --code-border:#d8e2f0;
+  --shadow:0 8px 20px rgba(10,35,80,.08);
+}
+.theme-dark, body.theme-dark{
+  --bg:#0b1020; --panel:#11172c; --panel-alt:#0f1427;
+  --text:#e9eefb; --muted:#9db0d6; --border:#1e2744;
+  --accent:#6aa6ff; --accent-hover:#8dc0ff; --accent-visited:#b095ff;
+  --code-bg:#0f1427; --code-border:#1e2744;
+  --shadow:0 8px 20px rgba(0,0,0,.25);
+}
+
+/* 4) Apply variables */
+body{ background:var(--bg); color:var(--text); }
+.site-header{ background:var(--panel); border-bottom:1px solid var(--border); box-shadow:var(--shadow); }
+.site-footer{ background:var(--panel); border-top:1px solid var(--border); color:var(--muted); }
+.card{ background:var(--panel); border:1px solid var(--border); box-shadow:var(--shadow); }
+.hero{ background:var(--panel-alt); border:1px solid var(--border); border-radius:16px; }
+.nav-item>a{ color:var(--text); }
+.nav-toggle, .theme-toggle{ border-color:var(--border); color:var(--text); }
+a{ color:var(--accent); }
+a:hover, a:focus{ color:var(--accent-hover); text-decoration: underline; }
+a:visited{ color:var(--accent-visited); }
+hr{ border-color:var(--border); }
+.docs-sidebar{ background:var(--panel); border:1px solid var(--border); box-shadow:var(--shadow); }
+.toc .muted{ color:var(--muted); }
+pre{ background:var(--code-bg); border:1px solid var(--code-border); }
+.copy-btn{ background:#f7faff; color:#20324a; border:1px solid var(--code-border); }

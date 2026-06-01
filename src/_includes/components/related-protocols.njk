@@ -1,0 +1,21 @@
+{% if related_protocols and collections and collections.protocols %}
+<hr class="section-divider">
+<section class="related related-protocols">
+  <h2>Related protocols</h2>
+  <ul class="link-list">
+    {# Keep the order you specify in front matter #}
+    {% for slug in related_protocols %}
+      {% for p in collections.protocols %}
+        {% if p.fileSlug == slug or (p.data and p.data.slug and p.data.slug == slug) %}
+          <li>
+            <a href="{{ p.url }}">{{ p.data.title }}</a>
+            {% if p.data.platform %}
+              <span class="pill">{{ p.data.platform }}</span>
+            {% endif %}
+          </li>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}

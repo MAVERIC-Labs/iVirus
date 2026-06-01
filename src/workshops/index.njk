@@ -1,0 +1,79 @@
+---
+layout: layouts/site.njk
+title: Workshops & Talks
+permalink: /workshops/
+heroTitle: "Workshops & Talks"
+heroSubtitle: "Training sessions, invited talks, and community events."
+heroVariant: "hero--workshops"
+heroBg: "url('/assets/img/hero-workshops.jpg')"
+heroAnimate: true
+contentClass: "page-flow"
+---
+{# ---------- Precompute sets ---------- #}
+{# Use front-matter `type: "upcoming"` for future events, `type: "past"` for completed ones. #}
+{% set upcoming = workshops.items | byType("upcoming") | sortByDate("date","asc") %}
+{% set past     = workshops.items | byType("past")     | sortByDate("date","desc") %}
+
+{# ---------- Upcoming section ---------- #}
+{% if (upcoming | count) >= 1 %}
+<section class="workshops-upcoming">
+  <h2>Upcoming</h2>
+  <div class="workshop-grid">
+    {% for w in upcoming %}
+    <article class="workshop-card">
+      {% if w.image %}<img src="{{ w.image }}" alt="">{% endif %}
+      <div class="content">
+        <h3><a href="{{ w.url }}">{{ w.title }}</a></h3>
+        <p class="meta">📅 {{ w.date | dateFmt }}{% if w.location %} · 📍 {{ w.location }}{% endif %}</p>
+        <div class="tags">
+          {% if w.tags and ("recording" in w.tags) %}<span class="badge rec">🎥 recording</span>{% endif %}
+          {% if w.tags %}
+            {% for tag in w.tags %}
+              {% if tag != "recording" %}<span class="badge">{{ tag }}</span>{% endif %}
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{# ---------- Past section grouped by year ---------- #}
+{% if (past | count) >= 1 %}
+<section class="workshops-archive">
+  <h2>Past Workshops</h2>
+  {% for group in past | groupByYear("date") %}
+    <h3 class="year">{{ group.year }}</h3>
+    <div class="workshop-grid">
+      {% for w in group.items %}
+      <article class="workshop-card">
+        {% if w.image %}<img src="{{ w.image }}" alt="">{% endif %}
+        <div class="content">
+          <h3><a href="{{ w.url }}">{{ w.title }}</a></h3>
+          <p class="meta">📅 {{ w.date | dateFmt }}{% if w.location %} · 📍 {{ w.location }}{% endif %}</p>
+          <div class="tags">
+            {% if w.tags and ("recording" in w.tags) %}<span class="badge rec">🎥 recording</span>{% endif %}
+            {% if w.tags %}
+              {% for tag in w.tags %}
+                {% if tag != "recording" %}<span class="badge">{{ tag }}</span>{% endif %}
+              {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  {% endfor %}
+</section>
+{% endif %}
+
+{# ---------- CTA row ---------- #}
+<section class="workshops-cta">
+  <div class="cta">
+    <p>Want to host a workshop or request training?</p>
+    <a class="btn" href="/about/">Contact us</a>
+    <a class="btn ghost" href="/docs/">Browse Docs</a>
+  </div>
+</section>

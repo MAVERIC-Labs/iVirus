@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Compute Platforms (CyVerse &amp; KBase) – iVirus</title>
+  <meta name="description" content="Why iVirus builds on CyVerse and KBase, with links and citations.">
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/workflow.css">
+  <link rel="stylesheet" href="/assets/css/light-theme.css">
+  <link rel="stylesheet" href="/assets/css/home.css">
+  <link rel="stylesheet" href="/assets/css/docs-grouped.css">
+  <link rel="stylesheet" href="/assets/css/tools.css">
+  <link rel="stylesheet" href="/assets/css/data.css">
+  <link rel="stylesheet" href="/assets/css/publications.css">
+
+  <!-- GA tracking (only in production builds) -->
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T56YTL1JSV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T56YTL1JSV');
+  </script>
+  
+</head>
+<body class="-about-platforms">
+  <header class="site-header">
+  <a class="logo" href="/">iVirus</a>
+
+  <!-- mobile hamburger (left) -->
+  <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav"
+    onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='false');document.getElementById('site-nav').classList.toggle('open')">
+    ☰
+  </button>
+
+  <!-- main nav -->
+  <nav id="site-nav" class="nav">
+    <ul class="nav-list">
+      
+        <li class="nav-item"><a href="/about/">About</a></li>
+      
+        <li class="nav-item"><a href="/tools/">Tools &amp; Apps</a></li>
+      
+        <li class="nav-item"><a href="/data/">Data</a></li>
+      
+        <li class="nav-item"><a href="/workshops/">Workshops</a></li>
+      
+        <li class="nav-item"><a href="/publications/">Publications</a></li>
+      
+        <li class="nav-item"><a href="/docs/">Docs</a></li>
+      
+    </ul>
+  </nav>
+
+  <!-- spacer pushes the toggle to the far right -->
+  <div class="header-spacer" aria-hidden="true"></div>
+
+  <!-- theme toggle (always visible, right end) -->
+  <button class="theme-toggle" data-theme-toggle aria-pressed="false" title="Toggle theme">🌓</button>
+</header>
+
+  <main class="container">
+    
+<div class="docs-wrap guide">
+  <aside class="docs-sidebar">
+<nav class="side">
+  <h3>Docs</h3>
+
+  
+  
+  <div class="group">
+    <h4>Workflows</h4>
+    <ul class="wf-list">
+    
+      
+      <li class="wf-parent ">
+  <button class="wf-toggle" aria-label="Toggle steps"
+          aria-expanded="false">
+    Viral Metagenome Workflow <span class="arrow">▸</span>
+  </button>
+  <ul class="wf-steps-nested">
+    
+    <li class="">
+      <a href="/docs/workflows/sra-fetch/">SRA Fetch</a>
+    </li>
+    
+    <li class="">
+      <a href="/docs/workflows/qc-and-trim/">QC &amp; Trim</a>
+    </li>
+    
+    <li class="">
+      <a href="/docs/workflows/assembly/">Assembly</a>
+    </li>
+    
+    <li class="">
+      <a href="/docs/workflows/viral-identification/">Viral Identification</a>
+    </li>
+    
+    <li class="">
+      <a href="/docs/workflows/reporting/">Reporting</a>
+    </li>
+    
+  </ul>
+</li>
+    
+    </ul>
+  </div>
+  
+
+  
+  
+  <div class="group">
+    <h4>Tool Guides</h4>
+    <ul>
+      
+        <li class="">
+          <a href="/docs/tools/fastp/"></a>
+        </li>
+      
+        <li class="">
+          <a href="/docs/tools/vibrant/">VIBRANT</a>
+        </li>
+      
+        <li class="">
+          <a href="/docs/tools/spades/">SPAdes</a>
+        </li>
+      
+        <li class="">
+          <a href="/docs/tools/sra-download/">SRA FASTQ Download</a>
+        </li>
+      
+    </ul>
+  </div>
+  
+
+  
+  
+</nav>
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+<script>
+// Simple expand/collapse for workflow groups (no framework)
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('.wf-parent').forEach(function(item){
+    const btn = item.querySelector('.wf-toggle');
+    const nested = item.querySelector('.wf-steps-nested');
+    const arrow = btn.querySelector('.arrow');
+
+    const isOpen = item.classList.contains('open');
+    nested.style.display = isOpen ? 'block' : 'none';
+    arrow.textContent = isOpen ? '▾' : '▸';
+
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      const open = nested.style.display !== 'none';
+      nested.style.display = open ? 'none' : 'block';
+      arrow.textContent = open ? '▸' : '▾';
+      btn.setAttribute('aria-expanded', String(!open));
+    });
+  });
+});
+</script>
+</aside>
+
+  <article class="docs-content">
+    
+    
+
+    <div class="page-hero hero--docs hero--hasbg hero--support" style="--hero-bg-alpha:.42">
+  <h1>Compute Platforms</h1>
+  <p class="muted">CyVerse and KBase power iVirus tools, datasets, and workflows.</p>
+</div>
+<h2>Overview</h2>
+<p>To make virus ecology analyses broadly accessible, iVirus leverages two community platforms: <strong>CyVerse</strong> and <strong>KBase</strong>. They provide shared compute, storage, app catalogs, and collaboration features that let researchers run end-to-end workflows without managing their own HPC or devops.</p>
+<hr>
+<h2>CyVerse</h2>
+<p><strong>CyVerse</strong> democratizes access to advanced computing and data services for life sciences. Researchers can discover apps, launch analyses, and share data via the Discovery Environment and Data Store.</p>
+<h3>Why it matters here</h3>
+<ul>
+<li>Shared compute and storage for large metagenomics datasets.</li>
+<li>A place to publish and reuse <strong>iVirus datasets</strong>.</li>
+<li>A catalog where <strong>iVirus apps</strong> and trusted third-party tools run side-by-side.</li>
+</ul>
+<h3>Citation</h3>
+<blockquote>
+<p>This material is based upon work supported by the National Science Foundation under Award Numbers DBI-0735191, DBI-1265383, and DBI-1743442. URL: www.cyverse.org</p>
+</blockquote>
+<hr>
+<h2>KBase</h2>
+<p><strong>KBase</strong> (the DOE Systems Biology Knowledgebase) provides a reproducible, shareable analysis environment with provenance and collaboration features (Narratives) and a curated app catalog.</p>
+<h3>Why it matters here</h3>
+<ul>
+<li>Reproducible <strong>Narratives</strong> for end-to-end workflows.</li>
+<li>Curated apps spanning read processing, assembly, annotation, and downstream analysis.</li>
+<li>Easy data import from common sources (e.g., NCBI, JGI, SRA).</li>
+</ul>
+<h3>Citation</h3>
+<blockquote>
+<p>Arkin AP, Cottingham RW, Henry CS, Harris NL, Stevens RL, Maslov S, <em>et al.</em> <strong>KBase: The United States Department of Energy Systems Biology Knowledgebase.</strong> <em>Nature Biotechnology</em>. 2018;36: 566. doi: 10.1038/nbt.4163</p>
+</blockquote>
+<hr>
+<h2>Where this fits in iVirus</h2>
+<ul>
+<li><strong>Tools:</strong> Many iVirus tools run inside CyVerse or KBase. See <a href="/tools/">Tools &amp; Apps</a>.</li>
+<li><strong>Workflows &amp; Docs:</strong> Protocols and guides reference DE apps and KBase Narratives. See <a href="/docs/">Docs</a>.</li>
+<li><strong>Data:</strong> Community datasets are published in the CyVerse Data Store and referenced from iVirus. See <a href="/data/">Data</a>.</li>
+</ul>
+
+  </article>
+
+  
+</div>
+
+  </main>
+
+  <footer class="site-footer">
+  <p>&copy; iVirus. Built with Eleventy.</p>
+</footer>
+
+  <!-- Global JS -->
+  <script src="/assets/js/code-extras.js"></script>
+  <script src="/assets/js/theme-toggle.js"></script>
+</body>
+</html>

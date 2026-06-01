@@ -1,0 +1,25 @@
+<header id="top" class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="/" aria-label="iVirus home"><span class="logo-i">i</span><span class="logo-virus">Virus</span></a>
+
+    <!-- mobile hamburger (left) -->
+    <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+      ☰
+    </button>
+
+    <!-- main nav -->
+    <nav id="site-nav" class="nav" data-site-nav>
+      <ul class="nav-list">
+        {% for item in nav %}
+          <li class="nav-item"><a href="{{ item.url | url }}">{{ item.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <!-- spacer pushes the toggle to the far right -->
+    <div class="header-spacer" aria-hidden="true"></div>
+
+    <!-- theme toggle (always visible, right end) -->
+    <button class="theme-toggle" data-theme-toggle aria-pressed="false" title="Toggle theme">🌓</button>
+  </div>
+</header>

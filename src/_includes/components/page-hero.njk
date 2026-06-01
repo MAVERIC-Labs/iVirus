@@ -1,0 +1,8 @@
+<section
+  class="page-hero{% if heroVariant %} {{ heroVariant }}{% endif %}{% if heroBg %} hero--hasbg{% endif %}{% if heroAnimate %} hero--anim{% endif %}"
+  {% if heroBg %}style="--hero-bg: {{ heroBg | safe }}"{% endif %}>
+  <div class="container">
+    <h1>{{ heroTitle }}</h1>
+    {% if heroSubtitle %}<p class="muted">{{ heroSubtitle }}</p>{% endif %}
+  </div>
+</section>

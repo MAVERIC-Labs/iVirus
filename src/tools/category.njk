@@ -1,0 +1,65 @@
+---
+layout: layouts/site.njk
+pagination:
+  data: tools.categories
+  size: 1
+  alias: cat
+permalink: /tools/{{ cat.id }}/
+eleventyComputed:
+  title: "{{ cat.title }}"
+  heroTitle: "{{ cat.title }}"
+  heroSubtitle: "{{ cat.description }}"
+  heroVariant: "hero--tools"
+  heroBg: "{{ \"linear-gradient(180deg, rgba(17,24,39,.55), rgba(2,6,23,.6)), url('\" + (cat.hero_img or '/assets/img/hero/tools-tiles.svg') + \"')\" }}"
+---
+<table class="tool-table">
+  <thead>
+    <tr>
+      <th>Tool</th>
+      <th>Description</th>
+      <th>Platforms</th>
+      <th>Links</th>
+      <th>Reference</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for t in tools.items %}
+      {% if t.category == cat.id %}
+      <tr>
+        <td><strong>{{ t.name }}</strong></td>
+        <td>{{ t.summary }}</td>
+        <td>
+          {% for p in t.platforms %}
+            <span class="pill">{{ p }}</span>
+          {% endfor %}
+        </td>
+        {% set docId   = (t.id or t.slug or t.name) | slug %}
+        {% set docUrl  = '/docs/tools/' + docId + '/' %}
+        {% set hasDoc  = collections.toolGuidesGrouped.items | hasDocForId(docId) %}
+
+        <td class="links">
+          {# Prefer local docs if they exist #}
+          {% if hasDoc %}
+            <a href="{{ docUrl }}">Docs</a>
+            {% if t.official_url %} · <a href="{{ t.official_url }}" target="_blank" rel="noopener">Official</a>{% endif %}
+          {% else %}
+            {# Fallbacks: external docs, or “coming soon” #}
+            {% if t.site_docs_url %}
+              <a href="{{ t.site_docs_url }}">Docs</a>
+              {% if t.official_url %} · <a href="{{ t.official_url }}" target="_blank" rel="noopener">Official</a>{% endif %}
+            {% else %}
+              <a href="{{ docUrl }}">
+                Docs <span class="pill warn">coming soon</span>
+              </a>
+              {% if t.official_url %} · <a href="{{ t.official_url }}" target="_blank" rel="noopener">Official</a>{% endif %}
+            {% endif %}
+          {% endif %}
+        </td>
+        <td class="muted">{{ t.reference }}</td>
+      </tr>
+      {% endif %}
+    {% endfor %}
+    </tbody>
+</table>
+
+<p class="backtop"><a href="/tools/">← All categories</a></p>

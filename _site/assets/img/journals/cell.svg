@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 84" role="img" aria-label="Cell journal logo">
+  <rect width="64" height="84" rx="5" fill="#1b1b2f"/>
+  <rect width="64" height="7" rx="5" fill="#e63946" opacity="0.85"/>
+  <rect y="2" width="64" height="3" fill="#e63946" opacity="0.85"/>
+  <text x="32" y="49" font-family="Georgia,'Times New Roman',serif" font-size="17" fill="white" text-anchor="middle" font-weight="400">Cell</text>
+</svg>

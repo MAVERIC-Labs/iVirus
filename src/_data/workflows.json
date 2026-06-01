@@ -1,0 +1,37 @@
+{
+  "metagenome": {
+    "title": "Viral Metagenome Workflow",
+    "steps": [
+      {
+        "id": "sra",
+        "title": "SRA Fetch",
+        "url": "/docs/workflows/sra-fetch/",
+        "icon": "\ud83d\udce5"
+      },
+      {
+        "id": "qc",
+        "title": "QC & Trim",
+        "url": "/docs/workflows/qc-and-trim/",
+        "icon": "\ud83e\uddea"
+      },
+      {
+        "id": "assembly",
+        "title": "Assembly",
+        "url": "/docs/workflows/assembly/",
+        "icon": "\ud83e\udde9"
+      },
+      {
+        "id": "id",
+        "title": "Viral Identification",
+        "url": "/docs/workflows/viral-identification/",
+        "icon": "\ud83e\udda0"
+      },
+      {
+        "id": "report",
+        "title": "Reporting",
+        "url": "/docs/workflows/reporting/",
+        "icon": "\ud83d\udcca"
+      }
+    ]
+  }
+}

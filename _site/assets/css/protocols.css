@@ -1,0 +1,29 @@
+/* Ensure cards are wide enough for the protocols.io widget */
+.page-protocols .directory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
+}
+
+.page-protocols .directory-card {
+  padding: 1rem;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.page-protocols .proto-embed iframe {
+  width: 100%;
+  max-width: 720px; /* optional, keep it from getting too wide */
+  height: 260px;    /* tweak to taste; widget handles internal layout */
+  border: 0;
+}
+
+.page-protocols .actions { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .5rem; }
+.page-protocols .btn.tiny { font-size: .8em; padding: .25rem .5rem; }
+.page-protocols .proto-embed.mini { margin-top: .5rem; }
+.page-protocols .proto-embed.mini iframe {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 320px; /* bump to avoid internal Y scroll on compact layouts */
+  border: 0;
+}

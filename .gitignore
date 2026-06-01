@@ -1,0 +1,5 @@
+node_modules/
+.DS_Store
+guide.md
+dev-notes.md
+old_website/

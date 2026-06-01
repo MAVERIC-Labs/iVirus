@@ -1,0 +1,53 @@
+/* Workflow stepper */
+.wf {background:var(--panel); border:1px solid #1e2744; border-radius:14px; padding:1rem; margin:1rem 0}
+.wf-title{margin:.25rem 0 1rem 0; font-size:1rem; color:var(--muted)}
+.wf-steps{list-style:none; display:flex; gap:1rem; margin:0; padding:0; flex-wrap:wrap}
+.wf-step a{display:flex; align-items:center; gap:.5rem; text-decoration:none; color:var(--muted)}
+.wf-step .dot{width:.9rem; height:.9rem; border-radius:50%; border:2px solid #3b4a76; display:inline-block}
+.wf-step.active a{color:var(--text)}
+.wf-step.active .dot{background:var(--accent); border-color:var(--accent)}
+
+/* Optional: make sidebar visibly distinct */
+.docs-sidebar{background:var(--panel); border:1px solid #1e2744; border-radius:14px; padding:.75rem}
+
+/* Wider page so 1–4–1 has room */
+.container{ max-width: 1280px; } /* try 1360–1440px if you want even wider */
+
+/* 6-col docs layout: 1 | 4 | 1 */
+@media (min-width: 1100px){
+  .docs-wrap{
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0,1fr));
+    gap: 1.5rem;
+  }
+  .docs-sidebar{ grid-column: 1 / span 1; }
+  .docs-content{ grid-column: 2 / span 4; }
+  .docs-toc{     grid-column: 6 / span 1; }
+
+  /* keep sidebar/ToC sticky */
+  .docs-sidebar, .docs-toc{
+    position: sticky;
+    top: 5rem;
+    align-self: start;
+    max-height: calc(100vh - 6rem);
+    overflow: auto;
+  }
+}
+
+/* Remove earlier content width caps so the middle can breathe */
+.docs-wrap .docs-content{ max-width: none; }
+
+/* Keep narrative guides slightly narrower for readability */
+.docs-wrap.guide .docs-content{ max-width: 90ch; }
+
+/* Remove the outer container padding on docs pages only */
+body[class*="docs-"] main.container {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 100%;
+  }
+  
+  /* Optional: keep a thin outer gutter if you like */
+  @media (min-width: 1100px){
+    body[class*="docs-"] main.container { padding-inline: 12px; }
+  }
