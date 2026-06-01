@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>{% if title %}{{ title }} – {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ description or site.description }}">
-  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="{{ '/assets/img/favicon.svg' | url }}" type="image/svg+xml">
 
   <!-- Theme bootstrap: apply saved/preferred theme before paint to avoid FOUC. -->
   <script>
@@ -27,15 +27,15 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="/assets/css/main.css">
-  <link rel="stylesheet" href="/assets/css/workflow.css">
-  <link rel="stylesheet" href="/assets/css/light-theme.css">
-  <link rel="stylesheet" href="/assets/css/home.css">
-  <link rel="stylesheet" href="/assets/css/docs-grouped.css">
-  <link rel="stylesheet" href="/assets/css/tools.css">
-  <link rel="stylesheet" href="/assets/css/data.css">
-  <link rel="stylesheet" href="/assets/css/publications.css">
-  <link rel="stylesheet" href="/assets/css/protocols.css">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/workflow.css' | url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/light-theme.css' | url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/home.css' | url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/docs-grouped.css' | url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/tools.css' | url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/data.css' | url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/publications.css' | url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/protocols.css' | url }}">
   <script defer src="https://www.protocols.io/js/widgets/js/protocolsiojs.min.js"></script>
 
   <!-- GA tracking (only in production builds) -->
@@ -71,11 +71,11 @@
   {% include "components/footer.njk" %}
 
   <!-- Global JS -->
-  <script src="/assets/js/site-nav.js"></script>
-  <script src="/assets/js/code-extras.js"></script>
-  <script src="/assets/js/directory-filters.js"></script>
-  <script src="/assets/js/home.js"></script>
-  <script src="/assets/js/theme-toggle.js"></script>
+  <script src="{{ '/assets/js/site-nav.js' | url }}"></script>
+  <script src="{{ '/assets/js/code-extras.js' | url }}"></script>
+  <script src="{{ '/assets/js/directory-filters.js' | url }}"></script>
+  <script src="{{ '/assets/js/home.js' | url }}"></script>
+  <script src="{{ '/assets/js/theme-toggle.js' | url }}"></script>
 
   <!-- Alpha banner dismiss -->
   <script>

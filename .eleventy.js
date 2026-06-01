@@ -1,10 +1,8 @@
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-const { HtmlBasePlugin } = require("@11ty/eleventy");
 const workflows = require("./src/_data/workflows.json");
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
-  eleventyConfig.addPlugin(HtmlBasePlugin);
 
   // Capture the configured md instance (with syntax highlighting) for use in shortcodes
   let mdLib;

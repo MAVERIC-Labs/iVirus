@@ -23,7 +23,7 @@
 
   <!-- Fonts: Inter (body) + Source Serif 4 (headings) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
 
   <!-- Global CSS -->
@@ -36,11 +36,11 @@
   <link rel="stylesheet" href="/iVirus/assets/css/data.css">
   <link rel="stylesheet" href="/iVirus/assets/css/publications.css">
   <link rel="stylesheet" href="/iVirus/assets/css/protocols.css">
-  <script defer="" src="https://www.protocols.io/js/widgets/js/protocolsiojs.min.js"></script>
+  <script defer src="https://www.protocols.io/js/widgets/js/protocolsiojs.min.js"></script>
 
   <!-- GA tracking (only in production builds) -->
   
-  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-T56YTL1JSV"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T56YTL1JSV"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -62,30 +62,30 @@
 
   <header id="top" class="site-header">
   <div class="header-inner">
-    <a class="logo" href="/iVirus/" aria-label="iVirus home"><span class="logo-i">i</span><span class="logo-virus">Virus</span></a>
+    <a class="logo" href="/" aria-label="iVirus home"><span class="logo-i">i</span><span class="logo-virus">Virus</span></a>
 
     <!-- mobile hamburger (left) -->
-    <button class="nav-toggle" data-nav-toggle="" aria-expanded="false" aria-controls="site-nav">
+    <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
       ☰
     </button>
 
     <!-- main nav -->
-    <nav id="site-nav" class="nav" data-site-nav="">
+    <nav id="site-nav" class="nav" data-site-nav>
       <ul class="nav-list">
         
-          <li class="nav-item"><a href="/iVirus/iVirus/about/">About</a></li>
+          <li class="nav-item"><a href="/iVirus/about/">About</a></li>
         
-          <li class="nav-item"><a href="/iVirus/iVirus/tools/">Tools &amp; Apps</a></li>
+          <li class="nav-item"><a href="/iVirus/tools/">Tools &amp; Apps</a></li>
         
-          <li class="nav-item"><a href="/iVirus/iVirus/data/">Data</a></li>
+          <li class="nav-item"><a href="/iVirus/data/">Data</a></li>
         
-          <li class="nav-item"><a href="/iVirus/iVirus/workshops/">Workshops</a></li>
+          <li class="nav-item"><a href="/iVirus/workshops/">Workshops</a></li>
         
-          <li class="nav-item"><a href="/iVirus/iVirus/publications/">Publications</a></li>
+          <li class="nav-item"><a href="/iVirus/publications/">Publications</a></li>
         
-          <li class="nav-item"><a href="/iVirus/iVirus/docs/">Docs</a></li>
+          <li class="nav-item"><a href="/iVirus/docs/">Docs</a></li>
         
-          <li class="nav-item"><a href="/iVirus/iVirus/protocols/">Protocols</a></li>
+          <li class="nav-item"><a href="/iVirus/protocols/">Protocols</a></li>
         
       </ul>
     </nav>
@@ -94,7 +94,7 @@
     <div class="header-spacer" aria-hidden="true"></div>
 
     <!-- theme toggle (always visible, right end) -->
-    <button class="theme-toggle" data-theme-toggle="" aria-pressed="false" title="Toggle theme">🌓</button>
+    <button class="theme-toggle" data-theme-toggle aria-pressed="false" title="Toggle theme">🌓</button>
   </div>
 </header>
 
@@ -103,7 +103,9 @@
     
 <div class="site-shell">
   
-    <section class="page-hero hero--tools hero--hasbg hero--anim" style="--hero-bg: linear-gradient(180deg, rgba(17,24,39,.55), rgba(2,6,23,.6)), url('/assets/img/hero/tools-tiles.svg')">
+    <section
+  class="page-hero hero--tools hero--hasbg hero--anim"
+  style="--hero-bg: linear-gradient(180deg, rgba(17,24,39,.55), rgba(2,6,23,.6)), url('/assets/img/hero/tools-tiles.svg')">
   <div class="container">
     <h1>Tools &amp; Apps</h1>
     <p class="muted">Browse by category or jump straight to documentation. Each tool links to its official site, supported platforms, and references.</p>
@@ -119,7 +121,7 @@
   <ul class="tool-cat-grid directory-grid">
     
     <li class="card tool-cat directory-card">
-      <a class="stretched" href="/iVirus/tools/quality-control/">
+      <a class="stretched" href="/tools/quality-control/">
         <div class="icon">🧪</div>
         <h3>Quality Control</h3>
         <p>Assess read quality, trim adapters, and filter low-quality sequences before assembly.</p>
@@ -128,7 +130,7 @@
     </li>
     
     <li class="card tool-cat directory-card">
-      <a class="stretched" href="/iVirus/tools/assembly/">
+      <a class="stretched" href="/tools/assembly/">
         <div class="icon">🧬</div>
         <h3>Assembly</h3>
         <p>Assemble short reads into contigs for downstream viral identification and analysis.</p>
@@ -137,7 +139,7 @@
     </li>
     
     <li class="card tool-cat directory-card">
-      <a class="stretched" href="/iVirus/tools/identification/">
+      <a class="stretched" href="/tools/identification/">
         <div class="icon">🦠</div>
         <h3>Viral Identification</h3>
         <p>Detect viral sequences from metagenomic assemblies using diverse detection strategies.</p>
@@ -146,7 +148,7 @@
     </li>
     
     <li class="card tool-cat directory-card">
-      <a class="stretched" href="/iVirus/tools/gene-calling/">
+      <a class="stretched" href="/tools/gene-calling/">
         <div class="icon">🔬</div>
         <h3>Gene Calling</h3>
         <p>Predict protein-coding genes from viral contigs prior to annotation and database search.</p>
@@ -155,7 +157,7 @@
     </li>
     
     <li class="card tool-cat directory-card">
-      <a class="stretched" href="/iVirus/tools/annotation/">
+      <a class="stretched" href="/tools/annotation/">
         <div class="icon">📝</div>
         <h3>Annotation</h3>
         <p>Annotate viral genomes, characterize functions, and curate sequences for downstream ecology.</p>
@@ -164,7 +166,7 @@
     </li>
     
     <li class="card tool-cat directory-card">
-      <a class="stretched" href="/iVirus/tools/sequence-search/">
+      <a class="stretched" href="/tools/sequence-search/">
         <div class="icon">🔍</div>
         <h3>Sequence Search</h3>
         <p>Search nucleotide or protein sequences against reference databases at scale.</p>
@@ -173,7 +175,7 @@
     </li>
     
     <li class="card tool-cat directory-card">
-      <a class="stretched" href="/iVirus/tools/taxonomy/">
+      <a class="stretched" href="/tools/taxonomy/">
         <div class="icon">🌳</div>
         <h3>Taxonomy</h3>
         <p>Assign taxonomic labels to viral sequences using gene-sharing networks or k-mer similarity.</p>
@@ -182,7 +184,7 @@
     </li>
     
     <li class="card tool-cat directory-card">
-      <a class="stretched" href="/iVirus/tools/host-prediction/">
+      <a class="stretched" href="/tools/host-prediction/">
         <div class="icon">🔗</div>
         <h3>Host Prediction</h3>
         <p>Predict the prokaryotic hosts of viral sequences using sequence- or signal-based methods.</p>
@@ -191,7 +193,7 @@
     </li>
     
     <li class="card tool-cat directory-card">
-      <a class="stretched" href="/iVirus/tools/abundance/">
+      <a class="stretched" href="/tools/abundance/">
         <div class="icon">📈</div>
         <h3>Abundance &amp; Ecology</h3>
         <p>Map reads back to viral references to estimate genome abundance and population dynamics.</p>
@@ -200,7 +202,7 @@
     </li>
     
     <li class="card tool-cat directory-card">
-      <a class="stretched" href="/iVirus/tools/visualization/">
+      <a class="stretched" href="/tools/visualization/">
         <div class="icon">📊</div>
         <h3>Visualization</h3>
         <p>Explore and visualize viral networks, community structure, and genomic context.</p>
@@ -222,7 +224,7 @@
   <p>
     &copy; iVirus | Built with <a href="https://www.11ty.dev/" target="_blank" rel="noopener">Eleventy</a> | 
     Supported by the <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1759874&amp;HistoricalAwards=false" target="_blank" rel="noopener">National Science Foundation (ABI #1759874)</a> and the iVirus project | 
-    <a href="/iVirus/about/">Contact</a> | 
+    <a href="/about/">Contact</a> | 
     <a href="#top" class="back-to-top">Go to Top ↑</a>
   </p>
 </footer>
