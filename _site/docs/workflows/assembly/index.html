@@ -384,7 +384,7 @@
 <p>Assembly isn't for the faint of heart. It can be frustrating and it can fail for a lot of reasons, often due to insufficient memory or due to the dataset complexity. There's only so much you can do.</p>
 <p>However, our example dataset will finish on most HPC systems within a few hours. <em>This will run SPAdes on the Trimmomatic-cleaned reads; alternatives are below.</em></p>
 <h2>SPAdes</h2>
-<div class="codetabs" id="tabs-4e5h5x3weix" data-codetabs>
+<div class="codetabs" id="tabs-8yel5ao1au" data-codetabs>
   <div class="codetabs-nav" data-codetabs-nav role="tablist"><button type="button" data-tab="0" role="tab" aria-selected="true" class='active'>Command</button><button type="button" data-tab="1" role="tab" aria-selected="false" >SLURM Script</button></div>
   <div class="codetabs-panels" data-codetabs-panels><div class="codetabs-panel" data-panel="0" role="tabpanel"><pre class="language-bash"><code class="language-bash">spades.py <span class="token parameter variable">--meta</span> <span class="token parameter variable">-k</span> <span class="token number">21,33</span>,55,77,99,121 <span class="token punctuation">\</span>
   --pe1-1 ERR594369_1_t_paired.fastq.gz <span class="token punctuation">\</span>
@@ -426,7 +426,7 @@ before_rr.fasta                    corrected      input_dataset.yaml      K55  m
 <span class="token number">322596</span></code></pre>
 <h2>MEGAHIT</h2>
 <p>And now, what if we wanted to use a different assembler, let's say MEGAHIT?</p>
-<div class="codetabs" id="tabs-b9a6ivzpirv" data-codetabs>
+<div class="codetabs" id="tabs-7i9hey6w6gl" data-codetabs>
   <div class="codetabs-nav" data-codetabs-nav role="tablist"><button type="button" data-tab="0" role="tab" aria-selected="true" class='active'>Command</button><button type="button" data-tab="1" role="tab" aria-selected="false" >SLURM Script</button></div>
   <div class="codetabs-panels" data-codetabs-panels><div class="codetabs-panel" data-panel="0" role="tabpanel"><pre class="language-bash"><code class="language-bash">megahit --k-list <span class="token number">21,41</span>,61,81,99 <span class="token punctuation">\</span>
   <span class="token parameter variable">-1</span> ERR594369_1_t_paired.fastq.gz <span class="token punctuation">\</span>
