@@ -10,7 +10,7 @@ eleventyComputed:
   heroTitle: "{{ cat.title }}"
   heroSubtitle: "{{ cat.description }}"
   heroVariant: "hero--tools"
-  heroBg: "{{ \"linear-gradient(180deg, rgba(17,24,39,.55), rgba(2,6,23,.6)), url('\" + (cat.hero_img or '/assets/img/hero/tools-tiles.svg') + \"')\" }}"
+  heroBg: "{{ \"linear-gradient(180deg, rgba(17,24,39,.55), rgba(2,6,23,.6)), url('\" + ((cat.hero_img or '/assets/img/hero/tools-tiles.svg') | url) + \"')\" }}"
 ---
 {% if cat.intro %}<div class="cat-callout">{{ cat.intro }}</div>{% endif %}
 

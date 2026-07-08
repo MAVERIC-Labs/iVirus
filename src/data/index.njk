@@ -5,8 +5,9 @@ permalink: /data/
 heroTitle: "Data"
 heroSubtitle: "Curated datasets for viral research with links to hosting platforms, DOIs, and quick filters."
 heroVariant: "hero--data"
-heroBg: "url('/assets/img/hero-dots.svg')"
 heroAnimate: true
+eleventyComputed:
+  heroBg: "{{ \"url('\" + ('/assets/img/hero-dots.svg' | url) + \"')\" }}"
 ---
 <section class="directory-controls data-filters" id="dataFilters" data-filter-kind="datasets">
   <input type="search" id="q" placeholder="Search datasets…" aria-label="Search datasets">
@@ -34,7 +35,7 @@ heroAnimate: true
         {# --- Thumbnail or fallback emoji --- #}
         <div class="dataset-thumb">
             {% if d.thumb %}
-            <img src="{{ d.thumb }}" alt="" loading="lazy" decoding="async">
+            <img src="{{ d.thumb | url }}" alt="" loading="lazy" decoding="async">
             {% else %}
             {% set emoji %}{% if d.type == "reads" %}📥{% elseif d.type == "assemblies" %}🧩{% elseif d.type == "metagenomes" %}🧪{% else %}📚{% endif %}{% endset %}
             <div class="thumb-emoji" aria-hidden="true">{{ emoji }}</div>

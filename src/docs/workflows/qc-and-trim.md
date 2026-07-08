@@ -175,7 +175,7 @@ I've added comments to the command (above). *Normally*, this would NOT be in the
 
 ## See also
 
-- [FastQC tool guide](/docs/tools/fastqc/)
-- [MultiQC tool guide](/docs/tools/multiqc/)
-- [BBDuk tool guide](/docs/tools/bbduk/)
-- [Trimmomatic tool guide](/docs/tools/trimmomatic/placeholder/)
+- [FastQC tool guide]({{ '/docs/tools/fastqc/' | url }})
+- [MultiQC tool guide]({{ '/docs/tools/multiqc/' | url }})
+- [BBDuk tool guide]({{ '/docs/tools/bbduk/' | url }})
+- [Trimmomatic tool guide]({{ '/docs/tools/trimmomatic/placeholder/' | url }})

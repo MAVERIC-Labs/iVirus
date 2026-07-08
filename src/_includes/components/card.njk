@@ -1,6 +1,6 @@
 {% macro card(title, desc, url) -%}
 <article class="card">
-  <h3><a href="{{ url }}">{{ title }}</a></h3>
+  <h3><a href="{{ url | url }}">{{ title }}</a></h3>
   {% if desc %}<p>{{ desc }}</p>{% endif %}
 </article>
 {%- endmacro %}

@@ -42,8 +42,8 @@ Key sections to review: *Per base sequence quality* (watch for quality drops at 
 
 ## In the iVirus workflow
 
-FastQC is the first step in the QC & Trim stage. Run it on raw reads before trimming (e.g., with Trimmomatic or fastp) and again on trimmed reads to confirm adapter removal. Clean, high-quality reads feed directly into [SPAdes](/docs/tools/spades/) or [MEGAHIT](/docs/tools/megahit/) for assembly.
+FastQC is the first step in the QC & Trim stage. Run it on raw reads before trimming (e.g., with Trimmomatic or fastp) and again on trimmed reads to confirm adapter removal. Clean, high-quality reads feed directly into [SPAdes]({{ '/docs/tools/spades/' | url }}) or [MEGAHIT]({{ '/docs/tools/megahit/' | url }}) for assembly.
 
 See also:
-- **Workflow step:** [QC & Trim](/docs/workflows/qc-trim/)
-- **Tool catalogue:** [/tools/](/docs/tools/)
+- **Workflow step:** [QC & Trim]({{ '/docs/workflows/qc-trim/' | url }})
+- **Tool catalogue:** [/tools/]({{ '/docs/tools/' | url }})

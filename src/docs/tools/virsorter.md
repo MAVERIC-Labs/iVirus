@@ -51,9 +51,9 @@ Typical practice is to use categories 1–2 (phage) and 4–5 (prophage) as high
 
 ## In the iVirus workflow
 
-VirSorter runs in the Viral Identification step alongside [VIBRANT](/docs/tools/vibrant/). It accepts contigs from [SPAdes](/docs/tools/spades/) or [MEGAHIT](/docs/tools/megahit/), and its category 1–2 / 4–5 contigs are combined with VIBRANT predictions for a consensus viral contig set. That set then enters annotation ([DRAM-v](/docs/tools/dram-v/)) and taxonomy ([vConTACT2](/docs/tools/vcontact2/)) steps.
+VirSorter runs in the Viral Identification step alongside [VIBRANT]({{ '/docs/tools/vibrant/' | url }}). It accepts contigs from [SPAdes]({{ '/docs/tools/spades/' | url }}) or [MEGAHIT]({{ '/docs/tools/megahit/' | url }}), and its category 1–2 / 4–5 contigs are combined with VIBRANT predictions for a consensus viral contig set. That set then enters annotation ([DRAM-v]({{ '/docs/tools/dram-v/' | url }})) and taxonomy ([vConTACT2]({{ '/docs/tools/vcontact2/' | url }})) steps.
 
 See also:
-- **Workflow step:** [Viral Identification](/docs/workflows/viral-identification/)
+- **Workflow step:** [Viral Identification]({{ '/docs/workflows/viral-identification/' | url }})
 - **Protocol:** [VirSorter on CyVerse](https://dx.doi.org/10.17504/protocols.io.eyjbfun)
-- **Tool catalogue:** [/tools/](/docs/tools/)
+- **Tool catalogue:** [/tools/]({{ '/docs/tools/' | url }})

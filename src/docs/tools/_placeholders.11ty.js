@@ -2,6 +2,13 @@
 function slugify(s = "") {
     return String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
   }
+
+  // Mirrors the `pathPrefix` in .eleventy.js. This file builds raw href
+  // strings in JS, so it can't use the Nunjucks `| url` filter.
+  const pathPrefix = process.env.IVIRUS_DEPLOY ? "/iVirus" : "";
+  // Only prefix root-relative internal paths; leave external URLs alone.
+  const withPrefix = (url) =>
+    url && url.startsWith("/") ? pathPrefix + url : url;
   
   module.exports = class {
     data() {
@@ -34,13 +41,13 @@ function slugify(s = "") {
       const platforms = Array.isArray(t.platforms) ? t.platforms.join(", ") : "";
       const hasDocs = !!t.site_docs_url;
       const docLink = hasDocs
-        ? `<a href="${t.site_docs_url}">Go to full docs</a>`
+        ? `<a href="${withPrefix(t.site_docs_url)}">Go to full docs</a>`
         : `<em>This documentation is coming soon.</em>`;
-  
+
       const official = t.official_url
         ? `<a href="${t.official_url}" target="_blank" rel="noopener">${t.official_url}</a>`
         : "_n/a_";
-      const catUrl = t.category ? `/tools/${t.category}/` : "/tools/";
+      const catUrl = withPrefix(t.category ? `/tools/${t.category}/` : "/tools/");
   
       // Optionally discourage indexing placeholders:
       const metaNoIndex = `<meta name="robots" content="noindex">`;

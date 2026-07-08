@@ -53,9 +53,9 @@ spades.py --meta -s reads.fastq.gz -o spades_out/ -t 16 -m 64
 
 ## In the iVirus workflow
 
-SPAdes is used in the Assembly step, taking quality-trimmed reads from [FastQC](/docs/tools/fastqc/) and fastp as input. The resulting `contigs.fasta` is passed to viral identification tools ([VIBRANT](/docs/tools/vibrant/), [VirSorter](/docs/tools/virsorter/)) and annotation tools ([DRAM-v](/docs/tools/dram-v/)). For very large samples with memory constraints, [MEGAHIT](/docs/tools/megahit/) is a faster alternative.
+SPAdes is used in the Assembly step, taking quality-trimmed reads from [FastQC]({{ '/docs/tools/fastqc/' | url }}) and fastp as input. The resulting `contigs.fasta` is passed to viral identification tools ([VIBRANT]({{ '/docs/tools/vibrant/' | url }}), [VirSorter]({{ '/docs/tools/virsorter/' | url }})) and annotation tools ([DRAM-v]({{ '/docs/tools/dram-v/' | url }})). For very large samples with memory constraints, [MEGAHIT]({{ '/docs/tools/megahit/' | url }}) is a faster alternative.
 
 See also:
-- **Workflow step:** [Assembly](/docs/workflows/assembly/)
+- **Workflow step:** [Assembly]({{ '/docs/workflows/assembly/' | url }})
 - **Protocol:** [Running SPAdes on CyVerse](https://dx.doi.org/10.17504/protocols.io.ewrbfd6)
-- **Tool catalogue:** [/tools/](/docs/tools/)
+- **Tool catalogue:** [/tools/]({{ '/docs/tools/' | url }})

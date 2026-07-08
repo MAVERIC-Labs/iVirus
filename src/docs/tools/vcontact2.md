@@ -39,7 +39,7 @@ vcontact2 \
   --output-dir vConTACT2_output
 ```
 
-`proteins.faa` should contain predicted proteins from your viral contigs (e.g., from Prodigal or from [VIBRANT](/docs/tools/vibrant/) output).
+`proteins.faa` should contain predicted proteins from your viral contigs (e.g., from Prodigal or from [VIBRANT]({{ '/docs/tools/vibrant/' | url }}) output).
 
 ## Key flags
 
@@ -53,23 +53,23 @@ vcontact2 \
 
 ## Output
 
-- **`c1.ntw`** — gene-sharing network edge list; primary input for [Cytoscape](/docs/tools/cytoscape/) visualization.
+- **`c1.ntw`** — gene-sharing network edge list; primary input for [Cytoscape]({{ '/docs/tools/cytoscape/' | url }}) visualization.
 - **`genome_by_genome_overview.csv`** — per-genome cluster assignments and reference genome co-clustering; key table for taxonomic interpretation.
 - **`viral_cluster_overview.csv`** — summary of each viral cluster with member counts and reference genome affiliations.
 
 Genomes co-clustering with ICTV-classified reference genomes inherit their genus-level taxonomy. Genomes in clusters with no references are novel genera.
 
-> **Tip:** Load `c1.ntw` and `genome_by_genome_overview.csv` into [Cytoscape](/docs/tools/cytoscape/) for interactive network exploration.
+> **Tip:** Load `c1.ntw` and `genome_by_genome_overview.csv` into [Cytoscape]({{ '/docs/tools/cytoscape/' | url }}) for interactive network exploration.
 
 <!-- screenshot: /assets/img/tools/screenshots/vcontact2.png -->
 
 ## In the iVirus workflow
 
-vConTACT2 is the core tool in the Taxonomy step. It takes predicted proteins from viral contigs identified by [VIBRANT](/docs/tools/vibrant/) or [VirSorter](/docs/tools/virsorter/). Network output is visualized in [Cytoscape](/docs/tools/cytoscape/), and cluster assignments inform the abundance and ecology analyses.
+vConTACT2 is the core tool in the Taxonomy step. It takes predicted proteins from viral contigs identified by [VIBRANT]({{ '/docs/tools/vibrant/' | url }}) or [VirSorter]({{ '/docs/tools/virsorter/' | url }}). Network output is visualized in [Cytoscape]({{ '/docs/tools/cytoscape/' | url }}), and cluster assignments inform the abundance and ecology analyses.
 
 See also:
-- **Workflow step:** [Taxonomy](/docs/workflows/taxonomy/)
-- **Visualization:** [Cytoscape](/docs/tools/cytoscape/)
+- **Workflow step:** [Taxonomy]({{ '/docs/workflows/taxonomy/' | url }})
+- **Visualization:** [Cytoscape]({{ '/docs/tools/cytoscape/' | url }})
 - **Protocol:** [Running vConTACT2 on VirSorter output in CyVerse](https://dx.doi.org/10.17504/protocols.io.x5xfq7n)
 - **Original method:** Bolduc et al., PeerJ (2017) — introduces the gene-sharing network concept
-- **Tool catalogue:** [/tools/](/docs/tools/)
+- **Tool catalogue:** [/tools/]({{ '/docs/tools/' | url }})

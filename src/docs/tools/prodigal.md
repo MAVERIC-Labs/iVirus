@@ -37,16 +37,16 @@ prodigal -i VS2-SOP/final-viral-scored.fa \
 
 ## Output
 
-- **`proteins.faa`** — predicted protein sequences; the primary input for [vConTACT2](/docs/tools/vcontact2/), [DIAMOND](/docs/tools/diamond/placeholder/), and most downstream annotation tools.
+- **`proteins.faa`** — predicted protein sequences; the primary input for [vConTACT2]({{ '/docs/tools/vcontact2/' | url }}), [DIAMOND]({{ '/docs/tools/diamond/placeholder/' | url }}), and most downstream annotation tools.
 - **`coords.gbk`** — gene coordinates in GenBank format; useful for genome browsers and annotation pipelines.
 
 <!-- screenshot: /assets/img/tools/screenshots/prodigal.png -->
 
 ## In the iVirus workflow
 
-Prodigal sits in the Gene Calling step, immediately after viral contigs have been quality-checked with [CheckV](/docs/tools/checkv/). Its `proteins.faa` output is required by [vConTACT2](/docs/tools/vcontact2/) for taxonomy and feeds into [DRAM-v](/docs/tools/dram-v/) for annotation. Always use `-p anon` for metagenomic assemblies.
+Prodigal sits in the Gene Calling step, immediately after viral contigs have been quality-checked with [CheckV]({{ '/docs/tools/checkv/' | url }}). Its `proteins.faa` output is required by [vConTACT2]({{ '/docs/tools/vcontact2/' | url }}) for taxonomy and feeds into [DRAM-v]({{ '/docs/tools/dram-v/' | url }}) for annotation. Always use `-p anon` for metagenomic assemblies.
 
 See also:
-- **Workflow step:** [Gene Calling](/docs/workflows/viral-identification/)
-- **Downstream tools:** [vConTACT2](/docs/tools/vcontact2/), [DRAM-v](/docs/tools/dram-v/), [VIBRANT](/docs/tools/vibrant/)
-- **Tool catalogue:** [/tools/](/tools/)
+- **Workflow step:** [Gene Calling]({{ '/docs/workflows/viral-identification/' | url }})
+- **Downstream tools:** [vConTACT2]({{ '/docs/tools/vcontact2/' | url }}), [DRAM-v]({{ '/docs/tools/dram-v/' | url }}), [VIBRANT]({{ '/docs/tools/vibrant/' | url }})
+- **Tool catalogue:** [/tools/]({{ '/tools/' | url }})

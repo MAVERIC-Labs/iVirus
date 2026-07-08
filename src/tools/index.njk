@@ -6,8 +6,9 @@ heroArt: "/assets/img/hero/tools-tiles.svg"
 heroTitle: "Tools & Apps"
 heroSubtitle: "Browse by category or jump straight to documentation. Each tool links to its official site, supported platforms, and references."
 heroVariant: "hero--tools"
-heroBg: "linear-gradient(180deg, rgba(17,24,39,.55), rgba(2,6,23,.6)), url('/assets/img/hero/tools-tiles.svg')"
 heroAnimate: true
+eleventyComputed:
+  heroBg: "{{ \"linear-gradient(180deg, rgba(17,24,39,.55), rgba(2,6,23,.6)), url('\" + ('/assets/img/hero/tools-tiles.svg' | url) + \"')\" }}"
 ---
 <section class="tools-landing">
   <ul class="tool-cat-grid directory-grid">

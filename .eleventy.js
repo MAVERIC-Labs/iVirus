@@ -1,6 +1,11 @@
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const workflows = require("./src/_data/workflows.json");
 
+// Mirrors the `pathPrefix` returned at the bottom of this file. Used by
+// shortcodes (like workflowStepper) that build raw href strings in JS and
+// so can't use the Nunjucks `| url` filter to get the prefix applied.
+const pathPrefix = process.env.IVIRUS_DEPLOY ? "/iVirus" : "";
+
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
 
@@ -76,7 +81,7 @@ module.exports = function(eleventyConfig) {
     ].filter(Boolean).join(" ");
   
     // Inline CSS var only if a background was provided
-    const style = bg ? ` style="--hero-bg: url('${bg}')"` : "";
+    const style = bg ? ` style="--hero-bg: url('${pathPrefix}${bg}')"` : "";
   
     return `
     <section class="${cls}"${style}>
@@ -99,7 +104,7 @@ module.exports = function(eleventyConfig) {
       const active = s.id === activeId ? "active" : "";
       const icon = s.icon ? `<span class="icon" aria-hidden="true">${s.icon}</span>` : "";
       return `<li class="wf-step ${active}">
-        <a href="${s.url}">
+        <a href="${pathPrefix}${s.url}">
           ${icon}<span class="label">${s.title}</span>
         </a>
       </li>`;

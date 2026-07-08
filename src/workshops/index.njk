@@ -5,9 +5,10 @@ permalink: /workshops/
 heroTitle: "Workshops & Talks"
 heroSubtitle: "Training sessions, invited talks, and community events."
 heroVariant: "hero--workshops"
-heroBg: "url('/assets/img/hero-workshops.jpg')"
 heroAnimate: true
 contentClass: "page-flow"
+eleventyComputed:
+  heroBg: "{{ \"url('\" + ('/assets/img/hero-workshops.jpg' | url) + \"')\" }}"
 ---
 {# ---------- Precompute sets ---------- #}
 {# Use front-matter `type: "upcoming"` for future events, `type: "past"` for completed ones. #}
@@ -21,7 +22,7 @@ contentClass: "page-flow"
   <div class="workshop-grid">
     {% for w in upcoming %}
     <article class="workshop-card">
-      {% if w.image %}<img src="{{ w.image }}" alt="">{% endif %}
+      {% if w.image %}<img src="{{ w.image | url }}" alt="">{% endif %}
       <div class="content">
         <h3><a href="{{ w.url }}">{{ w.title }}</a></h3>
         <p class="meta">📅 {{ w.date | dateFmt }}{% if w.location %} · 📍 {{ w.location }}{% endif %}</p>
@@ -49,7 +50,7 @@ contentClass: "page-flow"
     <div class="workshop-grid">
       {% for w in group.items %}
       <article class="workshop-card">
-        {% if w.image %}<img src="{{ w.image }}" alt="">{% endif %}
+        {% if w.image %}<img src="{{ w.image | url }}" alt="">{% endif %}
         <div class="content">
           <h3><a href="{{ w.url }}">{{ w.title }}</a></h3>
           <p class="meta">📅 {{ w.date | dateFmt }}{% if w.location %} · 📍 {{ w.location }}{% endif %}</p>

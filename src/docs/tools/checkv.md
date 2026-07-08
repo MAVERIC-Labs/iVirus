@@ -58,11 +58,11 @@ Output: `clusters.tsv` lists representative sequences and their cluster members.
 
 ## In the iVirus workflow
 
-CheckV is run immediately after viral identification with [VirSorter2](/docs/tools/virsorter2/) or [VIBRANT](/docs/tools/vibrant/). The `viruses.fna` and `proviruses.fna` outputs, filtered to high-quality sequences from `quality_summary.tsv`, serve as inputs to functional annotation ([DRAM-v](/docs/tools/dram-v/)), taxonomy ([vConTACT2](/docs/tools/vcontact2/)), and host prediction ([iPHoP](/docs/tools/iphop/)).
+CheckV is run immediately after viral identification with [VirSorter2]({{ '/docs/tools/virsorter2/' | url }}) or [VIBRANT]({{ '/docs/tools/vibrant/' | url }}). The `viruses.fna` and `proviruses.fna` outputs, filtered to high-quality sequences from `quality_summary.tsv`, serve as inputs to functional annotation ([DRAM-v]({{ '/docs/tools/dram-v/' | url }})), taxonomy ([vConTACT2]({{ '/docs/tools/vcontact2/' | url }})), and host prediction ([iPHoP]({{ '/docs/tools/iphop/' | url }})).
 
 See also:
-- **Workflow step:** [Viral Identification](/docs/workflows/viral-identification/)
-- [VirSorter2](/docs/tools/virsorter2/)
-- [VIBRANT](/docs/tools/vibrant/)
-- [DRAM-v](/docs/tools/dram-v/)
-- [iPHoP](/docs/tools/iphop/)
+- **Workflow step:** [Viral Identification]({{ '/docs/workflows/viral-identification/' | url }})
+- [VirSorter2]({{ '/docs/tools/virsorter2/' | url }})
+- [VIBRANT]({{ '/docs/tools/vibrant/' | url }})
+- [DRAM-v]({{ '/docs/tools/dram-v/' | url }})
+- [iPHoP]({{ '/docs/tools/iphop/' | url }})

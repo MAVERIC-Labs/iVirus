@@ -17,5 +17,5 @@ Convert raw reads into assemblies.
 - Assemble with SPAdes
 
 ### Related
-- [fastp tool guide](/docs/tools/fastp/)
-- [SPAdes tool guide](/docs/tools/spades/)
+- [fastp tool guide]({{ '/docs/tools/fastp/' | url }})
+- [SPAdes tool guide]({{ '/docs/tools/spades/' | url }})

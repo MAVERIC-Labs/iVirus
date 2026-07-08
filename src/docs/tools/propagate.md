@@ -37,10 +37,10 @@ PropagAtE -v vibrant_output/ -f R1.fastq.gz R2.fastq.gz -o propagate_out/
 
 ## In the iVirus workflow
 
-PropagAtE is run after viral identification, and works directly with [VIBRANT](/docs/tools/vibrant/) output — no manual coordinate extraction is required. Results add ecological context by revealing which proviruses are actively driving lytic cycles in the sampled community. Quality-filtered proviral sequences from [CheckV](/docs/tools/checkv/) can be cross-referenced with PropagAtE activity calls to prioritize high-confidence active elements.
+PropagAtE is run after viral identification, and works directly with [VIBRANT]({{ '/docs/tools/vibrant/' | url }}) output — no manual coordinate extraction is required. Results add ecological context by revealing which proviruses are actively driving lytic cycles in the sampled community. Quality-filtered proviral sequences from [CheckV]({{ '/docs/tools/checkv/' | url }}) can be cross-referenced with PropagAtE activity calls to prioritize high-confidence active elements.
 
 See also:
-- **Workflow step:** [Viral Identification](/docs/workflows/viral-identification/)
-- [VIBRANT](/docs/tools/vibrant/)
-- [VirSorter](/docs/tools/virsorter/)
-- [CheckV](/docs/tools/checkv/)
+- **Workflow step:** [Viral Identification]({{ '/docs/workflows/viral-identification/' | url }})
+- [VIBRANT]({{ '/docs/tools/vibrant/' | url }})
+- [VirSorter]({{ '/docs/tools/virsorter/' | url }})
+- [CheckV]({{ '/docs/tools/checkv/' | url }})

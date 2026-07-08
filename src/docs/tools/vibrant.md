@@ -44,8 +44,8 @@ VIBRANT_run.py -i contigs.fa -t 16 -folder vibrant_out
 
 ## In the iVirus workflow
 
-VIBRANT is a primary tool in the Viral Identification step, taking assembled contigs from [SPAdes](/docs/tools/spades/) or [MEGAHIT](/docs/tools/megahit/) as input. Its viral contig output (`VIBRANT_phages_*.fna`) feeds directly into annotation tools ([DRAM-v](/docs/tools/dram-v/), [VIGA](/docs/tools/viga/)) and taxonomy tools ([vConTACT2](/docs/tools/vcontact2/)). AMG output can be analyzed in parallel with [DRAM-v](/docs/tools/dram-v/) distillate results for metabolic impact assessment. [VirSorter](/docs/tools/virsorter/) is a complementary identification tool that can be run alongside VIBRANT for consensus calling.
+VIBRANT is a primary tool in the Viral Identification step, taking assembled contigs from [SPAdes]({{ '/docs/tools/spades/' | url }}) or [MEGAHIT]({{ '/docs/tools/megahit/' | url }}) as input. Its viral contig output (`VIBRANT_phages_*.fna`) feeds directly into annotation tools ([DRAM-v]({{ '/docs/tools/dram-v/' | url }}), [VIGA]({{ '/docs/tools/viga/' | url }})) and taxonomy tools ([vConTACT2]({{ '/docs/tools/vcontact2/' | url }})). AMG output can be analyzed in parallel with [DRAM-v]({{ '/docs/tools/dram-v/' | url }}) distillate results for metabolic impact assessment. [VirSorter]({{ '/docs/tools/virsorter/' | url }}) is a complementary identification tool that can be run alongside VIBRANT for consensus calling.
 
 See also:
-- **Workflow step:** [Viral Identification](/docs/workflows/viral-identification/)
-- **Tool catalogue:** [/tools/](/docs/tools/)
+- **Workflow step:** [Viral Identification]({{ '/docs/workflows/viral-identification/' | url }})
+- **Tool catalogue:** [/tools/]({{ '/docs/tools/' | url }})

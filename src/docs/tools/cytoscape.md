@@ -5,7 +5,7 @@ layout: layouts/docs.njk
 permalink: /docs/tools/cytoscape/
 ---
 
-Cytoscape is a desktop network visualization application used in iVirus workflows to explore and interpret the gene-sharing networks produced by [vConTACT2](/docs/tools/vcontact2/), allowing researchers to visually identify viral clusters and their relationships to reference genomes.
+Cytoscape is a desktop network visualization application used in iVirus workflows to explore and interpret the gene-sharing networks produced by [vConTACT2]({{ '/docs/tools/vcontact2/' | url }}), allowing researchers to visually identify viral clusters and their relationships to reference genomes.
 
 ## Install
 
@@ -44,9 +44,9 @@ Cytoscape is operated through its graphical interface. The standard iVirus workf
 
 ## In the iVirus workflow
 
-Cytoscape is the primary visualization tool in the Taxonomy step, used exclusively to display [vConTACT2](/docs/tools/vcontact2/) output. After interpreting cluster membership in Cytoscape, taxonomic assignments inform the abundance and ecology analyses. [Anvi'o](/docs/tools/anvio/) handles visualization for coverage and pangenomic analyses at other workflow steps.
+Cytoscape is the primary visualization tool in the Taxonomy step, used exclusively to display [vConTACT2]({{ '/docs/tools/vcontact2/' | url }}) output. After interpreting cluster membership in Cytoscape, taxonomic assignments inform the abundance and ecology analyses. [Anvi'o]({{ '/docs/tools/anvio/' | url }}) handles visualization for coverage and pangenomic analyses at other workflow steps.
 
 See also:
-- **Workflow step:** [Taxonomy](/docs/workflows/taxonomy/)
-- **Input from:** [vConTACT2](/docs/tools/vcontact2/)
-- **Tool catalogue:** [/tools/](/docs/tools/)
+- **Workflow step:** [Taxonomy]({{ '/docs/workflows/taxonomy/' | url }})
+- **Input from:** [vConTACT2]({{ '/docs/tools/vcontact2/' | url }})
+- **Tool catalogue:** [/tools/]({{ '/docs/tools/' | url }})

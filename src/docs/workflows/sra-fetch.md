@@ -60,4 +60,4 @@ SRA run accessions start with **SRR** (NCBI), **ERR** (ENA), or **DRR** (DDBJ). 
 
 ## See also
 
-- [SRA Download tool guide](/docs/tools/sra-download/)
+- [SRA Download tool guide]({{ '/docs/tools/sra-download/' | url }})

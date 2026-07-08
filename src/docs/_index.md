@@ -26,13 +26,13 @@ Follow these eight steps to go from raw sequencing reads to annotated and classi
 | Step | Goal | Key tools |
 |------|------|-----------|
 | **1 · Raw Reads** | Start with FASTQ files from your sequencer or the SRA | — |
-| **2 · QC & Trim** | Assess read quality; remove adapters and low-quality bases | [FastQC](/docs/tools/fastqc/), [BBDuk](/docs/tools/bbduk/), [fastp](/docs/tools/fastp/placeholder/), [MultiQC](/docs/tools/multiqc/), [Trimmomatic](/docs/tools/trimmomatic/) |
-| **3 · Assembly** | Assemble short reads into contigs | [MetaSPAdes](/docs/tools/metaspades/placeholder/), [MEGAHIT](/docs/tools/megahit/), [SPAdes](/docs/tools/spades/) |
-| **4 · Viral ID** | Detect viral contigs; assess genome quality and completeness | [VirSorter2](/docs/tools/virsorter2/placeholder/), [VIBRANT](/docs/tools/vibrant/), [VirSorter](/docs/tools/virsorter/), [CheckV](/docs/tools/checkv/) |
-| **5 · Gene Calling** | Predict protein-coding genes from viral contigs | [Prodigal](/docs/tools/prodigal/), [Prokka](/docs/tools/prokka/placeholder/) |
-| **6 · Annotation** | Annotate gene functions; identify auxiliary metabolic genes | [DRAM-v](/docs/tools/dram-v/), [VIGA](/docs/tools/viga/), [Cenote-Taker 2](/docs/tools/cenote-taker2/placeholder/) |
-| **7 · Taxonomy** | Classify viral genomes into genus-level groups | [vConTACT2](/docs/tools/vcontact2/), [VIRIDIC](/docs/tools/viridic/), [CAT/BAT](/docs/tools/cat-bat/) |
-| **8 · Ecology & Viz** | Predict hosts; estimate abundance; explore community structure | [iPHoP](/docs/tools/iphop/), [WIsH](/docs/tools/wish/), [Anvi'o](/docs/tools/anvio/), [Cytoscape](/docs/tools/cytoscape/) |
+| **2 · QC & Trim** | Assess read quality; remove adapters and low-quality bases | [FastQC]({{ '/docs/tools/fastqc/' | url }}), [BBDuk]({{ '/docs/tools/bbduk/' | url }}), [fastp]({{ '/docs/tools/fastp/placeholder/' | url }}), [MultiQC]({{ '/docs/tools/multiqc/' | url }}), [Trimmomatic]({{ '/docs/tools/trimmomatic/' | url }}) |
+| **3 · Assembly** | Assemble short reads into contigs | [MetaSPAdes]({{ '/docs/tools/metaspades/placeholder/' | url }}), [MEGAHIT]({{ '/docs/tools/megahit/' | url }}), [SPAdes]({{ '/docs/tools/spades/' | url }}) |
+| **4 · Viral ID** | Detect viral contigs; assess genome quality and completeness | [VirSorter2]({{ '/docs/tools/virsorter2/placeholder/' | url }}), [VIBRANT]({{ '/docs/tools/vibrant/' | url }}), [VirSorter]({{ '/docs/tools/virsorter/' | url }}), [CheckV]({{ '/docs/tools/checkv/' | url }}) |
+| **5 · Gene Calling** | Predict protein-coding genes from viral contigs | [Prodigal]({{ '/docs/tools/prodigal/' | url }}), [Prokka]({{ '/docs/tools/prokka/placeholder/' | url }}) |
+| **6 · Annotation** | Annotate gene functions; identify auxiliary metabolic genes | [DRAM-v]({{ '/docs/tools/dram-v/' | url }}), [VIGA]({{ '/docs/tools/viga/' | url }}), [Cenote-Taker 2]({{ '/docs/tools/cenote-taker2/placeholder/' | url }}) |
+| **7 · Taxonomy** | Classify viral genomes into genus-level groups | [vConTACT2]({{ '/docs/tools/vcontact2/' | url }}), [VIRIDIC]({{ '/docs/tools/viridic/' | url }}), [CAT/BAT]({{ '/docs/tools/cat-bat/' | url }}) |
+| **8 · Ecology & Viz** | Predict hosts; estimate abundance; explore community structure | [iPHoP]({{ '/docs/tools/iphop/' | url }}), [WIsH]({{ '/docs/tools/wish/' | url }}), [Anvi'o]({{ '/docs/tools/anvio/' | url }}), [Cytoscape]({{ '/docs/tools/cytoscape/' | url }}) |
 
 ---
 
@@ -49,7 +49,7 @@ Step-by-step walkthroughs that connect the tools above into complete analyses.
     </summary>
     <ul class="wf-steps">
       {% for s in wf.steps %}
-      <li><a href="{{ s.url }}">{{ s.title }}</a></li>
+      <li><a href="{{ s.url | url }}">{{ s.title }}</a></li>
       {% endfor %}
     </ul>
   </details>
@@ -62,6 +62,6 @@ Step-by-step walkthroughs that connect the tools above into complete analyses.
 
 <ul class="tool-guide-list">
 {% for p in collections.toolGuides | sort(false, false, "data.title") %}
-  <li><a href="{{ p.url }}">{{ p.data.title }}</a></li>
+  <li><a href="{{ p.url | url }}">{{ p.data.title }}</a></li>
 {% endfor %}
 </ul>

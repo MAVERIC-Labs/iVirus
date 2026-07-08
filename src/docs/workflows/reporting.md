@@ -117,6 +117,6 @@ And with that, we've gone from raw, environmental viral metagenome data (downloa
 
 ## See also
 
-- [Prodigal tool guide](/docs/tools/prodigal/)
-- [vConTACT2 tool guide](/docs/tools/vcontact2/)
-- [Cytoscape tool guide](/docs/tools/cytoscape/)
+- [Prodigal tool guide]({{ '/docs/tools/prodigal/' | url }})
+- [vConTACT2 tool guide]({{ '/docs/tools/vcontact2/' | url }})
+- [Cytoscape tool guide]({{ '/docs/tools/cytoscape/' | url }})

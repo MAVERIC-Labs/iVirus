@@ -57,8 +57,8 @@ Results are most reliable at the genus level. Species- or strain-level predictio
 
 ## In the iVirus workflow
 
-HostPhinder runs in the Host Prediction step alongside [WIsH](/docs/tools/wish/). It accepts viral contigs identified by [VIBRANT](/docs/tools/vibrant/) or [VirSorter](/docs/tools/virsorter/) and outputs host genus predictions that can be cross-referenced with [WIsH](/docs/tools/wish/) log-likelihood scores for consensus host assignments. HostPhinder's k-mer approach and WIsH's Markov models capture different signals, so combining both improves prediction reliability.
+HostPhinder runs in the Host Prediction step alongside [WIsH]({{ '/docs/tools/wish/' | url }}). It accepts viral contigs identified by [VIBRANT]({{ '/docs/tools/vibrant/' | url }}) or [VirSorter]({{ '/docs/tools/virsorter/' | url }}) and outputs host genus predictions that can be cross-referenced with [WIsH]({{ '/docs/tools/wish/' | url }}) log-likelihood scores for consensus host assignments. HostPhinder's k-mer approach and WIsH's Markov models capture different signals, so combining both improves prediction reliability.
 
 See also:
-- **Workflow step:** [Host Prediction](/docs/workflows/host-prediction/)
-- **Tool catalogue:** [/tools/](/docs/tools/)
+- **Workflow step:** [Host Prediction]({{ '/docs/workflows/host-prediction/' | url }})
+- **Tool catalogue:** [/tools/]({{ '/docs/tools/' | url }})

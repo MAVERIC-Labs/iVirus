@@ -36,7 +36,7 @@ contentClass: "page-flow"
               {% if p.journal_img %}
                 <div class="pub-logo-wrap">
                   <a href="{{ p.url or ('https://doi.org/' + p.doi) }}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-                    <img class="pub-logo" src="{{ p.journal_img }}" alt="{{ p.journal or p.venue }}" loading="lazy">
+                    <img class="pub-logo" src="{{ p.journal_img | url }}" alt="{{ p.journal or p.venue }}" loading="lazy">
                   </a>
                 </div>
               {% endif %}
@@ -83,7 +83,7 @@ contentClass: "page-flow"
               {% if p.journal_img %}
                 <div class="pub-logo-wrap">
                   <a href="{{ p.url or ('https://doi.org/' + p.doi) }}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-                    <img class="pub-logo" src="{{ p.journal_img }}" alt="{{ p.journal or p.venue }}" loading="lazy">
+                    <img class="pub-logo" src="{{ p.journal_img | url }}" alt="{{ p.journal or p.venue }}" loading="lazy">
                   </a>
                 </div>
               {% endif %}

@@ -66,10 +66,10 @@ The two-step approach is recommended when you want to inspect what was removed a
 
 ## In the iVirus workflow
 
-BBDuk serves as an alternative to [Trimmomatic](/docs/tools/trimmomatic/) or [fastp](/docs/tools/fastp/) in the QC & Trim step. Its output FASTQ files feed directly into assemblers such as [SPAdes](/docs/tools/spades/) or [MEGAHIT](/docs/tools/megahit/). Run [MultiQC](/docs/tools/multiqc/) after BBDuk to aggregate trim statistics across samples.
+BBDuk serves as an alternative to [Trimmomatic]({{ '/docs/tools/trimmomatic/' | url }}) or [fastp]({{ '/docs/tools/fastp/' | url }}) in the QC & Trim step. Its output FASTQ files feed directly into assemblers such as [SPAdes]({{ '/docs/tools/spades/' | url }}) or [MEGAHIT]({{ '/docs/tools/megahit/' | url }}). Run [MultiQC]({{ '/docs/tools/multiqc/' | url }}) after BBDuk to aggregate trim statistics across samples.
 
 See also:
-- **Workflow step:** [QC & Trim](/docs/workflows/qc-trim/)
-- [fastp](/docs/tools/fastp/)
-- [MultiQC](/docs/tools/multiqc/)
-- [FastQC](/docs/tools/fastqc/)
+- **Workflow step:** [QC & Trim]({{ '/docs/workflows/qc-trim/' | url }})
+- [fastp]({{ '/docs/tools/fastp/' | url }})
+- [MultiQC]({{ '/docs/tools/multiqc/' | url }})
+- [FastQC]({{ '/docs/tools/fastqc/' | url }})

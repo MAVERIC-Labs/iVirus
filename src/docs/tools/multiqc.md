@@ -40,9 +40,9 @@ multiqc .
 
 ## In the iVirus workflow
 
-MultiQC is run at the end of the QC & Trim step to consolidate [FastQC](/docs/tools/fastqc/), [fastp](/docs/tools/fastp/), or [Trimmomatic](/docs/tools/trimmomatic/) reports from all samples before proceeding to assembly — it provides a fast sanity check that trimming thresholds are consistent across the batch and flags any outlier libraries.
+MultiQC is run at the end of the QC & Trim step to consolidate [FastQC]({{ '/docs/tools/fastqc/' | url }}), [fastp]({{ '/docs/tools/fastp/' | url }}), or [Trimmomatic]({{ '/docs/tools/trimmomatic/' | url }}) reports from all samples before proceeding to assembly — it provides a fast sanity check that trimming thresholds are consistent across the batch and flags any outlier libraries.
 
 See also:
-- **Workflow step:** [QC & Trim](/docs/workflows/qc-trim/)
-- [FastQC](/docs/tools/fastqc/)
-- [fastp](/docs/tools/fastp/)
+- **Workflow step:** [QC & Trim]({{ '/docs/workflows/qc-trim/' | url }})
+- [FastQC]({{ '/docs/tools/fastqc/' | url }})
+- [fastp]({{ '/docs/tools/fastp/' | url }})

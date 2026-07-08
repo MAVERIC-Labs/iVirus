@@ -5,9 +5,10 @@ permalink: /about/
 heroTitle: "About iVirus"
 heroSubtitle: "Learn about the iVirus project: tools, datasets, protocols, and training."
 heroVariant: "hero--about"
-heroBg: "url('/assets/img/hero/tools-tiles.svg')"
 heroAnimate: true
 contentClass: "prose-page"
+eleventyComputed:
+  heroBg: "{{ \"url('\" + ('/assets/img/hero/tools-tiles.svg' | url) + \"')\" }}"
 ---
 
 ## How We Started
@@ -28,12 +29,12 @@ We continue to **add new apps** across CyVerse and KBase, contribute **new datas
 ## Compute Platforms
 iVirus runs on two community platforms that keep tools and datasets free and accessible: **CyVerse** (compute & data sharing) and **KBase** (reproducible, shareable analysis workflows). We rely on these platforms to host apps, publish datasets, and enable end‑to‑end analyses for labs of all sizes. 
 
-See **[Compute Platforms (CyVerse & KBase)](/platforms/)** for details and citations.
+See **[Compute Platforms (CyVerse & KBase)]({{ '/platforms/' | url }})** for details and citations.
 
 ## Get Involved
-- [Publications](/publications/)
-- [Workshops & Talks](/workshops/)
-- [Compute Platforms](/platforms/)
+- [Publications]({{ '/publications/' | url }})
+- [Workshops & Talks]({{ '/workshops/' | url }})
+- [Compute Platforms]({{ '/platforms/' | url }})
 
 ## Acknowledgements
 Supported by National Science Foundation Award [ABI #1759874](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1759874).

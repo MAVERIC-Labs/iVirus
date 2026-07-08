@@ -8,7 +8,7 @@
       {% for p in collections.protocols %}
         {% if p.fileSlug == slug or (p.data and p.data.slug and p.data.slug == slug) %}
           <li>
-            <a href="{{ p.url }}">{{ p.data.title }}</a>
+            <a href="{{ p.url | url }}">{{ p.data.title }}</a>
             {% if p.data.platform %}
               <span class="pill">{{ p.data.platform }}</span>
             {% endif %}

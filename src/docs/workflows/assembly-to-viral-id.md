@@ -16,4 +16,4 @@ Now that you have contigs, proceed to viral identification.
 - Identify viral sequences (e.g., ViBRANT, VirSorter)
 
 See also:
-- **Tool guides:** [ViBRANT](/docs/tools/vibrant/)
+- **Tool guides:** [ViBRANT]({{ '/docs/tools/vibrant/' | url }})

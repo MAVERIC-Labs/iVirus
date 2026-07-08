@@ -190,11 +190,11 @@ After DRAM-v, filter contigs by combining VirSorter2 scores, CheckV contaminatio
 
 > **Note:** Manual curation cannot be fully automated. Review "Manual check" category contigs individually.
 
-VIBRANT is an alternative to VirSorter2 for viral identification; see the [VIBRANT guide](/docs/tools/vibrant/).
+VIBRANT is an alternative to VirSorter2 for viral identification; see the [VIBRANT guide]({{ '/docs/tools/vibrant/' | url }}).
 
 ## See also
 
-- [VirSorter2 tool guide](/docs/tools/virsorter2/)
-- [CheckV tool guide](/docs/tools/checkv/)
-- [DRAM-v tool guide](/docs/tools/dramv/)
-- [VIBRANT tool guide](/docs/tools/vibrant/)
+- [VirSorter2 tool guide]({{ '/docs/tools/virsorter2/' | url }})
+- [CheckV tool guide]({{ '/docs/tools/checkv/' | url }})
+- [DRAM-v tool guide]({{ '/docs/tools/dramv/' | url }})
+- [VIBRANT tool guide]({{ '/docs/tools/vibrant/' | url }})

@@ -147,5 +147,5 @@ After assembly, we're left with a few decisions. Which read QC and which assembl
 
 ## See also
 
-- [SPAdes tool guide](/docs/tools/spades/)
-- [MEGAHIT tool guide](/docs/tools/megahit/)
+- [SPAdes tool guide]({{ '/docs/tools/spades/' | url }})
+- [MEGAHIT tool guide]({{ '/docs/tools/megahit/' | url }})

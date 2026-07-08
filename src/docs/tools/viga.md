@@ -53,8 +53,8 @@ The GenBank file includes CDS predictions, functional annotations from BLAST/DIA
 
 ## In the iVirus workflow
 
-VIGA runs in the Annotation step, taking viral contigs from [VIBRANT](/docs/tools/vibrant/) or [VirSorter](/docs/tools/virsorter/) as input. Its GenBank output is particularly valuable for contigs destined for database submission or detailed comparative analysis. For broad AMG and metabolic profiling across large contig sets, [DRAM-v](/docs/tools/dram-v/) is typically used in parallel.
+VIGA runs in the Annotation step, taking viral contigs from [VIBRANT]({{ '/docs/tools/vibrant/' | url }}) or [VirSorter]({{ '/docs/tools/virsorter/' | url }}) as input. Its GenBank output is particularly valuable for contigs destined for database submission or detailed comparative analysis. For broad AMG and metabolic profiling across large contig sets, [DRAM-v]({{ '/docs/tools/dram-v/' | url }}) is typically used in parallel.
 
 See also:
-- **Workflow step:** [Annotation](/docs/workflows/annotation/)
-- **Tool catalogue:** [/tools/](/docs/tools/)
+- **Workflow step:** [Annotation]({{ '/docs/workflows/annotation/' | url }})
+- **Tool catalogue:** [/tools/]({{ '/docs/tools/' | url }})

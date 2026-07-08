@@ -58,8 +58,8 @@ DRAM-v.py distill \
 
 > **Note:** If your viral contigs came from VirSorter 1, pass the `affi-contigs.tab` file via `--virsorter_affi_contigs` to improve AMG scoring. This flag is not required when using VirSorter2 or VIBRANT output.
 
-DRAM-v is the primary tool in the Annotation step, accepting viral contigs identified by [VIBRANT](/docs/tools/vibrant/) or [VirSorter](/docs/tools/virsorter/). AMG results from the distillate complement [VIBRANT](/docs/tools/vibrant/)'s own AMG table and inform ecological interpretation. Annotated gene products also provide protein sets that can feed into [vConTACT2](/docs/tools/vcontact2/) for taxonomy.
+DRAM-v is the primary tool in the Annotation step, accepting viral contigs identified by [VIBRANT]({{ '/docs/tools/vibrant/' | url }}) or [VirSorter]({{ '/docs/tools/virsorter/' | url }}). AMG results from the distillate complement [VIBRANT]({{ '/docs/tools/vibrant/' | url }})'s own AMG table and inform ecological interpretation. Annotated gene products also provide protein sets that can feed into [vConTACT2]({{ '/docs/tools/vcontact2/' | url }}) for taxonomy.
 
 See also:
-- **Workflow step:** [Annotation](/docs/workflows/annotation/)
-- **Tool catalogue:** [/tools/](/docs/tools/)
+- **Workflow step:** [Annotation]({{ '/docs/workflows/annotation/' | url }})
+- **Tool catalogue:** [/tools/]({{ '/docs/tools/' | url }})

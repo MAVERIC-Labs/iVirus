@@ -46,8 +46,8 @@ The output directory also contains intermediate files from each k-mer iteration;
 
 ## In the iVirus workflow
 
-MEGAHIT sits in the Assembly step alongside [SPAdes](/docs/tools/spades/). It accepts quality-trimmed reads and produces `final.contigs.fa`, which feeds directly into viral identification ([VIBRANT](/docs/tools/vibrant/), [VirSorter](/docs/tools/virsorter/)) and annotation ([DRAM-v](/docs/tools/dram-v/), [VIGA](/docs/tools/viga/)). Prefer MEGAHIT when working with very large datasets (>50 M read pairs) or on systems with limited RAM.
+MEGAHIT sits in the Assembly step alongside [SPAdes]({{ '/docs/tools/spades/' | url }}). It accepts quality-trimmed reads and produces `final.contigs.fa`, which feeds directly into viral identification ([VIBRANT]({{ '/docs/tools/vibrant/' | url }}), [VirSorter]({{ '/docs/tools/virsorter/' | url }})) and annotation ([DRAM-v]({{ '/docs/tools/dram-v/' | url }}), [VIGA]({{ '/docs/tools/viga/' | url }})). Prefer MEGAHIT when working with very large datasets (>50 M read pairs) or on systems with limited RAM.
 
 See also:
-- **Workflow step:** [Assembly](/docs/workflows/assembly/)
-- **Tool catalogue:** [/tools/](/docs/tools/)
+- **Workflow step:** [Assembly]({{ '/docs/workflows/assembly/' | url }})
+- **Tool catalogue:** [/tools/]({{ '/docs/tools/' | url }})
