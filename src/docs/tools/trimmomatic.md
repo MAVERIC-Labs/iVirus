@@ -45,7 +45,7 @@ trimmomatic PE ERR594369_1.fastq.gz ERR594369_2.fastq.gz \
 Trimmomatic is used in the QC & Trim step, taking raw FASTQ reads as input and producing trimmed paired files that feed directly into [SPAdes]({{ '/docs/tools/spades/' | url }}) or [MEGAHIT]({{ '/docs/tools/megahit/' | url }}) for assembly. Run [FastQC]({{ '/docs/tools/fastqc/' | url }}) on both raw and trimmed reads to confirm adapter removal and quality improvement.
 
 See also:
-- **Workflow step:** [QC & Trim]({{ '/docs/workflows/qc-trim/' | url }})
+- **Workflow step:** [QC & Trim]({{ '/docs/workflows/qc-and-trim/' | url }})
 - **Protocol:** [Trimmomatic on CyVerse](https://dx.doi.org/10.17504/protocols.io.gvybw7w)
 - [FastQC]({{ '/docs/tools/fastqc/' | url }})
 - [MultiQC]({{ '/docs/tools/multiqc/' | url }})

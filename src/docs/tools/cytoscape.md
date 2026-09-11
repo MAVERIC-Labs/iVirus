@@ -47,6 +47,6 @@ Cytoscape is operated through its graphical interface. The standard iVirus workf
 Cytoscape is the primary visualization tool in the Taxonomy step, used exclusively to display [vConTACT2]({{ '/docs/tools/vcontact2/' | url }}) output. After interpreting cluster membership in Cytoscape, taxonomic assignments inform the abundance and ecology analyses. [Anvi'o]({{ '/docs/tools/anvio/' | url }}) handles visualization for coverage and pangenomic analyses at other workflow steps.
 
 See also:
-- **Workflow step:** [Taxonomy]({{ '/docs/workflows/taxonomy/' | url }})
+- **Related tools:** [Taxonomy category]({{ '/tools/taxonomy/' | url }})
 - **Input from:** [vConTACT2]({{ '/docs/tools/vcontact2/' | url }})
-- **Tool catalogue:** [/tools/]({{ '/docs/tools/' | url }})
+- **Tool catalogue:** [/tools/]({{ '/tools/' | url }})

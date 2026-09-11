@@ -70,5 +70,5 @@ Use `CAT add_names` to replace NCBI taxon IDs with human-readable names in the o
 CAT/BAT runs in the Taxonomy step as a complementary approach to [vConTACT2]({{ '/docs/tools/vcontact2/' | url }}). While vConTACT2 focuses on genus-level clustering by gene-sharing networks, CAT provides NCBI taxonomy lineages for individual contigs, which is useful for rapid broad-level classification and contamination screening. Input contigs typically come from [VIBRANT]({{ '/docs/tools/vibrant/' | url }}) or [VirSorter]({{ '/docs/tools/virsorter/' | url }}).
 
 See also:
-- **Workflow step:** [Taxonomy]({{ '/docs/workflows/taxonomy/' | url }})
-- **Tool catalogue:** [/tools/]({{ '/docs/tools/' | url }})
+- **Related tools:** [Taxonomy category]({{ '/tools/taxonomy/' | url }})
+- **Tool catalogue:** [/tools/]({{ '/tools/' | url }})

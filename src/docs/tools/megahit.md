@@ -50,4 +50,4 @@ MEGAHIT sits in the Assembly step alongside [SPAdes]({{ '/docs/tools/spades/' | 
 
 See also:
 - **Workflow step:** [Assembly]({{ '/docs/workflows/assembly/' | url }})
-- **Tool catalogue:** [/tools/]({{ '/docs/tools/' | url }})
+- **Tool catalogue:** [/tools/]({{ '/tools/' | url }})

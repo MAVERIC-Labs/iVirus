@@ -56,5 +56,5 @@ Post-processing tip: filter predictions by a log-likelihood threshold establishe
 WIsH runs in the Host Prediction step, taking viral contigs from [VIBRANT]({{ '/docs/tools/vibrant/' | url }}) or [VirSorter]({{ '/docs/tools/virsorter/' | url }}) as phage input and assembled/reference bacterial genomes as host candidates. Its Markov-chain approach is complementary to alignment-based methods like [HostPhinder]({{ '/docs/tools/hostphinder/' | url }}), and running both provides higher-confidence host assignments.
 
 See also:
-- **Workflow step:** [Host Prediction]({{ '/docs/workflows/host-prediction/' | url }})
-- **Tool catalogue:** [/tools/]({{ '/docs/tools/' | url }})
+- **Related tools:** [Host Prediction category]({{ '/tools/host-prediction/' | url }})
+- **Tool catalogue:** [/tools/]({{ '/tools/' | url }})

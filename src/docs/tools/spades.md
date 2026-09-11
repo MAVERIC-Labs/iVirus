@@ -58,4 +58,4 @@ SPAdes is used in the Assembly step, taking quality-trimmed reads from [FastQC](
 See also:
 - **Workflow step:** [Assembly]({{ '/docs/workflows/assembly/' | url }})
 - **Protocol:** [Running SPAdes on CyVerse](https://dx.doi.org/10.17504/protocols.io.ewrbfd6)
-- **Tool catalogue:** [/tools/]({{ '/docs/tools/' | url }})
+- **Tool catalogue:** [/tools/]({{ '/tools/' | url }})

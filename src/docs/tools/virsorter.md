@@ -56,4 +56,4 @@ VirSorter runs in the Viral Identification step alongside [VIBRANT]({{ '/docs/to
 See also:
 - **Workflow step:** [Viral Identification]({{ '/docs/workflows/viral-identification/' | url }})
 - **Protocol:** [VirSorter on CyVerse](https://dx.doi.org/10.17504/protocols.io.eyjbfun)
-- **Tool catalogue:** [/tools/]({{ '/docs/tools/' | url }})
+- **Tool catalogue:** [/tools/]({{ '/tools/' | url }})

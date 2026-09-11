@@ -1,9 +1,6 @@
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const workflows = require("./src/_data/workflows.json");
 
-// Mirrors the `pathPrefix` returned at the bottom of this file. Used by
-// shortcodes (like workflowStepper) that build raw href strings in JS and
-// so can't use the Nunjucks `| url` filter to get the prefix applied.
 const pathPrefix = process.env.IVIRUS_DEPLOY ? "/iVirus" : "";
 
 module.exports = function(eleventyConfig) {
@@ -13,6 +10,10 @@ module.exports = function(eleventyConfig) {
   let mdLib;
   eleventyConfig.amendLibrary("md", lib => { mdLib = lib; });
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
+
+  if (process.env.PUBLISH_CNAME) {
+    eleventyConfig.addPassthroughCopy({ "src/CNAME": "CNAME" });
+  }
 
   eleventyConfig.addCollection("workflows", api =>
   api.getFilteredByGlob("src/docs/workflows/*.{md,njk}")

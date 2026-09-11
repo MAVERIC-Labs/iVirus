@@ -48,4 +48,4 @@ VIBRANT is a primary tool in the Viral Identification step, taking assembled con
 
 See also:
 - **Workflow step:** [Viral Identification]({{ '/docs/workflows/viral-identification/' | url }})
-- **Tool catalogue:** [/tools/]({{ '/docs/tools/' | url }})
+- **Tool catalogue:** [/tools/]({{ '/tools/' | url }})

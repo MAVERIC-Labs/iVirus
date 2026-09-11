@@ -37,7 +37,7 @@
       "doi": "10.7554/eLife.08490",
       "publication": "https://doi.org/10.7554/eLife.08490",
       "platform_url": "https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/VirSorter_curated_dataset",
-      "thumb": "/assets/img/journals/placeholder.svg"
+      "thumb": "/assets/img/logos/cyverse-icon.png"
     },
     {
       "title": "Viromics Benchmarking",
@@ -48,7 +48,7 @@
       "doi": "10.7717/peerj.3817",
       "publication": "https://doi.org/10.7717/peerj.3817",
       "platform_url": "http://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/Virome_pipeline_benchmark",
-      "thumb": "/assets/img/journals/placeholder.svg"
+      "thumb": "/assets/img/logos/cyverse-icon.png"
     },
     {
       "title": "Pacific Ocean Virome (POV)",
@@ -59,7 +59,7 @@
       "doi": "10.1371/journal.pone.0057355",
       "publication": "https://doi.org/10.1371/journal.pone.0057355",
       "platform_url": "https://datacommons.cyverse.org/browse/iplant/home/shared/imicrobe/pov",
-      "thumb": "/assets/img/journals/placeholder.svg"
+      "thumb": "/assets/img/logos/cyverse-icon.png"
     },
     {
       "title": "Global Ocean Virome (GOV)",
@@ -70,7 +70,7 @@
       "doi": "10.1038/nature19366",
       "publication": "https://doi.org/10.1038/nature19366",
       "platform_url": "https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/GOV",
-      "thumb": "/assets/img/journals/placeholder.svg"
+      "thumb": "/assets/img/logos/cyverse-icon.png"
     },
     {
       "title": "Mesopelagic Archaeal Viruses (Vik 2017)",
@@ -81,7 +81,7 @@
       "doi": "10.7717/peerj.3428",
       "publication": "https://doi.org/10.7717/peerj.3428",
       "platform_url": "https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/Vik_et_al_2017_data",
-      "thumb": "/assets/img/journals/placeholder.svg"
+      "thumb": "/assets/img/logos/cyverse-icon.png"
     },
     {
       "title": "Trubl Soil Viromes",
@@ -92,7 +92,7 @@
       "doi": "10.7717/peerj.7265",
       "publication": "https://doi.org/10.7717/peerj.7265",
       "platform_url": "https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/Trubl_Soil_Viromes",
-      "thumb": "/assets/img/journals/placeholder.svg"
+      "thumb": "/assets/img/logos/cyverse-icon.png"
     },
     {
       "title": "Tibet Glacier Viromes (2017)",
@@ -103,7 +103,7 @@
       "doi": null,
       "publication": "#",
       "platform_url": "https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/Tibet_Glacier_viromes_2017",
-      "thumb": "/assets/img/journals/placeholder.svg"
+      "thumb": "/assets/img/logos/cyverse-icon.png"
     },
     {
       "title": "Tara Ocean Viromes (TOV 4)",
@@ -114,7 +114,7 @@
       "doi": "10.1073/pnas.1525139113",
       "publication": "https://doi.org/10.1073/pnas.1525139113",
       "platform_url": "https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/TOV_4_metaproteomes",
-      "thumb": "/assets/img/journals/placeholder.svg"
+      "thumb": "/assets/img/logos/cyverse-icon.png"
     },
     {
       "title": "Tara Oceans Viromes (TOV 43)",
@@ -125,7 +125,7 @@
       "doi": "10.1126/science.1261498",
       "publication": "https://doi.org/10.1126/science.1261498",
       "platform_url": "https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/TOV_43_viromes",
-      "thumb": "/assets/img/journals/placeholder.svg"
+      "thumb": "/assets/img/logos/cyverse-icon.png"
     },
     {
       "title": "Pseudoalteromonas Omics",
@@ -136,7 +136,7 @@
       "doi": "10.1038/s41396-019-0580-z",
       "publication": "https://doi.org/10.1038/s41396-019-0580-z",
       "platform_url": "https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/Pseudoalteromonas_Omics",
-      "thumb": "/assets/img/journals/placeholder.svg"
+      "thumb": "/assets/img/logos/cyverse-icon.png"
     },
     {
       "title": "Smoking and the Human Lung Virome",
@@ -147,7 +147,7 @@
       "doi": "10.1186/s12931-018-0878-9",
       "publication": "https://doi.org/10.1186/s12931-018-0878-9",
       "platform_url": "https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/Lung_Virome",
-      "thumb": "/assets/img/journals/placeholder.svg"
+      "thumb": "/assets/img/logos/cyverse-icon.png"
     },
     {
       "title": "Phages p000v and p000y",
@@ -158,7 +158,7 @@
       "doi": "10.1128/MRA.01400-18",
       "publication": "https://doi.org/10.1128/MRA.01400-18",
       "platform_url": "https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/Howard-Varona_and_Vik_et_al_Phage_Therapy_2018",
-      "thumb": "/assets/img/journals/placeholder.svg"
+      "thumb": "/assets/img/logos/cyverse-icon.png"
     },
     {
       "title": "Global Ocean Virome 2 (GOV2)",
@@ -169,7 +169,7 @@
       "doi": "10.1016/j.cell.2019.03.040",
       "publication": "https://doi.org/10.1016/j.cell.2019.03.040",
       "platform_url": "https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/GOV2.0",
-      "thumb": "/assets/img/journals/placeholder.svg"
+      "thumb": "/assets/img/logos/cyverse-icon.png"
     },
     {
       "title": "Freshwater Virophage",
@@ -180,7 +180,7 @@
       "doi": "10.1038/s41467-017-01086-2",
       "publication": "https://doi.org/10.1038/s41467-017-01086-2",
       "platform_url": "https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/Freshwater_virophages",
-      "thumb": "/assets/img/journals/placeholder.svg"
+      "thumb": "/assets/img/logos/cyverse-icon.png"
     },
     {
       "title": "Towards Quantitative Viromics",
@@ -191,7 +191,7 @@
       "doi": "10.7717/peerj.2777",
       "publication": "https://doi.org/10.7717/peerj.2777",
       "platform_url": "https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/DNA_Viromes_library_comparison",
-      "thumb": "/assets/img/journals/placeholder.svg"
+      "thumb": "/assets/img/logos/cyverse-icon.png"
     },
     {
       "title": "Spinal Cord Injury (Du et al., 2021)",
@@ -202,7 +202,7 @@
       "doi": null,
       "publication": "#",
       "platform_url": "https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/Du_SCI_2021",
-      "thumb": "/assets/img/journals/placeholder.svg"
+      "thumb": "/assets/img/logos/cyverse-icon.png"
     },
     {
       "title": "Phage Infection Efficiency (ISMEJ 2018)",
@@ -213,7 +213,7 @@
       "doi": "10.1038/s41396-018-0099-8",
       "publication": "https://doi.org/10.1038/s41396-018-0099-8",
       "platform_url": "https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/Cellulophaga_Omics/Howard-Varona_2018_ISMEJ_transcriptomics_and_proteomics",
-      "thumb": "/assets/img/journals/placeholder.svg"
+      "thumb": "/assets/img/logos/cyverse-icon.png"
     },
     {
       "title": "Infection Efficiency (ISMEJ 2016)",
@@ -224,7 +224,7 @@
       "doi": "10.1038/ismej.2016.81",
       "publication": "https://doi.org/10.1038/ismej.2016.81",
       "platform_url": "https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/Cellulophaga_Omics/Howard-Varona_2016_ISMEJ_transcriptomics",
-      "thumb": "/assets/img/journals/placeholder.svg"
+      "thumb": "/assets/img/logos/cyverse-icon.png"
     },
     {
       "title": "Barrow Viromes 2019",
@@ -235,7 +235,7 @@
       "doi": "10.1128/mSystems.00246-20",
       "publication": "https://doi.org/10.1128/mSystems.00246-20",
       "platform_url": "https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/Barrow_viromes2019",
-      "thumb": "/assets/img/journals/placeholder.svg"
+      "thumb": "/assets/img/logos/cyverse-icon.png"
     },
     {
       "title": "Barrow Viromes 2018",
@@ -246,7 +246,7 @@
       "doi": "10.1128/mSystems.00246-20",
       "publication": "https://doi.org/10.1128/mSystems.00246-20",
       "platform_url": "https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/Barrow_viromes2018",
-      "thumb": "/assets/img/journals/placeholder.svg"
+      "thumb": "/assets/img/logos/cyverse-icon.png"
     },
     {
       "title": "Gut Virome Database (GVD)",
@@ -257,7 +257,7 @@
       "doi": "10.1101/655910",
       "publication": "https://www.biorxiv.org/content/10.1101/655910v2",
       "platform_url": "https://datacommons.cyverse.org/browse/iplant/home/shared/iVirus/Gregory_and_Zablocki_GVD_Jul2020",
-      "thumb": "/assets/img/datasets/placeholder.svg"
+      "thumb": "/assets/img/logos/cyverse-icon.png"
     }
   ]
 }

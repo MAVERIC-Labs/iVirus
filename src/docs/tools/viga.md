@@ -56,5 +56,5 @@ The GenBank file includes CDS predictions, functional annotations from BLAST/DIA
 VIGA runs in the Annotation step, taking viral contigs from [VIBRANT]({{ '/docs/tools/vibrant/' | url }}) or [VirSorter]({{ '/docs/tools/virsorter/' | url }}) as input. Its GenBank output is particularly valuable for contigs destined for database submission or detailed comparative analysis. For broad AMG and metabolic profiling across large contig sets, [DRAM-v]({{ '/docs/tools/dram-v/' | url }}) is typically used in parallel.
 
 See also:
-- **Workflow step:** [Annotation]({{ '/docs/workflows/annotation/' | url }})
-- **Tool catalogue:** [/tools/]({{ '/docs/tools/' | url }})
+- **Related tools:** [Annotation category]({{ '/tools/annotation/' | url }})
+- **Tool catalogue:** [/tools/]({{ '/tools/' | url }})

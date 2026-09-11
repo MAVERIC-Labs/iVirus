@@ -50,6 +50,6 @@ docker run -v $(pwd):/work replikation/viridic \
 VIRIDIC is applied in the Taxonomy step on viral contigs that pass the [CheckV]({{ '/docs/tools/checkv/' | url }}) quality filter. It provides nucleotide-identity-based genus and species boundaries that complement [vConTACT2]({{ '/docs/tools/vcontact2/' | url }}), which uses protein-sharing networks — running both tools together gives a more complete taxonomic picture, particularly for genomes with limited reference coverage.
 
 See also:
-- **Workflow step:** [Taxonomy]({{ '/docs/workflows/taxonomy/' | url }})
+- **Related tools:** [Taxonomy category]({{ '/tools/taxonomy/' | url }})
 - [vConTACT2]({{ '/docs/tools/vcontact2/' | url }})
 - [CheckV]({{ '/docs/tools/checkv/' | url }})

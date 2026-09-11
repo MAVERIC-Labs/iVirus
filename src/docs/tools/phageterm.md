@@ -42,9 +42,9 @@ PhageTerm.py -f reads.fastq -r phage_genome.fasta -p phage_sample_name
 
 ## In the iVirus workflow
 
-PhageTerm is most valuable in the Annotation step when working with well-assembled or isolated phage genomes rather than highly fragmented metagenomic contigs. Run it before annotation tools such as [VIGA]({{ '/docs/tools/viga/' | url }}), [Prokka]({{ '/docs/tools/prokka/' | url }}), or [DRAM-v]({{ '/docs/tools/dram-v/' | url }}) to ensure the genome is correctly oriented and terminally complete, which improves gene-calling accuracy at genome ends.
+PhageTerm is most valuable in the Annotation step when working with well-assembled or isolated phage genomes rather than highly fragmented metagenomic contigs. Run it before annotation tools such as [VIGA]({{ '/docs/tools/viga/' | url }}), [Prokka]({{ '/docs/tools/prokka/placeholder/' | url }}), or [DRAM-v]({{ '/docs/tools/dram-v/' | url }}) to ensure the genome is correctly oriented and terminally complete, which improves gene-calling accuracy at genome ends.
 
 See also:
-- **Workflow step:** [Annotation]({{ '/docs/workflows/annotation/' | url }})
+- **Related tools:** [Annotation category]({{ '/tools/annotation/' | url }})
 - [VIGA]({{ '/docs/tools/viga/' | url }})
 - [DRAM-v]({{ '/docs/tools/dram-v/' | url }})

@@ -106,7 +106,7 @@
       "category": "assembly",
       "summary": "Extension of SPAdes designed specifically for metagenomic datasets with uneven coverage — the recommended assembler for most viral metagenomes.",
       "platforms": ["HPC", "CyVerse", "KBase"],
-      "official_url": "https://cab.spbu.ru/software/spades/",
+      "official_url": "https://github.com/ablab/spades",
       "reference": "Nurk et al., Genome Res (2017)"
     },
     {
@@ -115,7 +115,7 @@
       "category": "assembly",
       "summary": "Trusted assembler for short-read microbial and viral datasets with even coverage.",
       "platforms": ["HPC", "CyVerse", "KBase"],
-      "official_url": "https://cab.spbu.ru/software/spades/",
+      "official_url": "https://github.com/ablab/spades",
       "site_docs_url": "/docs/tools/spades/",
       "reference": "Bankevich et al., J Comput Biol (2012)"
     },
@@ -145,7 +145,17 @@
       "summary": "Multi-classifier, expert-guided approach for detecting diverse DNA and RNA viruses — the current recommended successor to VirSorter.",
       "platforms": ["HPC", "CyVerse"],
       "official_url": "https://github.com/jiarong/VirSorter2",
+      "site_docs_url": "/docs/tools/virsorter2/",
       "reference": "Guo et al., Microbiome (2021)"
+    },
+    {
+      "name": "geNomad",
+      "slug": "genomad",
+      "category": "identification",
+      "summary": "Identifies viruses and plasmids in isolate, metagenomic, and metatranscriptomic sequencing data using a hybrid deep-learning and gene-based classification approach; also assigns viral taxonomy and detects integrated proviruses.",
+      "platforms": ["HPC"],
+      "official_url": "https://github.com/apcamargo/genomad",
+      "reference": "Camargo et al., Nature Biotechnology (2023)"
     },
     {
       "name": "VIBRANT",
@@ -287,7 +297,7 @@
       "category": "host-prediction",
       "summary": "Predicts phage host range based on k-mer similarity between phage and host genomes.",
       "platforms": ["CyVerse"],
-      "official_url": "https://cpt.tamu.edu/hostphinder/",
+      "official_url": "https://github.com/julvi/HostPhinder",
       "site_docs_url": "/docs/tools/hostphinder/",
       "reference": "Villarroel et al., Viruses (2016)"
     },
@@ -297,7 +307,7 @@
       "category": "abundance",
       "summary": "Maps short reads to a reference set of viral genomes to estimate relative genome abundance across samples.",
       "platforms": ["CyVerse", "KBase"],
-      "official_url": "https://github.com/sullivanmb/iVirus",
+      "official_url": "https://github.com/MAVERIC-Labs/docker-bowtiebatch",
       "reference": "Bolduc et al., ISME J (2017)"
     },
     {
@@ -306,7 +316,7 @@
       "category": "abundance",
       "summary": "Batch wrapper around Bowtie2 for mapping multiple read datasets to a shared viral reference in parallel.",
       "platforms": ["CyVerse", "KBase"],
-      "official_url": "https://github.com/sullivanmb/iVirus",
+      "official_url": "https://github.com/MAVERIC-Labs/docker-bowtiebatch",
       "reference": "Bolduc et al., ISME J (2017)"
     },
     {
@@ -375,7 +385,7 @@
       "category": "taxonomy",
       "summary": "Calculates intergenomic similarity between phage genomes using BLAST-based nucleotide comparisons, enabling genus- and species-level demarcation following ICTV criteria.",
       "platforms": ["HPC"],
-      "official_url": "https://rhea.icbm.uni-oldenburg.de/VIRIDIC/",
+      "official_url": "https://rhea.icbm.uni-oldenburg.de/viridic/",
       "site_docs_url": "/docs/tools/viridic/",
       "reference": "Moraru et al., Viruses (2020)"
     },

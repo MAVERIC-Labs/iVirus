@@ -196,5 +196,5 @@ VIBRANT is an alternative to VirSorter2 for viral identification; see the [VIBRA
 
 - [VirSorter2 tool guide]({{ '/docs/tools/virsorter2/' | url }})
 - [CheckV tool guide]({{ '/docs/tools/checkv/' | url }})
-- [DRAM-v tool guide]({{ '/docs/tools/dramv/' | url }})
+- [DRAM-v tool guide]({{ '/docs/tools/dram-v/' | url }})
 - [VIBRANT tool guide]({{ '/docs/tools/vibrant/' | url }})

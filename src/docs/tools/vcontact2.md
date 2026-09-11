@@ -68,8 +68,8 @@ Genomes co-clustering with ICTV-classified reference genomes inherit their genus
 vConTACT2 is the core tool in the Taxonomy step. It takes predicted proteins from viral contigs identified by [VIBRANT]({{ '/docs/tools/vibrant/' | url }}) or [VirSorter]({{ '/docs/tools/virsorter/' | url }}). Network output is visualized in [Cytoscape]({{ '/docs/tools/cytoscape/' | url }}), and cluster assignments inform the abundance and ecology analyses.
 
 See also:
-- **Workflow step:** [Taxonomy]({{ '/docs/workflows/taxonomy/' | url }})
+- **Related tools:** [Taxonomy category]({{ '/tools/taxonomy/' | url }})
 - **Visualization:** [Cytoscape]({{ '/docs/tools/cytoscape/' | url }})
 - **Protocol:** [Running vConTACT2 on VirSorter output in CyVerse](https://dx.doi.org/10.17504/protocols.io.x5xfq7n)
 - **Original method:** Bolduc et al., PeerJ (2017) — introduces the gene-sharing network concept
-- **Tool catalogue:** [/tools/]({{ '/docs/tools/' | url }})
+- **Tool catalogue:** [/tools/]({{ '/tools/' | url }})

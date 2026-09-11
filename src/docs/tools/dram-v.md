@@ -61,5 +61,5 @@ DRAM-v.py distill \
 DRAM-v is the primary tool in the Annotation step, accepting viral contigs identified by [VIBRANT]({{ '/docs/tools/vibrant/' | url }}) or [VirSorter]({{ '/docs/tools/virsorter/' | url }}). AMG results from the distillate complement [VIBRANT]({{ '/docs/tools/vibrant/' | url }})'s own AMG table and inform ecological interpretation. Annotated gene products also provide protein sets that can feed into [vConTACT2]({{ '/docs/tools/vcontact2/' | url }}) for taxonomy.
 
 See also:
-- **Workflow step:** [Annotation]({{ '/docs/workflows/annotation/' | url }})
-- **Tool catalogue:** [/tools/]({{ '/docs/tools/' | url }})
+- **Related tools:** [Annotation category]({{ '/tools/annotation/' | url }})
+- **Tool catalogue:** [/tools/]({{ '/tools/' | url }})
