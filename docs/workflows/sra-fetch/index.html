@@ -114,15 +114,15 @@
     <ul class="wf-list">
     
       
-      <li class="wf-parent ">
+      <li class="wf-parent open">
         <button class="wf-toggle" aria-label="Toggle steps"
-                aria-expanded="false">
-          Viral Metagenome Workflow <span class="arrow">▸</span>
+                aria-expanded="true">
+          Viral Metagenome Workflow <span class="arrow">▾</span>
         </button>
-        <ul class="wf-steps-nested" hidden>
+        <ul class="wf-steps-nested" >
           
           <li class="active">
-            <a href="/iVirus/docs/workflows/sra-fetch/">SRA Fetch</a>
+            <a href="/iVirus/docs/workflows/sra-fetch/">Get Reads</a>
           </li>
           
           <li class="">
@@ -134,11 +134,31 @@
           </li>
           
           <li class="">
-            <a href="/iVirus/docs/workflows/viral-identification/">Viral Identification</a>
+            <a href="/iVirus/docs/workflows/viral-identification/">Viral ID</a>
           </li>
           
           <li class="">
-            <a href="/iVirus/docs/workflows/reporting/">Reporting</a>
+            <a href="/iVirus/docs/workflows/quality-and-votus/">Quality &amp; vOTUs</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/taxonomy/">Taxonomy</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/host-prediction/">Host Prediction</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/annotation/">Annotation &amp; AMGs</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/abundance/">Abundance &amp; Ecology</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/visualize/">Visualize &amp; Explore</a>
           </li>
           
         </ul>
@@ -351,56 +371,10 @@
       
     
 
-    <nav class="wf" aria-label="Viral Metagenome Workflow">
-      <h4 class="wf-title">Viral Metagenome Workflow</h4>
-      <ol class="wf-steps">
-        <li class="wf-step active">
-        <a href="/iVirus/docs/workflows/sra-fetch/">
-          <span class="icon" aria-hidden="true">📥</span><span class="label">SRA Fetch</span>
-        </a>
-      </li>
-<li class="wf-chevron" aria-hidden="true">»»</li>
-<li class="wf-step ">
-        <a href="/iVirus/docs/workflows/qc-and-trim/">
-          <span class="icon" aria-hidden="true">🧪</span><span class="label">QC & Trim</span>
-        </a>
-      </li>
-<li class="wf-chevron" aria-hidden="true">»»</li>
-<li class="wf-step ">
-        <a href="/iVirus/docs/workflows/assembly/">
-          <span class="icon" aria-hidden="true">🧩</span><span class="label">Assembly</span>
-        </a>
-      </li>
-<li class="wf-chevron" aria-hidden="true">»»</li>
-<li class="wf-step ">
-        <a href="/iVirus/docs/workflows/viral-identification/">
-          <span class="icon" aria-hidden="true">🦠</span><span class="label">Viral Identification</span>
-        </a>
-      </li>
-<li class="wf-chevron" aria-hidden="true">»»</li>
-<li class="wf-step ">
-        <a href="/iVirus/docs/workflows/reporting/">
-          <span class="icon" aria-hidden="true">📊</span><span class="label">Reporting</span>
-        </a>
-      </li>
-      </ol>
-    </nav>
+    <div class="pipe-wrap pipe-wrap--compact" data-pipe="compact"><div class="pipe-scroll"><svg class="pipe pipe--compact" viewBox="0 0 800 198" role="group" aria-label="Viral Metagenome Workflow: clickable pipeline diagram" xmlns="http://www.w3.org/2000/svg"><defs><marker id="pipe-ah" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path class="pipe-head" d="M0,0 L7,3.5 L0,7 Z"/></marker></defs><path class="pipe-line" d="M150,34 H168" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M310,34 H328" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M470,34 H488" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M630,34 H648" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M703,54 V74"/><path class="pipe-line" d="M97,74 H703"/><path class="pipe-line" d="M97,74 V90" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M299,74 V90" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M501,74 V90" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M703,74 V90" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M97,134 V152" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M299,134 V152" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M501,134 V152" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M703,134 V152" marker-end="url(#pipe-ah)"/><a class="pipe-node is-trunk is-active" href="/iVirus/docs/workflows/sra-fetch/" data-stage="sra" aria-label="Stage 1: Get Reads" aria-current="step"><title>Start with FASTQ files from your sequencer or the SRA.</title><rect class="pipe-box" x="12" y="14" width="136" height="40" rx="10"/><circle class="pipe-badge" cx="28" cy="14" r="10"/><text class="pipe-num" x="28" y="17.6">1</text><text class="pipe-title" x="80" y="38.5">Get Reads</text></a><a class="pipe-node is-trunk" href="/iVirus/docs/workflows/qc-and-trim/" data-stage="qc" aria-label="Stage 2: QC &amp; Trim"><title>Assess read quality, trim adapters, and filter low-quality sequences before assembly.</title><rect class="pipe-box" x="172" y="14" width="136" height="40" rx="10"/><circle class="pipe-badge" cx="188" cy="14" r="10"/><text class="pipe-num" x="188" y="17.6">2</text><text class="pipe-title" x="240" y="38.5">QC &amp; Trim</text></a><a class="pipe-node is-trunk" href="/iVirus/docs/workflows/assembly/" data-stage="assembly" aria-label="Stage 3: Assembly"><title>Assemble short reads into contigs for downstream viral identification and analysis.</title><rect class="pipe-box" x="332" y="14" width="136" height="40" rx="10"/><circle class="pipe-badge" cx="348" cy="14" r="10"/><text class="pipe-num" x="348" y="17.6">3</text><text class="pipe-title" x="400" y="38.5">Assembly</text></a><a class="pipe-node is-trunk" href="/iVirus/docs/workflows/viral-identification/" data-stage="id" aria-label="Stage 4: Viral ID"><title>Detect viral sequences from metagenomic assemblies using diverse detection strategies.</title><rect class="pipe-box" x="492" y="14" width="136" height="40" rx="10"/><circle class="pipe-badge" cx="508" cy="14" r="10"/><text class="pipe-num" x="508" y="17.6">4</text><text class="pipe-title" x="560" y="38.5">Viral ID</text></a><a class="pipe-node is-trunk" href="/iVirus/docs/workflows/quality-and-votus/" data-stage="derep" aria-label="Stage 5: Quality &amp; vOTUs"><title>Assess genome quality and completeness with CheckV, then de-replicate contigs.</title><rect class="pipe-box" x="652" y="14" width="136" height="40" rx="10"/><circle class="pipe-badge" cx="668" cy="14" r="10"/><text class="pipe-num" x="668" y="17.6">5</text><text class="pipe-title" x="720" y="38.5">Quality &amp; vOTUs</text></a><a class="pipe-node is-branch" href="/iVirus/docs/workflows/taxonomy/" data-stage="taxonomy" aria-label="Stage 6: Taxonomy"><title>Assign taxonomic labels to viral sequences using gene-sharing networks.</title><rect class="pipe-box" x="12" y="94" width="170" height="40" rx="10"/><circle class="pipe-badge" cx="28" cy="94" r="10"/><text class="pipe-num" x="28" y="97.6">6</text><text class="pipe-title" x="97" y="118.5">Taxonomy</text></a><a class="pipe-node is-branch" href="/iVirus/docs/workflows/host-prediction/" data-stage="host" aria-label="Stage 7: Host Prediction"><title>Predict the prokaryotic hosts of viral sequences using sequence- or signal-based methods.</title><rect class="pipe-box" x="214" y="94" width="170" height="40" rx="10"/><circle class="pipe-badge" cx="230" cy="94" r="10"/><text class="pipe-num" x="230" y="97.6">7</text><text class="pipe-title" x="299" y="118.5">Host Prediction</text></a><a class="pipe-node is-branch" href="/iVirus/docs/workflows/annotation/" data-stage="annotation" aria-label="Stage 8: Annotation &amp; AMGs"><title>Annotate gene functions; identify auxiliary metabolic genes.</title><rect class="pipe-box" x="416" y="94" width="170" height="40" rx="10"/><circle class="pipe-badge" cx="432" cy="94" r="10"/><text class="pipe-num" x="432" y="97.6">8</text><text class="pipe-title" x="501" y="118.5">Annotation &amp; AMGs</text></a><a class="pipe-node is-branch" href="/iVirus/docs/workflows/abundance/" data-stage="abundance" aria-label="Stage 9: Abundance &amp; Ecology"><title>Map reads back to viral references to estimate genome abundance and population dynamics.</title><rect class="pipe-box" x="618" y="94" width="170" height="40" rx="10"/><circle class="pipe-badge" cx="634" cy="94" r="10"/><text class="pipe-num" x="634" y="97.6">9</text><text class="pipe-title" x="703" y="118.5">Abundance &amp; Ecology</text></a><a class="pipe-node is-base" href="/iVirus/docs/workflows/visualize/" data-stage="viz" aria-label="Stage 10: Visualize &amp; Explore"><title>Explore and visualize viral networks, community structure, and genomic context.</title><rect class="pipe-box" x="12" y="156" width="776" height="32" rx="10"/><circle class="pipe-badge" cx="28" cy="156" r="10"/><text class="pipe-num" x="28" y="159.6">10</text><text class="pipe-title" x="400" y="176.5">Visualize &amp; Explore</text></a></svg></div><div class="pipe-card is-trunk" data-stage-card="sra"><div class="pipe-card-head"><span class="pipe-card-num">Stage 1 of 10</span><strong>Get Reads</strong></div><p>Start with FASTQ files from your sequencer or the SRA.</p><div class="pipe-io"><span>SRA accession or sequencer output</span><b aria-hidden="true">→</b><span>raw FASTQ</span></div><div class="pipe-toolrow"><span class="pipe-lbl">Tools</span><a class="pipe-chip" href="/iVirus/docs/tools/sra-download/">SRA Toolkit</a></div><div class="pipe-nav"><span></span><a href="/iVirus/docs/workflows/qc-and-trim/">QC &amp; Trim →</a></div></div></div>
 <p>The first thing we need to do is grab the data from the SRA. You can do this a few ways, either through navigating the NCBI+SRA websites, or directly using their SRA Toolkit.</p>
 <p>We'll use <a href="https://www.ncbi.nlm.nih.gov/sra/ERX552322">ERR594369</a> as our running example throughout this workflow — a viral metagenome with 37 million paired reads and 7.2 Gbp total.</p>
-<div class="codetabs" id="tabs-cmw89u67dxk" data-codetabs>
-  <div class="codetabs-nav" data-codetabs-nav role="tablist"><button type="button" data-tab="0" role="tab" aria-selected="true" class='active'>Command</button><button type="button" data-tab="1" role="tab" aria-selected="false" >SLURM Script</button></div>
-  <div class="codetabs-panels" data-codetabs-panels><div class="codetabs-panel" data-panel="0" role="tabpanel"><pre class="language-bash"><code class="language-bash">fasterq-dump <span class="token parameter variable">-e</span> <span class="token number">4</span> <span class="token parameter variable">-p</span> --split-files ERR594369</code></pre>
-</div><div class="codetabs-panel" data-panel="1" role="tabpanel" hidden><pre class="language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
-<span class="token comment">#SBATCH -N 1</span>
-<span class="token comment">#SBATCH -t 1:00:00</span>
-<span class="token comment">#SBATCH -n 4</span>
-<span class="token comment">#SBATCH -J sra-fetch</span>
-<p><span class="token comment"># activate your conda environment here</span></p>
-<p><span class="token assign-left variable">workDir</span><span class="token operator">=</span><span class="token string">&quot;&lt;your_project_dir&gt;&quot;</span></p>
-<p><span class="token builtin class-name">cd</span> <span class="token variable">$workDir</span>
-fasterq-dump <span class="token parameter variable">-e</span> <span class="token number">4</span> <span class="token parameter variable">-p</span> --split-files ERR594369</code></pre></p>
-</div></div>
-</div>
+<div class="codetabs" id="tabs-ztbi2qzkd8a" data-codetabs><div class="codetabs-nav" data-codetabs-nav role="tablist"><button type="button" data-tab="0" role="tab" aria-selected="true" class='active'>Command</button><button type="button" data-tab="1" role="tab" aria-selected="false" >SLURM Script</button></div><div class="codetabs-panels" data-codetabs-panels><div class="codetabs-panel" data-panel="0" role="tabpanel"><pre class="language-bash"><code class="language-bash">fasterq-dump <span class="token parameter variable">-e</span> <span class="token number">4</span> <span class="token parameter variable">-p</span> --split-files ERR594369</code></pre>&#10;</div><div class="codetabs-panel" data-panel="1" role="tabpanel" hidden><pre class="language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>&#10;<span class="token comment">#SBATCH -N 1</span>&#10;<span class="token comment">#SBATCH -t 1:00:00</span>&#10;<span class="token comment">#SBATCH -n 4</span>&#10;<span class="token comment">#SBATCH -J sra-fetch</span>&#10;&#10;<span class="token comment"># activate your conda environment here</span>&#10;&#10;<span class="token assign-left variable">workDir</span><span class="token operator">=</span><span class="token string">"&lt;your_project_dir>"</span>&#10;&#10;<span class="token builtin class-name">cd</span> <span class="token variable">$workDir</span>&#10;fasterq-dump <span class="token parameter variable">-e</span> <span class="token number">4</span> <span class="token parameter variable">-p</span> --split-files ERR594369</code></pre>&#10;</div></div></div>
 <p>Expected output:</p>
 <pre><code>join   :|-------------------------------------------------- 100.00%
 concat :|-------------------------------------------------- 100.00%
@@ -413,7 +387,9 @@ user	6m21.745s
 sys	0m45.333s
 </code></pre>
 <p>In the example above, we used <em>fasterq-dump</em>, which is designated to download two paired end read files in fastq format. We also specified 4 threads (-e 4) so it would run a little faster. There should be <em>two</em> output files: ERR594369_1.fastq and ERR594369_2.fastq. fasterq-dump won't compress the files for you, so you'll have to do this after the download completes.</p>
-<pre class="language-bash"><code class="language-bash"><span class="token function">gzip</span> ERR594369_1.fastq ERR594369_2.fastq</code></pre>
+<pre class="language-bash"><code class="language-bash"><span class="token comment"># Compress all files in the project directory</span>
+pigz <span class="token parameter variable">-r</span> <span class="token operator">&lt;</span>your_project_dir<span class="token operator">></span>/</code></pre>
+<p>Pigz stands for the parallel implementation of GZip and is a replacement for gzip that uses multiple processors and cores to compress data. It compresses data faster than gzip.</p>
 <h2>Finding accessions</h2>
 <p>SRA run accessions start with <strong>SRR</strong> (NCBI), <strong>ERR</strong> (ENA), or <strong>DRR</strong> (DDBJ). These are the accessions you pass directly to <code>fasterq-dump</code>. Search the <a href="https://www.ncbi.nlm.nih.gov/sra">NCBI SRA</a> with a BioProject ID, keyword, or accession from a paper to find the run accession(s) you need.</p>
 <h2>See also</h2>
@@ -444,6 +420,7 @@ sys	0m45.333s
   <script src="/iVirus/assets/js/directory-filters.js"></script>
   <script src="/iVirus/assets/js/home.js"></script>
   <script src="/iVirus/assets/js/theme-toggle.js"></script>
+  <script src="/iVirus/assets/js/pipeline.js"></script>
 
   <!-- Alpha banner dismiss -->
   <script>

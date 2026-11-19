@@ -117,7 +117,9 @@
   
     
       <div class="container site-content">
-        <div class="cat-callout">Identifying viral sequences from metagenomic assemblies remains a major challenge in the field of viral ecology. A variety of approaches have been proposed, each dependent on the source of data and the underlying biological question. Tools range from signal-based approaches that look for hallmark viral genes to machine learning models trained on sequence composition. We recommend running multiple identification tools and using CheckV to assess the quality and completeness of predicted viral genomes before proceeding to annotation.</div>
+        <div class="pipe-wrap pipe-wrap--strip"><div class="pipe-scroll"><svg class="pipe pipe--compact pipe--strip" viewBox="0 0 800 160" width="880" height="176" role="group" aria-label="Viral Metagenome Workflow: where this category fits" xmlns="http://www.w3.org/2000/svg"><defs><marker id="pipe-ah" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path class="pipe-head" d="M0,0 L7,3.5 L0,7 Z"/></marker></defs><path class="pipe-line" d="M175,80 C194,80 194,80 213,80" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M380,80 C399,80 399,80 418,80" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M585,80 C604,80 604,26 623,26" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M585,80 C604,80 604,62 623,62" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M585,80 C604,80 604,98 623,98" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M585,80 C604,80 604,134 623,134" marker-end="url(#pipe-ah)"/><a class="pipe-node is-trunk" href="/iVirus/tools/assembly/" aria-label="Stage 3: Assembly"><title>Browse Assembly tools</title><rect class="pipe-box" x="12" y="55" width="161" height="50" rx="12"/><circle class="pipe-badge" cx="30" cy="80" r="10"/><text class="pipe-num" x="30" y="83.6">3</text><text class="pipe-title" x="102.5" y="84.5">Assembly</text></a><a class="pipe-node is-trunk is-active" href="/iVirus/docs/workflows/viral-identification/" aria-label="Stage 4: Viral ID" aria-current="page"><title>Open the Viral ID walkthrough</title><rect class="pipe-box" x="217" y="55" width="161" height="50" rx="12"/><circle class="pipe-badge" cx="235" cy="80" r="10"/><text class="pipe-num" x="235" y="83.6">4</text><text class="pipe-title" x="307.5" y="84.5">Viral ID</text></a><a class="pipe-node is-trunk is-active" href="/iVirus/docs/workflows/quality-and-votus/" aria-label="Stage 5: Quality &amp; vOTUs" aria-current="page"><title>Open the Quality &amp; vOTUs walkthrough</title><rect class="pipe-box" x="422" y="55" width="161" height="50" rx="12"/><circle class="pipe-badge" cx="440" cy="80" r="10"/><text class="pipe-num" x="440" y="83.6">5</text><text class="pipe-title" x="512.5" y="84.5">Quality &amp; vOTUs</text></a><a class="pipe-node is-branch" href="/iVirus/tools/taxonomy/" aria-label="Stage 6: Taxonomy"><title>Browse Taxonomy tools</title><rect class="pipe-box" x="627" y="12" width="161" height="28" rx="8"/><circle class="pipe-badge" cx="643" cy="26" r="8"/><text class="pipe-num" x="643" y="29.6">6</text><text class="pipe-title pipe-title--sm" x="659" y="30">Taxonomy</text></a><a class="pipe-node is-branch" href="/iVirus/tools/host-prediction/" aria-label="Stage 7: Host Prediction"><title>Browse Host Prediction tools</title><rect class="pipe-box" x="627" y="48" width="161" height="28" rx="8"/><circle class="pipe-badge" cx="643" cy="62" r="8"/><text class="pipe-num" x="643" y="65.6">7</text><text class="pipe-title pipe-title--sm" x="659" y="66">Host Prediction</text></a><a class="pipe-node is-branch" href="/iVirus/tools/annotation/" aria-label="Stage 8: Annotation &amp; AMGs"><title>Browse Annotation &amp; AMGs tools</title><rect class="pipe-box" x="627" y="84" width="161" height="28" rx="8"/><circle class="pipe-badge" cx="643" cy="98" r="8"/><text class="pipe-num" x="643" y="101.6">8</text><text class="pipe-title pipe-title--sm" x="659" y="102">Annotation &amp; AMGs</text></a><a class="pipe-node is-branch" href="/iVirus/tools/abundance/" aria-label="Stage 9: Abundance &amp; Ecology"><title>Browse Abundance &amp; Ecology tools</title><rect class="pipe-box" x="627" y="120" width="161" height="28" rx="8"/><circle class="pipe-badge" cx="643" cy="134" r="8"/><text class="pipe-num" x="643" y="137.6">9</text><text class="pipe-title pipe-title--sm" x="659" y="138">Abundance &amp; Ecology</text></a></svg></div><p class="pipe-strip-cap">Stage 4–5 of the <a href="/iVirus/docs/workflows/end-to-end/">Viral Metagenome Workflow</a>. Click Viral ID and Quality &amp; vOTUs for the walkthrough, or a neighboring stage to browse its tools.</p></div>
+
+<div class="cat-callout">Identifying viral sequences from metagenomic assemblies remains a major challenge in the field of viral ecology. A variety of approaches have been proposed, each dependent on the source of data and the underlying biological question. Tools range from signal-based approaches that look for hallmark viral genes to machine learning models trained on sequence composition. We recommend running multiple identification tools and using CheckV to assess the quality and completeness of predicted viral genomes before proceeding to annotation.</div>
 
 <table class="tool-table">
   <thead>
@@ -293,7 +295,7 @@
       
       <tr>
         <td><strong>VirSorter</strong></td>
-        <td>Original signal-based tool for mining viral signatures from microbial genomic data. Superseded by VirSorter2 for most use cases.</td>
+        <td>Original signal-based tool for mining viral signatures from microbial genomic data. Superseded by VirSorter2.</td>
         <td>
           
             <span class="pill">HPC</span>
@@ -404,6 +406,45 @@
     
       
     
+      
+      <tr>
+        <td><strong>vclust</strong></td>
+        <td>Alignment-based tool for fast and accurate calculation of Average Nucleotide Identity (ANI) between complete or metagenomically-assembled viral genomes, with ANI-based clustering according to ICTV and MIUViG standards.</td>
+        <td>
+          
+            <span class="pill">HPC</span>
+          
+        </td>
+        
+        
+        
+
+        <td class="links">
+          
+          
+            
+            
+              <a href="/iVirus/docs/tools/vclust/placeholder/">
+                Docs <span class="pill warn">coming soon</span>
+              </a>
+               · <a href="https://github.com/refresh-bio/vclust" target="_blank" rel="noopener">Official</a>
+            
+          
+        </td>
+        <td class="muted">Zielezinski et al., Nature Methods (2025)</td>
+      </tr>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
     </tbody>
 </table>
 
@@ -431,6 +472,7 @@
   <script src="/iVirus/assets/js/directory-filters.js"></script>
   <script src="/iVirus/assets/js/home.js"></script>
   <script src="/iVirus/assets/js/theme-toggle.js"></script>
+  <script src="/iVirus/assets/js/pipeline.js"></script>
 
   <!-- Alpha banner dismiss -->
   <script>

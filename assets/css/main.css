@@ -332,56 +332,11 @@ html { scroll-behavior: smooth; }
   .site-header .header-spacer { display: none; }
 }
 
-/* --- Workflow stepper --- */
-.wf-steps{
-  display:flex;
-  align-items:center;
-  gap:.75rem;
-  list-style:none;
-  padding:0;
-  margin:0;
-}
-.wf-step a{ text-decoration:none; }
-.wf-step.active a{ font-weight:bold; }
-.wf-chevron{ color:var(--muted); }
-
 /***** Homepage hero and indicator styles *****/
 .hero-home {
   position: relative;
   overflow: hidden;
 }
-.hero-home .hero-banner {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background:
-    linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,0)),
-    radial-gradient(80% 60% at 50% -10%, rgba(90,135,255,.25), transparent 60%),
-    var(--hero-img, none);
-  background-size: cover;
-  background-position: center;
-  opacity: .35;
-  will-change: transform;
-  transition: opacity .4s ease, transform .2s ease;
-}
-
-/* --- Hero parallax background motion --- */
-.hero-home .hero-banner {
-  background-attachment: fixed;
-  transform: translateZ(0);
-}
-
-/* Smooth background fade between slides */
-.hero-home {
-  transition: background 1s ease-in-out;
-}
-
-/* Optional tweak: maintain text legibility for darker hero images */
-.hero-home .hero-inner h1,
-.hero-home .hero-inner p {
-  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
-}
-
 .hero-home .hero-inner {
   position: relative;
   z-index: 1;

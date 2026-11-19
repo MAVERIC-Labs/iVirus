@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Reads → Assembly – iVirus</title>
+  <title>Pharokka – iVirus</title>
   <meta name="description" content="Workshops, tools, data, and documentation for viral research.">
   <link rel="icon" href="/iVirus/assets/img/favicon.svg" type="image/svg+xml">
 
@@ -49,7 +49,7 @@
   </script>
   
 </head>
-<body class="-docs-workflows-reads-to-assembly">
+<body class="-docs-tools-_placeholders">
 
   <!-- Alpha preview banner -->
   <div class="alpha-banner" id="alphaBanner" role="banner" aria-label="Preview notice">
@@ -122,7 +122,7 @@
         <ul class="wf-steps-nested" hidden>
           
           <li class="">
-            <a href="/iVirus/docs/workflows/sra-fetch/">SRA Fetch</a>
+            <a href="/iVirus/docs/workflows/sra-fetch/">Get Reads</a>
           </li>
           
           <li class="">
@@ -134,11 +134,31 @@
           </li>
           
           <li class="">
-            <a href="/iVirus/docs/workflows/viral-identification/">Viral Identification</a>
+            <a href="/iVirus/docs/workflows/viral-identification/">Viral ID</a>
           </li>
           
           <li class="">
-            <a href="/iVirus/docs/workflows/reporting/">Reporting</a>
+            <a href="/iVirus/docs/workflows/quality-and-votus/">Quality &amp; vOTUs</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/taxonomy/">Taxonomy</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/host-prediction/">Host Prediction</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/annotation/">Annotation &amp; AMGs</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/abundance/">Abundance &amp; Ecology</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/visualize/">Visualize &amp; Explore</a>
           </li>
           
         </ul>
@@ -343,7 +363,7 @@
   <article class="docs-content">
     
     
-      <h1>Reads → Assembly</h1>
+      <h1>Pharokka</h1>
       
 
       
@@ -351,53 +371,14 @@
       
     
 
-    <nav class="wf" aria-label="Viral Metagenome Workflow">
-      <h4 class="wf-title">Viral Metagenome Workflow</h4>
-      <ol class="wf-steps">
-        <li class="wf-step ">
-        <a href="/iVirus/docs/workflows/sra-fetch/">
-          <span class="icon" aria-hidden="true">📥</span><span class="label">SRA Fetch</span>
-        </a>
-      </li>
-<li class="wf-chevron" aria-hidden="true">»»</li>
-<li class="wf-step ">
-        <a href="/iVirus/docs/workflows/qc-and-trim/">
-          <span class="icon" aria-hidden="true">🧪</span><span class="label">QC & Trim</span>
-        </a>
-      </li>
-<li class="wf-chevron" aria-hidden="true">»»</li>
-<li class="wf-step ">
-        <a href="/iVirus/docs/workflows/assembly/">
-          <span class="icon" aria-hidden="true">🧩</span><span class="label">Assembly</span>
-        </a>
-      </li>
-<li class="wf-chevron" aria-hidden="true">»»</li>
-<li class="wf-step ">
-        <a href="/iVirus/docs/workflows/viral-identification/">
-          <span class="icon" aria-hidden="true">🦠</span><span class="label">Viral Identification</span>
-        </a>
-      </li>
-<li class="wf-chevron" aria-hidden="true">»»</li>
-<li class="wf-step ">
-        <a href="/iVirus/docs/workflows/reporting/">
-          <span class="icon" aria-hidden="true">📊</span><span class="label">Reporting</span>
-        </a>
-      </li>
-      </ol>
-    </nav>
-<h3>Purpose</h3>
-<p>Convert raw reads into assemblies.</p>
-<h3>What you’ll do</h3>
-<ul>
-<li>Quality check and trim reads (fastp)</li>
-<li>Assemble with SPAdes</li>
-</ul>
-<h3>Related</h3>
-<ul>
-<li><a href="/iVirus/docs/tools/fastp/">fastp tool guide</a></li>
-<li><a href="/iVirus/docs/tools/spades/">SPAdes tool guide</a></li>
-</ul>
-
+    <meta name="robots" content="noindex">
+<div class="tool-stub">
+<p class="tool-stub-lead">A rapid standardized annotation tool for bacteriophage genomes and metagenomes. Predicts genes with PHANOTATE by default (Prodigal and prodigal-gv optional) and assigns functions against the PHROGs, CARD and VFDB databases.</p>
+<div class="tool-meta-bar"><span class="badge badge--platform badge--hpc">HPC</span><span class="tool-meta-sep">·</span><a class="tool-meta-cat" href="/iVirus/tools/annotation/">📝 Annotation</a><span class="tool-meta-sep">·</span><span class="tool-meta-ref">Bouras et al., Bioinformatics (2023)</span></div>
+<div class="pipe-toolrow"><span class="pipe-lbl">Used in</span><a class="pipe-chip" href="/iVirus/docs/workflows/annotation/">Annotation & AMGs</a></div>
+<div class="admon admon-note"><strong>Note:</strong> <em>This documentation is coming soon.</em> In the meantime, see the official site or the tools catalogue.</div>
+<p class="tool-stub-actions"><a class="btn" href="https://github.com/gbouras13/pharokka" target="_blank" rel="noopener">Official site ↗</a> <a class="btn btn-ghost" href="/iVirus/tools/annotation/">All annotation tools</a></p>
+</div>
   </article>
 
   
@@ -421,6 +402,7 @@
   <script src="/iVirus/assets/js/directory-filters.js"></script>
   <script src="/iVirus/assets/js/home.js"></script>
   <script src="/iVirus/assets/js/theme-toggle.js"></script>
+  <script src="/iVirus/assets/js/pipeline.js"></script>
 
   <!-- Alpha banner dismiss -->
   <script>

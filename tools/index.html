@@ -118,97 +118,31 @@
     
       <div class="container site-content">
         <section class="tools-landing">
-  <ul class="tool-cat-grid directory-grid">
+  <h2 class="tools-h tools-h--center">Browse by pipeline stage</h2>
+  <div class="pipe-wrap" data-pipe="full"><div class="pipe-scroll"><svg class="pipe pipe--full" viewBox="0 0 800 356" role="group" aria-label="Viral Metagenome Workflow: clickable pipeline diagram" xmlns="http://www.w3.org/2000/svg"><defs><marker id="pipe-ah" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path class="pipe-head" d="M0,0 L7,3.5 L0,7 Z"/></marker></defs><path class="pipe-line" d="M150,76 H168" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M310,76 H328" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M470,76 H488" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M630,76 H648" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M703,122 V152"/><path class="pipe-line" d="M97,152 H703"/><path class="pipe-line" d="M97,152 V174" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M299,152 V174" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M501,152 V174" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M703,152 V174" marker-end="url(#pipe-ah)"/><text class="pipe-section" x="12" y="14">Reads → vOTUs</text><text class="pipe-section" x="12" y="144">Downstream analyses, in any order</text><path class="pipe-line" d="M97,278 V302" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M299,278 V302" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M501,278 V302" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M703,278 V302" marker-end="url(#pipe-ah)"/><a class="pipe-node is-trunk" href="/iVirus/docs/workflows/sra-fetch/" data-stage="sra" aria-label="Stage 1: Get Reads"><title>Start with FASTQ files from your sequencer or the SRA.</title><rect class="pipe-box" x="12" y="30" width="136" height="92" rx="12"/><circle class="pipe-badge" cx="28" cy="30" r="10"/><text class="pipe-num" x="28" y="33.6">1</text><text class="pipe-title" x="80" y="58">Get Reads</text><text class="pipe-tools" x="80" y="78">SRA Toolkit</text><text class="pipe-out" x="80" y="112">→ raw FASTQ</text></a><a class="pipe-node is-trunk" href="/iVirus/tools/quality-control/" data-stage="qc" aria-label="Stage 2: QC &amp; Trim"><title>Assess read quality, trim adapters, and filter low-quality sequences before assembly.</title><rect class="pipe-box" x="172" y="30" width="136" height="92" rx="12"/><circle class="pipe-badge" cx="188" cy="30" r="10"/><text class="pipe-num" x="188" y="33.6">2</text><text class="pipe-title" x="240" y="58">QC &amp; Trim</text><text class="pipe-tools" x="240" y="78">fastp · BBDuk · FastQC</text><text class="pipe-tools" x="240" y="92">MultiQC · Trimmomatic</text><text class="pipe-out" x="240" y="112">→ clean reads</text></a><a class="pipe-node is-trunk" href="/iVirus/tools/assembly/" data-stage="assembly" aria-label="Stage 3: Assembly"><title>Assemble short reads into contigs for downstream viral identification and analysis.</title><rect class="pipe-box" x="332" y="30" width="136" height="92" rx="12"/><circle class="pipe-badge" cx="348" cy="30" r="10"/><text class="pipe-num" x="348" y="33.6">3</text><text class="pipe-title" x="400" y="58">Assembly</text><text class="pipe-tools" x="400" y="78">MetaSPAdes · MEGAHIT</text><text class="pipe-out" x="400" y="112">→ contigs</text></a><a class="pipe-node is-trunk" href="/iVirus/tools/identification/" data-stage="id" aria-label="Stage 4: Viral ID"><title>Detect viral sequences from metagenomic assemblies using diverse detection strategies.</title><rect class="pipe-box" x="492" y="30" width="136" height="92" rx="12"/><circle class="pipe-badge" cx="508" cy="30" r="10"/><text class="pipe-num" x="508" y="33.6">4</text><text class="pipe-title" x="560" y="58">Viral ID</text><text class="pipe-tools" x="560" y="78">geNomad · VirSorter2</text><text class="pipe-tools" x="560" y="92">VIBRANT</text><text class="pipe-out" x="560" y="112">→ viral contigs</text></a><a class="pipe-node is-trunk" href="/iVirus/tools/identification/" data-stage="derep" aria-label="Stage 5: Quality &amp; vOTUs"><title>Assess genome quality and completeness with CheckV, then de-replicate contigs.</title><rect class="pipe-box" x="652" y="30" width="136" height="92" rx="12"/><circle class="pipe-badge" cx="668" cy="30" r="10"/><text class="pipe-num" x="668" y="33.6">5</text><text class="pipe-title" x="720" y="58">Quality &amp; vOTUs</text><text class="pipe-tools" x="720" y="78">CheckV · vclust</text><text class="pipe-out" x="720" y="112">→ vOTUs</text></a><a class="pipe-node is-branch" href="/iVirus/tools/taxonomy/" data-stage="taxonomy" aria-label="Stage 6: Taxonomy"><title>Assign taxonomic labels to viral sequences using gene-sharing networks.</title><rect class="pipe-box" x="12" y="178" width="170" height="100" rx="12"/><circle class="pipe-badge" cx="28" cy="178" r="10"/><text class="pipe-num" x="28" y="181.6">6</text><text class="pipe-title" x="97" y="210">Taxonomy</text><text class="pipe-tools" x="97" y="230">vConTACT3 · geNomad</text><text class="pipe-tools" x="97" y="244">VIRIDIC · CAT/BAT</text></a><a class="pipe-node is-branch" href="/iVirus/tools/host-prediction/" data-stage="host" aria-label="Stage 7: Host Prediction"><title>Predict the prokaryotic hosts of viral sequences using sequence- or signal-based methods.</title><rect class="pipe-box" x="214" y="178" width="170" height="100" rx="12"/><circle class="pipe-badge" cx="230" cy="178" r="10"/><text class="pipe-num" x="230" y="181.6">7</text><text class="pipe-title" x="299" y="210">Host Prediction</text><text class="pipe-tools" x="299" y="230">iPHoP</text></a><a class="pipe-node is-branch" href="/iVirus/tools/annotation/" data-stage="annotation" aria-label="Stage 8: Annotation &amp; AMGs"><title>Annotate gene functions; identify auxiliary metabolic genes.</title><rect class="pipe-box" x="416" y="178" width="170" height="100" rx="12"/><circle class="pipe-badge" cx="432" cy="178" r="10"/><text class="pipe-num" x="432" y="181.6">8</text><text class="pipe-title" x="501" y="210">Annotation &amp; AMGs</text><text class="pipe-tools" x="501" y="230">DRAM-v · Pharokka</text><text class="pipe-tools" x="501" y="244">prodigal-gv</text></a><a class="pipe-node is-branch" href="/iVirus/tools/abundance/" data-stage="abundance" aria-label="Stage 9: Abundance &amp; Ecology"><title>Map reads back to viral references to estimate genome abundance and population dynamics.</title><rect class="pipe-box" x="618" y="178" width="170" height="100" rx="12"/><circle class="pipe-badge" cx="634" cy="178" r="10"/><text class="pipe-num" x="634" y="181.6">9</text><text class="pipe-title" x="703" y="210">Abundance &amp; Ecology</text><text class="pipe-tools" x="703" y="230">CoverM · Bowtie2 · PropagAtE</text></a><a class="pipe-node is-base" href="/iVirus/tools/visualization/" data-stage="viz" aria-label="Stage 10: Visualize &amp; Explore"><title>Explore and visualize viral networks, community structure, and genomic context.</title><rect class="pipe-box" x="12" y="306" width="776" height="40" rx="12"/><circle class="pipe-badge" cx="28" cy="306" r="10"/><text class="pipe-num" x="28" y="309.6">10</text><text class="pipe-title" x="400" y="331">Visualize &amp; Explore<tspan class="pipe-tools" dx="14">Cytoscape · Anvi'o</tspan></text></a></svg></div><div class="pipe-info" aria-live="polite"><p class="pipe-hint">Hover over or tab to a stage to see its tools. Click it to browse that category.</p><div class="pipe-card is-trunk" data-stage-card="sra" hidden><div class="pipe-card-head"><span class="pipe-card-num">Stage 1 of 10</span><strong>Get Reads</strong></div><p>Start with FASTQ files from your sequencer or the SRA.</p><div class="pipe-io"><span>SRA accession or sequencer output</span><b aria-hidden="true">→</b><span>raw FASTQ</span></div><div class="pipe-toolrow"><span class="pipe-lbl">Tools</span><a class="pipe-chip" href="/iVirus/docs/tools/sra-download/">SRA Toolkit</a></div><div class="pipe-nav"><span></span><a href="/iVirus/docs/workflows/sra-fetch/">Open the Get Reads walkthrough →</a></div></div><div class="pipe-card is-trunk" data-stage-card="qc" hidden><div class="pipe-card-head"><span class="pipe-card-num">Stage 2 of 10</span><strong>QC &amp; Trim</strong></div><p>Assess read quality, trim adapters, and filter low-quality sequences before assembly.</p><div class="pipe-io"><span>raw FASTQ</span><b aria-hidden="true">→</b><span>clean reads</span></div><div class="pipe-toolrow"><span class="pipe-lbl">Tools</span><a class="pipe-chip" href="/iVirus/docs/tools/fastp/placeholder/">fastp</a><a class="pipe-chip" href="/iVirus/docs/tools/bbduk/">BBDuk</a><a class="pipe-chip" href="/iVirus/docs/tools/fastqc/">FastQC</a><a class="pipe-chip" href="/iVirus/docs/tools/multiqc/">MultiQC</a><a class="pipe-chip" href="/iVirus/docs/tools/trimmomatic/placeholder/">Trimmomatic</a></div><div class="pipe-nav"><a href="/iVirus/docs/workflows/qc-and-trim/">QC &amp; Trim walkthrough</a><a href="/iVirus/tools/quality-control/">Browse all tools in this category →</a></div></div><div class="pipe-card is-trunk" data-stage-card="assembly" hidden><div class="pipe-card-head"><span class="pipe-card-num">Stage 3 of 10</span><strong>Assembly</strong></div><p>Assemble short reads into contigs for downstream viral identification and analysis.</p><div class="pipe-io"><span>clean reads</span><b aria-hidden="true">→</b><span>contigs</span></div><div class="pipe-toolrow"><span class="pipe-lbl">Tools</span><a class="pipe-chip" href="/iVirus/docs/tools/spades/">MetaSPAdes</a><a class="pipe-chip" href="/iVirus/docs/tools/megahit/">MEGAHIT</a></div><div class="pipe-toolrow is-legacy"><span class="pipe-lbl">Legacy</span><a class="pipe-chip" href="/iVirus/docs/tools/idba-ud/placeholder/">IDBA-UD</a></div><div class="pipe-nav"><a href="/iVirus/docs/workflows/assembly/">Assembly walkthrough</a><a href="/iVirus/tools/assembly/">Browse all tools in this category →</a></div></div><div class="pipe-card is-trunk" data-stage-card="id" hidden><div class="pipe-card-head"><span class="pipe-card-num">Stage 4 of 10</span><strong>Viral ID</strong></div><p>Detect viral sequences from metagenomic assemblies using diverse detection strategies.</p><div class="pipe-io"><span>contigs</span><b aria-hidden="true">→</b><span>viral contigs</span></div><div class="pipe-toolrow"><span class="pipe-lbl">Tools</span><a class="pipe-chip" href="/iVirus/docs/tools/genomad/placeholder/">geNomad</a><a class="pipe-chip" href="/iVirus/docs/tools/virsorter2/">VirSorter2</a><a class="pipe-chip" href="/iVirus/docs/tools/vibrant/">VIBRANT</a></div><div class="pipe-toolrow is-legacy"><span class="pipe-lbl">Legacy</span><a class="pipe-chip" href="/iVirus/docs/tools/virsorter/">VirSorter</a><a class="pipe-chip" href="/iVirus/docs/tools/deepvirfinder/placeholder/">DeepVirFinder</a><a class="pipe-chip" href="/iVirus/docs/tools/marvel/placeholder/">MARVEL</a></div><div class="pipe-nav"><a href="/iVirus/docs/workflows/viral-identification/">Viral ID walkthrough</a><a href="/iVirus/tools/identification/">Browse all tools in this category →</a></div></div><div class="pipe-card is-trunk" data-stage-card="derep" hidden><div class="pipe-card-head"><span class="pipe-card-num">Stage 5 of 10</span><strong>Quality &amp; vOTUs</strong></div><p>Assess genome quality and completeness with CheckV, then de-replicate contigs.</p><div class="pipe-io"><span>viral contigs</span><b aria-hidden="true">→</b><span>vOTUs</span></div><div class="pipe-toolrow"><span class="pipe-lbl">Tools</span><a class="pipe-chip" href="/iVirus/docs/tools/checkv/">CheckV</a><a class="pipe-chip" href="/iVirus/docs/tools/vclust/placeholder/">vclust</a></div><div class="pipe-nav"><a href="/iVirus/docs/workflows/quality-and-votus/">Quality &amp; vOTUs walkthrough</a><a href="/iVirus/tools/identification/">Browse all tools in this category →</a></div></div><div class="pipe-card is-branch" data-stage-card="taxonomy" hidden><div class="pipe-card-head"><span class="pipe-card-num">Stage 6 of 10</span><strong>Taxonomy</strong></div><p>Assign taxonomic labels to viral sequences using gene-sharing networks.</p><div class="pipe-io"><span>vOTUs</span><b aria-hidden="true">→</b><span>taxonomic assignments</span></div><div class="pipe-toolrow"><span class="pipe-lbl">Tools</span><a class="pipe-chip" href="/iVirus/docs/tools/vcontact3/placeholder/">vConTACT3</a><a class="pipe-chip" href="/iVirus/docs/tools/genomad/placeholder/">geNomad</a><a class="pipe-chip" href="/iVirus/docs/tools/viridic/">VIRIDIC</a><a class="pipe-chip" href="/iVirus/docs/tools/cat-bat/">CAT/BAT</a></div><div class="pipe-toolrow is-legacy"><span class="pipe-lbl">Legacy</span><a class="pipe-chip" href="/iVirus/docs/tools/vcontact2/">vConTACT2</a></div><div class="pipe-nav"><a href="/iVirus/docs/workflows/taxonomy/">Taxonomy walkthrough</a><a href="/iVirus/tools/taxonomy/">Browse all tools in this category →</a></div></div><div class="pipe-card is-branch" data-stage-card="host" hidden><div class="pipe-card-head"><span class="pipe-card-num">Stage 7 of 10</span><strong>Host Prediction</strong></div><p>Predict the prokaryotic hosts of viral sequences using sequence- or signal-based methods.</p><div class="pipe-io"><span>vOTUs (+ host genomes or MAGs)</span><b aria-hidden="true">→</b><span>virus–host links</span></div><div class="pipe-toolrow"><span class="pipe-lbl">Tools</span><a class="pipe-chip" href="/iVirus/docs/tools/iphop/">iPHoP</a></div><div class="pipe-toolrow is-legacy"><span class="pipe-lbl">Legacy</span><a class="pipe-chip" href="/iVirus/docs/tools/wish/">WIsH</a><a class="pipe-chip" href="/iVirus/docs/tools/hostphinder/">HostPhinder</a></div><div class="pipe-nav"><a href="/iVirus/docs/workflows/host-prediction/">Host Prediction walkthrough</a><a href="/iVirus/tools/host-prediction/">Browse all tools in this category →</a></div></div><div class="pipe-card is-branch" data-stage-card="annotation" hidden><div class="pipe-card-head"><span class="pipe-card-num">Stage 8 of 10</span><strong>Annotation &amp; AMGs</strong></div><p>Annotate gene functions; identify auxiliary metabolic genes.</p><div class="pipe-io"><span>vOTUs</span><b aria-hidden="true">→</b><span>annotated genomes, AMGs</span></div><div class="pipe-toolrow"><span class="pipe-lbl">Tools</span><a class="pipe-chip" href="/iVirus/docs/tools/dram-v/">DRAM-v</a><a class="pipe-chip" href="/iVirus/docs/tools/pharokka/placeholder/">Pharokka</a><a class="pipe-chip" href="/iVirus/docs/tools/prodigal-gv/placeholder/">prodigal-gv</a></div><div class="pipe-toolrow is-legacy"><span class="pipe-lbl">Legacy</span><a class="pipe-chip" href="/iVirus/docs/tools/prodigal/">Prodigal</a><a class="pipe-chip" href="/iVirus/docs/tools/viga/">VIGA</a><a class="pipe-chip" href="/iVirus/docs/tools/cenote-taker2/placeholder/">Cenote-Taker 2</a></div><div class="pipe-nav"><a href="/iVirus/docs/workflows/annotation/">Annotation &amp; AMGs walkthrough</a><a href="/iVirus/tools/annotation/">Browse all tools in this category →</a></div></div><div class="pipe-card is-branch" data-stage-card="abundance" hidden><div class="pipe-card-head"><span class="pipe-card-num">Stage 9 of 10</span><strong>Abundance &amp; Ecology</strong></div><p>Map reads back to viral references to estimate genome abundance and population dynamics.</p><div class="pipe-io"><span>vOTUs + clean reads</span><b aria-hidden="true">→</b><span>abundance tables</span></div><div class="pipe-toolrow"><span class="pipe-lbl">Tools</span><a class="pipe-chip" href="/iVirus/docs/tools/coverm/placeholder/">CoverM</a><a class="pipe-chip" href="/iVirus/docs/tools/bowtie2/placeholder/">Bowtie2</a><a class="pipe-chip" href="/iVirus/docs/tools/propagate/">PropagAtE</a></div><div class="pipe-toolrow is-legacy"><span class="pipe-lbl">Legacy</span><a class="pipe-chip" href="/iVirus/docs/tools/read2refmapper/placeholder/">Read2RefMapper</a><a class="pipe-chip" href="/iVirus/docs/tools/bowtiebatch/placeholder/">BowtieBatch</a></div><div class="pipe-nav"><a href="/iVirus/docs/workflows/abundance/">Abundance &amp; Ecology walkthrough</a><a href="/iVirus/tools/abundance/">Browse all tools in this category →</a></div></div><div class="pipe-card is-base" data-stage-card="viz" hidden><div class="pipe-card-head"><span class="pipe-card-num">Stage 10 of 10</span><strong>Visualize &amp; Explore</strong></div><p>Explore and visualize viral networks, community structure, and genomic context.</p><div class="pipe-io"><span>networks, tables, annotations</span><b aria-hidden="true">→</b><span>figures</span></div><div class="pipe-toolrow"><span class="pipe-lbl">Tools</span><a class="pipe-chip" href="/iVirus/docs/tools/cytoscape/">Cytoscape</a><a class="pipe-chip" href="/iVirus/docs/tools/anvio/">Anvi'o</a></div><div class="pipe-nav"><a href="/iVirus/docs/workflows/visualize/">Visualize &amp; Explore walkthrough</a><a href="/iVirus/tools/visualization/">Browse all tools in this category →</a></div></div></div></div>
+
+  <h2 class="tools-h tools-h--center">All categories</h2>
+  <ul class="tool-cat-chips tool-cat-chips--center">
     
-    <li class="card tool-cat directory-card">
-      <a class="stretched" href="/iVirus/tools/quality-control/">
-        <div class="icon">🧪</div>
-        <h3>Quality Control</h3>
-        <p>Assess read quality, trim adapters, and filter low-quality sequences before assembly.</p>
-        <p class="more">Browse quality control →</p>
-      </a>
-    </li>
+    <li><a href="/iVirus/tools/quality-control/" title="Assess read quality, trim adapters, and filter low-quality sequences before assembly."><span aria-hidden="true">🧪</span> Quality Control</a></li>
     
-    <li class="card tool-cat directory-card">
-      <a class="stretched" href="/iVirus/tools/assembly/">
-        <div class="icon">🧬</div>
-        <h3>Assembly</h3>
-        <p>Assemble short reads into contigs for downstream viral identification and analysis.</p>
-        <p class="more">Browse assembly →</p>
-      </a>
-    </li>
+    <li><a href="/iVirus/tools/assembly/" title="Assemble short reads into contigs for downstream viral identification and analysis."><span aria-hidden="true">🧬</span> Assembly</a></li>
     
-    <li class="card tool-cat directory-card">
-      <a class="stretched" href="/iVirus/tools/identification/">
-        <div class="icon">🦠</div>
-        <h3>Viral Identification</h3>
-        <p>Detect viral sequences from metagenomic assemblies using diverse detection strategies.</p>
-        <p class="more">Browse viral identification →</p>
-      </a>
-    </li>
+    <li><a href="/iVirus/tools/identification/" title="Detect viral sequences from metagenomic assemblies using diverse detection strategies."><span aria-hidden="true">🦠</span> Viral Identification</a></li>
     
-    <li class="card tool-cat directory-card">
-      <a class="stretched" href="/iVirus/tools/gene-calling/">
-        <div class="icon">🔬</div>
-        <h3>Gene Calling</h3>
-        <p>Predict protein-coding genes from viral contigs prior to annotation and database search.</p>
-        <p class="more">Browse gene calling →</p>
-      </a>
-    </li>
+    <li><a href="/iVirus/tools/gene-calling/" title="Predict protein-coding genes from viral contigs prior to annotation and database search."><span aria-hidden="true">🔬</span> Gene Calling</a></li>
     
-    <li class="card tool-cat directory-card">
-      <a class="stretched" href="/iVirus/tools/annotation/">
-        <div class="icon">📝</div>
-        <h3>Annotation</h3>
-        <p>Annotate viral genomes, characterize functions, and curate sequences for downstream ecology.</p>
-        <p class="more">Browse annotation →</p>
-      </a>
-    </li>
+    <li><a href="/iVirus/tools/annotation/" title="Annotate viral genomes, characterize functions, and curate sequences for downstream ecology."><span aria-hidden="true">📝</span> Annotation</a></li>
     
-    <li class="card tool-cat directory-card">
-      <a class="stretched" href="/iVirus/tools/sequence-search/">
-        <div class="icon">🔍</div>
-        <h3>Sequence Search</h3>
-        <p>Search nucleotide or protein sequences against reference databases at scale.</p>
-        <p class="more">Browse sequence search →</p>
-      </a>
-    </li>
+    <li><a href="/iVirus/tools/sequence-search/" title="Search nucleotide or protein sequences against reference databases at scale."><span aria-hidden="true">🔍</span> Sequence Search</a></li>
     
-    <li class="card tool-cat directory-card">
-      <a class="stretched" href="/iVirus/tools/taxonomy/">
-        <div class="icon">🌳</div>
-        <h3>Taxonomy</h3>
-        <p>Assign taxonomic labels to viral sequences using gene-sharing networks or k-mer similarity.</p>
-        <p class="more">Browse taxonomy →</p>
-      </a>
-    </li>
+    <li><a href="/iVirus/tools/taxonomy/" title="Assign taxonomic labels to viral sequences using gene-sharing networks."><span aria-hidden="true">🌳</span> Taxonomy</a></li>
     
-    <li class="card tool-cat directory-card">
-      <a class="stretched" href="/iVirus/tools/host-prediction/">
-        <div class="icon">🔗</div>
-        <h3>Host Prediction</h3>
-        <p>Predict the prokaryotic hosts of viral sequences using sequence- or signal-based methods.</p>
-        <p class="more">Browse host prediction →</p>
-      </a>
-    </li>
+    <li><a href="/iVirus/tools/host-prediction/" title="Predict the prokaryotic hosts of viral sequences using sequence- or signal-based methods."><span aria-hidden="true">🔗</span> Host Prediction</a></li>
     
-    <li class="card tool-cat directory-card">
-      <a class="stretched" href="/iVirus/tools/abundance/">
-        <div class="icon">📈</div>
-        <h3>Abundance &amp; Ecology</h3>
-        <p>Map reads back to viral references to estimate genome abundance and population dynamics.</p>
-        <p class="more">Browse abundance &amp; ecology →</p>
-      </a>
-    </li>
+    <li><a href="/iVirus/tools/abundance/" title="Map reads back to viral references to estimate genome abundance and population dynamics."><span aria-hidden="true">📈</span> Abundance &amp; Ecology</a></li>
     
-    <li class="card tool-cat directory-card">
-      <a class="stretched" href="/iVirus/tools/visualization/">
-        <div class="icon">📊</div>
-        <h3>Visualization</h3>
-        <p>Explore and visualize viral networks, community structure, and genomic context.</p>
-        <p class="more">Browse visualization →</p>
-      </a>
-    </li>
+    <li><a href="/iVirus/tools/visualization/" title="Explore and visualize viral networks, community structure, and genomic context."><span aria-hidden="true">📊</span> Visualization</a></li>
     
   </ul>
 </section>
@@ -235,6 +169,7 @@
   <script src="/iVirus/assets/js/directory-filters.js"></script>
   <script src="/iVirus/assets/js/home.js"></script>
   <script src="/iVirus/assets/js/theme-toggle.js"></script>
+  <script src="/iVirus/assets/js/pipeline.js"></script>
 
   <!-- Alpha banner dismiss -->
   <script>

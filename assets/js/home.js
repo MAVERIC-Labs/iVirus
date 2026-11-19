@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const titleEl = hero.querySelector("[data-home-hero-title]");
   const subEl = hero.querySelector("[data-home-hero-sub]");
   const ctasEl = hero.querySelector("[data-home-hero-ctas]");
-  const banner = hero.querySelector(".hero-banner");
+  // Site root including the GitHub Pages prefix (e.g. "/iVirus"), set in index.njk
+  const base = (hero.dataset.base || "/").replace(/\/$/, "");
   const dots = Array.from(hero.querySelectorAll(".hero-indicators .dot"));
 
   if (!titleEl || !subEl || !ctasEl || dots.length === 0) return;
@@ -13,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const slides = [
     {
       title: "Tools, Data, & Guides for Viral Research",
-      sub: "A community resource for viral ecology: learn the pipeline from SRA fetch to viral identification, run trusted tools, and grab datasets - all in one place.",
+      sub: "A community resource for viral ecology: learn the pipeline from SRA fetch to viral identification, run tools, and grab datasets - all in one place.",
       ctas: [
         { text: "Get started", href: "/docs/" },
         { text: "Explore tools", href: "/tools/", ghost: true }
@@ -47,14 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let currentIndex = 0;
   let timer = null;
-  let ticking = false;
   const intervalMs = 7000;
-
-  function applyBackground(img) {
-    if (img) {
-      hero.style.setProperty("--hero-img", "url('" + img + "')");
-    }
-  }
 
   function renderSlide(slide) {
     titleEl.textContent = slide.title;
@@ -64,12 +58,11 @@ document.addEventListener("DOMContentLoaded", () => {
     slide.ctas.forEach((cta) => {
       const link = document.createElement("a");
       link.className = "btn" + (cta.ghost ? " btn-ghost" : "");
-      link.href = cta.href;
+      link.href = base + cta.href;
       link.textContent = cta.text;
       ctasEl.appendChild(link);
     });
 
-    if (slide.img) applyBackground(slide.img);
   }
 
   function updateDots(index) {
@@ -109,18 +102,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function startTimer() {
     stopTimer();
     timer = window.setInterval(() => setSlide(currentIndex + 1), intervalMs);
-  }
-
-  if (banner) {
-    banner.style.willChange = "transform";
-    window.addEventListener("scroll", () => {
-      if (ticking) return;
-      ticking = true;
-      window.requestAnimationFrame(() => {
-        banner.style.transform = "translateY(" + (window.scrollY * 0.2) + "px)";
-        ticking = false;
-      });
-    });
   }
 
   dots.forEach((dot, index) => {
