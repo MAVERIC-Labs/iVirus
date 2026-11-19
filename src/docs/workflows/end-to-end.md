@@ -7,11 +7,10 @@ workflow: metagenome
 step: reads
 ---
 
-{% workflowStepper workflow, step %}
+{% pipelineFigure workflow %}
 
-This workflow goes from raw reads to viral identification in 3 steps:
-1. Reads → Assembly
-2. Assembly → Viral ID
-3. Viral ID → Reporting
+This workflow goes from raw reads to annotated and classified viral populations in two parts:
+1. Reads → vOTUs (stages 1–5)
+2. vOTUs → Taxonomy, Host Prediction, Annotation and Abundance (stages 6–9, in any order)
 
 Click on a step above to dive deeper.

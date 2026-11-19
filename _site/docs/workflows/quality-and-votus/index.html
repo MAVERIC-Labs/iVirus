@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Quality &amp; vOTUs – iVirus</title>
+  <meta name="description" content="Workshops, tools, data, and documentation for viral research.">
+  <link rel="icon" href="/iVirus/assets/img/favicon.svg" type="image/svg+xml">
+
+  <!-- Theme bootstrap: apply saved/preferred theme before paint to avoid FOUC. -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("ivirus-theme");
+        var dark = saved === "theme-dark"
+          || (!saved && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.classList.add(dark ? "theme-dark" : "theme-light");
+      } catch (e) {
+        document.documentElement.classList.add("theme-light");
+      }
+    })();
+  </script>
+
+  <!-- Fonts: Inter (body) + Source Serif 4 (headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/iVirus/assets/css/main.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/workflow.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/light-theme.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/home.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/docs-grouped.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/tools.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/data.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/publications.css">
+  <link rel="stylesheet" href="/iVirus/assets/css/protocols.css">
+  <script defer src="https://www.protocols.io/js/widgets/js/protocolsiojs.min.js"></script>
+
+  <!-- GA tracking (only in production builds) -->
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T56YTL1JSV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T56YTL1JSV');
+  </script>
+  
+</head>
+<body class="-docs-workflows-quality-and-votus">
+
+  <!-- Alpha preview banner -->
+  <div class="alpha-banner" id="alphaBanner" role="banner" aria-label="Preview notice">
+    <span class="alpha-banner__icon" aria-hidden="true">🚧</span>
+    <span class="alpha-banner__text">
+      <strong>Alpha preview</strong> — This site is under active development. Content may be incomplete or change without notice.
+    </span>
+    <button class="alpha-banner__close" id="alphaBannerClose" aria-label="Dismiss preview notice" title="Dismiss">✕</button>
+  </div>
+
+  <header id="top" class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="/iVirus/" aria-label="iVirus home"><span class="logo-i">i</span><span class="logo-virus">Virus</span></a>
+
+    <!-- mobile hamburger (left) -->
+    <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+      ☰
+    </button>
+
+    <!-- main nav -->
+    <nav id="site-nav" class="nav" data-site-nav>
+      <ul class="nav-list">
+        
+          <li class="nav-item"><a href="/iVirus/about/">About</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/tools/">Tools &amp; Apps</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/data/">Data</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/workshops/">Workshops</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/publications/">Publications</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/docs/">Docs</a></li>
+        
+          <li class="nav-item"><a href="/iVirus/protocols/">Protocols</a></li>
+        
+      </ul>
+    </nav>
+
+    <!-- spacer pushes the toggle to the far right -->
+    <div class="header-spacer" aria-hidden="true"></div>
+
+    <!-- theme toggle (always visible, right end) -->
+    <button class="theme-toggle" data-theme-toggle aria-pressed="false" title="Toggle theme">🌓</button>
+  </div>
+</header>
+
+
+  <main class="site-main">
+    
+<div class="docs-wrap guide">
+  <aside class="docs-sidebar">
+
+<nav class="side">
+  <h3>Docs</h3>
+
+  
+  
+  <div class="group">
+    <h4>Workflows</h4>
+    <ul class="wf-list">
+    
+      
+      <li class="wf-parent open">
+        <button class="wf-toggle" aria-label="Toggle steps"
+                aria-expanded="true">
+          Viral Metagenome Workflow <span class="arrow">▾</span>
+        </button>
+        <ul class="wf-steps-nested" >
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/sra-fetch/">Get Reads</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/qc-and-trim/">QC &amp; Trim</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/assembly/">Assembly</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/viral-identification/">Viral ID</a>
+          </li>
+          
+          <li class="active">
+            <a href="/iVirus/docs/workflows/quality-and-votus/">Quality &amp; vOTUs</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/taxonomy/">Taxonomy</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/host-prediction/">Host Prediction</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/annotation/">Annotation &amp; AMGs</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/abundance/">Abundance &amp; Ecology</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/visualize/">Visualize &amp; Explore</a>
+          </li>
+          
+        </ul>
+      </li>
+    
+    </ul>
+  </div>
+  
+
+  
+  
+  <div class="group">
+    <h4>Tool Guides</h4>
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🧪 Quality Control</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/bbduk/">BBDuk</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/fastp/">fastp</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/fastqc/">FastQC</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/multiqc/">MultiQC</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/trimmomatic/">Trimmomatic</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🧬 Assembly</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/megahit/">MEGAHIT</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/spades/">SPAdes</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🦠 Viral Identification</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/checkv/">CheckV</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/propagate/">PropagAtE</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/vibrant/">VIBRANT</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/virsorter/">VirSorter</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/virsorter2/">VirSorter2</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🔬 Gene Calling</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/prodigal/">Prodigal</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">📝 Annotation</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/dram-v/">DRAM-v</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/phageterm/">PhageTerm</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/viga/">VIGA</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🌳 Taxonomy</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/cat-bat/">CAT / BAT</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/vcontact2/">vConTACT2</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/viridic/">VIRIDIC</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">🔗 Host Prediction</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/hostphinder/">HostPhinder</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/iphop/">iPHoP</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/wish/">WIsH</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+      
+      
+    
+      
+      
+        <div class="subgroup">
+          <div class="subgroup-title">📊 Visualization</div>
+          <ul>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/anvio/">Anvi&#39;o</a>
+              </li>
+            
+              <li class="">
+                <a href="/iVirus/docs/tools/cytoscape/">Cytoscape</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    
+  </div>
+  
+</nav>
+</aside>
+
+  <article class="docs-content">
+    
+    
+      <h1>Quality &amp; vOTUs</h1>
+      
+
+      
+      
+      
+    
+
+    <div class="pipe-wrap pipe-wrap--compact" data-pipe="compact"><div class="pipe-scroll"><svg class="pipe pipe--compact" viewBox="0 0 800 198" role="group" aria-label="Viral Metagenome Workflow: clickable pipeline diagram" xmlns="http://www.w3.org/2000/svg"><defs><marker id="pipe-ah" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path class="pipe-head" d="M0,0 L7,3.5 L0,7 Z"/></marker></defs><path class="pipe-line" d="M150,34 H168" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M310,34 H328" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M470,34 H488" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M630,34 H648" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M703,54 V74"/><path class="pipe-line" d="M97,74 H703"/><path class="pipe-line" d="M97,74 V90" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M299,74 V90" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M501,74 V90" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M703,74 V90" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M97,134 V152" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M299,134 V152" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M501,134 V152" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M703,134 V152" marker-end="url(#pipe-ah)"/><a class="pipe-node is-trunk" href="/iVirus/docs/workflows/sra-fetch/" data-stage="sra" aria-label="Stage 1: Get Reads"><title>Start with FASTQ files from your sequencer or the SRA.</title><rect class="pipe-box" x="12" y="14" width="136" height="40" rx="10"/><circle class="pipe-badge" cx="28" cy="14" r="10"/><text class="pipe-num" x="28" y="17.6">1</text><text class="pipe-title" x="80" y="38.5">Get Reads</text></a><a class="pipe-node is-trunk" href="/iVirus/docs/workflows/qc-and-trim/" data-stage="qc" aria-label="Stage 2: QC &amp; Trim"><title>Assess read quality, trim adapters, and filter low-quality sequences before assembly.</title><rect class="pipe-box" x="172" y="14" width="136" height="40" rx="10"/><circle class="pipe-badge" cx="188" cy="14" r="10"/><text class="pipe-num" x="188" y="17.6">2</text><text class="pipe-title" x="240" y="38.5">QC &amp; Trim</text></a><a class="pipe-node is-trunk" href="/iVirus/docs/workflows/assembly/" data-stage="assembly" aria-label="Stage 3: Assembly"><title>Assemble short reads into contigs for downstream viral identification and analysis.</title><rect class="pipe-box" x="332" y="14" width="136" height="40" rx="10"/><circle class="pipe-badge" cx="348" cy="14" r="10"/><text class="pipe-num" x="348" y="17.6">3</text><text class="pipe-title" x="400" y="38.5">Assembly</text></a><a class="pipe-node is-trunk" href="/iVirus/docs/workflows/viral-identification/" data-stage="id" aria-label="Stage 4: Viral ID"><title>Detect viral sequences from metagenomic assemblies using diverse detection strategies.</title><rect class="pipe-box" x="492" y="14" width="136" height="40" rx="10"/><circle class="pipe-badge" cx="508" cy="14" r="10"/><text class="pipe-num" x="508" y="17.6">4</text><text class="pipe-title" x="560" y="38.5">Viral ID</text></a><a class="pipe-node is-trunk is-active" href="/iVirus/docs/workflows/quality-and-votus/" data-stage="derep" aria-label="Stage 5: Quality &amp; vOTUs" aria-current="step"><title>Assess genome quality and completeness with CheckV, then de-replicate contigs.</title><rect class="pipe-box" x="652" y="14" width="136" height="40" rx="10"/><circle class="pipe-badge" cx="668" cy="14" r="10"/><text class="pipe-num" x="668" y="17.6">5</text><text class="pipe-title" x="720" y="38.5">Quality &amp; vOTUs</text></a><a class="pipe-node is-branch" href="/iVirus/docs/workflows/taxonomy/" data-stage="taxonomy" aria-label="Stage 6: Taxonomy"><title>Assign taxonomic labels to viral sequences using gene-sharing networks.</title><rect class="pipe-box" x="12" y="94" width="170" height="40" rx="10"/><circle class="pipe-badge" cx="28" cy="94" r="10"/><text class="pipe-num" x="28" y="97.6">6</text><text class="pipe-title" x="97" y="118.5">Taxonomy</text></a><a class="pipe-node is-branch" href="/iVirus/docs/workflows/host-prediction/" data-stage="host" aria-label="Stage 7: Host Prediction"><title>Predict the prokaryotic hosts of viral sequences using sequence- or signal-based methods.</title><rect class="pipe-box" x="214" y="94" width="170" height="40" rx="10"/><circle class="pipe-badge" cx="230" cy="94" r="10"/><text class="pipe-num" x="230" y="97.6">7</text><text class="pipe-title" x="299" y="118.5">Host Prediction</text></a><a class="pipe-node is-branch" href="/iVirus/docs/workflows/annotation/" data-stage="annotation" aria-label="Stage 8: Annotation &amp; AMGs"><title>Annotate gene functions; identify auxiliary metabolic genes.</title><rect class="pipe-box" x="416" y="94" width="170" height="40" rx="10"/><circle class="pipe-badge" cx="432" cy="94" r="10"/><text class="pipe-num" x="432" y="97.6">8</text><text class="pipe-title" x="501" y="118.5">Annotation &amp; AMGs</text></a><a class="pipe-node is-branch" href="/iVirus/docs/workflows/abundance/" data-stage="abundance" aria-label="Stage 9: Abundance &amp; Ecology"><title>Map reads back to viral references to estimate genome abundance and population dynamics.</title><rect class="pipe-box" x="618" y="94" width="170" height="40" rx="10"/><circle class="pipe-badge" cx="634" cy="94" r="10"/><text class="pipe-num" x="634" y="97.6">9</text><text class="pipe-title" x="703" y="118.5">Abundance &amp; Ecology</text></a><a class="pipe-node is-base" href="/iVirus/docs/workflows/visualize/" data-stage="viz" aria-label="Stage 10: Visualize &amp; Explore"><title>Explore and visualize viral networks, community structure, and genomic context.</title><rect class="pipe-box" x="12" y="156" width="776" height="32" rx="10"/><circle class="pipe-badge" cx="28" cy="156" r="10"/><text class="pipe-num" x="28" y="159.6">10</text><text class="pipe-title" x="400" y="176.5">Visualize &amp; Explore</text></a></svg></div><div class="pipe-card is-trunk" data-stage-card="derep"><div class="pipe-card-head"><span class="pipe-card-num">Stage 5 of 10</span><strong>Quality &amp; vOTUs</strong></div><p>Assess genome quality and completeness with CheckV, then de-replicate contigs.</p><div class="pipe-io"><span>viral contigs</span><b aria-hidden="true">→</b><span>vOTUs</span></div><div class="pipe-toolrow"><span class="pipe-lbl">Tools</span><a class="pipe-chip" href="/iVirus/docs/tools/checkv/">CheckV</a><a class="pipe-chip" href="/iVirus/docs/tools/vclust/placeholder/">vclust</a></div><div class="pipe-nav"><a href="/iVirus/docs/workflows/viral-identification/">← Viral ID</a><a href="/iVirus/docs/workflows/taxonomy/">Taxonomy →</a></div></div></div>
+<p>CheckV already ran as part of <a href="/iVirus/docs/workflows/viral-identification/">Viral Identification</a>, where we used <code>grep -c</code> on its <code>quality_summary.tsv</code> to get an overview of the first-pass VirSorter2 genomes. CheckV is conservative with regards to quality, and uses completeness as a measure. It also incorporates a contamination check, so you can quickly screen contigs.</p>
+<p>See the <a href="/iVirus/docs/tools/checkv/">CheckV guide</a> for what each output file contains.</p>
+<h2>De-replicating contigs</h2>
+<p>At this point you could de-replicate/-duplicate your contigs. CheckV ships two helper scripts, <code>anicalc.py</code> and <code>aniclust.py</code>, that cluster them from an all-vs-all BLAST:</p>
+<div class="codetabs" id="tabs-z8dchtjyi5a" data-codetabs><div class="codetabs-nav" data-codetabs-nav role="tablist"><button type="button" data-tab="0" role="tab" aria-selected="true" class='active'>Command</button><button type="button" data-tab="1" role="tab" aria-selected="false" >SLURM Script</button></div><div class="codetabs-panels" data-codetabs-panels><div class="codetabs-panel" data-panel="0" role="tabpanel"><pre class="language-bash"><code class="language-bash">makeblastdb <span class="token parameter variable">-in</span> final-viral-scored.fa <span class="token parameter variable">-dbtype</span> nucl <span class="token parameter variable">-out</span> final-viral-scored&#10;blastn <span class="token parameter variable">-query</span> final-viral-scored.fa <span class="token parameter variable">-db</span> final-viral-scored <span class="token punctuation">\</span>&#10;  <span class="token parameter variable">-outfmt</span> <span class="token string">'6 std qlen slen'</span> <span class="token parameter variable">-max_target_seqs</span> <span class="token number">10000</span> <span class="token punctuation">\</span>&#10;  <span class="token parameter variable">-num_threads</span> <span class="token number">16</span> <span class="token parameter variable">-out</span> blast.tsv&#10;&#10;anicalc.py <span class="token parameter variable">-i</span> blast.tsv <span class="token parameter variable">-o</span> ani.tsv&#10;aniclust.py <span class="token parameter variable">--fna</span> final-viral-scored.fa <span class="token parameter variable">--ani</span> ani.tsv <span class="token parameter variable">--out</span> clusters.tsv <span class="token punctuation">\</span>&#10;  <span class="token parameter variable">--min_ani</span> <span class="token number">95</span> <span class="token parameter variable">--min_tcov</span> <span class="token number">85</span> <span class="token parameter variable">--min_qcov</span> <span class="token number">0</span></code></pre>&#10;</div><div class="codetabs-panel" data-panel="1" role="tabpanel" hidden><pre class="language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>&#10;<span class="token comment">#SBATCH -N 1</span>&#10;<span class="token comment">#SBATCH -t 4:00:00</span>&#10;<span class="token comment">#SBATCH -n 16</span>&#10;<span class="token comment">#SBATCH -J vOTU-cluster</span>&#10;&#10;<span class="token comment"># activate your conda environment here</span>&#10;&#10;<span class="token assign-left variable">workDir</span><span class="token operator">=</span><span class="token string">"&lt;your_project_dir>"</span>&#10;<span class="token assign-left variable">input</span><span class="token operator">=</span><span class="token string">"<span class="token variable">${workDir}</span>/analyses/VS2-SOP/final-viral-scored.fa"</span>&#10;<span class="token assign-left variable">outDir</span><span class="token operator">=</span><span class="token string">"<span class="token variable">${workDir}</span>/analyses/vOTUs"</span>&#10;&#10;<span class="token function">mkdir</span> <span class="token parameter variable">-p</span> <span class="token variable">$outDir</span>&#10;<span class="token builtin class-name">cd</span> <span class="token variable">$outDir</span>&#10;&#10;makeblastdb <span class="token parameter variable">-in</span> <span class="token variable">$input</span> <span class="token parameter variable">-dbtype</span> nucl <span class="token parameter variable">-out</span> viral_db&#10;blastn <span class="token parameter variable">-query</span> <span class="token variable">$input</span> <span class="token parameter variable">-db</span> viral_db <span class="token punctuation">\</span>&#10;  <span class="token parameter variable">-outfmt</span> <span class="token string">'6 std qlen slen'</span> <span class="token parameter variable">-max_target_seqs</span> <span class="token number">10000</span> <span class="token punctuation">\</span>&#10;  <span class="token parameter variable">-num_threads</span> <span class="token number">16</span> <span class="token parameter variable">-out</span> blast.tsv&#10;&#10;anicalc.py <span class="token parameter variable">-i</span> blast.tsv <span class="token parameter variable">-o</span> ani.tsv&#10;aniclust.py <span class="token parameter variable">--fna</span> <span class="token variable">$input</span> <span class="token parameter variable">--ani</span> ani.tsv <span class="token parameter variable">--out</span> clusters.tsv <span class="token punctuation">\</span>&#10;  <span class="token parameter variable">--min_ani</span> <span class="token number">95</span> <span class="token parameter variable">--min_tcov</span> <span class="token number">85</span> <span class="token parameter variable">--min_qcov</span> <span class="token number">0</span></code></pre>&#10;</div></div></div>
+<p><code>clusters.tsv</code> lists one representative per cluster followed by its members.</p>
+<p><a href="/iVirus/docs/tools/vclust/placeholder/">vclust</a> does the same job much faster.</p>
+
+  </article>
+
+  
+</div>
+<script src="/iVirus/assets/js/docs-ui.js"></script>
+
+  </main>
+
+  <footer class="site-footer">
+  <p>
+    &copy; iVirus | Built with <a href="https://www.11ty.dev/" target="_blank" rel="noopener">Eleventy</a> | 
+    Supported by the <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1759874&amp;HistoricalAwards=false" target="_blank" rel="noopener">National Science Foundation (ABI #1759874)</a> and the iVirus project | 
+    <a href="/iVirus/about/">Contact</a> |
+    <a href="#top" class="back-to-top">Go to Top ↑</a>
+  </p>
+</footer>
+
+  <!-- Global JS -->
+  <script src="/iVirus/assets/js/site-nav.js"></script>
+  <script src="/iVirus/assets/js/code-extras.js"></script>
+  <script src="/iVirus/assets/js/directory-filters.js"></script>
+  <script src="/iVirus/assets/js/home.js"></script>
+  <script src="/iVirus/assets/js/theme-toggle.js"></script>
+  <script src="/iVirus/assets/js/pipeline.js"></script>
+
+  <!-- Alpha banner dismiss -->
+  <script>
+    (function () {
+      var banner = document.getElementById('alphaBanner');
+      var btn    = document.getElementById('alphaBannerClose');
+      if (!banner || !btn) return;
+      // Hide immediately if previously dismissed
+      try { if (localStorage.getItem('ivirus-alpha-dismissed') === '1') banner.classList.add('is-hidden'); } catch(e) {}
+      btn.addEventListener('click', function () {
+        banner.classList.add('is-hidden');
+        try { localStorage.setItem('ivirus-alpha-dismissed', '1'); } catch(e) {}
+      });
+    })();
+  </script>
+</body>
+</html>

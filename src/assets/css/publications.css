@@ -66,3 +66,10 @@
     display: none;
   }
 }
+
+/* Tool publications: compact two-column list */
+.tool-pubs{ list-style:none; margin:.25rem 0 1.25rem; padding:0; display:grid; gap:.5rem; grid-template-columns:repeat(auto-fill, minmax(min(100%, 420px), 1fr)); }
+.pub.tool-pub{ margin:0; padding:.55rem .8rem; display:flex; flex-wrap:wrap; align-items:baseline; gap:.25rem .6rem; }
+.tool-pub-name{ font-weight:600; text-decoration:none; }
+.tool-pub-ref{ color:var(--muted); font-size:.92rem; }
+.tool-pub-links{ margin-left:auto; display:flex; gap:.35rem; }

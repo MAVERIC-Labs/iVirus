@@ -4,33 +4,170 @@
     "steps": [
       {
         "id": "sra",
-        "title": "SRA Fetch",
+        "row": "trunk",
+        "title": "Get Reads",
+        "icon": "📥",
         "url": "/docs/workflows/sra-fetch/",
-        "icon": "\ud83d\udce5"
+        "blurb": "Start with FASTQ files from your sequencer or the SRA.",
+        "input": "SRA accession or sequencer output",
+        "output": "raw FASTQ",
+        "tools": [
+          { "name": "SRA Toolkit", "doc": "/docs/tools/sra-download/" }
+        ]
       },
       {
         "id": "qc",
+        "category": "quality-control",
+        "row": "trunk",
         "title": "QC & Trim",
+        "icon": "🧪",
         "url": "/docs/workflows/qc-and-trim/",
-        "icon": "\ud83e\uddea"
+        "blurb": "Assess read quality, trim adapters, and filter low-quality sequences before assembly.",
+        "input": "raw FASTQ",
+        "output": "clean reads",
+        "tools": [
+          { "name": "fastp", "slug": "fastp" },
+          { "name": "BBDuk", "slug": "bbduk" },
+          { "name": "FastQC", "slug": "fastqc" },
+          { "name": "MultiQC", "slug": "multiqc" },
+          { "name": "Trimmomatic", "slug": "trimmomatic" }
+        ]
       },
       {
         "id": "assembly",
+        "category": "assembly",
+        "row": "trunk",
         "title": "Assembly",
+        "icon": "🧩",
         "url": "/docs/workflows/assembly/",
-        "icon": "\ud83e\udde9"
+        "blurb": "Assemble short reads into contigs for downstream viral identification and analysis.",
+        "input": "clean reads",
+        "output": "contigs",
+        "tools": [
+          { "name": "MetaSPAdes", "slug": "metaspades","doc": "/docs/tools/spades/" },
+          { "name": "MEGAHIT", "slug": "megahit" },
+          { "name": "IDBA-UD", "slug": "idba-ud","legacy": true }
+        ]
       },
       {
         "id": "id",
-        "title": "Viral Identification",
+        "category": "identification",
+        "row": "trunk",
+        "title": "Viral ID",
+        "icon": "🦠",
         "url": "/docs/workflows/viral-identification/",
-        "icon": "\ud83e\udda0"
+        "blurb": "Detect viral sequences from metagenomic assemblies using diverse detection strategies.",
+        "input": "contigs",
+        "output": "viral contigs",
+        "tools": [
+          { "name": "geNomad", "slug": "genomad" },
+          { "name": "VirSorter2", "slug": "virsorter2" },
+          { "name": "VIBRANT", "slug": "vibrant" },
+          { "name": "VirSorter", "slug": "virsorter","legacy": true },
+          { "name": "DeepVirFinder", "slug": "deepvirfinder","legacy": true },
+          { "name": "MARVEL", "slug": "marvel","legacy": true }
+        ]
       },
       {
-        "id": "report",
-        "title": "Reporting",
-        "url": "/docs/workflows/reporting/",
-        "icon": "\ud83d\udcca"
+        "id": "derep",
+        "category": "identification",
+        "row": "trunk",
+        "title": "Quality & vOTUs",
+        "icon": "✅",
+        "url": "/docs/workflows/quality-and-votus/",
+        "blurb": "Assess genome quality and completeness with CheckV, then de-replicate contigs.",
+        "input": "viral contigs",
+        "output": "vOTUs",
+        "tools": [
+          { "name": "CheckV", "slug": "checkv" },
+          { "name": "vclust", "slug": "vclust" }
+        ]
+      },
+      {
+        "id": "taxonomy",
+        "category": "taxonomy",
+        "row": "branch",
+        "title": "Taxonomy",
+        "icon": "🌳",
+        "url": "/docs/workflows/taxonomy/",
+        "blurb": "Assign taxonomic labels to viral sequences using gene-sharing networks.",
+        "input": "vOTUs",
+        "output": "taxonomic assignments",
+        "tools": [
+          { "name": "vConTACT3", "slug": "vcontact3" },
+          { "name": "geNomad", "slug": "genomad" },
+          { "name": "VIRIDIC", "slug": "viridic" },
+          { "name": "vConTACT2", "slug": "vcontact2","legacy": true },
+          { "name": "CAT/BAT", "slug": "cat-bat" }
+        ]
+      },
+      {
+        "id": "host",
+        "category": "host-prediction",
+        "row": "branch",
+        "title": "Host Prediction",
+        "icon": "🔗",
+        "url": "/docs/workflows/host-prediction/",
+        "blurb": "Predict the prokaryotic hosts of viral sequences using sequence- or signal-based methods.",
+        "input": "vOTUs (+ host genomes or MAGs)",
+        "output": "virus–host links",
+        "tools": [
+          { "name": "iPHoP", "slug": "iphop" },
+          { "name": "WIsH", "slug": "wish","legacy": true },
+          { "name": "HostPhinder", "slug": "hostphinder","legacy": true }
+        ]
+      },
+      {
+        "id": "annotation",
+        "category": "annotation",
+        "row": "branch",
+        "title": "Annotation & AMGs",
+        "icon": "📝",
+        "url": "/docs/workflows/annotation/",
+        "blurb": "Annotate gene functions; identify auxiliary metabolic genes.",
+        "input": "vOTUs",
+        "output": "annotated genomes, AMGs",
+        "tools": [
+          { "name": "DRAM-v", "slug": "dram-v" },
+          { "name": "Pharokka", "slug": "pharokka" },
+          { "name": "prodigal-gv", "slug": "prodigal-gv" },
+          { "name": "Prodigal", "slug": "prodigal","legacy": true },
+          { "name": "VIGA", "slug": "viga","legacy": true },
+          { "name": "Cenote-Taker 2", "slug": "cenote-taker2","legacy": true }
+        ]
+      },
+      {
+        "id": "abundance",
+        "category": "abundance",
+        "row": "branch",
+        "title": "Abundance & Ecology",
+        "icon": "📈",
+        "url": "/docs/workflows/abundance/",
+        "blurb": "Map reads back to viral references to estimate genome abundance and population dynamics.",
+        "input": "vOTUs + clean reads",
+        "output": "abundance tables",
+        "tools": [
+          { "name": "CoverM", "slug": "coverm" },
+          { "name": "Bowtie2", "slug": "bowtie2" },
+          { "name": "PropagAtE", "slug": "propagate" },
+          { "name": "Read2RefMapper", "slug": "read2refmapper","legacy": true },
+          { "name": "BowtieBatch", "slug": "bowtiebatch","legacy": true }
+        ]
+      },
+      {
+        "id": "viz",
+        "category": "visualization",
+        "row": "base",
+        "title": "Visualize & Explore",
+        "icon": "📊",
+        "url": "/docs/workflows/visualize/",
+        "blurb": "Explore and visualize viral networks, community structure, and genomic context.",
+        "input": "networks, tables, annotations",
+        "output": "figures",
+        "tools": [
+          { "name": "Cytoscape", "slug": "cytoscape" },
+          { "name": "Anvi'o", "slug": "anvio" }
+        ]
       }
     ]
   }

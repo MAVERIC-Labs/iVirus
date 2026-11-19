@@ -51,8 +51,11 @@ sys	0m45.333s
 In the example above, we used *fasterq-dump*, which is designated to download two paired end read files in fastq format. We also specified 4 threads (-e 4) so it would run a little faster. There should be *two* output files: ERR594369_1.fastq and ERR594369_2.fastq. fasterq-dump won't compress the files for you, so you'll have to do this after the download completes.
 
 ```bash
-gzip ERR594369_1.fastq ERR594369_2.fastq
+# Compress all files in the project directory
+pigz -r <your_project_dir>/
 ```
+
+Pigz stands for the parallel implementation of GZip and is a replacement for gzip that uses multiple processors and cores to compress data. It compresses data faster than gzip.
 
 ## Finding accessions
 

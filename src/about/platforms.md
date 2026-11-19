@@ -11,9 +11,9 @@ contentClass: "prose-page"
 ---
 
 ## Overview
-The iVirus project builds on **two cornerstone platforms—CyVerse and KBase—** which provide free access to cloud-based computational environments, data storage, and integrated tools for the life sciences community.  
+The iVirus project builds on **two platforms, CyVerse and KBase,** which provide free access to cloud-based computational environments, data storage, and integrated tools for the life sciences community.  
 These resources are indispensable for enabling virus ecology research at all scales, from single-virus studies to global metagenomic analyses.  
-By operating within these shared cyberinfrastructures, iVirus helps researchers—regardless of institutional resources—perform analyses that would otherwise require dedicated servers or high-performance computing clusters.
+By operating within these shared cyberinfrastructures, iVirus helps researchers, regardless of institutional resources, perform analyses that would otherwise require dedicated servers or high-performance computing clusters.
 
 The applications iVirus develops **live inside CyVerse and KBase**, and the datasets used and shared by the community are hosted on these same platforms. This integration ensures reproducibility, scalability, and accessibility for anyone studying viral diversity and evolution.
 
@@ -29,7 +29,7 @@ Researchers can discover, launch, and share analyses using an open ecosystem of 
 - Community-driven app contributions and versioning.
 - Seamless integration with external repositories and workflow systems.
 
-CyVerse allows users to run iVirus apps directly on shared compute resources and publish data that can be reused by others—removing the need for local computational infrastructure.
+CyVerse allows users to run iVirus apps directly on shared compute resources and publish data that can be reused by others, removing the need for local computational infrastructure.
 
 ### Citation
 > This material is based upon work supported by the National Science Foundation under Award Numbers DBI‑0735191, DBI‑1265383, and DBI‑1743442.  
@@ -38,10 +38,10 @@ CyVerse allows users to run iVirus apps directly on shared compute resources and
 ---
 
 ## KBase
-**KBase**—the U.S. Department of Energy Systems Biology Knowledgebase—offers a fully reproducible, shareable analysis platform designed for systems biology and metagenomics research.
+**KBase**, the U.S. Department of Energy Systems Biology Knowledgebase, offers a fully reproducible, shareable analysis platform designed for systems biology and metagenomics research.
 
 KBase enables iVirus users to create **Narratives**, which are interactive documents combining code, results, and metadata into a single, versioned workflow.  
-Each Narrative can be shared, copied, and re-run—ensuring transparency and reproducibility.
+Each Narrative can be shared, copied, and re-run, ensuring transparency and reproducibility.
 
 ### What KBase offers
 - **Narratives:** Integrated “lab notebooks” capturing every analysis step and result.
@@ -49,7 +49,7 @@ Each Narrative can be shared, copied, and re-run—ensuring transparency and rep
 - **Data Integration:** Direct imports from NCBI, JGI, SRA, and community datasets.
 - **Collaboration:** Users can share Narratives publicly or within research teams.
 
-By connecting iVirus tools with KBase’s app ecosystem, researchers can perform complex analyses—from read processing to host-virus network inference—without writing code.
+By connecting iVirus tools with KBase’s app ecosystem, researchers can perform complex analyses, from read processing to host-virus network inference, without writing code.
 
 ### Citation
 > Arkin AP, Cottingham RW, Henry CS, Harris NL, Stevens RL, Maslov S, *et al.*  
@@ -60,9 +60,7 @@ By connecting iVirus tools with KBase’s app ecosystem, researchers can perform
 
 ## Why it matters for iVirus
 The iVirus ecosystem depends on these platforms to deliver reliable, reproducible workflows to the global community.  
-Together, **CyVerse and KBase** lower the barriers to entry for viral genomics, enabling any researcher—regardless of access to local HPCs—to:
+Together, **CyVerse and KBase** lower the barriers to entry for viral genomics, enabling any researcher — regardless of access to local HPCs — to:
 - Store, share, and analyze massive datasets.
 - Use standardized workflows through friendly web interfaces.
 - Publish reusable and transparent computational analyses.
-
-> **In short:** CyVerse and KBase make large-scale viral research accessible, collaborative, and reproducible—key principles behind iVirus.

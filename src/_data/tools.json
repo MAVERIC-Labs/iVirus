@@ -33,7 +33,7 @@
       "title": "Annotation",
       "icon": "📝",
       "description": "Annotate viral genomes, characterize functions, and curate sequences for downstream ecology.",
-      "intro": "Viral genome annotation assigns putative functions to predicted genes by comparing them against curated reference databases. Beyond basic gene labeling, annotation tools like DRAM-v specifically identify auxiliary metabolic genes (AMGs) — viral genes co-opted from host metabolism that can influence biogeochemical cycles. Annotation results are also used to manually screen viral contigs for false positives and to prepare sequences for database submission."
+      "intro": "Viral genome annotation assigns putative functions to predicted genes by comparing them against curated reference databases. Beyond basic gene prediction, annotation tools like DRAM-v specifically identify auxiliary metabolic genes (AMGs) — viral genes co-opted from host metabolism that can influence biogeochemical cycles. Annotation results are also used to manually screen viral contigs for false positives and to prepare sequences for database submission."
     },
     {
       "id": "sequence-search",
@@ -46,8 +46,8 @@
       "id": "taxonomy",
       "title": "Taxonomy",
       "icon": "🌳",
-      "description": "Assign taxonomic labels to viral sequences using gene-sharing networks or k-mer similarity.",
-      "intro": "Taxonomic classification of uncultivated viruses is challenging because most lack close relatives in reference databases. A relatively recent and powerful approach organizes viral sequence space through gene-sharing networks: viruses that share a significant fraction of their protein content are grouped into genus-level clusters benchmarked against ICTV-classified reference genomes. Viruses co-clustering with classified references inherit their taxonomy; isolated clusters represent putative novel genera. For species-level demarcation, nucleotide-similarity tools like VIRIDIC complement the protein-based network approach."
+      "description": "Assign taxonomic labels to viral sequences using gene-sharing networks.",
+      "intro": "Taxonomic classification of uncultivated viruses is challenging because most lack close relatives in reference databases. A relatively recent and powerful approach organizes viral sequence space through gene-sharing networks: viruses that share a significant fraction of their protein content are grouped into genus-level clusters benchmarked against ICTV-classified reference genomes. Viruses co-clustering with classified references inherit their taxonomy, with isolated clusters representing putative novel genera. For species-level demarcation, nucleotide-similarity tools like VIRIDIC complement the protein-based network approach."
     },
     {
       "id": "host-prediction",
@@ -61,7 +61,7 @@
       "title": "Abundance & Ecology",
       "icon": "📈",
       "description": "Map reads back to viral references to estimate genome abundance and population dynamics.",
-      "intro": "Read-based analyses can be used for a variety of reasons, but chief among them is estimating genome or population abundance. By mapping raw reads back to a set of reference viral genomes, these tools calculate coverage depth and breadth across samples — enabling comparisons of viral community structure, population dynamics, and ecological patterns across environments or time points."
+      "intro": "By mapping raw reads back to a set of reference viral genomes, these tools calculate coverage depth and breadth across samples, enabling comparisons of viral community structure, population dynamics, and ecological patterns across environments or time points."
     },
     {
       "id": "visualization",
@@ -113,7 +113,7 @@
       "name": "SPAdes",
       "slug": "spades",
       "category": "assembly",
-      "summary": "Trusted assembler for short-read microbial and viral datasets with even coverage.",
+      "summary": "Assembler for short-read microbial and viral datasets with even coverage.",
       "platforms": ["HPC", "CyVerse", "KBase"],
       "official_url": "https://github.com/ablab/spades",
       "site_docs_url": "/docs/tools/spades/",
@@ -189,7 +189,7 @@
       "name": "VirSorter",
       "slug": "virsorter",
       "category": "identification",
-      "summary": "Original signal-based tool for mining viral signatures from microbial genomic data. Superseded by VirSorter2 for most use cases.",
+      "summary": "Original signal-based tool for mining viral signatures from microbial genomic data. Superseded by VirSorter2.",
       "platforms": ["HPC", "CyVerse"],
       "official_url": "https://github.com/simroux/VirSorter",
       "site_docs_url": "/docs/tools/virsorter/",
@@ -199,7 +199,7 @@
       "name": "Prodigal",
       "slug": "prodigal",
       "category": "gene-calling",
-      "summary": "Fast, accurate prokaryotic gene prediction — the standard gene caller used upstream of most viral annotation and search pipelines.",
+      "summary": "Fast, accurate prokaryotic gene prediction used by many viral annotation and search pipelines.",
       "platforms": ["HPC", "CyVerse", "KBase"],
       "official_url": "https://github.com/hyattpd/Prodigal",
       "site_docs_url": "/docs/tools/prodigal/",
@@ -237,7 +237,7 @@
       "name": "VIGA",
       "slug": "viga",
       "category": "annotation",
-      "summary": "Viral genome annotation pipeline for prokaryotic viruses; produces GenBank-compatible output from assembled contigs.",
+      "summary": "Viral genome annotation pipeline for prokaryotic viruses, and can generate GenBank-compatible output from assembled contigs.",
       "platforms": ["HPC"],
       "official_url": "https://github.com/EGTortuero/VIGA",
       "site_docs_url": "/docs/tools/viga/",
@@ -256,7 +256,7 @@
       "name": "vConTACT2",
       "slug": "vcontact2",
       "category": "taxonomy",
-      "summary": "Assigns taxonomy to uncultivated prokaryotic viruses using gene-sharing networks benchmarked against the ICTV classification — the community standard for phage taxonomy.",
+      "summary": "Assigns taxonomy to uncultivated prokaryotic viruses using gene-sharing networks benchmarked against the ICTV.",
       "platforms": ["HPC", "CyVerse"],
       "official_url": "https://bitbucket.org/MAVERICLab/vcontact2",
       "site_docs_url": "/docs/tools/vcontact2/",
@@ -266,7 +266,7 @@
       "name": "vConTACT2-Gene2Genome",
       "slug": "vcontact2-gene2genome",
       "category": "taxonomy",
-      "summary": "Preprocessing step for vConTACT2 — converts protein FASTA sequences into the gene-to-genome mapping file required by the classifier.",
+      "summary": "Preprocessing step for vConTACT2. Converts protein FASTA sequences into the gene-to-genome mapping file required by the classifier.",
       "platforms": ["HPC", "CyVerse", "KBase"],
       "official_url": "https://bitbucket.org/MAVERICLab/vcontact2",
       "reference": "Bin Jang et al., Nat Biotechnol (2019)"
@@ -275,7 +275,7 @@
       "name": "CAT/BAT",
       "slug": "cat-bat",
       "category": "taxonomy",
-      "summary": "Taxonomic classification of assembled contigs (CAT) and metagenome-assembled bins (BAT) using diamond-based alignment and a last common ancestor approach.",
+      "summary": "Taxonomic classification of assembled contigs (CAT) and metagenome-assembled bins (BAT) using DIAMOND-based alignment and a last common ancestor approach.",
       "platforms": ["HPC"],
       "official_url": "https://github.com/dutilh/CAT",
       "site_docs_url": "/docs/tools/cat-bat/",
@@ -323,7 +323,7 @@
       "name": "Cytoscape",
       "slug": "cytoscape",
       "category": "visualization",
-      "summary": "Network visualization and analysis platform widely used to explore and render gene-sharing networks generated by vConTACT2.",
+      "summary": "Network visualization and analysis tool widely used to explore and render gene-sharing networks generated by vConTACT2.",
       "platforms": ["CyVerse", "Desktop"],
       "official_url": "https://cytoscape.org/",
       "site_docs_url": "/docs/tools/cytoscape/",
@@ -333,7 +333,7 @@
       "name": "Anvi'o",
       "slug": "anvio",
       "category": "visualization",
-      "summary": "Advanced multi-omics analysis and visualization platform — used for pangenomics, metagenome-assembled genome inspection, and viral community profiling.",
+      "summary": "Advanced multi-omics analysis and visualization platform used for pangenomics, metagenome-assembled genome inspection, and viral community profiling.",
       "platforms": ["HPC"],
       "official_url": "https://anvio.org/",
       "site_docs_url": "/docs/tools/anvio/",
@@ -343,7 +343,7 @@
       "name": "MultiQC",
       "slug": "multiqc",
       "category": "quality-control",
-      "summary": "Aggregates QC results from FastQC, Trimmomatic, fastp, and dozens of other tools into a single interactive HTML report — essential for batch sample assessment.",
+      "summary": "Aggregates QC results from FastQC, Trimmomatic, fastp, and dozens of other tools into a single interactive HTML report.",
       "platforms": ["HPC", "CyVerse"],
       "official_url": "https://multiqc.info/",
       "site_docs_url": "/docs/tools/multiqc/",
@@ -408,6 +408,60 @@
       "official_url": "https://sourceforge.net/projects/phageterm/",
       "site_docs_url": "/docs/tools/phageterm/",
       "reference": "Garneau et al., Scientific Reports (2017)"
+    },
+    {
+      "name": "vclust",
+      "slug": "vclust",
+      "category": "identification",
+      "summary": "Alignment-based tool for fast and accurate calculation of Average Nucleotide Identity (ANI) between complete or metagenomically-assembled viral genomes, with ANI-based clustering according to ICTV and MIUViG standards.",
+      "platforms": ["HPC"],
+      "official_url": "https://github.com/refresh-bio/vclust",
+      "reference": "Zielezinski et al., Nature Methods (2025)"
+    },
+    {
+      "name": "vConTACT3",
+      "slug": "vcontact3",
+      "category": "taxonomy",
+      "summary": "Gene-sharing network classification of viral genomes with hierarchical, multi-rank taxonomic assignment.",
+      "platforms": ["HPC"],
+      "official_url": "https://bitbucket.org/MAVERICLab/vcontact3",
+      "reference": "Bolduc et al., Nature Biotechnology (2025)"
+    },
+    {
+      "name": "Pharokka",
+      "slug": "pharokka",
+      "category": "annotation",
+      "summary": "A rapid standardized annotation tool for bacteriophage genomes and metagenomes. Predicts genes with PHANOTATE by default (Prodigal and prodigal-gv optional) and assigns functions against the PHROGs, CARD and VFDB databases.",
+      "platforms": ["HPC"],
+      "official_url": "https://github.com/gbouras13/pharokka",
+      "reference": "Bouras et al., Bioinformatics (2023)"
+    },
+    {
+      "name": "prodigal-gv",
+      "slug": "prodigal-gv",
+      "category": "gene-calling",
+      "summary": "A fork of Prodigal meant to improve gene calling for giant viruses and viruses that use alternative genetic codes, adding ten models to Prodigal's metagenome mode.",
+      "platforms": ["HPC"],
+      "official_url": "https://github.com/apcamargo/prodigal-gv",
+      "reference": "Camargo et al., Nature Biotechnology (2023)"
+    },
+    {
+      "name": "CoverM",
+      "slug": "coverm",
+      "category": "abundance",
+      "summary": "A configurable, easy to use and fast DNA read coverage and relative abundance calculator focused on metagenomics, reporting coverage per genome/MAG or per contig from sorted BAM files or raw reads.",
+      "platforms": ["HPC"],
+      "official_url": "https://github.com/wwood/CoverM",
+      "reference": "Aroney et al., Bioinformatics (2025)"
+    },
+    {
+      "name": "Bowtie2",
+      "slug": "bowtie2",
+      "category": "abundance",
+      "summary": "An ultrafast and memory-efficient tool for aligning sequencing reads to long reference sequences; supports gapped, local and paired-end alignment.",
+      "platforms": ["HPC"],
+      "official_url": "https://github.com/BenLangmead/bowtie2",
+      "reference": "Langmead & Salzberg, Nature Methods (2012)"
     }
   ]
 }

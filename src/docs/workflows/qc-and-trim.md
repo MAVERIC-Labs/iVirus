@@ -18,7 +18,7 @@ We will be using either [BBDuk](https://jgi.doe.gov/data-and-tools/bbtools/bb-to
 
 {% codetabs ["Command", "SLURM Script"] %}
 ```bash
-trimmomatic PE ERR594369_1.fastq.gz ERR594369_2.fastq.gz ERR594369_1_t_paired.fastq.gz ERR594369_1_t_unpaired.fastq.gz ERR594369_2_t_paired.fastq.gz ERR594369_2_t_unpaired.fastq.gz ILLUMINACLIP:TruSeq3-PE.fa:2:30:10:2 LEADING:3 TRAILING:3 MINLEN:36
+trimmomatic PE ERR594369_1.fastq.gz ERR594369_2.fastq.gz ERR594369_1_t_paired.fastq.gz ERR594369_1_t_unpaired.fastq.gz ERR594369_2_t_paired.fastq.gz ERR594369_2_t_unpaired.fastq.gz ILLUMINACLIP:/Trimmomatic-0.39/adapters/TruSeq3-PE.fa:2:30:10:2 LEADING:3 TRAILING:3 MINLEN:36
 ```
 ---
 ```bash
@@ -36,7 +36,7 @@ cd $workDir
 trimmomatic PE ERR594369_1.fastq.gz ERR594369_2.fastq.gz \
   ERR594369_1_t_paired.fastq.gz ERR594369_1_t_unpaired.fastq.gz \
   ERR594369_2_t_paired.fastq.gz ERR594369_2_t_unpaired.fastq.gz \
-  ILLUMINACLIP:TruSeq3-PE.fa:2:30:10:2 LEADING:3 TRAILING:3 MINLEN:36
+  ILLUMINACLIP:/Trimmomatic-0.39/adapters/TruSeq3-PE.fa:2:30:10:2 LEADING:3 TRAILING:3 MINLEN:36
 ```
 {% endcodetabs %}
 
@@ -60,7 +60,7 @@ Next, BBDuk. BBDuk is usually done in 2-3 steps, with 1st being an adapter trimm
 # Step 1: adapter trimming
 bbduk.sh in1=ERR594369_1.fastq.gz in2=ERR594369_2.fastq.gz \
   out1=ERR594369_1_t.fastq.gz out2=ERR594369_2_t.fastq.gz \
-  ref=/bbmap/resources/adapters.fa ktrim=r k=23 mink=11 hdist=1 tpe tbo
+  ref=adapters ktrim=r k=23 mink=11 hdist=1 tpe tbo
 
 # Step 2: quality filtering
 bbduk.sh in1=ERR594369_1_t.fastq.gz in2=ERR594369_2_t.fastq.gz \
@@ -82,7 +82,7 @@ cd $workDir
 # Step 1: adapter trimming
 bbduk.sh in1=ERR594369_1.fastq.gz in2=ERR594369_2.fastq.gz \
   out1=ERR594369_1_t.fastq.gz out2=ERR594369_2_t.fastq.gz \
-  ref=/bbmap/resources/adapters.fa ktrim=r k=23 mink=11 hdist=1 tpe tbo
+  ref=adapters ktrim=r k=23 mink=11 hdist=1 tpe tbo
 
 # Step 2: quality filtering
 bbduk.sh in1=ERR594369_1_t.fastq.gz in2=ERR594369_2_t.fastq.gz \
@@ -115,7 +115,7 @@ Now, let's do the same two commands in one:
 ```bash
 bbduk.sh in1=ERR594369_1.fastq.gz in2=ERR594369_2.fastq.gz \
   out1=ERR594369_1_t_qc.fastq.gz out2=ERR594369_2_t_qc.fastq.gz \
-  ref=/bbmap/resources/adapters.fa qtrim=rl trimq=10 ktrim=r k=23 mink=11 hdist=1 tpe tbo
+  ref=adapters qtrim=rl trimq=10 ktrim=r k=23 mink=11 hdist=1 tpe tbo
 ```
 
 ## How does the quality check out?
@@ -178,4 +178,4 @@ I've added comments to the command (above). *Normally*, this would NOT be in the
 - [FastQC tool guide]({{ '/docs/tools/fastqc/' | url }})
 - [MultiQC tool guide]({{ '/docs/tools/multiqc/' | url }})
 - [BBDuk tool guide]({{ '/docs/tools/bbduk/' | url }})
-- [Trimmomatic tool guide]({{ '/docs/tools/trimmomatic/placeholder/' | url }})
+- [Trimmomatic tool guide]({{ '/docs/tools/trimmomatic/' | url }})

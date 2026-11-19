@@ -4,11 +4,12 @@ title: Viral research resources
 permalink: "/"
 contentContainer: false
 ---
-<section class="hero hero-home" data-home-hero aria-label="Site highlights">
+<section class="hero hero-home" data-home-hero data-base="{{ '/' | url }}" aria-label="Site highlights">
+  <canvas class="hero-net" data-hero-net aria-hidden="true"></canvas>
   <div class="hero-inner container">
     <div class="hero-copy">
       <h1 id="hero-title" data-home-hero-title>Tools, Data, & Guides for Viral Research</h1>
-      <p id="hero-sub" data-home-hero-sub>A community resource for viral ecology: learn the pipeline from <strong>SRA fetch</strong> to <strong>viral identification</strong>, run trusted tools, and grab datasets — all in one place.</p>
+      <p id="hero-sub" data-home-hero-sub>A community resource for viral ecology: learn the pipeline from <strong>SRA fetch</strong> to <strong>viral identification</strong>, run tools, and grab datasets — all in one place.</p>
       <div class="hero-ctas" id="hero-ctas" data-home-hero-ctas>
         <a class="btn" id="hero-cta1" href="{{ '/docs/' | url }}">Get started</a>
         <a class="btn btn-ghost" id="hero-cta2" href="{{ '/tools/' | url }}">Explore tools</a>
@@ -16,8 +17,6 @@ contentContainer: false
     </div>
   </div>
 
-  <!-- optional decorative banner behind hero; swap URL when you have an image -->
-  <div class="hero-banner" aria-hidden="true"></div>
 
   <div class="hero-indicators" role="tablist" aria-label="Hero slides">
     <span class="dot active" role="button" tabindex="0" aria-label="Slide 1"></span>
@@ -67,3 +66,5 @@ contentContainer: false
     </li>
   </ul>
 </section>
+
+<script src="{{ '/assets/js/hero-network.js' | url }}" defer></script>

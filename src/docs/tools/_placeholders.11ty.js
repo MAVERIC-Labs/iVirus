@@ -27,7 +27,7 @@ function slugify(s = "") {
             // Always write a unique placeholder URL (no `false`!)
             return `/docs/tools/${slug}/placeholder/`;
           },
-          title: (data) => `${(data.tool && data.tool.name) || "Tool"} (placeholder)`,
+          title: (data) => (data.tool && data.tool.name) || "Tool",
         },
         // Return HTML from render()
       };
@@ -35,39 +35,27 @@ function slugify(s = "") {
   
     render(data) {
       const t = data.tool || {};
-      const category = (t.category || "")
-        .replace(/-/g, " ")
-        .replace(/\b\w/g, (c) => c.toUpperCase());
-      const platforms = Array.isArray(t.platforms) ? t.platforms.join(", ") : "";
-      const hasDocs = !!t.site_docs_url;
-      const docLink = hasDocs
-        ? `<a href="${withPrefix(t.site_docs_url)}">Go to full docs</a>`
-        : `<em>This documentation is coming soon.</em>`;
-
-      const official = t.official_url
-        ? `<a href="${t.official_url}" target="_blank" rel="noopener">${t.official_url}</a>`
-        : "_n/a_";
+      const cat = ((data.tools && data.tools.categories) || []).find((c) => c.id === t.category);
       const catUrl = withPrefix(t.category ? `/tools/${t.category}/` : "/tools/");
-  
-      // Optionally discourage indexing placeholders:
-      const metaNoIndex = `<meta name="robots" content="noindex">`;
-  
+      const platforms = (Array.isArray(t.platforms) ? t.platforms : [])
+        .map((p) => `<span class="badge badge--platform badge--${String(p).toLowerCase()}">${p}</span>`).join("");
+      // Pipeline stages that use this tool (from workflows.json)
+      const stages = [];
+      for (const wf of Object.values(data.workflows || {})) {
+        for (const s of wf.steps || []) {
+          if ((s.tools || []).some((x) => x.slug === t.slug)) stages.push(s);
+        }
+      }
+      const stageChips = stages.map((s) => `<a class="pipe-chip" href="${withPrefix(s.url)}">${s.title}</a>`).join("");
+
       return `
-        ${metaNoIndex}
-        <h1>${t.name || "Tool"}</h1>
-        <p>${docLink}</p>
-  
-        <ul>
-          <li>Category: <strong>${category}</strong></li>
-          <li>Summary: ${t.summary || ""}</li>
-          <li>Platforms: ${platforms}</li>
-        </ul>
-  
-        <p>In the meantime:</p>
-        <ul>
-          <li>Official site: ${official}</li>
-          <li>See related pages: <a href="${catUrl}">Tools catalogue</a></li>
-        </ul>
-      `.trim();
+<meta name="robots" content="noindex">
+<div class="tool-stub">
+<p class="tool-stub-lead">${t.summary || ""}</p>
+<div class="tool-meta-bar">${platforms}${cat ? `<span class="tool-meta-sep">·</span><a class="tool-meta-cat" href="${catUrl}">${cat.icon || ""} ${cat.title}</a>` : ""}${t.reference ? `<span class="tool-meta-sep">·</span><span class="tool-meta-ref">${t.reference}</span>` : ""}</div>
+${stageChips ? `<div class="pipe-toolrow"><span class="pipe-lbl">Used in</span>${stageChips}</div>` : ""}
+<div class="admon admon-note"><strong>Note:</strong> <em>This documentation is coming soon.</em> In the meantime, see the official site or the tools catalogue.</div>
+<p class="tool-stub-actions">${t.official_url ? `<a class="btn" href="${t.official_url}" target="_blank" rel="noopener">Official site ↗</a>` : ""} <a class="btn btn-ghost" href="${catUrl}">All ${cat ? cat.title.toLowerCase() : ""} tools</a></p>
+</div>`.trim();
     }
   };

@@ -1,5 +1,7 @@
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const workflows = require("./src/_data/workflows.json");
+const toolsData = require("./src/_data/tools.json");
+const { renderPipeline, renderNeighbours, toolHref } = require("./lib/pipeline-figure.js");
 
 const pathPrefix = process.env.IVIRUS_DEPLOY ? "/iVirus" : "";
 
@@ -96,35 +98,40 @@ module.exports = function(eleventyConfig) {
     return `<div class="admon admon-${kind}"><strong>${title}:</strong> ${content}</div>`;
   });
 
-  eleventyConfig.addShortcode("workflowStepper", (flow = "metagenome", activeId) => {
-    const wf = workflows[flow];
-    if (!wf || !Array.isArray(wf.steps)) return "";
-  
-    // Build each step (icon + label, highlight active)
-    const parts = wf.steps.map((s) => {
-      const active = s.id === activeId ? "active" : "";
-      const icon = s.icon ? `<span class="icon" aria-hidden="true">${s.icon}</span>` : "";
-      return `<li class="wf-step ${active}">
-        <a href="${pathPrefix}${s.url}">
-          ${icon}<span class="label">${s.title}</span>
-        </a>
-      </li>`;
-    });
-  
-    // Insert chevrons between items
-    const withChevrons = [];
-    parts.forEach((html, i) => {
-      withChevrons.push(html);
-      if (i < parts.length - 1) withChevrons.push(`<li class="wf-chevron" aria-hidden="true">»»</li>`);
-    });
-  
-    return `<nav class="wf" aria-label="${wf.title}">
-      <h4 class="wf-title">${wf.title}</h4>
-      <ol class="wf-steps">
-        ${withChevrons.join("\n")}
-      </ol>
-    </nav>`;
+  eleventyConfig.addWatchTarget("./lib/");
+
+  // Compact pipeline map with one stage highlighted + that stage's detail card.
+  // (Name kept so existing workflow pages keep working.)
+  eleventyConfig.addShortcode("workflowStepper", (flow = "metagenome", activeId) =>
+    renderPipeline(workflows[flow], { mode: "compact", activeId, pathPrefix, toolItems: toolsData.items })
+  );
+
+  // Full interactive pipeline figure (hover for details, click to open a stage).
+  eleventyConfig.addShortcode("pipelineFigure", (flow = "metagenome", links = "") =>
+    renderPipeline(workflows[flow], { mode: "full", links, pathPrefix, toolItems: toolsData.items })
+  );
+
+  // Category's stage(s) plus the stages before and after (Tools & Apps category pages)
+  eleventyConfig.addShortcode("pipelineNeighbours", (flow = "metagenome", category = "") =>
+    renderNeighbours(workflows[flow], category, { pathPrefix })
+  );
+
+  // Tools whose reference isn't already on the Publications page
+  // (matched on first-author surname + year, e.g. vConTACT2, Read2RefMapper).
+  eleventyConfig.addFilter("toolPubs", (items, pubItems) => {
+    const key = (surname, year) => `${String(surname).trim().toLowerCase()}|${year}`;
+    const listed = new Set((pubItems || []).map(p => key(String((p.authors || [""])[0]).split(",")[0], p.year)));
+    return (items || []).filter(t => {
+      const ref = t.reference || "";
+      const y = (ref.match(/\((\d{4})\)/) || [])[1];
+      if (!ref || !y) return false;
+      const surname = ref.split(/,| et al| &/)[0];
+      return !listed.has(key(surname, Number(y)));
+    }).sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: "base" }));
   });
+
+  // Resolve a workflows.json tool entry to { href, external }
+  eleventyConfig.addFilter("toolHref", t => toolHref(t, toolsData.items, pathPrefix));
 
   eleventyConfig.addPairedShortcode("codetabs", (content, tabs = []) => {
     const id = Math.random().toString(36).slice(2);
@@ -135,14 +142,16 @@ module.exports = function(eleventyConfig) {
     // Split on a line containing only "---" and render each part as markdown
     const parts = content.split(/\n[ \t]*---[ \t]*\n/);
     const panels = parts.map((part, i) => {
-      const html = mdLib ? mdLib.render(part.trim()) : `<pre>${part}</pre>`;
+      // Encode newlines so the page-level Markdown pass sees one unbroken HTML
+      // block. Otherwise a blank line inside a code sample ends the block and
+      // Markdown eats the trailing "\\" line continuations that follow it.
+      const html = (mdLib ? mdLib.render(part.trim()) : `<pre>${part}</pre>`).replace(/\n/g, "&#10;");
       return `<div class="codetabs-panel" data-panel="${i}" role="tabpanel"${i !== 0 ? ' hidden' : ''}>${html}</div>`;
     }).join("");
 
-    return `<div class="codetabs" id="tabs-${id}" data-codetabs>
-  <div class="codetabs-nav" data-codetabs-nav role="tablist">${buttons}</div>
-  <div class="codetabs-panels" data-codetabs-panels>${panels}</div>
-</div>`;
+    return `<div class="codetabs" id="tabs-${id}" data-codetabs>` +
+      `<div class="codetabs-nav" data-codetabs-nav role="tablist">${buttons}</div>` +
+      `<div class="codetabs-panels" data-codetabs-panels>${panels}</div></div>`;
   });
 
   eleventyConfig.addGlobalData("defaultLayout", "layouts/docs.njk");

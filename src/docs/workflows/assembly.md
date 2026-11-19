@@ -41,6 +41,9 @@ runOpts="-t 48 -m 124"  # Match to job request. This is 48 cores and 124 GB memo
 
 workDir="<your_project_dir>"
 
+mkdir ${workDir}/processed_reads
+mv *_paired.fastq.gz ${workDir}/processed_reads
+
 pe1f="${workDir}/processed_reads/ERR594369_1_t_paired.fastq.gz"
 pe1r="${workDir}/processed_reads/ERR594369_2_t_paired.fastq.gz"
 

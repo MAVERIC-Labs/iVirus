@@ -117,7 +117,9 @@
   
     
       <div class="container site-content">
-        <div class="cat-callout">Generally speaking, quality control (QC) is a technique most commonly applied to raw read data. This ensures that the data going into the assembly (the common next step) is of high quality. Poor read quality can result in mis- or incorrectly assembled sequences. Most frequently, read data QC involves trimming reads according to their quality scores and removing barcoding sequences (if applicable). Although some assemblers do not require QC&#39;d reads, we highly recommend it!</div>
+        <div class="pipe-wrap pipe-wrap--strip"><div class="pipe-scroll"><svg class="pipe pipe--compact pipe--strip" viewBox="0 0 682 74" width="750" height="81" role="group" aria-label="Viral Metagenome Workflow: where this category fits" xmlns="http://www.w3.org/2000/svg"><defs><marker id="pipe-ah" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path class="pipe-head" d="M0,0 L7,3.5 L0,7 Z"/></marker></defs><path class="pipe-line" d="M204,37 C223,37 223,37 242,37" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M438,37 C457,37 457,37 476,37" marker-end="url(#pipe-ah)"/><a class="pipe-node is-trunk" href="/iVirus/docs/workflows/sra-fetch/" aria-label="Stage 1: Get Reads"><title>Get Reads</title><rect class="pipe-box" x="12" y="12" width="190" height="50" rx="12"/><circle class="pipe-badge" cx="30" cy="37" r="10"/><text class="pipe-num" x="30" y="40.6">1</text><text class="pipe-title" x="117" y="41.5">Get Reads</text></a><a class="pipe-node is-trunk is-active" href="/iVirus/docs/workflows/qc-and-trim/" aria-label="Stage 2: QC &amp; Trim" aria-current="page"><title>Open the QC &amp; Trim walkthrough</title><rect class="pipe-box" x="246" y="12" width="190" height="50" rx="12"/><circle class="pipe-badge" cx="264" cy="37" r="10"/><text class="pipe-num" x="264" y="40.6">2</text><text class="pipe-title" x="351" y="41.5">QC &amp; Trim</text></a><a class="pipe-node is-trunk" href="/iVirus/tools/assembly/" aria-label="Stage 3: Assembly"><title>Browse Assembly tools</title><rect class="pipe-box" x="480" y="12" width="190" height="50" rx="12"/><circle class="pipe-badge" cx="498" cy="37" r="10"/><text class="pipe-num" x="498" y="40.6">3</text><text class="pipe-title" x="585" y="41.5">Assembly</text></a></svg></div><p class="pipe-strip-cap">Stage 2 of the <a href="/iVirus/docs/workflows/end-to-end/">Viral Metagenome Workflow</a>. Click QC &amp; Trim for the walkthrough, or a neighboring stage to browse its tools.</p></div>
+
+<div class="cat-callout">Generally speaking, quality control (QC) is a technique most commonly applied to raw read data. This ensures that the data going into the assembly (the common next step) is of high quality. Poor read quality can result in mis- or incorrectly assembled sequences. Most frequently, read data QC involves trimming reads according to their quality scores and removing barcoding sequences (if applicable). Although some assemblers do not require QC&#39;d reads, we highly recommend it!</div>
 
 <table class="tool-table">
   <thead>
@@ -264,7 +266,7 @@
       
       <tr>
         <td><strong>MultiQC</strong></td>
-        <td>Aggregates QC results from FastQC, Trimmomatic, fastp, and dozens of other tools into a single interactive HTML report — essential for batch sample assessment.</td>
+        <td>Aggregates QC results from FastQC, Trimmomatic, fastp, and dozens of other tools into a single interactive HTML report.</td>
         <td>
           
             <span class="pill">HPC</span>
@@ -323,6 +325,18 @@
     
       
     
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
     </tbody>
 </table>
 
@@ -350,6 +364,7 @@
   <script src="/iVirus/assets/js/directory-filters.js"></script>
   <script src="/iVirus/assets/js/home.js"></script>
   <script src="/iVirus/assets/js/theme-toggle.js"></script>
+  <script src="/iVirus/assets/js/pipeline.js"></script>
 
   <!-- Alpha banner dismiss -->
   <script>

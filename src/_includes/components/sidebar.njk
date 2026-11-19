@@ -9,7 +9,7 @@
     <h4>Workflows</h4>
     <ul class="wf-list">
     {% for wfkey, wf in wfdata %}
-      {% set isActiveFlow = (page.data.workflow and page.data.workflow == wfkey) %}
+      {% set isActiveFlow = (workflow and workflow == wfkey) %}
       <li class="wf-parent {% if isActiveFlow %}open{% endif %}">
         <button class="wf-toggle" aria-label="Toggle steps"
                 aria-expanded="{{ isActiveFlow | default(false) }}">
@@ -17,7 +17,7 @@
         </button>
         <ul class="wf-steps-nested" {% if not isActiveFlow %}hidden{% endif %}>
           {% for s in wf.steps %}
-          <li class="{% if page.url == s.url or (page.data.step and page.data.step == s.id) %}active{% endif %}">
+          <li class="{% if page.url == s.url or (step and step == s.id) %}active{% endif %}">
             <a href="{{ s.url | url }}">{{ s.title }}</a>
           </li>
           {% endfor %}

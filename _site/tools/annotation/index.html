@@ -117,7 +117,9 @@
   
     
       <div class="container site-content">
-        <div class="cat-callout">Viral genome annotation assigns putative functions to predicted genes by comparing them against curated reference databases. Beyond basic gene labeling, annotation tools like DRAM-v specifically identify auxiliary metabolic genes (AMGs) — viral genes co-opted from host metabolism that can influence biogeochemical cycles. Annotation results are also used to manually screen viral contigs for false positives and to prepare sequences for database submission.</div>
+        <div class="pipe-wrap pipe-wrap--strip"><div class="pipe-scroll"><svg class="pipe pipe--compact pipe--strip" viewBox="0 0 682 74" width="750" height="81" role="group" aria-label="Viral Metagenome Workflow: where this category fits" xmlns="http://www.w3.org/2000/svg"><defs><marker id="pipe-ah" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path class="pipe-head" d="M0,0 L7,3.5 L0,7 Z"/></marker></defs><path class="pipe-line" d="M204,37 C223,37 223,37 242,37" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M438,37 C457,37 457,37 476,37" marker-end="url(#pipe-ah)"/><a class="pipe-node is-trunk" href="/iVirus/tools/identification/" aria-label="Stage 5: Quality &amp; vOTUs"><title>Browse Quality &amp; vOTUs tools</title><rect class="pipe-box" x="12" y="12" width="190" height="50" rx="12"/><circle class="pipe-badge" cx="30" cy="37" r="10"/><text class="pipe-num" x="30" y="40.6">5</text><text class="pipe-title" x="117" y="41.5">Quality &amp; vOTUs</text></a><a class="pipe-node is-branch is-active" href="/iVirus/docs/workflows/annotation/" aria-label="Stage 8: Annotation &amp; AMGs" aria-current="page"><title>Open the Annotation &amp; AMGs walkthrough</title><rect class="pipe-box" x="246" y="12" width="190" height="50" rx="12"/><circle class="pipe-badge" cx="264" cy="37" r="10"/><text class="pipe-num" x="264" y="40.6">8</text><text class="pipe-title" x="351" y="41.5">Annotation &amp; AMGs</text></a><a class="pipe-node is-base" href="/iVirus/tools/visualization/" aria-label="Stage 10: Visualize &amp; Explore"><title>Browse Visualize &amp; Explore tools</title><rect class="pipe-box" x="480" y="12" width="190" height="50" rx="12"/><circle class="pipe-badge" cx="498" cy="37" r="10"/><text class="pipe-num" x="498" y="40.6">10</text><text class="pipe-title" x="585" y="41.5">Visualize &amp; Explore</text></a></svg></div><p class="pipe-strip-cap">Stage 8 of the <a href="/iVirus/docs/workflows/end-to-end/">Viral Metagenome Workflow</a>. Click Annotation &amp; AMGs for the walkthrough, or a neighboring stage to browse its tools.</p></div>
+
+<div class="cat-callout">Viral genome annotation assigns putative functions to predicted genes by comparing them against curated reference databases. Beyond basic gene prediction, annotation tools like DRAM-v specifically identify auxiliary metabolic genes (AMGs) — viral genes co-opted from host metabolism that can influence biogeochemical cycles. Annotation results are also used to manually screen viral contigs for false positives and to prepare sequences for database submission.</div>
 
 <table class="tool-table">
   <thead>
@@ -221,7 +223,7 @@
       
       <tr>
         <td><strong>VIGA</strong></td>
-        <td>Viral genome annotation pipeline for prokaryotic viruses; produces GenBank-compatible output from assembled contigs.</td>
+        <td>Viral genome annotation pipeline for prokaryotic viruses, and can generate GenBank-compatible output from assembled contigs.</td>
         <td>
           
             <span class="pill">HPC</span>
@@ -298,6 +300,45 @@
       </tr>
       
     
+      
+    
+      
+    
+      
+      <tr>
+        <td><strong>Pharokka</strong></td>
+        <td>A rapid standardized annotation tool for bacteriophage genomes and metagenomes. Predicts genes with PHANOTATE by default (Prodigal and prodigal-gv optional) and assigns functions against the PHROGs, CARD and VFDB databases.</td>
+        <td>
+          
+            <span class="pill">HPC</span>
+          
+        </td>
+        
+        
+        
+
+        <td class="links">
+          
+          
+            
+            
+              <a href="/iVirus/docs/tools/pharokka/placeholder/">
+                Docs <span class="pill warn">coming soon</span>
+              </a>
+               · <a href="https://github.com/gbouras13/pharokka" target="_blank" rel="noopener">Official</a>
+            
+          
+        </td>
+        <td class="muted">Bouras et al., Bioinformatics (2023)</td>
+      </tr>
+      
+    
+      
+    
+      
+    
+      
+    
     </tbody>
 </table>
 
@@ -325,6 +366,7 @@
   <script src="/iVirus/assets/js/directory-filters.js"></script>
   <script src="/iVirus/assets/js/home.js"></script>
   <script src="/iVirus/assets/js/theme-toggle.js"></script>
+  <script src="/iVirus/assets/js/pipeline.js"></script>
 
   <!-- Alpha banner dismiss -->
   <script>

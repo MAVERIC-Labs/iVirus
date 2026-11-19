@@ -36,13 +36,13 @@ iphop predict --fa_file viral_contigs.fna --db_dir iphop_db/ --out_dir iphop_out
 ## Output
 
 - **`Host_prediction_to_genus_m90.csv`** — primary output: per-phage predicted host genus, confidence score, and list of supporting tool signals.
-- **`Detailed_output_by_tool.csv`** — per-tool breakdown of individual prediction scores enabling review of which signals drove each call.
+- **`Detailed_output_by_tool.csv`** — per-tool breakdown of individual prediction scores enabling review of which signals drive each call.
 
 <!-- screenshot: /assets/img/tools/screenshots/iphop.png -->
 
 ## In the iVirus workflow
 
-iPHoP is the recommended host-prediction tool in the iVirus pipeline, superseding [WIsH]({{ '/docs/tools/wish/' | url }}) and [HostPhinder]({{ '/docs/tools/hostphinder/' | url }}) for most use cases due to its integration of multiple signal types and higher accuracy. It requires [CheckV]({{ '/docs/tools/checkv/' | url }})-filtered, high-quality viral genomes as input — low-quality or heavily fragmented contigs reduce prediction confidence.
+iPHoP is the recommended host-prediction tool in the viral ecogenomics pipeline, superseding [WIsH]({{ '/docs/tools/wish/' | url }}) and [HostPhinder]({{ '/docs/tools/hostphinder/' | url }}) for most use cases due to its integration of multiple signal types and higher accuracy. It requires [CheckV]({{ '/docs/tools/checkv/' | url }})-filtered, high-quality viral genomes as input — low-quality or heavily fragmented contigs reduce prediction confidence.
 
 See also:
 - **Related tools:** [Host Prediction category]({{ '/tools/host-prediction/' | url }})

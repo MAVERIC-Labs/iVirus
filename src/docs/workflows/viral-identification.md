@@ -55,7 +55,7 @@ virsorter run \
 ```
 {% endcodetabs %}
 
-On the example assembly (322k contigs), Pass 1 took approximately **2 hours 48 minutes** with 40 cores.
+On the example assembly (322k contigs), Pass 1 took approximately **2 hours 48 minutes** with 40 cores. If you noticed, we used VirSorter2's filter argument to limit the SPAdes contigs to 5k.
 
 ## CheckV
 
@@ -189,6 +189,39 @@ DRAM-v.py distill \
 After DRAM-v, filter contigs by combining VirSorter2 scores, CheckV contamination estimates, and DRAM-v AMG results into Keep1/Keep2/Manual check/Discard tiers per [Step 5 of the VirSorter2 SOP](https://www.protocols.io/view/viral-sequence-identification-sop-with-virsorter2-5qpvoyqebg4x/v3). The worked example yielded **3,243 high-confidence genomes** from 322k initial contigs.
 
 > **Note:** Manual curation cannot be fully automated. Review "Manual check" category contigs individually.
+
+## More identification methods
+
+### geNomad
+
+{% codetabs ["Command", "SLURM Script"] %}
+```bash
+genomad end-to-end --cleanup contigs.fasta genomad_out/ genomad_db/
+```
+---
+```bash
+#!/bin/bash
+#SBATCH -N 1
+#SBATCH -t 24:00:00
+#SBATCH -n 48
+#SBATCH -J geNomad
+#SBATCH --partition=hugemem  # or your cluster's high-memory partition
+
+# activate your conda environment here
+
+# general options - cleanup removes intermediate files to save storage space
+genOpts="end-to-end --cleanup"
+
+workDir="<your_project_dir>"
+fasta="${workDir}/MetaSPAdes_Trimmomatic/contigs.fasta"
+output_dir="${workDir}/analyses/geNomad"
+db_dir="${workDir}/genomad_db"
+
+geNomadRun="genomad ${genOpts} ${fasta} ${output_dir} ${db_dir}"
+echo ${geNomadRun}
+${geNomadRun}
+```
+{% endcodetabs %}
 
 VIBRANT is an alternative to VirSorter2 for viral identification; see the [VIBRANT guide]({{ '/docs/tools/vibrant/' | url }}).
 

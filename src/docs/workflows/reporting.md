@@ -1,10 +1,10 @@
 ---
-title: Reporting
+title: Taxonomy
 doctype: guide
 layout: layouts/docs.njk
 workflow: metagenome
-step: report
-permalink: /docs/workflows/reporting/
+step: taxonomy
+permalink: /docs/workflows/taxonomy/
 ---
 
 {% workflowStepper workflow, step %}
@@ -15,7 +15,7 @@ vConTACT2 is a tool to classify viral genomes. But first, we need to get the inp
 ```bash
 # Step 1: predict proteins with Prodigal
 prodigal -i VS2-SOP/final-viral-scored.fa \
-  -p anon \
+  -p meta \
   -a Prodigal_output/VirSorter2_genomes.faa \
   -o Prodigal_output/VirSorter2_genomes.prodigal
 
@@ -56,7 +56,7 @@ prodigal_outputDir="${workDir}/analyses/Prodigal_output"
 
 mkdir $prodigal_outputDir
 
-prodigal -i $input_fna -p anon \
+prodigal -i $input_fna -p meta \
   -a $prodigal_outputDir/VirSorter2_genomes.faa \
   -o $prodigal_outputDir/VirSorter2_genomes.prodigal
 
@@ -105,15 +105,7 @@ merged.self-diamond.tab                 vConTACT_pcs.csv
 
 The two most important files are 'genome_by_genome_overview.csv', which provides an overview of all the genomes that were processed by vConTACT2, and 'c1.ntw', which contains the network.
 
-## Visualizing in Cytoscape
-
-**On a computer with Cytoscape installed**, import the network using File → Import → Network from File. Upon import, select Advanced options, Delimiter is space, deselect 'Use first line as column names.' → OK. Now, click on Column 1, set it as Source Node, click on Column 2, set it as Target Node → OK.
-
-Next, we want to add annotations to our network. Go to File → Import → Table from File. Upon import, on 'Where to Import Table Data', select 'To A Network Collection', then import Data as 'Node Table Columns'. Finally, in the Preview, click on the 'Genome' column and then click on the 'key' symbol, then OK.
-
-Now you have all the annotations added to the network. You can style and adjust the network to whatever is appropriate for your research goals.
-
-And with that, we've gone from raw, environmental viral metagenome data (downloaded from the SRA). We've QC'd, assembled, identified viral genomes, checked their quality, and then got a bit of classification. Just like with the Microbial Ecology pipeline, we're only a few steps away from a published manuscript!
+Next, you can examine the network OR the viral clusters. Importing the network into Cytoscape is covered under [Visualize & Explore]({{ '/docs/workflows/visualize/' | url }}).
 
 ## See also
 

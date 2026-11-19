@@ -86,7 +86,7 @@
       "url": "https://doi.org/10.1038/s41587-019-0100-8",
       "journal_img": "/assets/img/journals/nature-biotech.svg",
       "tags": ["uses-ivirus"],
-      "context": "Introduces the vConTACT2 framework — the updated gene-sharing network approach for assigning virus taxonomy."
+      "context": "Introduces the vConTACT2 framework with an updated gene-sharing network approach for assigning virus taxonomy."
     },
     {
       "title": "Putative archaeal viruses from the mesopelagic ocean",
@@ -108,7 +108,7 @@
       "url": "https://doi.org/10.7717/peerj.3243",
       "journal_img": "/assets/img/journals/peerj.svg",
       "tags": ["uses-ivirus"],
-      "context": "Introduces the original vConTACT tool — a foundational iVirus pipeline for classifying dsDNA viruses via gene-sharing networks."
+      "context": "Introduces the original vConTACT tool, part of the original iVirus pipeline for classifying dsDNA viruses via gene-sharing networks."
     }
   ]
 }

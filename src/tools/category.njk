@@ -6,12 +6,14 @@ pagination:
   alias: cat
 permalink: /tools/{{ cat.id }}/
 eleventyComputed:
-  title: "{{ cat.title }}"
-  heroTitle: "{{ cat.title }}"
-  heroSubtitle: "{{ cat.description }}"
+  title: "{{ cat.title | safe }}"
+  heroTitle: "{{ cat.title | safe }}"
+  heroSubtitle: "{{ cat.description | safe }}"
   heroVariant: "hero--tools"
   heroBg: "{{ \"linear-gradient(180deg, rgba(17,24,39,.55), rgba(2,6,23,.6)), url('\" + ((cat.hero_img or '/assets/img/hero/tools-tiles.svg') | url) + \"')\" }}"
 ---
+{% pipelineNeighbours "metagenome", cat.id %}
+
 {% if cat.intro %}<div class="cat-callout">{{ cat.intro }}</div>{% endif %}
 
 <table class="tool-table">

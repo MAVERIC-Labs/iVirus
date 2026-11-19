@@ -113,4 +113,38 @@ contentClass: "page-flow"
     <p class="muted">No downstream publications listed yet.</p>
   {% endif %}
 
+  {% set toolRefs = tools.items | toolPubs(pubs.items) %}
+  {% if toolRefs | length %}
+  <hr>
+  <h2>Tool publications</h2>
+  <p class="muted">Publications for the tools covered in our guides and the Viral Ecogenomics Pipeline. If you use a tool, please cite its original publication. Tools described in the iVirus papers above are not repeated here.</p>
+
+  {% for cat in tools.categories %}
+    {% set catTools = [] %}
+    {% for t in toolRefs %}{% if t.category == cat.id %}{% set catTools = catTools | concat([t]) %}{% endif %}{% endfor %}
+    {% if catTools | length %}
+    <h3 class="pubs-year">{{ cat.icon }} {{ cat.title }}</h3>
+    <ul class="tool-pubs">
+      {% for t in catTools %}
+        {% set hasDoc = collections.toolGuidesGrouped.items | hasDocForId(t.slug) %}
+        {% set onIvirus = ("KBase" in t.platforms) or ("CyVerse" in t.platforms) %}
+        <li class="pub tool-pub"
+            data-title="{{ t.name | lower }}"
+            data-authors="{{ t.reference | lower }}"
+            data-venue=""
+            data-doi=""
+            data-tags="tool{% if onIvirus %},uses-ivirus{% endif %}">
+          <a class="tool-pub-name" href="{{ ('/docs/tools/' + t.slug + ('/' if hasDoc else '/placeholder/')) | url }}">{{ t.name }}</a>
+          <span class="tool-pub-ref">{{ t.reference }}</span>
+          <span class="tool-pub-links">
+            {% if onIvirus %}<span class="badge ivirus" title="Available through iVirus on CyVerse or KBase">on iVirus</span>{% endif %}
+            {% if t.official_url %}<a class="badge" href="{{ t.official_url }}" target="_blank" rel="noopener">Official site ↗</a>{% endif %}
+          </span>
+        </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  {% endfor %}
+  {% endif %}
+
 </section>

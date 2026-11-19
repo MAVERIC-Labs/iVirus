@@ -122,7 +122,7 @@
         <ul class="wf-steps-nested" hidden>
           
           <li class="">
-            <a href="/iVirus/docs/workflows/sra-fetch/">SRA Fetch</a>
+            <a href="/iVirus/docs/workflows/sra-fetch/">Get Reads</a>
           </li>
           
           <li class="">
@@ -134,11 +134,31 @@
           </li>
           
           <li class="">
-            <a href="/iVirus/docs/workflows/viral-identification/">Viral Identification</a>
+            <a href="/iVirus/docs/workflows/viral-identification/">Viral ID</a>
           </li>
           
           <li class="">
-            <a href="/iVirus/docs/workflows/reporting/">Reporting</a>
+            <a href="/iVirus/docs/workflows/quality-and-votus/">Quality &amp; vOTUs</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/taxonomy/">Taxonomy</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/host-prediction/">Host Prediction</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/annotation/">Annotation &amp; AMGs</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/abundance/">Abundance &amp; Ecology</a>
+          </li>
+          
+          <li class="">
+            <a href="/iVirus/docs/workflows/visualize/">Visualize &amp; Explore</a>
           </li>
           
         </ul>
@@ -422,11 +442,11 @@ iphop download <span class="token parameter variable">--split_outp</span> iphop_
 <h2>Output</h2>
 <ul>
 <li><strong><code>Host_prediction_to_genus_m90.csv</code></strong> — primary output: per-phage predicted host genus, confidence score, and list of supporting tool signals.</li>
-<li><strong><code>Detailed_output_by_tool.csv</code></strong> — per-tool breakdown of individual prediction scores enabling review of which signals drove each call.</li>
+<li><strong><code>Detailed_output_by_tool.csv</code></strong> — per-tool breakdown of individual prediction scores enabling review of which signals drive each call.</li>
 </ul>
 <!-- screenshot: /assets/img/tools/screenshots/iphop.png -->
 <h2>In the iVirus workflow</h2>
-<p>iPHoP is the recommended host-prediction tool in the iVirus pipeline, superseding <a href="/iVirus/docs/tools/wish/">WIsH</a> and <a href="/iVirus/docs/tools/hostphinder/">HostPhinder</a> for most use cases due to its integration of multiple signal types and higher accuracy. It requires <a href="/iVirus/docs/tools/checkv/">CheckV</a>-filtered, high-quality viral genomes as input — low-quality or heavily fragmented contigs reduce prediction confidence.</p>
+<p>iPHoP is the recommended host-prediction tool in the viral ecogenomics pipeline, superseding <a href="/iVirus/docs/tools/wish/">WIsH</a> and <a href="/iVirus/docs/tools/hostphinder/">HostPhinder</a> for most use cases due to its integration of multiple signal types and higher accuracy. It requires <a href="/iVirus/docs/tools/checkv/">CheckV</a>-filtered, high-quality viral genomes as input — low-quality or heavily fragmented contigs reduce prediction confidence.</p>
 <p>See also:</p>
 <ul>
 <li><strong>Related tools:</strong> <a href="/iVirus/tools/host-prediction/">Host Prediction category</a></li>
@@ -458,6 +478,7 @@ iphop download <span class="token parameter variable">--split_outp</span> iphop_
   <script src="/iVirus/assets/js/directory-filters.js"></script>
   <script src="/iVirus/assets/js/home.js"></script>
   <script src="/iVirus/assets/js/theme-toggle.js"></script>
+  <script src="/iVirus/assets/js/pipeline.js"></script>
 
   <!-- Alpha banner dismiss -->
   <script>

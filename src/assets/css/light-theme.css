@@ -53,3 +53,22 @@ hr{ border-color:var(--border); }
 .toc .muted{ color:var(--muted); }
 pre{ background:var(--code-bg); border:1px solid var(--code-border); }
 .copy-btn{ background:#f7faff; color:#20324a; border:1px solid var(--code-border); }
+
+/* ── Code syntax colours (Prism tokens), light and dark ── */
+:root, .theme-light, body.theme-light{
+  --tk-comment:#6b7a90; --tk-string:#0a7a55; --tk-keyword:#7a3df0; --tk-func:#1c5be0;
+  --tk-number:#b45309; --tk-var:#b4266a; --tk-flag:#0e7490; --tk-punct:#51607a;
+}
+.theme-dark, body.theme-dark{
+  --tk-comment:#7f8fb3; --tk-string:#7ee0b5; --tk-keyword:#c4a7ff; --tk-func:#8dc0ff;
+  --tk-number:#f5b971; --tk-var:#ff9ec4; --tk-flag:#6ad7e5; --tk-punct:#9db0d6;
+}
+pre[class*="language-"], code[class*="language-"]{ color:var(--text); }
+.token.comment, .token.prolog, .token.doctype, .token.cdata, .token.shebang{ color:var(--tk-comment); font-style:italic; }
+.token.string, .token.char, .token.attr-value, .token.inserted{ color:var(--tk-string); }
+.token.keyword, .token.important, .token.atrule, .token.selector{ color:var(--tk-keyword); }
+.token.function, .token.builtin, .token.class-name, .token.tag{ color:var(--tk-func); }
+.token.number, .token.boolean, .token.constant{ color:var(--tk-number); }
+.token.variable, .token.assign-left, .token.environment, .token.property, .token.deleted{ color:var(--tk-var); }
+.token.parameter, .token.attr-name{ color:var(--tk-flag); }
+.token.operator, .token.punctuation, .token.file-descriptor{ color:var(--tk-punct); }

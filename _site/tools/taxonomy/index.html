@@ -108,7 +108,7 @@
   style="--hero-bg: linear-gradient(180deg, rgba(17,24,39,.55), rgba(2,6,23,.6)), url(&#39;/iVirus/assets/img/hero/tools-tiles.svg&#39;)">
   <div class="container">
     <h1>Taxonomy</h1>
-    <p class="muted">Assign taxonomic labels to viral sequences using gene-sharing networks or k-mer similarity.</p>
+    <p class="muted">Assign taxonomic labels to viral sequences using gene-sharing networks.</p>
   </div>
 </section>
 
@@ -117,7 +117,9 @@
   
     
       <div class="container site-content">
-        <div class="cat-callout">Taxonomic classification of uncultivated viruses is challenging because most lack close relatives in reference databases. A relatively recent and powerful approach organizes viral sequence space through gene-sharing networks: viruses that share a significant fraction of their protein content are grouped into genus-level clusters benchmarked against ICTV-classified reference genomes. Viruses co-clustering with classified references inherit their taxonomy; isolated clusters represent putative novel genera. For species-level demarcation, nucleotide-similarity tools like VIRIDIC complement the protein-based network approach.</div>
+        <div class="pipe-wrap pipe-wrap--strip"><div class="pipe-scroll"><svg class="pipe pipe--compact pipe--strip" viewBox="0 0 682 74" width="750" height="81" role="group" aria-label="Viral Metagenome Workflow: where this category fits" xmlns="http://www.w3.org/2000/svg"><defs><marker id="pipe-ah" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path class="pipe-head" d="M0,0 L7,3.5 L0,7 Z"/></marker></defs><path class="pipe-line" d="M204,37 C223,37 223,37 242,37" marker-end="url(#pipe-ah)"/><path class="pipe-line" d="M438,37 C457,37 457,37 476,37" marker-end="url(#pipe-ah)"/><a class="pipe-node is-trunk" href="/iVirus/tools/identification/" aria-label="Stage 5: Quality &amp; vOTUs"><title>Browse Quality &amp; vOTUs tools</title><rect class="pipe-box" x="12" y="12" width="190" height="50" rx="12"/><circle class="pipe-badge" cx="30" cy="37" r="10"/><text class="pipe-num" x="30" y="40.6">5</text><text class="pipe-title" x="117" y="41.5">Quality &amp; vOTUs</text></a><a class="pipe-node is-branch is-active" href="/iVirus/docs/workflows/taxonomy/" aria-label="Stage 6: Taxonomy" aria-current="page"><title>Open the Taxonomy walkthrough</title><rect class="pipe-box" x="246" y="12" width="190" height="50" rx="12"/><circle class="pipe-badge" cx="264" cy="37" r="10"/><text class="pipe-num" x="264" y="40.6">6</text><text class="pipe-title" x="351" y="41.5">Taxonomy</text></a><a class="pipe-node is-base" href="/iVirus/tools/visualization/" aria-label="Stage 10: Visualize &amp; Explore"><title>Browse Visualize &amp; Explore tools</title><rect class="pipe-box" x="480" y="12" width="190" height="50" rx="12"/><circle class="pipe-badge" cx="498" cy="37" r="10"/><text class="pipe-num" x="498" y="40.6">10</text><text class="pipe-title" x="585" y="41.5">Visualize &amp; Explore</text></a></svg></div><p class="pipe-strip-cap">Stage 6 of the <a href="/iVirus/docs/workflows/end-to-end/">Viral Metagenome Workflow</a>. Click Taxonomy for the walkthrough, or a neighboring stage to browse its tools.</p></div>
+
+<div class="cat-callout">Taxonomic classification of uncultivated viruses is challenging because most lack close relatives in reference databases. A relatively recent and powerful approach organizes viral sequence space through gene-sharing networks: viruses that share a significant fraction of their protein content are grouped into genus-level clusters benchmarked against ICTV-classified reference genomes. Viruses co-clustering with classified references inherit their taxonomy, with isolated clusters representing putative novel genera. For species-level demarcation, nucleotide-similarity tools like VIRIDIC complement the protein-based network approach.</div>
 
 <table class="tool-table">
   <thead>
@@ -172,7 +174,7 @@
       
       <tr>
         <td><strong>vConTACT2</strong></td>
-        <td>Assigns taxonomy to uncultivated prokaryotic viruses using gene-sharing networks benchmarked against the ICTV classification — the community standard for phage taxonomy.</td>
+        <td>Assigns taxonomy to uncultivated prokaryotic viruses using gene-sharing networks benchmarked against the ICTV.</td>
         <td>
           
             <span class="pill">HPC</span>
@@ -198,7 +200,7 @@
       
       <tr>
         <td><strong>vConTACT2-Gene2Genome</strong></td>
-        <td>Preprocessing step for vConTACT2 — converts protein FASTA sequences into the gene-to-genome mapping file required by the classifier.</td>
+        <td>Preprocessing step for vConTACT2. Converts protein FASTA sequences into the gene-to-genome mapping file required by the classifier.</td>
         <td>
           
             <span class="pill">HPC</span>
@@ -231,7 +233,7 @@
       
       <tr>
         <td><strong>CAT/BAT</strong></td>
-        <td>Taxonomic classification of assembled contigs (CAT) and metagenome-assembled bins (BAT) using diamond-based alignment and a last common ancestor approach.</td>
+        <td>Taxonomic classification of assembled contigs (CAT) and metagenome-assembled bins (BAT) using DIAMOND-based alignment and a last common ancestor approach.</td>
         <td>
           
             <span class="pill">HPC</span>
@@ -300,6 +302,45 @@
     
       
     
+      
+    
+      
+      <tr>
+        <td><strong>vConTACT3</strong></td>
+        <td>Gene-sharing network classification of viral genomes with hierarchical, multi-rank taxonomic assignment.</td>
+        <td>
+          
+            <span class="pill">HPC</span>
+          
+        </td>
+        
+        
+        
+
+        <td class="links">
+          
+          
+            
+            
+              <a href="/iVirus/docs/tools/vcontact3/placeholder/">
+                Docs <span class="pill warn">coming soon</span>
+              </a>
+               · <a href="https://bitbucket.org/MAVERICLab/vcontact3" target="_blank" rel="noopener">Official</a>
+            
+          
+        </td>
+        <td class="muted">Bolduc et al., Nature Biotechnology (2025)</td>
+      </tr>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
     </tbody>
 </table>
 
@@ -327,6 +368,7 @@
   <script src="/iVirus/assets/js/directory-filters.js"></script>
   <script src="/iVirus/assets/js/home.js"></script>
   <script src="/iVirus/assets/js/theme-toggle.js"></script>
+  <script src="/iVirus/assets/js/pipeline.js"></script>
 
   <!-- Alpha banner dismiss -->
   <script>

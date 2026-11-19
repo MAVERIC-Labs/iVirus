@@ -19,7 +19,7 @@ conda install -c bioconda -c conda-forge trimmomatic -y
 trimmomatic PE ERR594369_1.fastq.gz ERR594369_2.fastq.gz \
   ERR594369_1_t_paired.fastq.gz ERR594369_1_t_unpaired.fastq.gz \
   ERR594369_2_t_paired.fastq.gz ERR594369_2_t_unpaired.fastq.gz \
-  ILLUMINACLIP:TruSeq3-PE.fa:2:30:10:2 LEADING:3 TRAILING:3 MINLEN:36
+  ILLUMINACLIP:/Trimmomatic-0.39/adapters/TruSeq3-PE.fa:2:30:10:2 LEADING:3 TRAILING:3 MINLEN:36
 ```
 
 > **Note:** For Trimmomatic, the defaults work pretty well. If you have custom primers/adapters, you'll need to create your own adapter file and update the ILLUMINACLIP path.
